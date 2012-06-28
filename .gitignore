@@ -1,6 +1,13 @@
+# Byte code
 *.class
 
-# Package Files #
+# Package Files
 *.jar
 *.war
 *.ear
+
+# Mac OS
+.DS_Store
+
+# Eclipse
+/.settings/
