@@ -160,6 +160,6 @@ public final class Invoker {
     }
 
     private void runGuiIde(final CliOptions options) {
-        GuiApp.main(options);
+        GuiApp.main(options.isDebug());
     }
 }

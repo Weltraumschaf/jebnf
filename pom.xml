@@ -78,8 +78,8 @@
 
     <modules>
         <module>ebnf-core</module>
-        <module>ebnf-cli</module>
         <module>ebnf-gui</module>
+        <module>ebnf-cli</module>
     </modules>
 
     <dependencies>

@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.ebnf.gui;
 
-import de.weltraumschaf.ebnf.cli.CliOptions;
 import de.weltraumschaf.ebnf.gfx.CreatorHelper;
 import de.weltraumschaf.ebnf.gfx.RailroadDiagram;
 import java.awt.Dimension;
@@ -29,14 +28,14 @@ public class GuiApp implements Runnable {
 
     private final JFrame frame = new JFrame();
     private final CreatorHelper helper = new CreatorHelper();
-    private final CliOptions options;
+    private final boolean debug;
 
-    public GuiApp(final CliOptions options) {
-        this.options = options;
+    public GuiApp(final boolean debug) {
+        this.debug = debug;
     }
 
-    public static void main(final CliOptions options) {
-        final GuiApp app = new GuiApp(options);
+    public static void main(final boolean debug) {
+        final GuiApp app = new GuiApp(debug);
         SwingUtilities.invokeLater(app);
     }
 
@@ -48,7 +47,7 @@ public class GuiApp implements Runnable {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         final RailroadDiagram diagram = helper.createDiagram(frame.getGraphics());
-        diagram.setDebug(options.isDebug());
+        diagram.setDebug(debug);
         final RailroadDiagramPanel panel = new RailroadDiagramPanel(diagram);
         frame.add(panel);
         frame.validate();
