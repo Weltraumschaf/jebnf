@@ -5,15 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.weltraumschaf</groupId>
-    <artifactId>ebnf</artifactId>
+    <artifactId>jebnf</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>EBNF</name>
+    <name>JEBNF</name>
     <description>
         A command line tool which parses EBNF grammars and generates railroad images
         for that grammar in various formats.
     </description>
-    <url>http://weltraumschaf.github.com/ebnf/</url>
+    <url>http://weltraumschaf.github.com/jebnf/</url>
 
     <organization>
         <name>Weltraumschaf</name>
@@ -47,25 +47,25 @@
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/Weltraumschaf/ebnf/issues</url>
+        <url>https://github.com/Weltraumschaf/jebnf/issues</url>
     </issueManagement>
 
     <scm>
-        <connection>scm:git:git://github.com/weltraumschaf/ebnf.git</connection>
-        <developerConnection>scm:git:git@github.com:weltraumschaf/ebnf.git</developerConnection>
-        <url>https://github.com/weltraumschaf/ebnf</url>
+        <connection>scm:git:git://github.com/weltraumschaf/jebnf.git</connection>
+        <developerConnection>scm:git:git@github.com:weltraumschaf/jebnf.git</developerConnection>
+        <url>https://github.com/weltraumschaf/jebnf</url>
     </scm>
 
     <distributionManagement>
         <site>
             <id>github-project-site</id>
-            <url>gitsite:git@github.com/Weltraumschaf/ebnf.git</url>
+            <url>gitsite:git@github.com/Weltraumschaf/jebnf.git</url>
         </site>
     </distributionManagement>
 
     <ciManagement>
         <system>jenkins</system>
-        <url>http://www.weltraumschaf.de:8080/job/Image%20generator%20for%20EBNF%20%28Java%29</url>
+        <url>http://www.weltraumschaf.de:8080/job/Image%20generator%20for%20JEBNF/</url>
     </ciManagement>
 
     <properties>
@@ -77,9 +77,9 @@
     </properties>
 
     <modules>
-        <module>ebnf-core</module>
-        <module>ebnf-gui</module>
-        <module>ebnf-cli</module>
+        <module>jebnf-core</module>
+        <module>jebnf-gui</module>
+        <module>jebnf-cli</module>
     </modules>
 
     <dependencies>
@@ -205,8 +205,8 @@
                                 <artifactId>maven-javadoc-plugin</artifactId>
                                 <version>2.8</version>
                                 <configuration>
-                                    <doctitle>EBNF - ${project.version}</doctitle>
-                                    <windowtitle>EBNF - ${project.version}</windowtitle>
+                                    <doctitle>JEBNF - ${project.version}</doctitle>
+                                    <windowtitle>JEBNF - ${project.version}</windowtitle>
                                     <show>public</show>
                                     <links>
                                         <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
@@ -376,8 +376,8 @@
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
-                    <doctitle>EBNF - ${project.version}</doctitle>
-                    <windowtitle>EBNF - ${project.version}</windowtitle>
+                    <doctitle>JEBNF - ${project.version}</doctitle>
+                    <windowtitle>JEBNF - ${project.version}</windowtitle>
                     <show>public</show>
                     <links>
                         <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
@@ -427,14 +427,14 @@
                     </formats>
                     <instrumentation>
                         <excludes>
-                            <exclude>de/weltraumschaf/ebnf/OutputFormat.class</exclude>
-                            <exclude>de/weltraumschaf/ebnf/ast/Attribute.class</exclude>
-                            <exclude>de/weltraumschaf/ebnf/ast/Composite.class</exclude>
-                            <exclude>de/weltraumschaf/ebnf/ast/Node.class</exclude>
-                            <exclude>de/weltraumschaf/ebnf/gfx/shapes/Adjustable.class</exclude>
-                            <exclude>de/weltraumschaf/ebnf/gfx/shapes/Paintable.class</exclude>
-                            <exclude>de/weltraumschaf/ebnf/gfx/shapes/Shape.class</exclude>
-                            <exclude>de/weltraumschaf/ebnf/visitor/Visitor.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/OutputFormat.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/ast/Attribute.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/ast/Composite.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/ast/Node.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/gfx/shapes/Adjustable.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/gfx/shapes/Paintable.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/gfx/shapes/Shape.class</exclude>
+                            <exclude>de/weltraumschaf/jebnf/visitor/Visitor.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>
