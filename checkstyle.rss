@@ -2,20 +2,20 @@
 
 <rss version="0.91">
   <channel>
-    <title>JEBNF - Comand line tool - Checkstyle report</title>
-    <link>http://weltraumschaf.github.com/jebnf/jebnf-cli/</link>
-    <description>JEBNF - Comand line tool - Checkstyle report</description>
+    <title>JEBNF - Checkstyle report</title>
+    <link>http://weltraumschaf.github.com/jebnf/</link>
+    <description>JEBNF - Checkstyle report</description>
     <language>en-us</language>
     <copyright>&#169;2012 Weltraumschaf</copyright>
     <item>
-      <title>File: 8,
-             Errors: 0,
+      <title>File: 103,
+             Errors: 12,
              Warnings: 0,
              Infos: 0
       </title>
-            <link>http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html</link>
+            <link>http://weltraumschaf.github.com/jebnf//checkstyle.html</link>
       <description>
-        <p>Click <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html">here</a> for the full Checkstyle report.</p>
+        <p>Click <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html">here</a> for the full Checkstyle report.</p>
 
         <table summary="Files" boder="1">
           <thead>
@@ -29,7 +29,7 @@
           <tbody>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.OutputFormat.java">de/weltraumschaf/jebnf/cli/OutputFormat.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.cli.OutputFormat.java">de/weltraumschaf/jebnf/cli/OutputFormat.java</a>
                 </td>
                 <td>
                   0
@@ -43,7 +43,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.package-info.java">de/weltraumschaf/jebnf/cli/package-info.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.End.java">de/weltraumschaf/jebnf/gfx/shapes/End.java</a>
                 </td>
                 <td>
                   0
@@ -57,7 +57,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.CliOptions.java">de/weltraumschaf/jebnf/cli/CliOptions.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.EbnfException.java">de/weltraumschaf/jebnf/EbnfException.java</a>
                 </td>
                 <td>
                   0
@@ -71,7 +71,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.InvokerTest.java">de/weltraumschaf/jebnf/cli/InvokerTest.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Paintable.java">de/weltraumschaf/jebnf/gfx/shapes/Paintable.java</a>
                 </td>
                 <td>
                   0
@@ -85,7 +85,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.OptionsParser.java">de/weltraumschaf/jebnf/cli/OptionsParser.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Identifier.java">de/weltraumschaf/jebnf/gfx/shapes/Identifier.java</a>
                 </td>
                 <td>
                   0
@@ -99,7 +99,21 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.Invoker.java">de/weltraumschaf/jebnf/cli/Invoker.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.ColumnLayout.java">de/weltraumschaf/jebnf/gfx/shapes/ColumnLayout.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.Parser.java">de/weltraumschaf/jebnf/parser/Parser.java</a>
                 </td>
                 <td>
                   0
@@ -113,7 +127,7 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.CliOptionsTest.java">de/weltraumschaf/jebnf/cli/CliOptionsTest.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.RailroadDiagram.java">de/weltraumschaf/jebnf/gfx/RailroadDiagram.java</a>
                 </td>
                 <td>
                   0
@@ -127,7 +141,1323 @@
               </tr>
                           <tr>
                 <td>
-                  <a href="http://weltraumschaf.github.com/jebnf/jebnf-cli//checkstyle.html#de.weltraumschaf.jebnf.cli.CliApp.java">de/weltraumschaf/jebnf/cli/CliApp.java</a>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.visitor.Xml.java">de/weltraumschaf/jebnf/ast/visitor/Xml.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.cli.Invoker.java">de/weltraumschaf/jebnf/cli/Invoker.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.builder.package-info.java">de/weltraumschaf/jebnf/ast/builder/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.HForkSW.java">de/weltraumschaf/jebnf/gfx/shapes/HForkSW.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Loop.java">de/weltraumschaf/jebnf/gfx/shapes/Loop.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.cli.package-info.java">de/weltraumschaf/jebnf/cli/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.RailroadDiagramImage.java">de/weltraumschaf/jebnf/gfx/RailroadDiagramImage.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.VForkSW.java">de/weltraumschaf/jebnf/gfx/shapes/VForkSW.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.Fonts.java">de/weltraumschaf/jebnf/gfx/Fonts.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ExitCode.java">de/weltraumschaf/jebnf/ExitCode.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Shape.java">de/weltraumschaf/jebnf/gfx/shapes/Shape.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.VForkNW.java">de/weltraumschaf/jebnf/gfx/shapes/VForkNW.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.StraightWE.java">de/weltraumschaf/jebnf/gfx/shapes/StraightWE.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.HForkSE.java">de/weltraumschaf/jebnf/gfx/shapes/HForkSE.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.Visitor.java">de/weltraumschaf/jebnf/ast/Visitor.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.builder.GenericBuilder.java">de/weltraumschaf/jebnf/ast/builder/GenericBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.AbstractShape.java">de/weltraumschaf/jebnf/gfx/shapes/AbstractShape.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Comment.java">de/weltraumschaf/jebnf/ast/nodes/Comment.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.Line.java">de/weltraumschaf/jebnf/gfx/Line.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Terminal.java">de/weltraumschaf/jebnf/ast/nodes/Terminal.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.NodeFactory.java">de/weltraumschaf/jebnf/ast/nodes/NodeFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.CharacterHelper.java">de/weltraumschaf/jebnf/parser/CharacterHelper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.EbnfParser.java">de/weltraumschaf/jebnf/parser/EbnfParser.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.java">de/weltraumschaf/jebnf/ast/builder/SyntaxBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.package-info.java">de/weltraumschaf/jebnf/gfx/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.CurveNW.java">de/weltraumschaf/jebnf/gfx/shapes/CurveNW.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.HForkNE.java">de/weltraumschaf/jebnf/gfx/shapes/HForkNE.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.Node.java">de/weltraumschaf/jebnf/ast/Node.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Empty.java">de/weltraumschaf/jebnf/gfx/shapes/Empty.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Loop.java">de/weltraumschaf/jebnf/ast/nodes/Loop.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.StringPainter.java">de/weltraumschaf/jebnf/gfx/StringPainter.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.AbstractLayout.java">de/weltraumschaf/jebnf/gfx/shapes/AbstractLayout.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.TestShape.java">de/weltraumschaf/jebnf/gfx/shapes/TestShape.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.java">de/weltraumschaf/jebnf/gfx/shapes/ShapeFactory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Syntax.java">de/weltraumschaf/jebnf/ast/nodes/Syntax.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.CurveSW.java">de/weltraumschaf/jebnf/gfx/shapes/CurveSW.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.builder.RuleBuilder.java">de/weltraumschaf/jebnf/ast/builder/RuleBuilder.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.Scanner.java">de/weltraumschaf/jebnf/parser/Scanner.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.Notification.java">de/weltraumschaf/jebnf/ast/Notification.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.HForkNW.java">de/weltraumschaf/jebnf/gfx/shapes/HForkNW.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Identifier.java">de/weltraumschaf/jebnf/ast/nodes/Identifier.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.TokenType.java">de/weltraumschaf/jebnf/parser/TokenType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gui.RailroadDiagramPanel.java">de/weltraumschaf/jebnf/gui/RailroadDiagramPanel.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Null.java">de/weltraumschaf/jebnf/ast/nodes/Null.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.package-info.java">de/weltraumschaf/jebnf/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.GridLayout.java">de/weltraumschaf/jebnf/gfx/shapes/GridLayout.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.package-info.java">de/weltraumschaf/jebnf/parser/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.AbstractTextShape.java">de/weltraumschaf/jebnf/gfx/shapes/AbstractTextShape.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.visitor.package-info.java">de/weltraumschaf/jebnf/ast/visitor/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.EbnfScannerHelper.java">de/weltraumschaf/jebnf/parser/EbnfScannerHelper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.NodeType.java">de/weltraumschaf/jebnf/ast/NodeType.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.Position.java">de/weltraumschaf/jebnf/parser/Position.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.Point.java">de/weltraumschaf/jebnf/gfx/Point.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Option.java">de/weltraumschaf/jebnf/gfx/shapes/Option.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  3
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.package-info.java">de/weltraumschaf/jebnf/ast/nodes/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.VForkSE.java">de/weltraumschaf/jebnf/gfx/shapes/VForkSE.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree.java">de/weltraumschaf/jebnf/ast/visitor/TextSyntaxTree.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Choice.java">de/weltraumschaf/jebnf/gfx/shapes/Choice.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.Helper.java">de/weltraumschaf/jebnf/gfx/Helper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.CurveSE.java">de/weltraumschaf/jebnf/gfx/shapes/CurveSE.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.AbstractNode.java">de/weltraumschaf/jebnf/ast/AbstractNode.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.AbstractEndpoint.java">de/weltraumschaf/jebnf/gfx/shapes/AbstractEndpoint.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Choice.java">de/weltraumschaf/jebnf/ast/nodes/Choice.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.Composite.java">de/weltraumschaf/jebnf/ast/Composite.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Start.java">de/weltraumschaf/jebnf/gfx/shapes/Start.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.Strokes.java">de/weltraumschaf/jebnf/gfx/Strokes.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.cli.OptionsParser.java">de/weltraumschaf/jebnf/cli/OptionsParser.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.CurveNE.java">de/weltraumschaf/jebnf/gfx/shapes/CurveNE.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Rule.java">de/weltraumschaf/jebnf/gfx/shapes/Rule.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.EbnfScanner.java">de/weltraumschaf/jebnf/parser/EbnfScanner.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gui.GuiApp.java">de/weltraumschaf/jebnf/gui/GuiApp.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.cli.CliApp.java">de/weltraumschaf/jebnf/cli/CliApp.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.Token.java">de/weltraumschaf/jebnf/parser/Token.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Rule.java">de/weltraumschaf/jebnf/ast/nodes/Rule.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.StraightNS.java">de/weltraumschaf/jebnf/gfx/shapes/StraightNS.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.AbstractFork.java">de/weltraumschaf/jebnf/gfx/shapes/AbstractFork.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.StringHelper.java">de/weltraumschaf/jebnf/parser/StringHelper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.ReferenceGrammar.java">de/weltraumschaf/jebnf/parser/ReferenceGrammar.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Option.java">de/weltraumschaf/jebnf/ast/nodes/Option.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Sequence.java">de/weltraumschaf/jebnf/gfx/shapes/Sequence.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.Factory.java">de/weltraumschaf/jebnf/parser/Factory.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.CreatorHelper.java">de/weltraumschaf/jebnf/gfx/CreatorHelper.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  1
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.DepthCalculator.java">de/weltraumschaf/jebnf/ast/DepthCalculator.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.AbstractCurve.java">de/weltraumschaf/jebnf/gfx/shapes/AbstractCurve.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Terminal.java">de/weltraumschaf/jebnf/gfx/shapes/Terminal.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.parser.SyntaxException.java">de/weltraumschaf/jebnf/parser/SyntaxException.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.cli.CliOptions.java">de/weltraumschaf/jebnf/cli/CliOptions.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.AbstractComposite.java">de/weltraumschaf/jebnf/ast/AbstractComposite.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.VForkNE.java">de/weltraumschaf/jebnf/gfx/shapes/VForkNE.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.Visitable.java">de/weltraumschaf/jebnf/ast/Visitable.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.AbstractCompund.java">de/weltraumschaf/jebnf/gfx/shapes/AbstractCompund.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.Adjustable.java">de/weltraumschaf/jebnf/gfx/shapes/Adjustable.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.package-info.java">de/weltraumschaf/jebnf/ast/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.gfx.shapes.package-info.java">de/weltraumschaf/jebnf/gfx/shapes/package-info.java</a>
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+                <td>
+                  0
+                </td>
+              </tr>
+                          <tr>
+                <td>
+                  <a href="http://weltraumschaf.github.com/jebnf//checkstyle.html#de.weltraumschaf.jebnf.ast.nodes.Sequence.java">de/weltraumschaf/jebnf/ast/nodes/Sequence.java</a>
                 </td>
                 <td>
                   0
