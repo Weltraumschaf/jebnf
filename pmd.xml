@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="4.3" timestamp="2012-07-02T12:10:24.650">
+<suppressedviolation filename="/Users/sxs/src/java/jebnf/jebnf-core/src/main/java/de/weltraumschaf/jebnf/gfx/shapes/AbstractLayout.java" suppressiontype="nopmd" msg="Avoid empty catch blocks" usermsg="
+"/>
+<suppressedviolation filename="/Users/sxs/src/java/jebnf/jebnf-core/src/main/java/de/weltraumschaf/jebnf/parser/EbnfScanner.java" suppressiontype="nopmd" msg="Avoid empty if statements" usermsg="
+"/>
+</pmd>
