@@ -1,6 +1,17 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast;
 
-import java.util.ArrayList;
+import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
@@ -11,11 +22,9 @@ import java.util.List;
 public class Notification {
 
     /**
-     * Collected arrays.
-     *
-     * @var
+     * Collected errors.
      */
-    private final List<String> errors = new ArrayList<String>();
+    private final List<String> errors = Lists.newArrayList();
 
     /**
      * Collect an line of error.
@@ -35,7 +44,7 @@ public class Notification {
     /**
      * Returns true if no error was collected.
      *
-     * @return
+     * @return Returns true if no errors collected.
      */
     public boolean isOk() {
         return errors.isEmpty();
@@ -44,7 +53,8 @@ public class Notification {
     /**
      * Returns all errors concatenated as string.
      *
-     * @return string
+     * @return Returns empty string if {@link #isOk()} returns true, unless it returns all
+     *        error messages concatenated.
      */
     public String report() {
         if (isOk()) {
@@ -55,11 +65,12 @@ public class Notification {
 
         for (int i = 0; i < errors.size(); ++i) {
             if (i > 0) {
-                report.append('\n');
+                report.append(String.format("%n"));
             }
 
             report.append(errors.get(i));
         }
+
         return report.toString();
     }
 

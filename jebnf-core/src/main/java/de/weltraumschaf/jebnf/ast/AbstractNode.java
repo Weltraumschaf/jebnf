@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast;
 
 import com.google.common.collect.Maps;
@@ -16,8 +27,16 @@ public abstract class AbstractNode implements Node {
      * The direct ancestor in the AST tree.
      */
     private final Node parent;
+
+    /**
+     * Type to differentiate homogenous nodes.
+     */
     private final NodeType type;
-    private final Map<String, String> attributes;
+
+    /**
+     * Map of node attributes.
+     */
+    private final Map<String, String> attributes = Maps.newHashMap();
 
     /**
      * Initializes the node with it's parent. This is immutable.
@@ -25,12 +44,12 @@ public abstract class AbstractNode implements Node {
      * May the node itself change, it is not possible to set the
      * reference to the parent node.
      *
-     * @param Node Ancestor node.
+     * @param parent Ancestor node.
+     * @param type Type of node.
      */
     protected AbstractNode(final Node parent, final NodeType type) {
-        this.parent     = parent;
-        this.type       = type;
-        this.attributes = Maps.newHashMap();
+        this.parent = parent;
+        this.type   = type;
     }
 
     @Override
@@ -38,11 +57,6 @@ public abstract class AbstractNode implements Node {
         return parent != null && parent.getType() != NodeType.NULL;
     }
 
-    /**
-     * Returns the parent node.
-     *
-     * @return
-     */
     @Override
     public Node getParent() {
         return parent;
@@ -58,13 +72,6 @@ public abstract class AbstractNode implements Node {
         return getType().toString();
     }
 
-    /**
-     * Defines method to accept {@link Visitor visitors}.
-     *
-     * Implements <a href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor Pattern</a>.
-     *
-     * @param visitor Object which visits the node.
-     */
     @Override
     public void accept(final Visitor visitor) {
         visitor.beforeVisit(this);
@@ -101,11 +108,6 @@ public abstract class AbstractNode implements Node {
         attributes.put(name, value);
     }
 
-    /**
-     * Human readable string representation.
-     *
-     * @return String representation.
-     */
     @Override
     public String toString() {
         final StringBuilder str = new StringBuilder(String.format("<%s", getNodeName().toUpperCase()));

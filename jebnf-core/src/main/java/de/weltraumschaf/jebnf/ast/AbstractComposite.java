@@ -1,10 +1,21 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast;
 
-import java.util.ArrayList;
+import com.google.common.collect.Lists;
 import java.util.List;
 
 /**
- *Abstract base class for nodes which are not leaves and have sub nodes.
+ * Abstract base class for nodes which are not leaves and have sub nodes.
  *
  * Provides interface for iterate and add child nodes.
  *
@@ -14,68 +25,39 @@ public abstract class AbstractComposite extends AbstractNode implements Composit
 
     /**
      * Holds the child nodes.
-     *
-     * @var array
      */
-    private final List<Node> nodes = new ArrayList<Node>();
+    private final List<Node> nodes = Lists.newArrayList();
 
     /**
      * Initializes object with empty child node array and parent node.
      *
-     * @param parent The parent node.
+     * @param parent Ancestor node.
+     * @param type Type of node.
      */
     public AbstractComposite(final Node parent, final NodeType type) {
         super(parent, type);
     }
 
-    /**
-     * Implements IteratorAggregate for retrieving an interator.
-     *
-     * @return
-     */
     @Override
     public List<Node> getChildren() {
         return nodes;
     }
 
-    /**
-     * Count of direct children nodes.
-     *
-     * @return
-     */
     @Override
     public int countChildren() {
         return nodes.size();
     }
 
-    /**
-     * Whether the node has direct child nodes or not.
-     *
-     * @return
-     */
     @Override
     public boolean hasChildren() {
         return 0 < countChildren();
     }
 
-    /**
-     * Append a child {@link Node} to the list of children.
-     *
-     * @param child Child node to add.
-     *
-     */
     @Override
     public void addChild(final Node child) {
         nodes.add(child);
     }
 
-    /**
-     * Defines method to accept {@link Visitor visitors}.
-     *
-     * Implements <a href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor Pattern</a>.
-     *
-     * @param visitor Object which visits the node.
-     */
     @Override
     public void accept(final Visitor visitor) {
         visitor.beforeVisit(this);
@@ -90,13 +72,6 @@ public abstract class AbstractComposite extends AbstractNode implements Composit
         visitor.afterVisit(this);
     }
 
-    /**
-     * Probes equivalence of itself against an other node and collects all
-     * errors in the passed {@link Notification} object.
-     *
-     * @param other  Node to compare against.
-     * @param result Object which collects all equivalence violations.
-     */
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         try {
@@ -141,11 +116,6 @@ public abstract class AbstractComposite extends AbstractNode implements Composit
         }
     }
 
-    /**
-     * Chooses the max depth of its direct children and returns it plus one.
-     *
-     * @return
-     */
     @Override
     public int depth() {
         return new DepthCalculator(this).depth();

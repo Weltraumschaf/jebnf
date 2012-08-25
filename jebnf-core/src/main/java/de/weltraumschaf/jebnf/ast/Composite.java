@@ -1,10 +1,20 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast;
 
 import java.util.List;
 
 /**
- * Represents an object in the AST model which can have
- * some child {@link Node nodes}.
+ * Represents an object in the AST model which can have some child {@link Node nodes}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -13,14 +23,14 @@ public interface Composite {
     /**
      * Count of direct children nodes.
      *
-     * @return
+     * @return Returns positive integer greater equal 0.
      */
     int countChildren();
 
     /**
      * Whether the node has direct child nodes or not.
      *
-     * @return
+     * @return Return true if {@link #countChildren()} is greater than 0.
      */
     boolean hasChildren();
 
@@ -34,7 +44,7 @@ public interface Composite {
     /**
      * Returns an iterator for the child nodes.
      *
-     * @return
+     * @return Return a list of child nodes. List may be empty.
      */
     List<Node> getChildren();
 

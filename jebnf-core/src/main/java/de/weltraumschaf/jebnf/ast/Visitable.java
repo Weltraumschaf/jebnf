@@ -12,6 +12,9 @@
 package de.weltraumschaf.jebnf.ast;
 
 /**
+ * Defines interface for a visitable AST tree node.
+ *
+ * Interface for <a href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor Pattern</a>.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -20,9 +23,7 @@ public interface Visitable {
     /**
      * Defines method to accept {@link Visitor}.
      *
-     * Implements <a href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor Pattern</a>.
-     *
-     * @param visitor Object which visits the node.
+     * @param visitor Object which visits the visitable.
      */
     void accept(Visitor visitor);
 

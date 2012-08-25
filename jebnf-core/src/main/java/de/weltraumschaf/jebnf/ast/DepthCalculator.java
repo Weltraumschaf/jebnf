@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast;
 
 import java.util.ArrayList;
@@ -30,7 +41,7 @@ public class DepthCalculator {
      *
      * It will return at least 1 if the subject node as no children.
      *
-     * @return
+     * @return Returns positive integer greater than 0.
      */
     public int depth() {
         if (node.hasChildren()) {

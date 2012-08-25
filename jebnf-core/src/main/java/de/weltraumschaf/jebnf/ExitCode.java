@@ -1,13 +1,13 @@
 /*
-* LICENSE
-*
-* "THE BEER-WARE LICENSE" (Revision 42):
-* "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
-* As long as you retain this notice you can do whatever you want with
-* this stuff. If we meet some day, and you think this stuff is worth it,
-* you can buy me a beer in return.
-*
-*/
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
 
 package de.weltraumschaf.jebnf;
 
@@ -17,43 +17,49 @@ package de.weltraumschaf.jebnf;
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public enum ExitCode {
+
     /**
-        * Exit code for everything ok.
-        */
+     * Exit code for everything ok.
+     */
     OK(0),
     /**
-        * Exit code for read errors.
-        */
+     * Exit code for read errors.
+     */
     READ_ERROR(1),
     /**
-        * Exit code for missing syntax file.
-        */
+     * Exit code for missing syntax file.
+     */
     NO_SYNTAX(2),
     /**
-        * Exit code for syntax errors.
-        */
+     * Exit code for syntax errors.
+     */
     SYNTAX_ERROR(3),
     /**
-        * Exit code for all other fatal errors.
-        */
+     * Exit code for all other fatal errors.
+     */
     FATAL_ERROR(-1);
 
     /**
-        * The exit codes error code number.
-        */
+     * The exit codes error code number.
+     */
     private final int code;
 
+    /**
+     * Initializes the enum with code.
+     *
+     * @param code Integer error code.
+     */
     private ExitCode(final int code) {
-        this.code    = code;
+        this.code = code;
     }
 
     /**
-        * Returns the associated error code.
-        *
-        * Will be != 0 on error.
-        *
-        * @return The error code.
-        */
+     * Returns the associated error code.
+     *
+     * Will be != 0 on error.
+     *
+     * @return The error code.
+     */
     public int getCode() {
         return code;
     }
