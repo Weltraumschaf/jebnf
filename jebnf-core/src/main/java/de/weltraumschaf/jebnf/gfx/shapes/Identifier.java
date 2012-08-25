@@ -26,7 +26,7 @@ public class Identifier extends AbstractTextShape implements Shape {
     /**
      * Size of the padded box around the text.
      */
-    private Dimension boxSize = null;
+    private Dimension boxSize;
 
     public Identifier(final String text) {
         super(text, StringPainter.SANSERIFIT);

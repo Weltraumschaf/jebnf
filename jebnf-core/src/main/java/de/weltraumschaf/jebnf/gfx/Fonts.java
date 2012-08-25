@@ -52,7 +52,7 @@ public enum Fonts {
     /**
      * Caches font object for particular font size.
      */
-    private Font font = null;
+    private Font font;
 
     /**
      * Font with default size.
@@ -94,11 +94,11 @@ public enum Fonts {
     /**
      * Creates a font object with a new size.
      *
-     * @param size New font size.
+     * @param newSize New font size.
      * @return
      */
-    public Font create(final int size) {
-        this.size = size;
+    public Font create(final int newSize) {
+        this.size = newSize;
         font = null;
         return create();
     }

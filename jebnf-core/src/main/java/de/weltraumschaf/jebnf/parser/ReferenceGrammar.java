@@ -36,7 +36,7 @@ public final class ReferenceGrammar {
      *
      * Is lazy computed.
      */
-    private Syntax syntax = null;
+    private Syntax syntax;
 
     /**
      * Not instantiated from outside.

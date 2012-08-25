@@ -32,9 +32,9 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
     private final String text;
     private final Font font;
 
-    private StringPainter textPainter = null;
-    private Graphics2D lastContext = null;
-    private Dimension textSize = null;
+    private StringPainter textPainter;
+    private Graphics2D lastContext;
+    private Dimension textSize;
 
     public AbstractTextShape(final String text) {
         this(text, DEFUALT_FONT);

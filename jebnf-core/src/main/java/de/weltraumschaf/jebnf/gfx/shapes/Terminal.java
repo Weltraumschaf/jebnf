@@ -32,7 +32,7 @@ public class Terminal extends AbstractTextShape implements Shape {
     /**
      * Padded box size of the text.
      */
-    private Dimension boxSize = null;
+    private Dimension boxSize;
 
     public Terminal(final String text) {
         super(text, StringPainter.MONOSPACED);

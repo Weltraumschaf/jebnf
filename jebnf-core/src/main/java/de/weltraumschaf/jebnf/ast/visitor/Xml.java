@@ -37,7 +37,7 @@ public class Xml implements Visitor {
     /**
      * Level to indent the tags.
      */
-    private int indentationLevel = 0;
+    private int indentationLevel;
 
     /**
      * Initialize object with {@link Xml#DEFAULT_ENCODING} and {@link Xml#DEFAULT_VERSION}.

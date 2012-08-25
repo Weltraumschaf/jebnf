@@ -61,17 +61,20 @@ public class TextSyntaxTree implements Visitor {
      *
      * Lazy computed.
      */
-    private String text = null;
+    private String text;
+
     /**
      * Depth of the visited tree.
      *
      * Asked in {@link Syntax#beforeBisit} node.
      */
-    private int depth = 0;
+    private int depth;
+
     /**
      * The indention level in the matrix.
      */
-    private int level = 0;
+    private int level;
+
     /**
      * The matrix.
      *

@@ -23,7 +23,7 @@ import java.awt.Graphics2D;
  */
 public class Rule extends AbstractTextShape implements Shape {
 
-    private Dimension textSize = null;
+    private Dimension textSize;
 
     public Rule(final String text) {
         super(text, StringPainter.SANSERIF);

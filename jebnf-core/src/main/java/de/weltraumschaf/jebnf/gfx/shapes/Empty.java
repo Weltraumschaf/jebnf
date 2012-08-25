@@ -22,7 +22,7 @@ import java.awt.Graphics2D;
  */
 public class Empty extends AbstractShape {
 
-    private boolean transparent = false;
+    private boolean transparent;
 
     protected void setTransparent(final boolean transparent) {
         this.transparent = transparent;
