@@ -24,6 +24,7 @@ public class Point {
      * Immutable x coordinate.
      */
     public final int x; //NOPMD
+
     /**
      * Immutable x coordinate.
      */
@@ -50,21 +51,21 @@ public class Point {
     /**
      * Returns a new point object with changed x-coordinate.
      *
-     * @param x The new x-coordinate.
+     * @param newX The new x-coordinate.
      * @return
      */
-    public Point setX(final int x) { //NOPMD
-        return new Point(x, y);
+    public Point setX(final int newX) { //NOPMD
+        return new Point(newX, y);
     }
 
     /**
      * Returns a new point object with changed y-coordinate.
      *
-     * @param y The new x-coordinate.
+     * @param newY The new x-coordinate.
      * @return
      */
-    public Point setY(final int y) { //NOPMD
-        return new Point(x, y);
+    public Point setY(final int newY) { //NOPMD
+        return new Point(x, newY);
     }
 
     /**
