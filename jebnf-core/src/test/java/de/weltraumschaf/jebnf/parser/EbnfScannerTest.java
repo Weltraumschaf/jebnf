@@ -1,12 +1,5 @@
 package de.weltraumschaf.jebnf.parser;
 
-import de.weltraumschaf.jebnf.parser.Factory;
-import de.weltraumschaf.jebnf.parser.TokenType;
-import de.weltraumschaf.jebnf.parser.EbnfScanner;
-import de.weltraumschaf.jebnf.parser.Token;
-import de.weltraumschaf.jebnf.parser.Position;
-import de.weltraumschaf.jebnf.parser.Scanner;
-import de.weltraumschaf.jebnf.parser.SyntaxException;
 import static de.weltraumschaf.jebnf.TestHelper.helper;
 import java.io.IOException;
 import java.io.StringReader;
