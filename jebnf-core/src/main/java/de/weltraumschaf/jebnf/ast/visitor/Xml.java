@@ -1,10 +1,20 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.visitor;
 
 import de.weltraumschaf.jebnf.ast.Composite;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.Visitable;
 import de.weltraumschaf.jebnf.ast.Visitor;
-import java.util.HashMap;
 import java.util.Map;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -20,14 +30,16 @@ public class Xml implements Visitor {
      * Default XML version.
      */
     public static final String  DEFAULT_VERSION  = "1.0";
+
     /**
      * Default XML encoding.
      */
     public static final String  DEFAULT_ENCODING = "utf-8";
+
     /**
      * Default indentation spaces width.
      */
-    public static final int DEFAULT_INDENTATION  = 4; //NOPMD
+    public static final int DEFAULT_INDENTATION  = 4;
 
     /**
      * Buffers the constructed XML string.
@@ -49,7 +61,7 @@ public class Xml implements Visitor {
     /**
      * Initialize object with {@link Xml#DEFAULT_VERSION}.
      *
-     * @param encoding
+     * @param encoding XML encoding attribute.
      */
     public Xml(final String encoding) {
         this(encoding, DEFAULT_VERSION);
@@ -89,11 +101,10 @@ public class Xml implements Visitor {
     /**
      * Creates a opening tag string by name.
      *
-     * @param name       The tag name.
+     * @param name The tag name.
      * @param attributes Optional tag attributes.
-     * @param block      Whether the tag is in line or block.
-     *
-     * @return
+     * @param block Whether the tag is in line or block.
+     * @return Returns formatted tag string.
      */
     public static String createOpenTag(final String name, final Map<String, String> attributes, final boolean block) {
         final StringBuilder tag = new StringBuilder();
@@ -111,8 +122,7 @@ public class Xml implements Visitor {
             tag.append('/');
         }
 
-        tag.append('>');
-        return tag.toString();
+        return tag.append('>').toString();
     }
 
     /**
@@ -120,32 +130,16 @@ public class Xml implements Visitor {
      *
      * @param name The tag name.
      *
-     * @return
+     * @return Returns formatted tag string.
      */
     public static String createCloseTag(final String name) {
         return String.format("</%s>", name);
     }
 
     /**
-     * Extracts all public properties of a {@link Node} object and returns them
-     * as associative array.
-     *
-     * @param node Extracted node.
-     *
-     * @return
-     */
-    public static Map<String, String> extractAttributes(final Node node) {
-        if (node.hasAttributes()) {
-            return node.getAttributes();
-        }
-
-        return new HashMap<String, String>();
-    }
-
-    /**
      * Generates an indentation string depending on the actual indentation level.
      *
-     * @return
+     * @return Returns string with white spaces.
      */
     private String indent() {
         return StringUtils.repeat(' ', indentationLevel * DEFAULT_INDENTATION);
@@ -182,7 +176,7 @@ public class Xml implements Visitor {
         append("\n");
         append(indent());
         final Node node = (Node) visitable;
-        append(createOpenTag(node.getNodeName(), extractAttributes(node), block));
+        append(createOpenTag(node.getNodeName(), node.getAttributes(), block));
 
 
         if (visitable instanceof Composite) {
@@ -229,9 +223,10 @@ public class Xml implements Visitor {
     /**
      * Returns the actual buffered XML string.
      *
-     * @return
+     * @return Returns XML string.
      */
     public String getXmlString() {
         return xmlString.toString();
     }
+
 }

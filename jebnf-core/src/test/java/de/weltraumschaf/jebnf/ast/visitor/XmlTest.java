@@ -45,10 +45,10 @@ public class XmlTest {
         fix.put("title", "bar");
 
         final Syntax syntax = Syntax.newInstance("bar", "foo");
-        assertEquals(fix, Xml.extractAttributes(syntax));
+        assertEquals(fix, syntax.getAttributes());
 
         final Loop loop = Loop.newInstance();
-        assertEquals(new HashMap<String, String>(), Xml.extractAttributes(loop));
+        assertEquals(new HashMap<String, String>(), loop.getAttributes());
     }
 
     @Test public void testGenerateXml() throws URISyntaxException, IOException {

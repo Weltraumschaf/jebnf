@@ -52,9 +52,25 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class TextSyntaxTree implements Visitor {
 
+    /**
+     * ASCII pattern for branch.
+     */
     private static final String BRANCH = " +--";
+
+    /**
+     * ASCII pattern for line down.
+     */
     private static final String PIPE   = " |  ";
+
+    /**
+     * ASCII pattern horizontal alignment.
+     */
     private static final String BLANK  = "    ";
+
+    /**
+     * Values longer than this constant will be truncated.
+     */
+    private static final int MAX_VALUE_LENGTH = 20;
 
     /**
      * The formatted ASCII text.
@@ -82,8 +98,6 @@ public class TextSyntaxTree implements Visitor {
      * So it is important that the syntax node is the root node of the tree.
      * The matrix grows row by row by visiting each child node. A child node
      * represents a row.
-     *
-     * @var array
      */
     private final List<List<String>> matrix = Lists.newArrayList();
 
@@ -97,9 +111,9 @@ public class TextSyntaxTree implements Visitor {
     }
 
     /**
-     * Returns the depth.
+     * Returns the depth of the visited tree.
      *
-     * @return
+     * @return Return an integer greater than 0.
      */
     public int getDepth() {
         return depth;
@@ -128,8 +142,8 @@ public class TextSyntaxTree implements Visitor {
         } else if (node.isType(NodeType.COMMENT)) {
             value = node.getAttribute("value");
 
-            if (value.length() > 20) {
-                value = value.substring(0, 20) + "...";
+            if (value.length() > MAX_VALUE_LENGTH) {
+                value = value.substring(0, MAX_VALUE_LENGTH) + "...";
             }
         }
 
@@ -142,10 +156,10 @@ public class TextSyntaxTree implements Visitor {
     }
 
     /**
-     * Returns an array of colCount empty strings as elements.
+     * Returns an list of colCount empty strings as elements.
      *
-     * @param colCount Count of columns with empty strings.
-     * @return
+     * @param colCount Count of columns with empty strings. Throws exception if less than 0.
+     * @return Return string list.
      */
     public static List<String> createRow(final int colCount) {
         if (colCount < 0) {
@@ -153,7 +167,7 @@ public class TextSyntaxTree implements Visitor {
                 String.format("Coll count msut be greater equal 0! Given value '%d'.", colCount));
         }
 
-        final List<String> row = Lists.newArrayList();
+        final List<String> row = Lists.newArrayListWithCapacity(colCount);
 
         for (int i = 0; i < colCount; i++) {
             row.add("");
@@ -163,7 +177,8 @@ public class TextSyntaxTree implements Visitor {
     }
 
     /**
-     * If as {@link Syntax} node comes around the visitor will be initializez.
+     * If as {@link Syntax} node comes around the visitor will be initializes.
+     *
      * Which means that the depth property is read, the matrix and level properties
      * will be initialized. All other {@link Node} types increment the level property.
      *
@@ -233,12 +248,12 @@ public class TextSyntaxTree implements Visitor {
     }
 
     /**
-     * Concatenates the matrix columns and rows adn returns the ASCII formatted text.
+     * Concatenates the matrix columns and rows and returns the ASCII formatted text.
      *
-     * After all visiting is done this method only generates the string once and memoizes
-     * the result.
+     * After all visiting is done this method only generates the string once and memorizes
+     * the result. Revisiting the tree will cause text regeneration on invoking this method.
      *
-     * @return string
+     * @return Return formated text.
      */
     public String getText() {
         if (null == text) {
@@ -254,4 +269,5 @@ public class TextSyntaxTree implements Visitor {
 
         return text;
     }
+
 }
