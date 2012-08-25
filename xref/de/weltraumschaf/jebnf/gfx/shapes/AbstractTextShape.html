@@ -42,9 +42,9 @@
 <a class="jxr_linenumber" name="32" href="#32">32</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> String text;
 <a class="jxr_linenumber" name="33" href="#33">33</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Font font;
 <a class="jxr_linenumber" name="34" href="#34">34</a>  
-<a class="jxr_linenumber" name="35" href="#35">35</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/StringPainter.html">StringPainter</a> textPainter = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="36" href="#36">36</a>      <strong class="jxr_keyword">private</strong> Graphics2D lastContext = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="37" href="#37">37</a>      <strong class="jxr_keyword">private</strong> Dimension textSize = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="35" href="#35">35</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/StringPainter.html">StringPainter</a> textPainter;
+<a class="jxr_linenumber" name="36" href="#36">36</a>      <strong class="jxr_keyword">private</strong> Graphics2D lastContext;
+<a class="jxr_linenumber" name="37" href="#37">37</a>      <strong class="jxr_keyword">private</strong> Dimension textSize;
 <a class="jxr_linenumber" name="38" href="#38">38</a>  
 <a class="jxr_linenumber" name="39" href="#39">39</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/AbstractTextShape.html">AbstractTextShape</a>(<strong class="jxr_keyword">final</strong> String text) {
 <a class="jxr_linenumber" name="40" href="#40">40</a>          <strong class="jxr_keyword">this</strong>(text, DEFUALT_FONT);
