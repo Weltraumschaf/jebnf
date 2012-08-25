@@ -1,13 +1,18 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.builder;
 
-import de.weltraumschaf.jebnf.ast.nodes.Choice;
-import de.weltraumschaf.jebnf.ast.nodes.Identifier;
-import de.weltraumschaf.jebnf.ast.nodes.Loop;
-import de.weltraumschaf.jebnf.ast.nodes.Option;
-import de.weltraumschaf.jebnf.ast.nodes.Sequence;
-import de.weltraumschaf.jebnf.ast.nodes.Terminal;
-import de.weltraumschaf.jebnf.ast.nodes.Comment;
 import de.weltraumschaf.jebnf.ast.AbstractComposite;
+import de.weltraumschaf.jebnf.ast.nodes.*;
 
 /**
  * Generic builder provides interface to construct sub nodes for rule nodes.
@@ -54,8 +59,8 @@ public class GenericBuilder<P> {
     /**
      * Creates an {@link Identifier} node and returns the same builder.
      *
-     * @param value
-     * @return
+     * @param value The identifier value.
+     * @return Returns this for method chaining.
      */
     public GenericBuilder<P> identifier(final String value) {
         parentNode.addChild(Identifier.newInstance(parentNode, value));
@@ -65,8 +70,8 @@ public class GenericBuilder<P> {
     /**
      * Creates a {@link Terminal} node and returns the same builder.
      *
-     * @param value
-     * @return
+     * @param value The terminal value.
+     * @return Returns this for method chaining.
      */
     public GenericBuilder<P> terminal(final String value) {
         parentNode.addChild(Terminal.newInstance(parentNode, value));
@@ -76,8 +81,8 @@ public class GenericBuilder<P> {
     /**
      * Creates a {@link Comment} node and returns the same builder.
      *
-     * @param value
-     * @return
+     * @param value The comment value.
+     * @return Returns this for method chaining.
      */
     public GenericBuilder<P> comment(final String value) {
         parentNode.addChild(Comment.newInstance(parentNode, value));
@@ -85,10 +90,9 @@ public class GenericBuilder<P> {
     }
 
     /**
-     * Creates a {@link Choice} node and returns a sub builder for adding nodes
-     * to the {@link Choice} node.
+     * Creates a {@link Choice} node and returns a sub builder for adding nodes to the {@link Choice} node.
      *
-     * @return
+     * @return Returns a new generic builder for a choice node.
      */
     public GenericBuilder<GenericBuilder<P>> choice() {
         final Choice choice = Choice.newInstance(parentNode);
@@ -97,10 +101,9 @@ public class GenericBuilder<P> {
     }
 
     /**
-     * Creates a {@link Loop} node and returns a sub builder for adding nodes
-     * to the {@link Loop} node.
+     * Creates a {@link Loop} node and returns a sub builder for adding nodes to the {@link Loop} node.
      *
-     * @return
+     * @return Returns a new generic builder for a loop node.
      */
     public GenericBuilder<GenericBuilder<P>> loop() {
         final Loop loop = Loop.newInstance(parentNode);
@@ -109,10 +112,9 @@ public class GenericBuilder<P> {
     }
 
     /**
-     * Creates a {@link Option} node and returns a sub builder for adding nodes
-     * to the {@link Option} node.
+     * Creates a {@link Option} node and returns a sub builder for adding nodes to the {@link Option} node.
      *
-     * @return
+     * @return Returns a new generic builder for a option node.
      */
     public GenericBuilder<GenericBuilder<P>> option() {
         final Option option = Option.newInstance(parentNode);
@@ -121,14 +123,14 @@ public class GenericBuilder<P> {
     }
 
     /**
-     * Creates a {@link Sequence} node and returns a sub builder for adding nodes
-     * to the {@link Sequence} node.
+     * Creates a {@link Sequence} node and returns a sub builder for adding nodes to the {@link Sequence} node.
      *
-     * @return
+     * @return Returns a new generic builder for a sequence node.
      */
     public GenericBuilder<GenericBuilder<P>> sequence() {
         final Sequence seq = Sequence.newInstance(parentNode);
         parentNode.addChild(seq);
         return new GenericBuilder<GenericBuilder<P>>(this, seq);
     }
+
 }

@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.builder;
 
 import de.weltraumschaf.jebnf.ast.nodes.Comment;
@@ -5,7 +16,7 @@ import de.weltraumschaf.jebnf.ast.nodes.Rule;
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
 
 /**
- * Sub builder providing methods to create rules and final build the syntax.
+ * Sub builder providing methods to create rules and finaly build the syntax.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -19,9 +30,9 @@ public class RuleBuilder {
     /**
      * Sets the syntax to create the rules on.
      *
-     * It is not intended to call this constructor from out side the package.
+     * It is not intended to call this constructor from outside the package.
      *
-     * @param syntax
+     * @param syntax The syntax to which the all builded nodes belongs.
      */
     RuleBuilder(final Syntax syntax) {
         this.syntax = syntax;
@@ -31,7 +42,7 @@ public class RuleBuilder {
      * Creates a rule with name.
      *
      * @param name The rule name.
-     * @return
+     * @return Returns a generic builder of type {@link RuleBuilder}.
      */
     public GenericBuilder<RuleBuilder> rule(final String name) {
         final Rule rule = Rule.newInstance(syntax, name);
@@ -43,7 +54,7 @@ public class RuleBuilder {
      * Creates a comment.
      *
      * @param value The comment string.
-     * @return       The rule builder for method chaining.
+     * @return Returns this for method chaining.
      */
     public RuleBuilder comment(final String value) {
         final Comment comment = Comment.newInstance(syntax, value);
@@ -54,9 +65,10 @@ public class RuleBuilder {
     /**
      * Returns the created syntax.
      *
-     * @return
+     * @return Returns the created syntax object.
      */
     public Syntax build() {
         return syntax;
     }
+
 }

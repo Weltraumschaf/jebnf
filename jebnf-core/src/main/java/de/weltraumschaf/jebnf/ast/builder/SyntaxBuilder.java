@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.builder;
 
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
@@ -31,7 +42,7 @@ public final class SyntaxBuilder {
      * Creates the syntax with default meta string.
      *
      * @param title Title of the syntax.
-     * @return
+     * @return Return a rule builder object.
      */
     public static RuleBuilder syntax(final String title) {
         return syntax(title, Syntax.DEFAULT_META);
@@ -42,7 +53,7 @@ public final class SyntaxBuilder {
      *
      * @param title Title of the syntax.
      * @param meta  Meta information of the syntax.
-     * @return
+     * @return Return a rule builder object.
      */
     public static RuleBuilder syntax(final String title, final String meta) {
         return new RuleBuilder(Syntax.newInstance(title, meta));
