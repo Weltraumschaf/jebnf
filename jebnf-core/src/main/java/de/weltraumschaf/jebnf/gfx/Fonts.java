@@ -19,14 +19,17 @@ import java.awt.Font;
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public enum Fonts {
+
     /**
      * Used for terminals.
      */
     MONOSPACED("Monospaced", Font.PLAIN),
+
     /**
      * Used for rule names.
      */
     SANSERIF("Sanserif", Font.PLAIN),
+
     /**
      * Used for identifiers.
      */
@@ -41,14 +44,17 @@ public enum Fonts {
      * Font name.
      */
     private final String name;
+
     /**
      * Font style.
      */
     private final int style;
+
     /**
      * Font size.
      */
     private int size;
+
     /**
      * Caches font object for particular font size.
      */
@@ -82,12 +88,13 @@ public enum Fonts {
      *
      * Returns always same object until a different size is creates.
      *
-     * @return
+     * @return Returns same reusable instances, until size changes
      */
     public Font create() {
         if (null == font) {
             font = new Font(name, style, size);
         }
+
         return font;
     }
 
@@ -95,7 +102,7 @@ public enum Fonts {
      * Creates a font object with a new size.
      *
      * @param newSize New font size.
-     * @return
+     * @return Return newly created font for the new size.
      */
     public Font create(final int newSize) {
         this.size = newSize;

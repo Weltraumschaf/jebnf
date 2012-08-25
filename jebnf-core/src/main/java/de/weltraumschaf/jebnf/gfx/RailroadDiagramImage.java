@@ -19,62 +19,159 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
+ * Paints a {@link RailroadDiagram} to an image.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class RailroadDiagramImage {
 
+    /**
+     * Type of images.
+     */
     public static enum Type {
-        PNG("png"), GIF("gif"), JPG("jpg");
 
+        /**
+         * PNG image.
+         */
+        PNG("png"),
+
+        /**
+         * GIF image.
+         */
+        GIF("gif"),
+
+        /**
+         * JPEG image.
+         */
+        JPG("jpg");
+
+        /**
+         * Used as file extension.
+         *
+         * TODO: Rename to fileExtension
+         */
         private final String text;
 
+        /**
+         * Initializes type with text.
+         *
+         * @param text Text used as file extension.
+         */
         private Type(final String text) {
             this.text = text;
         }
 
+        /**
+         * Get the type text.
+         *
+         * @return Return the text string.
+         */
         public String getText() {
             return text;
         }
 
     }
 
+    /**
+     * Diagram to paint.
+     */
     private RailroadDiagram diagram;
+
+    /**
+     * Buffered image to paint on.
+     */
     private final BufferedImage image;
+
+    /**
+     * File where to save the buffered image.
+     */
     private final File file;
+
+    /**
+     * Image type.
+     */
     private final Type type;
 
+    /**
+     * Initializes {@link #type} with {@link Type#PNG}.
+     *
+     * @param width Image width.
+     * @param height Image height
+     * @param file File to write date in.
+     */
     public RailroadDiagramImage(final int width, final int height, final File file) {
         this(width, height, file, Type.PNG);
     }
 
+    /**
+     * Designated constructor.
+     *
+     * @param width Image width.
+     * @param height Image height
+     * @param file File to write date in.
+     * @param type Type of image.
+     */
     public RailroadDiagramImage(final int width, final int height, final File file, final Type type) {
+        super();
         this.image = Helper.newBufferedImage(width, height);
         this.file  = file;
         this.type  = type;
     }
 
+    /**
+     * Set the diagram to paint.
+     *
+     * @param diagram Diagram to paint.
+     */
     public void setDiagram(final RailroadDiagram diagram) {
         this.diagram = diagram;
     }
 
+    /**
+     * Get the graphic context.
+     *
+     * @return Return graphics context.
+     */
     public Graphics2D getGraphics() {
         return image.createGraphics();
     }
 
+    /**
+     * Paint the railroad diagram.
+     *
+     * Should be called before {@link #save()}.
+     */
     public void paint() {
         paint(getGraphics());
     }
 
+    /**
+     * Casts the given {@link Graphics} object to {@link Graphics2D} and paints on it.
+     *
+     * @param graphics Graphics context to paint on.
+     */
     public void paint(final Graphics graphics) {
         paint((Graphics2D) graphics);
     }
 
+    /**
+     * Paint the diagram with the given graphics context.
+     *
+     * @param graphics Graphics context to paint on.
+     */
     public void paint(final Graphics2D graphics) {
         diagram.paint(graphics);
     }
 
+    /**
+     * Saves the painted image to {@link #file}.
+     *
+     * Should be called after {@link #paint()}.
+     *
+     * @throws IOException On file IO errors.
+     */
     public void save() throws IOException {
         ImageIO.write(image, type.getText(), file);
     }
+
 }

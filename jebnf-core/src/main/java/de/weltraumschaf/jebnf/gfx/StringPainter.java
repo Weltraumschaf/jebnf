@@ -49,24 +49,46 @@ public class StringPainter {
      * used graphics object.
      */
     private final Graphics2D graphic;
+
     /**
      * Used font object.
      */
     private final Font font;
 
+    /**
+     * Initializes the {@link #graphic} with {@link #DEFAULT_GRAPHIC} and {@link #font}
+     * with {@link #MONOSPACED}..
+     */
     public StringPainter() {
         this(DEFAULT_GRAPHIC);
     }
 
+    /**
+     * Initializes the {@link #graphic} with {@link #DEFAULT_GRAPHIC}.
+     *
+     * @param font Font to paint the string.
+     */
     public StringPainter(final Font font) {
         this(DEFAULT_GRAPHIC, font);
     }
 
+    /**
+     * Initializes the {@link #font} with {@link #MONOSPACED}.
+     *
+     * @param graphic Graphic object to paint on.
+     */
     public StringPainter(final Graphics2D graphic) {
         this(graphic, MONOSPACED);
     }
 
+    /**
+     * Designated constructor.
+     *
+     * @param graphic Graphic object to paint on.
+     * @param font Font to paint the string.
+     */
     public StringPainter(final Graphics2D graphic, final Font font) {
+        super();
         this.graphic  = graphic;
         this.font     = font;
     }
@@ -102,28 +124,29 @@ public class StringPainter {
     /**
      * Calculates the string x position to draw.
      *
-     * @param stringWidth
-     * @param offsetX
-     * @param width
-     * @return
+     * @param stringWidth Width of string in pixel.
+     * @param offsetX Space before and after the string.
+     * @param width Width of drawing area.
+     * @return Return x position where to start painting of the string.
      */
     public int calcXPosition(final int stringWidth, final int offsetX, final int width) {
         final int checkedOffsetX = offsetX < 0
-                           ? 0
-                           : offsetX;
+                                 ? 0
+                                 : offsetX;
         return (width - stringWidth) / 2 + checkedOffsetX;
     }
 
     /**
      * Calculates the string y position to draw.
      *
-     * @param offsetY
-     * @param height
-     * @param ascent
-     * @param descent
-     * @return
+     * @param offsetY Space above and below string.
+     * @param height Height of drawing area.
+     * @param ascent Ascent of font.
+     * @param descent Descent of font.
+     * @return Return y position where to start painting of the string.
      */
     public int calcYPosition(final int offsetY, final int height, final int ascent, final int descent) {
         return (ascent + (height - (ascent + descent)) / 2) + offsetY;
     }
+
 }

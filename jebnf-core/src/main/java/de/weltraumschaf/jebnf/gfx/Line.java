@@ -24,6 +24,7 @@ public class Line {
      * Start point of line.
      */
     public final Point start;
+
     /**
      * End point of line.
      */
@@ -39,22 +40,19 @@ public class Line {
     /**
      * Designated constructor.
      *
-     * @param start
-     * @param end
+     * @param start Begin of line.
+     * @param end End of line.
      */
     public Line(final Point start, final Point end) {
         this.start = start;
-        this.end = end;
+        this.end   = end;
     }
 
-    /**
-     * String representation.
-     *
-     * @return
-     */
     @Override
     public String toString() {
-        return Objects.toStringHelper(this).add("start", start).add("end", end).toString();
+        return Objects.toStringHelper(this)
+                      .add("start", start)
+                      .add("end", end).toString();
     }
 
 }

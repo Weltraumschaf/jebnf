@@ -23,12 +23,12 @@ public class Point {
     /**
      * Immutable x coordinate.
      */
-    public final int x; //NOPMD
+    public final int x; // NOPMD Ignore short name warning.
 
     /**
      * Immutable x coordinate.
      */
-    public final int y; //NOPMD
+    public final int y; //NOPMD Ignore short name warning.
 
     /**
      * Initializes a point with coordinates (0, 0).
@@ -43,7 +43,7 @@ public class Point {
      * @param x X-coordinate.
      * @param y Y-Coordinate.
      */
-    public Point(final int x, final int y) { //NOPMD
+    public Point(final int x, final int y) {
         this.x = x;
         this.y = y;
     }
@@ -52,27 +52,22 @@ public class Point {
      * Returns a new point object with changed x-coordinate.
      *
      * @param newX The new x-coordinate.
-     * @return
+     * @return Returns a new object.
      */
-    public Point setX(final int newX) { //NOPMD
+    public Point setX(final int newX) {
         return new Point(newX, y);
     }
 
     /**
      * Returns a new point object with changed y-coordinate.
      *
-     * @param newY The new x-coordinate.
-     * @return
+     * @param newY The new y-coordinate.
+     * @return Returns a new object.
      */
-    public Point setY(final int newY) { //NOPMD
+    public Point setY(final int newY) {
         return new Point(x, newY);
     }
 
-    /**
-     * String representation of hte point.
-     *
-     * @return
-     */
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
@@ -81,12 +76,6 @@ public class Point {
                       .toString();
     }
 
-    /**
-     * Checks for equality.
-     *
-     * @param obj Object to check against.
-     * @return
-     */
     @Override
     public boolean equals(final Object obj) {
         if (obj == null) {
@@ -106,11 +95,6 @@ public class Point {
         return false;
     }
 
-    /**
-     * Calculates the hash code.
-     *
-     * @return
-     */
     @Override
     public int hashCode() {
         return Objects.hashCode(x, y);

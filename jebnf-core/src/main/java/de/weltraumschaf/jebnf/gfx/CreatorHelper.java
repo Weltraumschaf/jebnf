@@ -20,11 +20,20 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
+ * Helper to create some diagrams for debugging and development.
  *
+ * @deprecated Will be removed.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
+@Deprecated
 public class CreatorHelper {
 
+    /**
+     * Creates a diagram for the "value syntax" of JavaScript. See json.org.
+     *
+     * @param graphics Graphics context.
+     * @return Grid layout object.
+     */
     public GridLayout createValueDiagram(final Graphics2D graphics) {
         final GridLayout value = grid();
         value.append(
@@ -58,6 +67,12 @@ public class CreatorHelper {
         return value;
     }
 
+    /**
+     * Creates a diagram for the "object syntax" of JavaScript. See json.org.
+     *
+     * @param graphics Graphics context.
+     * @return Grid layout object.
+     */
     public GridLayout createObjectDiagram(final Graphics2D graphics) {
         final GridLayout object = grid();
         final Sequence innerSequence = sequence(identifier("string"),
@@ -110,10 +125,22 @@ public class CreatorHelper {
         return object;
     }
 
+    /**
+     * Casts the given graphics object to {@link Graphics2D} and invokes {@link #createDiagram(java.awt.Graphics2D)}.
+     *
+     * @param graphics Graphics context.
+     * @return New instance.
+     */
     public RailroadDiagram createDiagram(final Graphics graphics) {
         return createDiagram((Graphics2D) graphics);
     }
 
+    /**
+     * Creates a diagram with {@link #createValueDiagram(java.awt.Graphics2D)}.
+     *
+     * @param graphics Graphics context.
+     * @return New instance.
+     */
     public RailroadDiagram createDiagram(final Graphics2D graphics) {
         final Point offset = new Point(20, 20);
         final RailroadDiagram diagram = new RailroadDiagram();
@@ -127,4 +154,5 @@ public class CreatorHelper {
 
         return diagram;
     }
+
 }

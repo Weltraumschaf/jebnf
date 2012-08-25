@@ -15,7 +15,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 /**
- * Helper to create some AWT stuff.
+ * Helper to create various AWT stuff.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -29,7 +29,7 @@ public final class Helper {
     /**
      * Creates a Buffered image of size 1 x 1.
      *
-     * @return
+     * @return Return new instance.
      */
     public static BufferedImage newBufferedImage() {
         return newBufferedImage(1, 1);
@@ -40,18 +40,19 @@ public final class Helper {
      *
      * @param width  Image width.
      * @param height Image height.
-     * @return
+     * @return Return new instance.
      */
     public static BufferedImage newBufferedImage(final int width, final int height) {
         return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
     }
 
     /**
-     * Creates a graphics object from a default buffered image.
+     * Creates a graphics object from a {@link #newBufferedImage()  default buffered} image.
      *
-     * @return
+     * @return Return new instance.
      */
     public static Graphics2D newGraphics() {
         return newBufferedImage().createGraphics();
     }
+
 }
