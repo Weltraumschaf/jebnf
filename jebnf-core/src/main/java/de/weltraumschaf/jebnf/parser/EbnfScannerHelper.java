@@ -116,27 +116,41 @@ final class EbnfScannerHelper {
         TokenType type = null;
 
         switch (scanner.getCurrentCharacter()) {
-            case ':': {
+            case ':':
                 type = scanColonOperator(peek, scanner, value);
                 break;
-            }
-            case '=': type = TokenType.ASIGN; break;
-            case '.': {
+            case '=':
+                type = TokenType.ASIGN;
+                break;
+            case '.':
                 type = scanDotOperator(peek, scanner, value);
                 break;
-            }
-            case ';': type = TokenType.END_OF_RULE; break;
-            case '(': type = TokenType.L_PAREN; break;
-            case '[': type = TokenType.L_BRACK; break;
-            case '{': type = TokenType.L_BRACE; break;
-            case ')': type = TokenType.R_PAREN; break;
-            case ']': type = TokenType.R_BRACK; break;
-            case '}': type = TokenType.R_BRACE; break;
-            case '|': type = TokenType.CHOICE; break;
-            default: {
+            case ';':
+                type = TokenType.END_OF_RULE;
+                break;
+            case '(':
+                type = TokenType.L_PAREN;
+                break;
+            case '[':
+                type = TokenType.L_BRACK;
+                break;
+            case '{':
+                type = TokenType.L_BRACE;
+                break;
+            case ')':
+                type = TokenType.R_PAREN;
+                break;
+            case ']':
+                type = TokenType.R_BRACK;
+                break;
+            case '}':
+                type = TokenType.R_BRACE;
+                break;
+            case '|':
+                type = TokenType.CHOICE; break;
+            default:
                 scanner.raiseError(String.format("Unexpected operator character '%s'",
                                                  scanner.getCurrentCharacter()));
-            }
         }
 
         return new Token(type, value.toString(), position);

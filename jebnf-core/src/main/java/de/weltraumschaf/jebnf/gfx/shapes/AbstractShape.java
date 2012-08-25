@@ -25,7 +25,7 @@ import java.util.Stack;
  */
 public abstract class AbstractShape implements Shape {
 
-    protected static class GraphicsSetting {
+    static class GraphicsSetting {
         private final Color color;
         private final Stroke stroke;
 

@@ -23,6 +23,7 @@ public class GenericBuilder<P> {
      * The parent builder which created the builder.
      */
     private final P parentBuilder;
+
     /**
      * The node built by the parent builder.
      */
@@ -44,7 +45,7 @@ public class GenericBuilder<P> {
     /**
      * Returns to the parent builder.
      *
-     * @return
+     * @return Parent builder of type P.
      */
     public P end() {
         return parentBuilder;

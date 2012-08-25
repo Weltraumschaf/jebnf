@@ -56,9 +56,9 @@ public class SyntaxException extends Exception {
     public final String toString() {
         final StringBuilder str = new StringBuilder("Syntax error: ");
         str.append(getMessage())
-           .append(" at ")
-           .append(position)
-           .append("!");
+            .append(" at ")
+            .append(position)
+            .append("!");
         return str.toString();
     }
 

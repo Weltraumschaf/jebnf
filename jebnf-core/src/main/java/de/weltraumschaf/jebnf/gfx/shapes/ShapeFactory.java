@@ -43,27 +43,45 @@ public final class ShapeFactory {
     }
 
     public static AbstractCurve curve(final Curves type) {
+        AbstractCurve curve;
+
         switch (type) {
-            case NORTH_EAST: return new CurveNE();
-            case NORTH_WEST: return new CurveNW();
-            case SOUTH_EAST: return new CurveSE();
-            case SOUTH_WEST: return new CurveSW();
-            default: throw new IllegalArgumentException("Unsupported type: " + type + "!");
+            case NORTH_EAST:
+                curve = new CurveNE();
+                break;
+            case NORTH_WEST:
+                curve = new CurveNW();
+                break;
+            case SOUTH_EAST:
+                curve = new CurveSE();
+                break;
+            case SOUTH_WEST:
+                curve = new CurveSW();
+                break;
+            default:
+                throw new IllegalArgumentException(String.format("Unsupported type: %s!", type));
         }
+
+        return curve;
     }
 
     public static Shape straight(final Straights type) {
         switch (type) {
-            case NORT_SOUTH: return new StraightNS();
-            case WEST_EAST: return new StraightWE();
-            default: throw new IllegalArgumentException("Unsupported type: " + type + "!");
+            case NORT_SOUTH:
+                return new StraightNS();
+            case WEST_EAST:
+                return new StraightWE();
+            default:
+                throw new IllegalArgumentException("Unsupported type: " + type + "!");
         }
     }
 
     public static Shape fork(final Straights orientation, final Curves curve) {
         switch (orientation) {
-            case NORT_SOUTH: return verticalFork(curve);
-            case WEST_EAST: return horizontalFork(curve);
+            case NORT_SOUTH:
+                return verticalFork(curve);
+            case WEST_EAST:
+                return horizontalFork(curve);
             default:
                 throw new IllegalArgumentException("Unsupported orientation: " + orientation + "!");
         }
@@ -71,21 +89,31 @@ public final class ShapeFactory {
 
     private static Shape verticalFork(final Curves curve) {
         switch (curve) {
-            case NORTH_EAST: return new VForkNE();
-            case NORTH_WEST: return new VForkNW();
-            case SOUTH_EAST: return new VForkSE();
-            case SOUTH_WEST: return new VForkSW();
-            default: throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
+            case NORTH_EAST:
+                return new VForkNE();
+            case NORTH_WEST:
+                return new VForkNW();
+            case SOUTH_EAST:
+                return new VForkSE();
+            case SOUTH_WEST:
+                return new VForkSW();
+            default:
+                throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
         }
     }
 
     private static Shape horizontalFork(final Curves curve) {
         switch (curve) {
-            case NORTH_EAST: return new HForkNE();
-            case NORTH_WEST: return new HForkNW();
-            case SOUTH_EAST: return new HForkSE();
-            case SOUTH_WEST: return new HForkSW();
-            default: throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
+            case NORTH_EAST:
+                return new HForkNE();
+            case NORTH_WEST:
+                return new HForkNW();
+            case SOUTH_EAST:
+                return new HForkSE();
+            case SOUTH_WEST:
+                return new HForkSW();
+            default:
+                throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
         }
     }
 
