@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.nodes;
 
 import de.weltraumschaf.jebnf.ast.AbstractComposite;
@@ -11,6 +22,11 @@ import de.weltraumschaf.jebnf.ast.NodeType;
  */
 public final class Loop extends AbstractComposite {
 
+    /**
+     * Initializes object with parent node.
+     *
+     * @param parent The parent node.
+     */
     private Loop(final Node parent) {
         super(parent, NodeType.LOOP);
     }
@@ -46,4 +62,5 @@ public final class Loop extends AbstractComposite {
 
         return str.toString();
     }
+
 }

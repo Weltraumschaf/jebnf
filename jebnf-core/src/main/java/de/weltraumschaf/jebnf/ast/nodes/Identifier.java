@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.nodes;
 
 import de.weltraumschaf.jebnf.ast.AbstractNode;
@@ -14,13 +25,16 @@ import de.weltraumschaf.jebnf.ast.Notification;
  */
 public final class Identifier extends AbstractNode {
 
+    /**
+     * Key for the value attribute.
+     */
     private static final String ATTR_VALUE = "value";
 
     /**
      * Initializes object with value and parent node.
      *
-     * @param parent
-     * @param value
+     * @param parent The parent node.
+     * @param value The identifier value.
      */
     private Identifier(final Node parent, final String value) {
         super(parent, NodeType.IDENTIFIER);
@@ -40,7 +54,7 @@ public final class Identifier extends AbstractNode {
      * Creates an new identifier node with a {@link Null} parent node.
      *
      * @param value The identifier name.
-     * @return       New instance.
+     * @return New instance.
      */
     public static Identifier newInstance(final String value) {
         return newInstance(Null.getInstance(), value);
@@ -50,7 +64,7 @@ public final class Identifier extends AbstractNode {
      * Creates an new identifier node with an empty value string.
      *
      * @param parent The parent node.
-     * @return        New instance.
+     * @return New instance.
      */
     public static Identifier newInstance(final Node parent) {
         return newInstance(parent, "");
@@ -60,20 +74,13 @@ public final class Identifier extends AbstractNode {
      * Creates an new identifier node.
      *
      * @param parent The parent node.
-     * @param value  The identifier name.
-     * @return        New instance.
+     * @param value The identifier name.
+     * @return New instance.
      */
     public static Identifier newInstance(final Node parent, final String value) {
         return new Identifier(parent, value);
     }
 
-    /**
-     * Probes equivalence of itself against an other node and collects all
-     * errors in the passed {@link Notification} object.
-     *
-     * @param other  Node to compare against.
-     * @param result Object which collects all equivalence violations.
-     */
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         try {
@@ -89,9 +96,9 @@ public final class Identifier extends AbstractNode {
     }
 
     /**
-     * Has no sub nodes, thus always returns 1.
+     * Always returns 1 because a terminal has no child nodes..
      *
-     * @return Always returns 1.
+     * @return Returns 1.
      */
     @Override
     public int depth() {

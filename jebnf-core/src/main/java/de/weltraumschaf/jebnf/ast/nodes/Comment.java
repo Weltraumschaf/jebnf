@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.nodes;
 
 import de.weltraumschaf.jebnf.ast.AbstractNode;
@@ -12,13 +23,16 @@ import de.weltraumschaf.jebnf.ast.Notification;
  */
 public final class Comment extends AbstractNode {
 
+    /**
+     * Key for the value attribute.
+     */
     private static final String ATTR_VALUE = "value";
 
     /**
      * Initializes object with empty value and parent node.
      *
-     * @param parent
-     * @param value
+     * @param parent The parent node.
+     * @param value Comment value.
      */
     private Comment(final Node parent, final String value) {
         super(parent, NodeType.COMMENT);
@@ -35,7 +49,7 @@ public final class Comment extends AbstractNode {
     }
 
     /**
-     * Creates new comment node with {@link Null} parent node
+     * Creates new comment node with {@link Null} parent node.
      *
      * @param value The comment string.
      * @return       New instance.
@@ -65,13 +79,6 @@ public final class Comment extends AbstractNode {
         return new Comment(parent, value);
     }
 
-    /**
-     * Probes equivalence of itself against an other node and collects all
-     * errors in the passed {@link Notification} object.
-     *
-     * @param other  Node to compare against.
-     * @param result Object which collects all equivalence violations.
-     */
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         try {
@@ -91,9 +98,9 @@ public final class Comment extends AbstractNode {
     }
 
     /**
-     * This node has no sub nodes, thus always 1 is returned.
+     * Always returns 1 because a terminal has no child nodes..
      *
-     * @return Returns always 1.
+     * @return Returns 1.
      */
     @Override
     public int depth() {

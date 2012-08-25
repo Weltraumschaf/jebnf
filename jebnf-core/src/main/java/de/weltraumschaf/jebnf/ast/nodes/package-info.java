@@ -31,5 +31,6 @@
  *  <li>Special: The leaf node {@link de.weltraumschaf.ebnf.ast.nodes.Null Null} is a special
  *      purpose node mostly used in the unit tests. It is used as default parent node for all
  *      composite nodes.
+ * </ol>
  */
 package de.weltraumschaf.jebnf.ast.nodes;

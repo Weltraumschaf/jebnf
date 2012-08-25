@@ -1,15 +1,36 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.nodes;
 
 import de.weltraumschaf.jebnf.ast.*;
 
 /**
+ * Null node.
+ *
+ * This node type is used for testing and as default node. E.g. parent nodes (of factory
+ * created nodes) have a Null node by default to prevent null pointer exceptions.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class Null extends AbstractNode {
 
+    /**
+     * Single shared instance.
+     */
     private static final Null INSTANCE = new Null();
 
+    /**
+     * Initializes the parent node with null.
+     */
     private Null() {
         super(null, NodeType.NULL);
     }
@@ -37,7 +58,7 @@ public final class Null extends AbstractNode {
 
     @Override
     public int depth() {
-        return 0;
+        return 1;
     }
 
 }

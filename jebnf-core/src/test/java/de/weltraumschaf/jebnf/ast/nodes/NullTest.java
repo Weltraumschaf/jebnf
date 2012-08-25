@@ -52,7 +52,7 @@ public class NullTest {
     }
 
     @Test public void depth() {
-        assertEquals(0, sut.depth());
+        assertEquals(1, sut.depth());
     }
 
     @Test public void getType() {

@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.nodes;
 
 import de.weltraumschaf.jebnf.ast.AbstractComposite;
@@ -12,8 +23,17 @@ import de.weltraumschaf.jebnf.ast.Notification;
  */
 public final class Rule extends AbstractComposite {
 
+    /**
+     * Key for the name attribute.
+     */
     private static final String ATTRIBUTE_NAME = "name";
 
+    /**
+     * Initializes object with empty value and parent node.
+     *
+     * @param parent The parent node.
+     * @param name The rule name.
+     */
     private Rule(final Node parent, final String name) {
         super(parent, NodeType.RULE);
         setAttribute(ATTRIBUTE_NAME, name);
@@ -59,13 +79,6 @@ public final class Rule extends AbstractComposite {
         return new Rule(parent, name);
     }
 
-    /**
-     * Probes equivalence of itself against an other node and collects all
-     * errors in the passed {@link Notification} object.
-     *
-     * @param other  other  Node to compare against.
-     * @param result result Object which collects all equivalence violations.
-     */
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         super.probeEquivalence(other, result);
@@ -90,4 +103,5 @@ public final class Rule extends AbstractComposite {
 
         return str.toString();
     }
+
 }
