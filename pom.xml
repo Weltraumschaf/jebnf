@@ -6,7 +6,7 @@
 
     <groupId>de.weltraumschaf</groupId>
     <artifactId>jebnf</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.2.3-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>JEBNF</name>
     <description>
@@ -70,7 +70,7 @@
 
     <properties>
         <!-- Property overidden by sub-modules -->
-        <project.version>1.0-SNAPSHOT</project.version>
+        <project.version>1.2.3-SNAPSHOT</project.version>
         <project.base.dir>${project.basedir}</project.base.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.version.compileTarget>1.6</project.version.compileTarget>
