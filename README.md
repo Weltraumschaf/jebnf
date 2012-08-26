@@ -32,11 +32,15 @@ After successful installation you should be able to invoke the command line tool
 You can either use the shell script <kbd>bin/ebnf</kbd> for
 generating images or XML from a grammar file:
 
-    $ ./bin/ebnf -s mygrammar.ebnf
-    $ ./bin/ebnf -s mygrammar.ebnf -o mygrammar.png
-    $ ./bin/ebnf -s mygrammar.ebnf -o mygrammar.jpg -f jpg
-    $ ./bin/ebnf -s mygrammar.ebnf -o mygrammar.gif -f gif
-    $ ./bin/ebnf -s mygrammar.ebnf -o mygrammar.xml -f xml
+    $ ./bin/ebnf -h
+    usage: ebnf
+     -d         Enables debug output.
+     -f <arg>   Output format: xml, jpg, gif.
+     -h         This help.
+     -i,--ide   Starts the GUI IDE.
+     -o <arg>   Output file name.
+     -s <arg>   EBNF syntax file to parse.
+     -t         Prints textual representation of the syntax tree to stdout.
 
 Or you can use the classes for embedding the functionality in your code:
 
