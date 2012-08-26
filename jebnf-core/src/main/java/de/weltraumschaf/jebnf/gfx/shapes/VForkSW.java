@@ -12,11 +12,24 @@
 package de.weltraumschaf.jebnf.gfx.shapes;
 
 /**
+ * Vertical fork with straight line from north to south and curve from south to west..
+ *
+ * Schematic:
+ * <pre>
+ *    |
+ * __ |
+ *   \|
+ *    |
+ * </pre>
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class VForkSW extends AbstractFork {
 
+    /**
+     * Initializes {@link #straight} with {@link StraightNS}
+     * and {@link #curve} with {@link CurveSW}.
+     */
     public VForkSW() {
         super(new StraightNS(), new CurveSW());
     }
