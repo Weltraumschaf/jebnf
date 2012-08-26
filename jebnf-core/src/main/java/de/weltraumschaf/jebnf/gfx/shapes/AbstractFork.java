@@ -15,14 +15,29 @@ import de.weltraumschaf.jebnf.gfx.Point;
 import java.awt.Graphics2D;
 
 /**
+ * Forks are a combination of either a {@link StraightNS} or {@link StraightWE} shape
+ * and a curve shape ({@link CurveNE}, {@link CurveNW}, {@link CurveSE}, or {@link CurveSW}).
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public abstract class AbstractFork extends Empty {
 
+    /**
+     * The straight shape part.
+     */
     final Empty straight;
+
+    /**
+     * The curve shape part.
+     */
     final Empty curve;
 
+    /**
+     * Initializes {@link #straight} and {@link  #curve}.
+     *
+     * @param straight {@link StraightNS} or {@link StraightWE}.
+     * @param curve One of {@link CurveNE}, {@link CurveNW}, {@link CurveSE}, or {@link CurveSW}.
+     */
     public AbstractFork(final Empty straight, final Empty curve) {
         super();
         this.straight = straight;

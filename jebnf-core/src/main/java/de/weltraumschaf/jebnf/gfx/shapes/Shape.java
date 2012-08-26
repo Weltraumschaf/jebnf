@@ -25,6 +25,7 @@ public interface Shape extends Paintable {
      * Default width for shapes.
      */
     int DEFAULT_WIDTH = 31;
+
     /**
      * Default height for shapes.
      */
@@ -36,31 +37,36 @@ public interface Shape extends Paintable {
      * @return Position object.
      */
     Point getPosition();
+
     /**
      * Sets the shapes position.
      *
      * @param pos The position the shape is painted.
      */
     void setPosition(Point pos);
+
     /**
      * Returns the size of the shape.
      *
      * @return The shapes size.
      */
     Dimension getSize();
+
     /**
      * Sets the size of the shape.
      *
      * @param size NEw size.
      */
     void setSize(Dimension size);
+
     /**
      * Enables/disable debug paintings.
      *
      * By default debugging should be off. Debug painting means that the shape paints some
      * additional helper pixels for debugging.
      *
-     * @param onnOff
+     * @param onnOff Whether to set debug painting on or off.
      */
     void setDebug(boolean onnOff);
+
 }

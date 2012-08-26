@@ -40,7 +40,7 @@ public class Terminal extends AbstractTextShape implements Shape {
 
     protected Dimension calcBoxSize(final Graphics2D graphic) {
         final Dimension textSize = calculateTextSize(graphic);
-        return new Dimension(textSize.width + H_PADDING * 4, textSize.height + 4);
+        return new Dimension(textSize.width + HORIZONTAL_PADDING * 4, textSize.height + 4);
     }
 
     @Override

@@ -23,11 +23,11 @@ public interface Adjustable {
     /**
      * Recalculates the dimension and position of the implementor.
      *
-     * Compound adjustables which contains other adjustables may need to invoke
+     * Compound adjustable which contains other adjustable may need to invoke
      * this method recursively.
      *
      * @param graphic Graphic context used for font measuring.
      */
-    void adjust(final Graphics2D graphic);
+    void adjust(Graphics2D graphic);
 
 }

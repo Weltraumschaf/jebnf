@@ -16,13 +16,26 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
+ * Compound shapes consist other child shapes.
+ *
+ * TODO Extract methods to Compound interface.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class AbstractCompund extends AbstractShape implements Adjustable {
+public class AbstractCompund extends AbstractShape implements Compund {
 
+    /**
+     * Layout grid with child shapes.
+     *
+     * TODO Make private.
+     */
     protected final GridLayout grid;
 
+    /**
+     * Initializes grid layout.
+     *
+     * @param grid
+     */
     public AbstractCompund(final GridLayout grid) {
         super();
         this.grid = grid;
@@ -68,14 +81,36 @@ public class AbstractCompund extends AbstractShape implements Adjustable {
         grid.adjust(graphic);
     }
 
+    /**
+     * Extends a grid column with {@link Empty} shapes.
+     *
+     * @param height Height in pixel of column.
+     * @param colIndexs Column index in grid.
+     * @param rowIndex Row index in grid
+     */
     protected void extendColumnWithEmpty(final int height, final int[] colIndexs, final int rowIndex) {
         extendColumnWithShape(height, colIndexs, rowIndex, Empty.class);
     }
 
+    /**
+     * Extends a grid column with {@link StraightNS} shapes.
+     *
+     * @param height Height in pixel of column.
+     * @param colIndexs Column index in grid.
+     * @param rowIndex Row index in grid
+     */
     protected void extendColumnWithStraightNS(final int height, final int[] colIndexs, final int rowIndex) {
         extendColumnWithShape(height, colIndexs, rowIndex, StraightNS.class);
     }
 
+    /**
+     * Extends a column with a given type of shapes.
+     *
+     * @param height Height in pixel of column.
+     * @param colIndexs Column index in grid.
+     * @param rowIndex Row index in grid
+     * @param type Shape type.
+     */
     protected void extendColumnWithShape(final int height, final int[] colIndexs, final int rowIndex,
                                         final Class<? extends Shape> type) {
         if (DEFAULT_HEIGHT < height) {
@@ -97,4 +132,5 @@ public class AbstractCompund extends AbstractShape implements Adjustable {
             }
         }
     }
+
 }

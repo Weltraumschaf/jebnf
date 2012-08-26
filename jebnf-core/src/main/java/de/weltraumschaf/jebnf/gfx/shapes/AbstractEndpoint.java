@@ -18,10 +18,23 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
+ * Endpoint shapes are either the start or the end of a single railroad line.
+ *
+ * Paints the common vertical line common for {@link Start} and {@link End}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public abstract class AbstractEndpoint extends Empty {
+
+    /**
+     * Pad top from shape border.
+     */
+    private static final int TOP_PADDING = 3;
+
+    /**
+     * Pad bottom from shape border.
+     */
+    private static final int BOTTOM_PADDING = 4;
 
     @Override
     public void paint(final Graphics2D graphic) {
@@ -33,7 +46,7 @@ public abstract class AbstractEndpoint extends Empty {
         final Point pos = getPosition();
         final Dimension size = getSize();
         final int xCenter = getCenterX();
-        graphic.drawLine(xCenter, pos.y + 3, xCenter, pos.y + size.height - 4);
+        graphic.drawLine(xCenter, pos.y + TOP_PADDING, xCenter, pos.y + size.height - BOTTOM_PADDING);
 
         resotreColorAndStroke(graphic);
     }

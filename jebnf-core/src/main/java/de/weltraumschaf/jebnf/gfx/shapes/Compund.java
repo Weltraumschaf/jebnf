@@ -11,20 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import java.awt.Graphics2D;
-
 /**
- * Implementors can paint them selves on a {@link java.awt.Graphics2D graphics context}.
+ * Compound shapes have child shapes and can adjust them self.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public interface Paintable {
-
-    /**
-     * Paints the implementor.
-     *
-     * @param graphic Context to paint on.
-     */
-    void paint(Graphics2D graphic);
+public interface Compund extends Shape, Adjustable {
 
 }

@@ -34,7 +34,7 @@ public class Identifier extends AbstractTextShape implements Shape {
 
     protected Dimension calcBoxSize(final Graphics2D graphic) {
         final Dimension textSize = calculateTextSize(graphic);
-        return new Dimension(textSize.width + H_PADDING * 2, textSize.height);
+        return new Dimension(textSize.width + HORIZONTAL_PADDING * 2, textSize.height);
     }
 
     @Override

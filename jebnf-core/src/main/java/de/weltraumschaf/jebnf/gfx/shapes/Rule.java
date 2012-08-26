@@ -32,7 +32,7 @@ public class Rule extends AbstractTextShape implements Shape {
     @Override
     public void adjust(final Graphics2D graphic) {
         textSize = calculateTextSize(graphic);
-        setSize(new Dimension(calculateWidth(textSize.width + H_PADDING * 2), DEFAULT_HEIGHT));
+        setSize(new Dimension(calculateWidth(textSize.width + HORIZONTAL_PADDING * 2), DEFAULT_HEIGHT));
     }
 
     @Override
@@ -43,7 +43,7 @@ public class Rule extends AbstractTextShape implements Shape {
 
         final Point pos = getPosition();
         final Dimension size = getSize();
-        final Point textPosition = new Point(pos.x + H_PADDING,
+        final Point textPosition = new Point(pos.x + HORIZONTAL_PADDING,
                                              pos.y + (size.height - textSize.height) / 2);
 
         super.paint(graphic);

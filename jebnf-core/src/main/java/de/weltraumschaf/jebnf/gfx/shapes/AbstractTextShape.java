@@ -21,35 +21,82 @@ import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 
 /**
+ * Common functionality for all shapes with text.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public abstract class AbstractTextShape extends Empty implements Adjustable {
 
-    protected static final int H_PADDING = 5;
+    /**
+     * Horizontal padding.
+     */
+    protected static final int HORIZONTAL_PADDING = 5;
+
+    /**
+     * Default font.
+     */
     private static final Font DEFUALT_FONT = StringPainter.SANSERIF;
 
+    /**
+     * Text to paint on shape.
+     */
     private final String text;
+
+    /**
+     * Actual font to paint text on shape.
+     */
     private final Font font;
 
+    /**
+     * Utility object to paint text.
+     */
     private StringPainter textPainter;
+
+    /**
+     * Last used context to paint on.
+     */
     private Graphics2D lastContext;
+
+    /**
+     * Size of the shape.
+     */
     private Dimension textSize;
 
+    /**
+     * Initializes shape with {@link #DEFUALT_FONT}.
+     *
+     * @param text Text to paint on shape.
+     */
     public AbstractTextShape(final String text) {
         this(text, DEFUALT_FONT);
     }
 
+    /**
+     * Designated constructor.
+     *
+     * @param text Text to paint on shape.
+     * @param font Font to paint text on shape.
+     */
     public AbstractTextShape(final String text, final Font font) {
         super();
         this.text = text;
         this.font = font;
     }
 
+    /**
+     * Get the painted text.
+     *
+     * @return Return text as string.
+     */
     public String getText() {
         return text;
     }
 
+    /**
+     * Get the painted font.
+     *
+     * @return Return font object.
+     */
     Font getFont() {
         return font;
     }
@@ -59,7 +106,7 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
             throw new IllegalArgumentException("box width need to be greater or equal zero!");
         }
 
-        final int minWidth = (boxWidth + 2 * H_PADDING);
+        final int minWidth = (boxWidth + 2 * HORIZONTAL_PADDING);
         final int emtpyShapeCount = minWidth / DEFAULT_WIDTH + 1;
         return DEFAULT_WIDTH * emtpyShapeCount;
     }

@@ -18,6 +18,17 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
+ * Paint blue dots on each second pixel.
+ *
+ * This shape is like the test picture on television.
+ *
+ * Schematic:
+ * <pre>
+ * x x x x
+ *  x x x x
+ * x x x x
+ *  x x x x
+ * </pre>
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -46,6 +57,15 @@ public class TestShape extends Empty {
         resotreColorAndStroke(graphic);
     }
 
+    /**
+     * Determines whether to paint a pixel.
+     *
+     * Only paints every second pixel and shifts start one pixel per line.
+     *
+     * @param horizIteration Horizontal iteration in pixel.
+     * @param verticalIteration Vertical iteration in pixel.
+     * @return Return true if a pixel should be painted
+     */
     protected boolean shouldPaint(final int horizIteration, final int verticalIteration) {
         if (horizIteration < 0) {
             throw new IllegalArgumentException(String.format(

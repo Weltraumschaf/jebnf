@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<FindBugsFilter/>
+<FindBugsFilter>
+    <Match>
+        <!-- Argument are checked against negative numbers and will throw IllegalArgumentException. -->
+        <Class name="de.weltraumschaf.jebnf.gfx.shapes.TestShape" />
+        <And>
+            <Method name="shouldPaint" params="int,int" returns="boolean" />
+        </And>
+        <Bug pattern="IM_BAD_CHECK_FOR_ODD" />
+    </Match>
+</FindBugsFilter>

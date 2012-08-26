@@ -15,21 +15,31 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
+ * Abstract layouts are {@link Sequence}, {@link ColumnLayout}, and {@link GridLayout}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public abstract class AbstractLayout extends AbstractShape implements Adjustable {
 
+    /**
+     * Initializes size with (0, 0).
+     */
     public AbstractLayout() {
         super();
         setSize(new Dimension(0, 0));
     }
 
+    /**
+     * Adjust given shape.
+     *
+     * @param shape Shape to adjust.
+     * @param graphics Graphics context to adjust by.
+     */
     protected void adjustShape(final Shape shape, final Graphics2D graphics) {
         try {
             ((Adjustable) shape).adjust(graphics);
         } catch (ClassCastException ex) { // NOPMD
-            // Not adjustable
+            // Ignore not adjustable shapes.
         }
     }
 
