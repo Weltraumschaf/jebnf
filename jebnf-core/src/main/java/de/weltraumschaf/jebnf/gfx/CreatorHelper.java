@@ -11,10 +11,10 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
-import de.weltraumschaf.jebnf.gfx.shapes.GridLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.Loop;
-import de.weltraumschaf.jebnf.gfx.shapes.Option;
-import de.weltraumschaf.jebnf.gfx.shapes.Sequence;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.Sequence;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import java.awt.Graphics;
 import java.awt.Graphics2D;

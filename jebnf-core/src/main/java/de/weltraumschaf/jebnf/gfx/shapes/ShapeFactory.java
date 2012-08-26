@@ -11,6 +11,35 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
+import de.weltraumschaf.jebnf.gfx.shapes.curves.AbstractCurve;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.Choice;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayout;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.Sequence;
+import de.weltraumschaf.jebnf.gfx.shapes.text.Rule;
+import de.weltraumschaf.jebnf.gfx.shapes.text.Identifier;
+import de.weltraumschaf.jebnf.gfx.shapes.text.Terminal;
+import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
+import de.weltraumschaf.jebnf.gfx.shapes.other.End;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Start;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSE;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNW;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNW;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSW;
+
 /**
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>

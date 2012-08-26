@@ -85,7 +85,7 @@ public abstract class AbstractShape implements Shape {
      *
      * @return Return true if enabled.
      */
-    protected boolean isDebug() {
+    public boolean isDebug() {
         return debug;
     }
 
