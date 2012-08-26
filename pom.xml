@@ -69,9 +69,6 @@
     </ciManagement>
 
     <properties>
-        <!-- Property overidden by sub-modules -->
-        <project.version>1.2.3-SNAPSHOT</project.version>
-        <project.base.dir>${project.basedir}</project.base.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.version.compileTarget>1.6</project.version.compileTarget>
         <project.version.source>1.6</project.version.source>
@@ -484,9 +481,9 @@
                 <artifactId>maven-pmd-plugin</artifactId>
                 <configuration>
                     <linkXref>true</linkXref>
-                    <sourceEncoding>utf-8</sourceEncoding>
+                    <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
                     <minimumTokens>100</minimumTokens>
-                    <targetJdk>${compileTarget}</targetJdk>
+                    <targetJdk>${project.version.compileTarget}</targetJdk>
                     <!-- http://pmd.sourceforge.net/rules/index.html -->
                     <rulesets>
                         <ruleset>/rulesets/basic.xml</ruleset>
