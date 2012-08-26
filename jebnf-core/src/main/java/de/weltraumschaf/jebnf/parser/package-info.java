@@ -15,6 +15,6 @@
  * <p>Contains everything necessary to parse EBN syntax.
  *
  * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/ebnf">EBNF library</a></p>
+ * <a href="https://github.com/Weltraumschaf/jebnf">EBNF library</a></p>
  */
 package de.weltraumschaf.jebnf.parser;

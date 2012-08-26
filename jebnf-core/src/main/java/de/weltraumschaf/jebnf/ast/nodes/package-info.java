@@ -14,7 +14,7 @@
  *
  * <p>
  * This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/ebnf">EBNF library</a>
+ * <a href="https://github.com/Weltraumschaf/jebnf">EBNF library</a>
  *
  * <p>
  * This package contains all available nodes an EBNF AST may have.

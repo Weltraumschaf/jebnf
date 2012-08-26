@@ -13,7 +13,7 @@
  * Visitors to traverse the AST.
  *
  * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/ebnf">EBNF library</a></p>
+ * <a href="https://github.com/Weltraumschaf/jebnf">EBNF library</a></p>
  *
  * <h2>Contents</h2>
  *

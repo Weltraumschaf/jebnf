@@ -6,13 +6,13 @@
  * As long as you retain this notice you can do whatever you want with
  * this stuff. If we meet some day, and you think this stuff is worth it,
  * you can buy me a beer in return.
- * 
+ *
  */
 
 /**
  * Root package.
  *
  * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/ebnf">EBNF library</a></p>
+ * <a href="https://github.com/Weltraumschaf/jebnf">EBNF library</a></p>
  */
 package de.weltraumschaf.jebnf;
