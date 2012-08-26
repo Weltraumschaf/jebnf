@@ -9,10 +9,18 @@
  *
  */
 
-/**
- * Command line related package.
- *
- * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
- */
 package de.weltraumschaf.jebnf.cli;
+
+/**
+ * Interface to describe command pattern.
+ *
+ * @author Sven Strittmatter <weltraumschaf@googlemail.com>
+ */
+public interface Invokeable {
+
+    /**
+     * Executable command method.
+     */
+    void run();
+
+}

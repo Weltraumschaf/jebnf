@@ -12,6 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.EbnfException;
+import java.io.InputStream;
 import java.io.PrintStream;
 import org.apache.commons.cli.ParseException;
 import static org.junit.Assert.*;
@@ -24,19 +25,21 @@ import static org.mockito.Mockito.*;
  */
 public class InvokerTest {
 
+    private final IOStreams ioStreams = new IOStreams(mock(InputStream.class), mock(PrintStream.class), mock(PrintStream.class));
+
     @Test public void println() {
-        final PrintStream out = mock(PrintStream.class);
-        final Invoker sut = new Invoker(new String[]{"foo"}, out);
+        final Invoker sut = new Invoker(new String[]{"foo"}, ioStreams);
         final String msg = "some text";
         sut.println(msg);
-        verify(out, times(1)).println(msg);
+        verify(ioStreams.getStdout(), times(1)).println(msg);
     }
 
     @Test public void parseOptions() throws EbnfException, ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"-d", "-h"};
-        final Invoker sut = new Invoker(args, mock(PrintStream.class), options);
-        final CliOptions parsedOptions = sut.parseOptions();
+        final Invoker sut = new Invoker(args, ioStreams, options);
+        sut.parseOptions();
+        final CliOptions parsedOptions = sut.getOptions();
         assertSame(options, parsedOptions);
         verify(options, times(1)).parse(args);
     }
@@ -44,7 +47,7 @@ public class InvokerTest {
     @Test public void parseOptionsWithPArseError() throws ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"foo"};
-        final Invoker sut = new Invoker(args, mock(PrintStream.class), options);
+        final Invoker sut = new Invoker(args, ioStreams, options);
         final ParseException throwed = new ParseException("foobar");
         doThrow(throwed).when(options).parse(args);
 

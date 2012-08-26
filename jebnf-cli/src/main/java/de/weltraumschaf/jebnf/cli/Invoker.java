@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.EbnfException;
@@ -11,78 +22,143 @@ import de.weltraumschaf.jebnf.parser.SyntaxException;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.PrintStream;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
 /**
- * Main application class.
+ * Main class.
+ *
+ * Invokes {@link Invokeable "applications"}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class Invoker {
 
-    // CHECKSTYLE:OFF
-    private static final PrintStream DEFAULT_OUT = System.out;
-    // CHECKSTYLE:ON
+    /**
+     * Default IO streams.
+     */
+    private static final IOStreams DEFAULT_IO = new IOStreams(System.in, System.out, System.err);
+
+    /**
+     * Default command line options.
+     */
     private static final CliOptions DEFAULT_OPTIONS = new CliOptions();
 
-    private final PrintStream stdOut;
+    /**
+     * Holds the IO streams (stdin, stdout, stderr).
+     */
+    private final IOStreams ioStreams;
+
+    /**
+     * Command line arguments from the JVM.
+     */
     private final String[] args;
+
+    /**
+     * Current command line options.
+     */
     private final CliOptions options;
 
-    private Invoker() {
-        this(new String[]{});
-    }
-
+    /**
+     * Initializes object with {@link #DEFAULT_IO}.
+     *
+     * @param args Command line arguments.
+     */
     protected Invoker(final String[] args) {
-        this(args, DEFAULT_OUT);
+        this(args, DEFAULT_IO);
     }
 
-    protected Invoker(final String[] args, final PrintStream stdOut) {
-        this(args, stdOut, DEFAULT_OPTIONS);
+    /**
+     * Initializes object with {@link #DEFAULT_OPTIONS}.
+     *
+     * @param args Command line arguments.
+     * @param ioStreams IO streams.
+     */
+    protected Invoker(final String[] args, IOStreams ioStreams) {
+        this(args, ioStreams, DEFAULT_OPTIONS);
     }
 
-    protected Invoker(final String[] args, final PrintStream stdOut, final CliOptions options) {
+    /**
+     * Dedicated constructor.
+     *
+     * @param args Command line arguments.
+     * @param ioStreams IO streams.
+     * @param options Command line options.
+     */
+    protected Invoker(final String[] args, final IOStreams ioStreams, final CliOptions options) {
         super();
-        this.args    = args.clone();
-        this.stdOut  = stdOut;
-        this.options = options;
+        this.args      = args;
+        this.ioStreams = ioStreams;
+        this.options   = options;
     }
 
+    /**
+     * Invoked by the JVM.
+     *
+     * @param args Command line arguments.
+     */
     public static void main(final String[] args) {
-        final Invoker app = new Invoker(args);
-        app.run();
+        new Invoker(args).run();
     }
 
+    /**
+     * Exits the application with given exit code.
+     *
+     * @param code Exit code.
+     */
     private static void exit(final ExitCode code) {
         exit(code.getCode());
     }
 
+    /**
+     * Exits the application with given exit code.
+     *
+     * @param code Exit code.
+     */
     private static void exit(final int code) {
         System.exit(code);
     }
 
+    /**
+     * Prints line to STDOUT.
+     *
+     * @param str String to print.
+     */
     protected void println(final String str) {
-        stdOut.println(str);
+        ioStreams.getStdout().println(str);
     }
 
-    protected CliOptions parseOptions() throws EbnfException {
+    /**
+     * Prints line to STDERR.
+     *
+     * @param str String to print.
+     */
+    protected void printlnErr(final String str) {
+        ioStreams.getStderr().println(str);
+    }
+
+
+    /**
+     * Parse the command line options.
+     *
+     * @throws EbnfException On command line parse errors.
+     */
+    protected void parseOptions() throws EbnfException {
         try {
             options.parse(args);
         } catch (ParseException ex) {
             throw new EbnfException(ex.getMessage(), 1, ex);
         }
-
-        return options;
     }
 
+    /**
+     * Runs the application.
+     *
+     * Parse options, determine to show help. Then executes either {@link CliApp} or {@link GuiApp}.
+     */
     private void run() {
-        boolean debug = false;
-
         try {
             parseOptions();
-            debug = options.isDebug();
 
             if (options.isHelp()) {
                 options.format(new HelpFormatter());
@@ -90,30 +166,33 @@ public final class Invoker {
             }
 
             if (options.isIde()) {
-                runGuiIde(options);
+                runGuiIde();
             } else {
-                runCliApp(options);
+                runCliApp();
             }
         } catch (EbnfException ex) {
-            println(ex.getMessage());
+            printlnErr(ex.getMessage());
 
-            if (debug) {
-                ex.printStackTrace(System.out);
+            if (options.isDebug()) {
+                ex.printStackTrace(ioStreams.getStdout());
             }
 
             exit(ex.getCode());
-        } catch (Exception ex) { //NOPMD
-            println("Fatal error!");
+        } catch (Exception ex) { // NOPMD Catch all exceptions!
+            printlnErr("Fatal error!");
 
-            if (debug) {
-                ex.printStackTrace(System.out);
+            if (options.isDebug()) {
+                ex.printStackTrace(ioStreams.getStdout());
             }
 
             exit(ExitCode.FATAL_ERROR);
         }
     }
 
-    private void runCliApp(final CliOptions options) {
+    /**
+     * Runs the command line application.
+     */
+    private void runCliApp() {
         if (!options.hasSyntaxFile()) {
             println("No syntax file given!");
             exit(ExitCode.NO_SYNTAX);
@@ -131,26 +210,26 @@ public final class Invoker {
                 println(visitor.getText());
             }
         } catch (SyntaxException ex) {
-            println("Syntax error: " + ex.getMessage());
+            printlnErr("Syntax error: " + ex.getMessage());
 
             if (options.isDebug()) {
-                ex.printStackTrace(System.out);
+                ex.printStackTrace(ioStreams.getStdout());
             }
 
             exit(ExitCode.SYNTAX_ERROR);
         } catch (FileNotFoundException ex) {
-            println(String.format("Can not read syntax file '%s'!", fileName));
+            printlnErr(String.format("Can not read syntax file '%s'!", fileName));
 
             if (options.isDebug()) {
-                ex.printStackTrace(System.out);
+                ex.printStackTrace(ioStreams.getStdout());
             }
 
             exit(ExitCode.READ_ERROR);
         } catch (IOException ex) {
-            println(String.format("Can not read syntax file '%s'!", fileName));
+            printlnErr(String.format("Can not read syntax file '%s'!", fileName));
 
             if (options.isDebug()) {
-                ex.printStackTrace(System.out);
+                ex.printStackTrace(ioStreams.getStdout());
             }
 
             exit(ExitCode.READ_ERROR);
@@ -159,7 +238,20 @@ public final class Invoker {
         exit(ExitCode.OK);
     }
 
-    private void runGuiIde(final CliOptions options) {
+    /**
+     * Runs the GUI application.
+     */
+    private void runGuiIde() {
         GuiApp.main(options.isDebug());
     }
+
+    /**
+     * Get the parsed command line options.
+     *
+     * @return Parsed and set options object.
+     */
+    public CliOptions getOptions() {
+        return options;
+    }
+
 }

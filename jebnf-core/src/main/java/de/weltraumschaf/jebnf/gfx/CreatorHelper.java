@@ -22,7 +22,7 @@ import java.awt.Graphics2D;
 /**
  * Helper to create some diagrams for debugging and development.
  *
- * @deprecated Will be removed.
+ * @deprecated Will be removed. Only used for development.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 @Deprecated

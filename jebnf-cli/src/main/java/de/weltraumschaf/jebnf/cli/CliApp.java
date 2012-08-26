@@ -16,27 +16,52 @@ import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagramImage;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 
 /**
+ * Command line application.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CliApp {
+public class CliApp implements Invokeable {
 
+    /**
+     * Default width in pixel.
+     */
     private static final int WIDTH = 800;
+
+    /**
+     * Default height in pixel.
+     */
     private static final int HEIGHT = 600;
 
-    private final PrintStream stdOut;
+    /**
+     * IO Streams
+     */
+    private final IOStreams ioStreams;
+
+    /**
+     * Helper to create diagrams.
+     */
     private final CreatorHelper helper = new CreatorHelper();
+
+    /**
+     * Command line options.
+     */
     private final CliOptions options;
 
-    public CliApp(final CliOptions options, final PrintStream stdOut) {
-        this.options = options;
-        this.stdOut = stdOut;
+    /**
+     * Initializes app with options and IO streams.
+     *
+     * @param options Command line options
+     * @param streams IO streams.
+     */
+    public CliApp(final CliOptions options, final IOStreams streams) {
+        this.options   = options;
+        this.ioStreams = streams;
     }
 
-    public void execute() {
+    @Override
+    public void run() {
         final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, new File("./test.png"));
         final RailroadDiagram diagram = helper.createDiagram(img.getGraphics());
         diagram.setDebug(options.isDebug());
@@ -46,7 +71,7 @@ public class CliApp {
         try {
             img.save();
         } catch (IOException ex) {
-            stdOut.println("Can't write file!");
+            ioStreams.getStderr().println("Can't write file!");
         }
     }
 

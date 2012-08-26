@@ -109,6 +109,6 @@ public class CliOptionsTest {
         final HelpFormatter formatter = mock(HelpFormatter.class);
         final CliOptions options = new CliOptions();
         options.format(formatter);
-        verify(formatter, times(1)).printHelp("ebnf", options.options);
+        verify(formatter, times(1)).printHelp("jebnf", options.getOptions());
     }
 }
