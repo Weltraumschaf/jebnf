@@ -15,6 +15,9 @@ import static de.weltraumschaf.jebnf.parser.CharacterHelper.*;
 import java.io.IOException;
 
 /**
+ * Utilities for scanning tokens.
+ *
+ * TODO Methods should accept {@link Scanner} instead of {@link EbnfScanner}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -25,12 +28,19 @@ final class EbnfScannerHelper {
      */
     private static final char[] SPECIAL_CHARS =  {'-', '_'};
 
-    private EbnfScannerHelper() { }
+    /**
+     * Private constructor for pure static utility class.
+     */
+    private EbnfScannerHelper() {
+        super();
+    }
 
     /**
      * Scans an identifier [a-zA-Z\-_].
      *
-     * @return
+     * @param scanner Scanner to get characters from.
+     * @return Return scanned identifier token.
+     * @throws IOException On input stream IO errors.
      */
     public static Token scanIdentifier(final EbnfScanner scanner) throws IOException {
         final Position position = scanner.createPosition();
@@ -55,7 +65,9 @@ final class EbnfScannerHelper {
     /**
      * Scans a literal (any character inside single or double quotes.
      *
-     * @return
+     * @param scanner Scanner to get characters from.
+     * @return Return scanned literal token.
+     * @throws IOException On input stream IO errors.
      */
     public static Token scanLiteral(final EbnfScanner scanner) throws IOException {
         final Position position = scanner.createPosition();
@@ -79,7 +91,9 @@ final class EbnfScannerHelper {
     /**
      * Scans a comment (any character inside '(*' and '*)'.
      *
-     * @return
+     * @param scanner Scanner to get characters from.
+     * @return Return scanned comment token.
+     * @throws IOException On input stream IO errors.
      */
     public static Token scanComment(final EbnfScanner scanner) throws IOException {
         final Position postition = scanner.createPosition();
@@ -105,7 +119,9 @@ final class EbnfScannerHelper {
     /**
      * Scans an operator.
      *
-     * @return
+     * @param scanner Scanner to get characters from.
+     * @return Return scanned operator token.
+     * @throws IOException On input stream IO errors.
      */
     public static Token scanOperator(final EbnfScanner scanner) throws SyntaxException, IOException {
         final Position position   = scanner.createPosition();
@@ -156,6 +172,20 @@ final class EbnfScannerHelper {
         return new Token(type, value.toString(), position);
     }
 
+    /**
+     * Scans all operators beginning with ':' character.
+     *
+     * Colon operators are: ':' and ':=='.
+     *
+     * TODO Parameter peek may be removed and obtained from scanner inside the method.
+     *
+     * @param peek    Peeked character.
+     * @param scanner Scanner to get characters from.
+     * @param value   Operator token as string.
+     * @return Return type of token.
+     * @throws SyntaxException On syntax errors.
+     * @throws IOException On input stream IO errors.
+     */
     private static TokenType scanColonOperator(final char peek, final EbnfScanner scanner,
                                                final StringBuilder value) throws SyntaxException,
                                                                                  IOException {
@@ -180,6 +210,19 @@ final class EbnfScannerHelper {
         return type;
     }
 
+    /**
+     * Scans all operators beginning with .:' character.
+     *
+     * Colon operators are: '.' and '..'.
+     *
+     * TODO Parameter peek may be removed and obtained from scanner inside the method.
+     *
+     * @param peek Peeked character.
+     * @param scanner Scanner to get characters from.
+     * @param value Operator token as string.
+     * @return Return type of token.
+     * @throws IOException On input stream IO errors.
+     */
     private static TokenType scanDotOperator(final char peek, final EbnfScanner scanner,
                                              final StringBuilder value) throws IOException {
         TokenType type;
@@ -191,6 +234,7 @@ final class EbnfScannerHelper {
         } else {
             type = TokenType.END_OF_RULE;
         }
+
         return type;
     }
 

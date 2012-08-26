@@ -1,5 +1,17 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.parser;
 
+import com.google.common.collect.Lists;
 import static de.weltraumschaf.jebnf.parser.CharacterHelper.*;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,6 +56,7 @@ public class EbnfScanner implements Scanner {
      * The input stream to read from.
      */
     private final Reader input;
+
     /**
      * The file name associated with the input.
      *
@@ -53,30 +66,37 @@ public class EbnfScanner implements Scanner {
      * This may be null, if a StringReader buffer is supplied!
      */
     private final String file;
+
     /**
      * Holds all scanned tokens.
      */
-    private final List<Token> tokens;
+    private final List<Token> tokens = Lists.newArrayList();
+
     /**
      * Holds all read characters.
      */
-    private final StringBuilder buffer;
+    private final StringBuilder buffer = new StringBuilder();
+
     /**
      * Current scanner position in buffer string.
      */
     private int currentCharacter;
+
     /**
      * Index of current token in token list.
      */
     private int currentToken;
+
     /**
      * Current column in source.
      */
     private int column;
+
     /**
      * Current line in source.
      */
     private int line;
+
     /**
      * True if end of file reached.
      */
@@ -98,15 +118,13 @@ public class EbnfScanner implements Scanner {
      * @param fileName    The file name associated with the scanned source.
      */
     public EbnfScanner(final Reader inputStream, final String fileName) {
-        this.input = inputStream;
-        this.file  = fileName;
-        currentCharacter = -1;
-        currentToken     = -1;
-        column = 0;
-        line   = 1;
-        tokens = new ArrayList<Token>();
-        buffer = new StringBuilder();
-        atEof  = false;
+        super();
+        this.input            = inputStream;
+        this.file             = fileName;
+        this.currentCharacter = -1;
+        this.currentToken     = -1;
+        this.column           = 0;
+        this.line             = 1;
     }
 
     /**
@@ -173,8 +191,6 @@ public class EbnfScanner implements Scanner {
 
     /**
      * Decrements the character cursor.
-     *
-     * @return
      */
     void backupCharacter() {
         currentCharacter--;
@@ -184,7 +200,8 @@ public class EbnfScanner implements Scanner {
     /**
      * Returns next character without advancing the cursor.
      *
-     * @return
+     * @return Returns peeked character.
+     * @throws IOException On IO errors of scanned source.
      */
     char peekCharacter() throws IOException {
         char character = EOF;
@@ -200,8 +217,8 @@ public class EbnfScanner implements Scanner {
 
     /**
      * Throws a {SyntaxException} with the current {Position} in the input stream.
-     * @param msg Error message string.
      *
+     * @param msg Describes raised error..
      * @throws SyntaxException On syntax errors.
      */
     void raiseError(final String msg) throws SyntaxException {
@@ -211,7 +228,7 @@ public class EbnfScanner implements Scanner {
     /**
      * Creates a {Position} from the current line and column in the input stream.
      *
-     * @return
+     * @return Return always new instance.
      */
     Position createPosition() {
         return new Position(line, column, file);
@@ -222,7 +239,7 @@ public class EbnfScanner implements Scanner {
      *
      * May be null if never {@link Scanner#nextToken()} was called.
      *
-     * @return
+     * @return Returns always same instance until the current token is advanced by {@link #nextToken()}.
      */
     @Override
     public Token getCurrentToken() {
@@ -234,9 +251,9 @@ public class EbnfScanner implements Scanner {
     }
 
     /**
-     * Returns one token backwards from the actual token.
+     * Returns one token backwards from the current token w/o changing the {@link #currentToken() current token}.
      *
-     * @return
+     * @return Backtracked token.
      */
     @Override
     public Token backtrackToken() {
@@ -244,10 +261,11 @@ public class EbnfScanner implements Scanner {
     }
 
     /**
-     * Returns the nth token backwards from the actual token.
+     * Returns the nth token backwards from the current token w/o changing the {@link #currentToken() current token}.
+     *
+     * TODO: Should change the current token and return void, to satisfy common scanning patterns.
      *
      * @param count How many tokens to backtrack.
-     *
      * @return The backtracked token.
      */
     @Override
@@ -271,7 +289,7 @@ public class EbnfScanner implements Scanner {
      * was called. No more tokens are indicated if the current token is
      * of type {@link TokenType#EOF}.
      *
-     * @return
+     * @return True if {@link #nextToken()} will advance one more token.
      */
     @Override
     public boolean hasNextToken() {
@@ -287,7 +305,7 @@ public class EbnfScanner implements Scanner {
      *
      * A call to {@link Scanner#nextToken()} will return this token ahead.
      *
-     * @return
+     * @return Return peeked token.
      * @throws SyntaxException On syntax errors.
      * @throws IOException     On input stream IO errors.
      */
@@ -307,7 +325,7 @@ public class EbnfScanner implements Scanner {
     /**
      * Start the scanning of the next token.
      *
-     * This method should be called until {hasNextToken()} returns false.
+     * This method should be called until {@link #hasNextToken()} returns false.
      *
      * @throws SyntaxException On syntax errors.
      * @throws IOException     On input stream IO errors.
@@ -327,6 +345,14 @@ public class EbnfScanner implements Scanner {
         processToken();
     }
 
+    /**
+     * Processes a token lexically.
+     *
+     * This method performs the lexical analysis of input characters to recognize EBNF tokens.
+     *
+     * @throws SyntaxException On syntax errors.
+     * @throws IOException     On input stream IO errors.
+     */
     private void processToken() throws SyntaxException, IOException {
         while (hasNextCharacter()) {
             nextCharacter();
@@ -365,8 +391,6 @@ public class EbnfScanner implements Scanner {
     /**
      * Checks if the current character is a new line character (\n or \r)
      * and if it is increments the line counter and resets the column counter to 0.
-     *
-     * @return
      */
     void checkNewline() {
         if ('\n' == getCurrentCharacter() || '\r' == getCurrentCharacter()) {
@@ -376,12 +400,13 @@ public class EbnfScanner implements Scanner {
     }
 
     /**
-     * Closes the {@link BufferedReader}.
+     * Closes the {@link #input "input reader"}.
      *
-     * @throws IOException
+     * @throws IOException On input stream IO errors.
      */
     @Override
     public void close() throws IOException {
         input.close();
     }
+
 }

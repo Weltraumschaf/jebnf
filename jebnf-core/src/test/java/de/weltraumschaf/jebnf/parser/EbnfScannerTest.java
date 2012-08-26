@@ -112,11 +112,13 @@ public class EbnfScannerTest {
         assertNull(scanner.getFile());
     }
 
-    @Test public void testNext() throws Exception { //NOPMD
+    @Test public void testNextOnemptySource() throws Exception {
         Scanner scanner = Factory.newScanner(new StringReader(""));
         assertNull(scanner.getCurrentToken());
         assertNull(scanner.getCurrentToken());
+    }
 
+    @Test public void testNextOnRulesWithRanges() throws Exception {
         assertTokens(helper().createScannerFromFixture("parser/rules_with_ranges.ebnf"), Arrays.asList(
                 new Expectation("\"Rules with ranges.\"", TokenType.LITERAL, 1, 1),
                 new Expectation("{", TokenType.L_BRACE, 1, 22),
@@ -150,7 +152,9 @@ public class EbnfScannerTest {
                 new Expectation(";", TokenType.END_OF_RULE, 5, 41),
                 new Expectation("}", TokenType.R_BRACE, 6, 1),
                 new Expectation(null, TokenType.EOF, 6, 1)), "Rules with range.");
+    }
 
+    @Test public void testNextOnRulesWithComments() throws Exception {
         assertTokens(helper().createScannerFromFixture("parser/rules_with_comments.ebnf"), Arrays.asList(
             new Expectation("\"Rules with comments.\"", TokenType.LITERAL,    1, 1),
             new Expectation("{",       TokenType.L_BRACE,   1, 24),
@@ -182,7 +186,9 @@ public class EbnfScannerTest {
             new Expectation("}",       TokenType.R_BRACE, 8, 1),
             new Expectation(null,      TokenType.EOF,     8, 1)
         ), "Rule with comment.");
+    }
 
+    @Test public void testNextOnRulesWithDifferentAssignemnts() throws Exception {
         assertTokens(helper().createScannerFromFixture("parser/rules_with_different_assignment_ops.ebnf"),
             Arrays.asList(
                 new Expectation("\"Rules with different assignment operators.\"",
@@ -208,7 +214,9 @@ public class EbnfScannerTest {
                 new Expectation(null,       TokenType.EOF,        5, 1)
             ),
         "Assignemnt operators.");
+    }
 
+    @Test public void testNextOnRulesWithLiterals() throws Exception {
         assertTokens(helper().createScannerFromFixture("parser/rules_with_literals.ebnf"),
             Arrays.asList(
                 new Expectation("\"Rules with literal.\"", TokenType.LITERAL,    1, 1),
@@ -236,7 +244,9 @@ public class EbnfScannerTest {
                 new Expectation(null,        TokenType.EOF,        4, 1)
             ),
         "Rules with literal.");
+    }
 
+    @Test public void testNextOnTestgrammar_1() throws Exception {
         assertTokens(helper().createScannerFromFixture("parser/testgrammar_1.ebnf"), Arrays.asList(
             new Expectation("\"EBNF defined in itself.\"",   TokenType.LITERAL, 1, 1),
             new Expectation("{",          TokenType.L_BRACE,   1,  27),
@@ -371,8 +381,10 @@ public class EbnfScannerTest {
             new Expectation("}",          TokenType.R_BRACE,   21, 1),
             new Expectation(null,           TokenType.EOF,        21, 1)
         ), "testgrammar_1.ebnf");
+    }
 
-        scanner = Factory.newScanner(new StringReader("\ncomment := literal .\n"));
+    @Test public void testThrowSyntaxExceptionOnBadAssignmentOperator() throws Exception {
+        final Scanner scanner = Factory.newScanner(new StringReader("\ncomment := literal .\n"));
 
         try {
             while (scanner.hasNextToken()) {
@@ -444,4 +456,5 @@ public class EbnfScannerTest {
         token = scanner.getCurrentToken();
         assertEquals(TokenType.EOF, token.getType());
     }
+
 }

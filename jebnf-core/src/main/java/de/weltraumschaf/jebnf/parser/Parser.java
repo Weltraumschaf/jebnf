@@ -21,5 +21,13 @@ import java.io.IOException;
  */
 public interface Parser {
 
+    /**
+     * Parse the token stream.
+     *
+     * @return Parsed syntax tree.
+     * @throws SyntaxException On parse or scan errors.
+     * @throws IOException On source input io errors.
+     */
     Syntax parse() throws SyntaxException, IOException;
+
 }

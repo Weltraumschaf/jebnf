@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.parser;
 
 /**
@@ -14,10 +25,12 @@ public class Position {
      * File of the source string.
      */
     private String file;
+
     /**
      * Line of occurrence.
      */
     private int line;
+
     /**
      * Column of occurrence.
      */
@@ -40,7 +53,7 @@ public class Position {
      *
      * @param line Line of occurrence.
      * @param column Column of occurrence.
-     * @param file Optional file name.
+     * @param file Optional file name. Not used for IO, only for informative purpose.
      */
     public Position(final int line, final int column, final String file) {
         this.line   = line;
@@ -90,8 +103,8 @@ public class Position {
             str.append(getFile()).append(' ');
         }
 
-        str.append('(').append(getLine()).append(", ").append(getColumn()).append(')');
-
+        str.append(String.format("(%s, %s)", getLine(), getColumn()));
         return str.toString();
     }
+
 }

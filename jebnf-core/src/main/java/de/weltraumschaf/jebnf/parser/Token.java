@@ -1,4 +1,18 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.parser;
+
+import com.google.common.collect.Lists;
+import java.util.List;
 
 /**
  * Represents a scanned EBNF token with its type, value and position in the source file.
@@ -15,6 +29,22 @@ public class Token {
      * @see #toString()
      */
     private static final int MAX_VALUE_LENGTH = 15;
+
+    /**
+     * All operator token types.
+     */
+    private static final List<TokenType> OPERATOR_TYPES = Lists.newArrayList(
+        TokenType.ASIGN,
+        TokenType.CHOICE,
+        TokenType.END_OF_RULE,
+        TokenType.RANGE,
+        TokenType.L_BRACE,
+        TokenType.L_BRACK,
+        TokenType.L_PAREN,
+        TokenType.R_BRACE,
+        TokenType.R_BRACK,
+        TokenType.R_PAREN
+    );
 
     /**
      * One of the class constants.
@@ -128,7 +158,7 @@ public class Token {
 
         str.append(type).append(", ").append(position).append('>');
         return str.toString();
-    }
+    };
 
     /**
      * Returns whether the token is of an operator type or not.
@@ -136,21 +166,7 @@ public class Token {
      * @return True or false.
      */
     public final boolean isOperator() {
-        switch (type) { // NOPMD
-            case ASIGN:
-            case CHOICE:
-            case END_OF_RULE:
-            case RANGE:
-            case L_BRACE:
-            case L_BRACK:
-            case L_PAREN:
-            case R_BRACE:
-            case R_BRACK:
-            case R_PAREN:
-                return true;
-            default:
-                return false;
-        }
+        return OPERATOR_TYPES.contains(type);
     }
 
     /**

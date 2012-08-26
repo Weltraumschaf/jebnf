@@ -30,6 +30,7 @@ public final class ReferenceGrammar {
      * Shared instance.
      */
     private static final ReferenceGrammar INSTANCE = new ReferenceGrammar();
+
     /**
      * Holds the AST {@ink de.weltraumschaf.ebnf.ast.nodes.Syntax syntax}
      * node for the reference grammar for reuse.
@@ -39,14 +40,16 @@ public final class ReferenceGrammar {
     private Syntax syntax;
 
     /**
-     * Not instantiated from outside.
+     * Not instantiated from outside, because pure static utility class.
      */
-    private ReferenceGrammar() { }
+    private ReferenceGrammar() {
+        super();
+    }
 
     /**
      * Returns an immutable reference grammar instance.
      *
-     * @return
+     * @return Return always the same instance.
      */
     public static ReferenceGrammar getInstance() {
         return INSTANCE;
@@ -55,32 +58,32 @@ public final class ReferenceGrammar {
     /**
      * Returns the reference grammar as string.
      *
-     * @return
+     * @return Return parsable grammar source string.
      */
     @Override
     public String toString() {
-        return "\"EBNF defined in itself.\" {\n"
-             + "    syntax     = [ title ] \"{\" { rule } \"}\" [ comment ] .\n"
-             + "    rule       = identifier ( \"=\" | \":\" | \":==\" ) expression ( \".\" | \";\" ) .\n"
-             + "    expression = term { \"|\" term } .\n"
-             + "    term       = factor { factor } .\n"
-             + "    factor     = identifier\n"
-             + "               | literal\n"
-             + "               | range\n"
-             + "               | \"[\" expression \"]\"\n"
-             + "               | \"(\" expression \")\"\n"
-             + "               | \"{\" expression \"}\" .\n"
-             + "    identifier = character { character } .\n"
-             + "    range      = character \"..\" character .\n"
-             + "    title      = literal .\n"
-             + "    comment    = literal .\n"
-             + "    literal    = \"\'\" character { character } \"\'\"\n"
-             + "               | \'\"\' character { character } \'\"\' .\n"
+        return String.format("\"EBNF defined in itself.\" {%n"
+             + "    syntax     = [ title ] \"{\" { rule } \"}\" [ comment ] .%n"
+             + "    rule       = identifier ( \"=\" | \":\" | \":==\" ) expression ( \".\" | \";\" ) .%n"
+             + "    expression = term { \"|\" term } .%n"
+             + "    term       = factor { factor } .%n"
+             + "    factor     = identifier%n"
+             + "               | literal%n"
+             + "               | range%n"
+             + "               | \"[\" expression \"]\"%n"
+             + "               | \"(\" expression \")\"%n"
+             + "               | \"{\" expression \"}\" .%n"
+             + "    identifier = character { character } .%n"
+             + "    range      = character \"..\" character .%n"
+             + "    title      = literal .%n"
+             + "    comment    = literal .%n"
+             + "    literal    = \"\'\" character { character } \"\'\"%n"
+             + "               | \'\"\' character { character } \'\"\' .%n"
 // Ranges not implemented yet.
-//             + "    character  = \"a\" .. \"z\"\n"
-//             + "               | \"A\" .. \"Z\"\n"
-//             + "               | \"0\" .. \"9\" .\n"
-             + "}";
+//             + "    character  = \"a\" .. \"z\"%n"
+//             + "               | \"A\" .. \"Z\"%n"
+//             + "               | \"0\" .. \"9\" .%n"
+             + "}");
     }
 
     /**
@@ -96,11 +99,12 @@ public final class ReferenceGrammar {
             try {
                 syntax = parser.parse();
             } catch (IOException ex) {
-                // This should bever hapen because we read from the string above.
+                // This should never hapen because we read from the string above, which must be parsable.
                 Logger.getLogger(ReferenceGrammar.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
         return syntax;
     }
+
 }

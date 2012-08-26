@@ -1,4 +1,17 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <ich(at)weltraumschaf(dot)de> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
 package de.weltraumschaf.jebnf.parser;
+
+import com.google.common.collect.Lists;
+import java.util.List;
 
 /**
  * Helper methods for the scanner.
@@ -7,15 +20,28 @@ package de.weltraumschaf.jebnf.parser;
  */
 public final class CharacterHelper {
 
-    private CharacterHelper() { }
+    /**
+     * EBNF operators.
+     */
+    private static final List<Character> OPERATORS = Lists.newArrayList('(', ')', '[', ']', '{',
+        '}', '=', '.', ';', '|', ',', '-', ':');
+
+    /**
+     * Private constructor for pure static utility class.
+     */
+    private CharacterHelper() {
+        super();
+    }
 
     /**
      * Checks whether a character is inside a given character range (included).
      *
+     * Throws IllegalArgumentException if end is less than start.
+     *
      * @param character Character to check.
-     * @param start     Including range.
-     * @param end       Including range.
-     * @return
+     * @param start Including range.
+     * @param end Including range.
+     * @return Return true if character is in range, unless false.
      */
     public static boolean isCharInRange(final char character, final char start, final char end) {
         if (end < start) {
@@ -26,11 +52,10 @@ public final class CharacterHelper {
     }
 
     /**
-     * Checks whether a character is a alpha [a-zA-Z].
+     * Checks whether a character is a letter [a-zA-Z].
      *
      * @param character A single character.
-     *
-     * @return
+     * @return Return true if character is a letter, unless false.
      */
     public static boolean isAlpha(final char character) {
         return isCharInRange(character, 'a', 'z') || isCharInRange(character, 'A', 'Z');
@@ -41,7 +66,7 @@ public final class CharacterHelper {
      *
      * @param character A single character.
      *
-     * @return
+     * @return Return true if character is a number, unless false.
      */
     public static boolean isNum(final char character) {
         return isCharInRange(character, '0', '9');
@@ -52,7 +77,7 @@ public final class CharacterHelper {
      *
      * @param character A single character.
      *
-     * @return
+     * @return Return true if character is a letter or number, unless false.
      */
     public static boolean isAlphaNum(final char character) {
         return isAlpha(character) || isNum(character);
@@ -62,36 +87,19 @@ public final class CharacterHelper {
      * Checks whether a character is a operator.
      *
      * @param character A single character.
-     *
-     * @return
+     * @return Return true if character is an EBNF operator, unless false.
      */
     public static boolean isOperator(final char character) {
-        switch (character) { // NOPMD
-            case '{':
-            case '}':
-            case '(':
-            case ')':
-            case '[':
-            case ']':
-            case ',':
-            case ';':
-            case '.':
-            case ':':
-            case '|':
-            case '=':
-            case '-':
-                return true;
-            default:
-                return false;
-        }
+        return OPERATORS.contains(character);
     }
 
     /**
      * Checks whether a character is a whitespace.
      *
-     * @param character A single character.
+     * White spaces are \t, \n, \r, and ' '.
      *
-     * @return
+     * @param character A single character.
+     * @return Return true if character is a whitespace character, unless false.
      */
     public static boolean isWhiteSpace(final char character) {
         return ' ' == character || '\t' == character || '\n' == character || '\r' == character;
@@ -101,20 +109,18 @@ public final class CharacterHelper {
      * Checks whether a character is a quote ["|'].
      *
      * @param character A single character.
-     *
-     * @return
+     * @return Return true if character is a single or double quote character, unless false.
      */
     public static boolean isQuote(final char character) {
         return '\'' == character || '"' == character;
     }
 
     /**
-     * Tests a given character if it is equal to ona of the passed test characters.
+     * Tests a given character if it is equal to one of the passed test characters.
      *
-     * @param character     Character to test.
+     * @param character Character to test.
      * @param characters Array of characters to test against.
-     *
-     * @return
+     * @return Return true if character is characters array, unless false.
      */
     public static boolean isEquals(final char character, final char[] characters) {
         for (int i = 0; i < characters.length; ++i) {

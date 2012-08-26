@@ -12,18 +12,24 @@
 package de.weltraumschaf.jebnf.parser;
 
 /**
+ * Helper clas to deal wih strings.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class StringHelper {
 
-    private StringHelper() { }
+    /**
+     * Private constructor for pure static utility class.
+     */
+    private StringHelper() {
+        super();
+    }
 
     /**
      * Remove leading and trailing quotes from a string.
      *
      * @param str String to unquote.
-     * @return     Unquoted string.
+     * @return     Return unquoted string.
      */
     public static String unquoteString(final String str) {
         int start = 0;
@@ -39,4 +45,5 @@ public final class StringHelper {
 
         return str.substring(start, length);
     }
+
 }
