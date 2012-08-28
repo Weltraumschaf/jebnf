@@ -4,10 +4,9 @@
  */
 package de.weltraumschaf.jebnf.cli;
 
-import java.io.InputStream;
-import java.io.PrintStream;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 /**
  *
@@ -30,6 +29,18 @@ public class IOStreamsTest {
     @Test
     public void testGetStdout() {
         assertSame(System.out, streams.getStdout());
+    }
+
+    @Test public void println() {
+        final String msg = "some text";
+        streams.println(msg);
+        verify(streams.getStdout(), times(1)).println(msg);
+    }
+
+    @Test public void printlnErr() {
+        final String msg = "some text";
+        streams.printlnErr(msg);
+        verify(streams.getStderr(), times(1)).println(msg);
     }
 
 }

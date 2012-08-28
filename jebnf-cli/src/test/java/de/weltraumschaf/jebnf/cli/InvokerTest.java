@@ -27,20 +27,6 @@ public class InvokerTest {
 
     private final IOStreams ioStreams = new IOStreams(mock(InputStream.class), mock(PrintStream.class), mock(PrintStream.class));
 
-    @Test public void println() {
-        final Invoker sut = new Invoker(new String[]{"foo"}, ioStreams);
-        final String msg = "some text";
-        sut.println(msg);
-        verify(ioStreams.getStdout(), times(1)).println(msg);
-    }
-
-    @Test public void printlnErr() {
-        final Invoker sut = new Invoker(new String[]{"foo"}, ioStreams);
-        final String msg = "some text";
-        sut.printlnErr(msg);
-        verify(ioStreams.getStderr(), times(1)).println(msg);
-    }
-
     @Test public void parseOptions() throws EbnfException, ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"-d", "-h"};

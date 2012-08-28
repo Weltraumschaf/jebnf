@@ -84,4 +84,32 @@ public final class IOStreams {
     public static IOStreams newDefault() {
         return new IOStreams(System.in, System.out, System.err);
     }
+
+    /**
+     * Prints exception stack trace to {@link System#err}.
+     *
+     * @param ex Exception to print.
+     */
+    public void printStackTraceToStdErr(Exception ex) {
+        ex.printStackTrace(getStderr());
+    }
+
+    /**
+     * Prints line to STDERR.
+     *
+     * @param str String to print.
+     */
+    public void printlnErr(final String str) {
+        getStderr().println(str);
+    }
+
+    /**
+     * Prints line to STDOUT.
+     *
+     * @param str String to print.
+     */
+    public void println(final String str) {
+        getStdout().println(str);
+    }
+
 }

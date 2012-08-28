@@ -11,10 +11,17 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import de.weltraumschaf.jebnf.ExitCode;
+import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree;
 import de.weltraumschaf.jebnf.gfx.CreatorHelper;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagramImage;
+import de.weltraumschaf.jebnf.parser.Factory;
+import de.weltraumschaf.jebnf.parser.Parser;
+import de.weltraumschaf.jebnf.parser.SyntaxException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -22,7 +29,7 @@ import java.io.IOException;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CliApp implements Invokeable {
+public class CliApp extends BaseInvokeable implements Invokeable {
 
     /**
      * Default width in pixel.
@@ -35,33 +42,76 @@ public class CliApp implements Invokeable {
     private static final int HEIGHT = 600;
 
     /**
-     * IO Streams.
-     */
-    private final IOStreams ioStreams;
-
-    /**
      * Helper to create diagrams.
      */
     private final CreatorHelper helper = new CreatorHelper();
 
     /**
-     * Command line options.
-     */
-    private final CliOptions options;
-
-    /**
      * Initializes app with options and IO streams.
      *
      * @param options Command line options
-     * @param streams IO streams.
+     * @param ioStreams IO streams.
+     * @param invoker Invoked the invokable.
      */
-    public CliApp(final CliOptions options, final IOStreams streams) {
-        this.options   = options;
-        this.ioStreams = streams;
+    public CliApp(final CliOptions options, final IOStreams ioStreams, final Invoker invoker) {
+        super(options, ioStreams, invoker);
     }
 
     @Override
-    public void run() {
+    public void execute() {
+        if (!options.hasSyntaxFile()) {
+            ioStreams.printlnErr("No syntax file given!");
+            invoker.exit(ExitCode.NO_SYNTAX);
+        }
+
+        final String fileName = options.getSyntaxFile();
+
+        try {
+            final Parser parser  = Factory.newParserFromSource(new File(fileName), fileName);
+            final Syntax ast     = parser.parse();
+
+            if (options.isTextTree()) {
+                final TextSyntaxTree visitor = new TextSyntaxTree();
+                ast.accept(visitor);
+                ioStreams.println(visitor.getText());
+            } else {
+                foo();
+            }
+        } catch (SyntaxException ex) {
+            ioStreams.printlnErr("Syntax error: " + ex.getMessage());
+
+            if (options.isDebug()) {
+                ioStreams.printStackTraceToStdErr(ex);
+            }
+
+            invoker.exit(ExitCode.SYNTAX_ERROR);
+        } catch (FileNotFoundException ex) {
+            ioStreams.printlnErr(String.format("Can not read syntax file '%s'!", fileName));
+
+            if (options.isDebug()) {
+                ioStreams.printStackTraceToStdErr(ex);
+            }
+
+            invoker.exit(ExitCode.READ_ERROR);
+        } catch (IOException ex) {
+            ioStreams.printlnErr(String.format("Can not read syntax file '%s'!", fileName));
+
+            if (options.isDebug()) {
+                ioStreams.printStackTraceToStdErr(ex);
+            }
+
+            invoker.exit(ExitCode.READ_ERROR);
+        }
+
+        invoker.exit(ExitCode.OK);
+    }
+
+    /**
+     * Play around with image generation.
+     *
+     * @deprecated Will be removed.
+     */
+    @Deprecated private void foo() {
         final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, new File("./test.png"));
         final RailroadDiagram diagram = helper.createDiagram(img.getGraphics());
         diagram.setDebug(options.isDebug());

@@ -13,15 +13,6 @@ package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCode;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
-import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree;
-import de.weltraumschaf.jebnf.gui.GuiApp;
-import de.weltraumschaf.jebnf.parser.Factory;
-import de.weltraumschaf.jebnf.parser.Parser;
-import de.weltraumschaf.jebnf.parser.SyntaxException;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
@@ -106,7 +97,7 @@ public final class Invoker {
      *
      * @param code Exit code.
      */
-    private static void exit(final ExitCode code) {
+    void exit(final ExitCode code) {
         exit(code.getCode());
     }
 
@@ -115,28 +106,9 @@ public final class Invoker {
      *
      * @param code Exit code.
      */
-    private static void exit(final int code) {
+    static void exit(final int code) {
         System.exit(code);
     }
-
-    /**
-     * Prints line to STDOUT.
-     *
-     * @param str String to print.
-     */
-    protected void println(final String str) {
-        ioStreams.getStdout().println(str);
-    }
-
-    /**
-     * Prints line to STDERR.
-     *
-     * @param str String to print.
-     */
-    protected void printlnErr(final String str) {
-        ioStreams.getStderr().println(str);
-    }
-
 
     /**
      * Parse the command line options.
@@ -165,84 +137,32 @@ public final class Invoker {
                 exit(ExitCode.OK);
             }
 
+            Invokeable app;
+
             if (options.isIde()) {
-                runGuiIde();
+                app = new GuiApp(options, ioStreams, this);
             } else {
-                runCliApp();
+                app = new CliApp(options, ioStreams, this);
             }
+
+            app.execute();
         } catch (EbnfException ex) {
-            printlnErr(ex.getMessage());
+            ioStreams.printlnErr(ex.getMessage());
 
             if (options.isDebug()) {
-                printStackTrace(ex);
+                ioStreams.printStackTraceToStdErr(ex);
             }
 
             exit(ex.getCode());
         } catch (Exception ex) { // NOPMD Catch all exceptions!
-            printlnErr("Fatal error!");
+            ioStreams.printlnErr("Fatal error!");
 
             if (options.isDebug()) {
-                printStackTrace(ex);
+                ioStreams.printStackTraceToStdErr(ex);
             }
 
             exit(ExitCode.FATAL_ERROR);
         }
-    }
-
-    /**
-     * Runs the command line application.
-     */
-    private void runCliApp() {
-        if (!options.hasSyntaxFile()) {
-            println("No syntax file given!");
-            exit(ExitCode.NO_SYNTAX);
-        }
-
-        final String fileName = options.getSyntaxFile();
-
-        try {
-            final Parser parser  = Factory.newParserFromSource(new File(fileName), fileName);
-            final Syntax ast     = parser.parse();
-
-            if (options.isTextTree()) {
-                final TextSyntaxTree visitor = new TextSyntaxTree();
-                ast.accept(visitor);
-                println(visitor.getText());
-            }
-        } catch (SyntaxException ex) {
-            printlnErr("Syntax error: " + ex.getMessage());
-
-            if (options.isDebug()) {
-                ex.printStackTrace(ioStreams.getStderr());
-            }
-
-            exit(ExitCode.SYNTAX_ERROR);
-        } catch (FileNotFoundException ex) {
-            printlnErr(String.format("Can not read syntax file '%s'!", fileName));
-
-            if (options.isDebug()) {
-                printStackTrace(ex);
-            }
-
-            exit(ExitCode.READ_ERROR);
-        } catch (IOException ex) {
-            printlnErr(String.format("Can not read syntax file '%s'!", fileName));
-
-            if (options.isDebug()) {
-                printStackTrace(ex);
-            }
-
-            exit(ExitCode.READ_ERROR);
-        }
-
-        exit(ExitCode.OK);
-    }
-
-    /**
-     * Runs the GUI application.
-     */
-    private void runGuiIde() {
-        GuiApp.main(options.isDebug());
     }
 
     /**
@@ -252,15 +172,6 @@ public final class Invoker {
      */
     public CliOptions getOptions() {
         return options;
-    }
-
-    /**
-     * Prints exception stack trace to {@link System#err}.
-     *
-     * @param ex Exception to print.
-     */
-    private void printStackTrace(Exception ex) {
-        ex.printStackTrace(ioStreams.getStderr());
     }
 
 }

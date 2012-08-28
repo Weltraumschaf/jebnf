@@ -9,10 +9,11 @@
  *
  */
 
-package de.weltraumschaf.jebnf.gui;
+package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.gfx.CreatorHelper;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
+import de.weltraumschaf.jebnf.gui.RailroadDiagramPanel;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
@@ -22,7 +23,7 @@ import javax.swing.SwingUtilities;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class GuiApp implements Runnable {
+public class GuiApp extends BaseInvokeable implements Runnable, Invokeable {
 
     /**
      * Default diagram width.
@@ -45,27 +46,22 @@ public class GuiApp implements Runnable {
     private final CreatorHelper helper = new CreatorHelper();
 
     /**
-     * Whether to draw debug output in diagrams.
-     */
-    private final boolean debug;
-
-    /**
-     * Initializes app with debug option.
+     * Initializes app with options and IO streams.
      *
-     * @param debug Whether to draw debug output in diagrams.
+     * @param options Command line options
+     * @param ioStreams IO streams.
+     * @param invoker Invoked the invokable.
      */
-    public GuiApp(final boolean debug) {
-        this.debug = debug;
+    public GuiApp(final CliOptions options, final IOStreams ioStreams, final Invoker invoker) {
+        super(options, ioStreams, invoker);
     }
 
     /**
-     * Creates a {@link GuiApp} object and {@link SwingUtilities#invokeLater(java.lang.Runnable) "invokes it later"}.
-     *
-     * @param debug Whether to draw debug output in diagrams.
+     * {@link SwingUtilities#invokeLater(java.lang.Runnable) "Invokes itself later"}.
      */
-    public static void main(final boolean debug) {
-        final GuiApp app = new GuiApp(debug);
-        SwingUtilities.invokeLater(app);
+    @Override
+    public void execute() {
+        SwingUtilities.invokeLater(this);
     }
 
     @Override
@@ -76,7 +72,7 @@ public class GuiApp implements Runnable {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         final RailroadDiagram diagram = helper.createDiagram(frame.getGraphics());
-        diagram.setDebug(debug);
+        diagram.setDebug(options.isDebug());
         final RailroadDiagramPanel panel = new RailroadDiagramPanel(diagram);
         frame.add(panel);
         frame.validate();

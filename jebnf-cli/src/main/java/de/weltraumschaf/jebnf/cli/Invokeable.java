@@ -21,6 +21,6 @@ public interface Invokeable {
     /**
      * Executable command method.
      */
-    void run();
+    void execute();
 
 }
