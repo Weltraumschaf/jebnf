@@ -31,7 +31,7 @@
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.nodes.Choice;
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.nodes.Terminal;
 <a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.nodes.Rule;
-<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.TestHelper.helper;
+<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.TestHelper.getInstance;
 <a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
 <a class="jxr_linenumber" name="26" href="#26">26</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.Parser;
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.SyntaxException;
@@ -212,8 +212,8 @@
 <a class="jxr_linenumber" name="202" href="#202">202</a>             visitor.getText()
 <a class="jxr_linenumber" name="203" href="#203">203</a>         );
 <a class="jxr_linenumber" name="204" href="#204">204</a> 
-<a class="jxr_linenumber" name="205" href="#205">205</a>         <strong class="jxr_keyword">final</strong> String expected = helper().createStringFromFixture(<span class="jxr_string">"ast/visitor/rules_with_literals_tree_output"</span>);
-<a class="jxr_linenumber" name="206" href="#206">206</a>         <strong class="jxr_keyword">final</strong> Parser parser = helper().createParserFromFixture(<span class="jxr_string">"parser/rules_with_literals.ebnf"</span>);
+<a class="jxr_linenumber" name="205" href="#205">205</a>         <strong class="jxr_keyword">final</strong> String expected = getInstance().createStringFromFixture(<span class="jxr_string">"ast/visitor/rules_with_literals_tree_output"</span>);
+<a class="jxr_linenumber" name="206" href="#206">206</a>         <strong class="jxr_keyword">final</strong> Parser parser = getInstance().createParserFromFixture(<span class="jxr_string">"parser/rules_with_literals.ebnf"</span>);
 <a class="jxr_linenumber" name="207" href="#207">207</a>         ast     = parser.parse();
 <a class="jxr_linenumber" name="208" href="#208">208</a>         visitor = <strong class="jxr_keyword">new</strong> TextSyntaxTree();
 <a class="jxr_linenumber" name="209" href="#209">209</a>         ast.accept(visitor);

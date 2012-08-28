@@ -10,7 +10,7 @@
 
 <a class="jxr_linenumber" name="1" href="#1">1</a>   <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.parser;
 <a class="jxr_linenumber" name="2" href="#2">2</a>   
-<a class="jxr_linenumber" name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.TestHelper.helper;
+<a class="jxr_linenumber" name="3" href="#3">3</a>   <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.TestHelper.getInstance;
 <a class="jxr_linenumber" name="4" href="#4">4</a>   <strong class="jxr_keyword">import</strong> java.io.IOException;
 <a class="jxr_linenumber" name="5" href="#5">5</a>   <strong class="jxr_keyword">import</strong> java.io.StringReader;
 <a class="jxr_linenumber" name="6" href="#6">6</a>   <strong class="jxr_keyword">import</strong> java.util.Arrays;
@@ -129,7 +129,7 @@
 <a class="jxr_linenumber" name="119" href="#119">119</a>     }
 <a class="jxr_linenumber" name="120" href="#120">120</a> 
 <a class="jxr_linenumber" name="121" href="#121">121</a>     @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNextOnRulesWithRanges() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="122" href="#122">122</a>         assertTokens(helper().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_ranges.ebnf"</span>), Arrays.asList(
+<a class="jxr_linenumber" name="122" href="#122">122</a>         assertTokens(getInstance().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_ranges.ebnf"</span>), Arrays.asList(
 <a class="jxr_linenumber" name="123" href="#123">123</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"\&quot;Rules with ranges.\&quot;"</span>, TokenType.LITERAL, 1, 1),
 <a class="jxr_linenumber" name="124" href="#124">124</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"{"</span>, TokenType.L_BRACE, 1, 22),
 <a class="jxr_linenumber" name="125" href="#125">125</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"lower"</span>, TokenType.IDENTIFIER, 2, 5),
@@ -165,7 +165,7 @@
 <a class="jxr_linenumber" name="155" href="#155">155</a>     }
 <a class="jxr_linenumber" name="156" href="#156">156</a> 
 <a class="jxr_linenumber" name="157" href="#157">157</a>     @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNextOnRulesWithComments() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="158" href="#158">158</a>         assertTokens(helper().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_comments.ebnf"</span>), Arrays.asList(
+<a class="jxr_linenumber" name="158" href="#158">158</a>         assertTokens(getInstance().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_comments.ebnf"</span>), Arrays.asList(
 <a class="jxr_linenumber" name="159" href="#159">159</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"\&quot;Rules with comments.\&quot;"</span>, TokenType.LITERAL,    1, 1),
 <a class="jxr_linenumber" name="160" href="#160">160</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"{"</span>,       TokenType.L_BRACE,   1, 24),
 <a class="jxr_linenumber" name="161" href="#161">161</a> 
@@ -199,7 +199,7 @@
 <a class="jxr_linenumber" name="189" href="#189">189</a>     }
 <a class="jxr_linenumber" name="190" href="#190">190</a> 
 <a class="jxr_linenumber" name="191" href="#191">191</a>     @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNextOnRulesWithDifferentAssignemnts() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="192" href="#192">192</a>         assertTokens(helper().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_different_assignment_ops.ebnf"</span>),
+<a class="jxr_linenumber" name="192" href="#192">192</a>         assertTokens(getInstance().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_different_assignment_ops.ebnf"</span>),
 <a class="jxr_linenumber" name="193" href="#193">193</a>             Arrays.asList(
 <a class="jxr_linenumber" name="194" href="#194">194</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"\&quot;Rules with different assignment operators.\&quot;"</span>,
 <a class="jxr_linenumber" name="195" href="#195">195</a>                                             TokenType.LITERAL,    1, 1),
@@ -227,7 +227,7 @@
 <a class="jxr_linenumber" name="217" href="#217">217</a>     }
 <a class="jxr_linenumber" name="218" href="#218">218</a> 
 <a class="jxr_linenumber" name="219" href="#219">219</a>     @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNextOnRulesWithLiterals() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="220" href="#220">220</a>         assertTokens(helper().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_literals.ebnf"</span>),
+<a class="jxr_linenumber" name="220" href="#220">220</a>         assertTokens(getInstance().createScannerFromFixture(<span class="jxr_string">"parser/rules_with_literals.ebnf"</span>),
 <a class="jxr_linenumber" name="221" href="#221">221</a>             Arrays.asList(
 <a class="jxr_linenumber" name="222" href="#222">222</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"\&quot;Rules with literal.\&quot;"</span>, TokenType.LITERAL,    1, 1),
 <a class="jxr_linenumber" name="223" href="#223">223</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"{"</span>,                     TokenType.L_BRACE,   1, 23),
@@ -257,7 +257,7 @@
 <a class="jxr_linenumber" name="247" href="#247">247</a>     }
 <a class="jxr_linenumber" name="248" href="#248">248</a> 
 <a class="jxr_linenumber" name="249" href="#249">249</a>     @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNextOnTestgrammar_1() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="250" href="#250">250</a>         assertTokens(helper().createScannerFromFixture(<span class="jxr_string">"parser/testgrammar_1.ebnf"</span>), Arrays.asList(
+<a class="jxr_linenumber" name="250" href="#250">250</a>         assertTokens(getInstance().createScannerFromFixture(<span class="jxr_string">"parser/testgrammar_1.ebnf"</span>), Arrays.asList(
 <a class="jxr_linenumber" name="251" href="#251">251</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"\&quot;EBNF defined in itself.\&quot;"</span>,   TokenType.LITERAL, 1, 1),
 <a class="jxr_linenumber" name="252" href="#252">252</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"{"</span>,          TokenType.L_BRACE,   1,  27),
 <a class="jxr_linenumber" name="253" href="#253">253</a> 

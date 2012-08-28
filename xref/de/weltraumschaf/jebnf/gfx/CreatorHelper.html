@@ -21,11 +21,11 @@
 <a class="jxr_linenumber" name="11" href="#11">11</a>  
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
-<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
-<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.Sequence;
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
+<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
+<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayout;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> java.awt.Graphics;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  
@@ -85,7 +85,7 @@
 <a class="jxr_linenumber" name="75" href="#75">75</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="76" href="#76">76</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridLayout.html">GridLayout</a> createObjectDiagram(<strong class="jxr_keyword">final</strong> Graphics2D graphics) {
 <a class="jxr_linenumber" name="77" href="#77">77</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridLayout.html">GridLayout</a> object = grid();
-<a class="jxr_linenumber" name="78" href="#78">78</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/Sequence.html">Sequence</a> innerSequence = sequence(identifier(<span class="jxr_string">"string"</span>),
+<a class="jxr_linenumber" name="78" href="#78">78</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/RowLayout.html">RowLayout</a> innerSequence = sequence(identifier(<span class="jxr_string">"string"</span>),
 <a class="jxr_linenumber" name="79" href="#79">79</a>                                                  terminal(<span class="jxr_string">":"</span>),
 <a class="jxr_linenumber" name="80" href="#80">80</a>                                                  identifier(<span class="jxr_string">"value"</span>));
 <a class="jxr_linenumber" name="81" href="#81">81</a>          innerSequence.adjust(graphics);

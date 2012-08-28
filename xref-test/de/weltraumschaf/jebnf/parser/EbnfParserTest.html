@@ -17,7 +17,7 @@
 <a class="jxr_linenumber" name="7" href="#7">7</a>   <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.Position;
 <a class="jxr_linenumber" name="8" href="#8">8</a>   <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.Parser;
 <a class="jxr_linenumber" name="9" href="#9">9</a>   <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.SyntaxException;
-<a class="jxr_linenumber" name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.TestHelper.helper;
+<a class="jxr_linenumber" name="10" href="#10">10</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.TestHelper.getInstance;
 <a class="jxr_linenumber" name="11" href="#11">11</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.Notification;
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.nodes.Syntax;
@@ -89,7 +89,7 @@
 <a class="jxr_linenumber" name="79" href="#79">79</a>      @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testParse() <strong class="jxr_keyword">throws</strong> SyntaxException, IOException, URISyntaxException { <em class="jxr_comment">//NOPMD</em>
 <a class="jxr_linenumber" name="80" href="#80">80</a>          Syntax ast;
 <a class="jxr_linenumber" name="81" href="#81">81</a>  
-<a class="jxr_linenumber" name="82" href="#82">82</a>          Parser parser = helper().createParserFromFixture(<span class="jxr_string">"parser/rules_with_different_assignment_ops.ebnf"</span>);
+<a class="jxr_linenumber" name="82" href="#82">82</a>          Parser parser = getInstance().createParserFromFixture(<span class="jxr_string">"parser/rules_with_different_assignment_ops.ebnf"</span>);
 <a class="jxr_linenumber" name="83" href="#83">83</a>          ast = syntax(<span class="jxr_string">"Rules with different assignment operators."</span>)
 <a class="jxr_linenumber" name="84" href="#84">84</a>              .rule(<span class="jxr_string">"comment1"</span>)
 <a class="jxr_linenumber" name="85" href="#85">85</a>                  .identifier(<span class="jxr_string">"literal1"</span>)
@@ -103,7 +103,7 @@
 <a class="jxr_linenumber" name="93" href="#93">93</a>          .build();
 <a class="jxr_linenumber" name="94" href="#94">94</a>          assertEquivalentSyntax(ast, parser.parse());
 <a class="jxr_linenumber" name="95" href="#95">95</a>  
-<a class="jxr_linenumber" name="96" href="#96">96</a>          parser = helper().createParserFromFixture(<span class="jxr_string">"parser/rules_with_literals.ebnf"</span>);
+<a class="jxr_linenumber" name="96" href="#96">96</a>          parser = getInstance().createParserFromFixture(<span class="jxr_string">"parser/rules_with_literals.ebnf"</span>);
 <a class="jxr_linenumber" name="97" href="#97">97</a>          ast = syntax(<span class="jxr_string">"Rules with literal."</span>)
 <a class="jxr_linenumber" name="98" href="#98">98</a>              .rule(<span class="jxr_string">"literal"</span>) <em class="jxr_comment">// NOPMD</em>
 <a class="jxr_linenumber" name="99" href="#99">99</a>                  .choice()
@@ -128,7 +128,7 @@
 <a class="jxr_linenumber" name="118" href="#118">118</a>         .build();
 <a class="jxr_linenumber" name="119" href="#119">119</a>         assertEquivalentSyntax(ast, parser.parse());
 <a class="jxr_linenumber" name="120" href="#120">120</a> 
-<a class="jxr_linenumber" name="121" href="#121">121</a>         parser = helper().createParserFromFixture(<span class="jxr_string">"parser/rules_with_comments.ebnf"</span>);
+<a class="jxr_linenumber" name="121" href="#121">121</a>         parser = getInstance().createParserFromFixture(<span class="jxr_string">"parser/rules_with_comments.ebnf"</span>);
 <a class="jxr_linenumber" name="122" href="#122">122</a>         ast = syntax(<span class="jxr_string">"Rules with comments."</span>)
 <a class="jxr_linenumber" name="123" href="#123">123</a>             .comment(<span class="jxr_string">"(* here are rules *)"</span>)
 <a class="jxr_linenumber" name="124" href="#124">124</a>             .rule(<span class="jxr_string">"title"</span>)
@@ -150,7 +150,7 @@
 <a class="jxr_linenumber" name="140" href="#140">140</a>         .build();
 <a class="jxr_linenumber" name="141" href="#141">141</a>         assertEquivalentSyntax(ast, parser.parse());
 <a class="jxr_linenumber" name="142" href="#142">142</a> 
-<a class="jxr_linenumber" name="143" href="#143">143</a>         parser = helper().createParserFromFixture(<span class="jxr_string">"parser/testgrammar_1.old.ebnf"</span>);
+<a class="jxr_linenumber" name="143" href="#143">143</a>         parser = getInstance().createParserFromFixture(<span class="jxr_string">"parser/testgrammar_1.old.ebnf"</span>);
 <a class="jxr_linenumber" name="144" href="#144">144</a>         ast = syntax(<span class="jxr_string">"EBNF defined in itself."</span>)
 <a class="jxr_linenumber" name="145" href="#145">145</a>             .rule(<span class="jxr_string">"syntax"</span>)
 <a class="jxr_linenumber" name="146" href="#146">146</a>                 .sequence()
