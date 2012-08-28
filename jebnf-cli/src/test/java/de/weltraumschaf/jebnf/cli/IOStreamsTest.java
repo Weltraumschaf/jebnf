@@ -4,6 +4,8 @@
  */
 package de.weltraumschaf.jebnf.cli;
 
+import java.io.InputStream;
+import java.io.PrintStream;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
@@ -14,33 +16,31 @@ import static org.mockito.Mockito.*;
  */
 public class IOStreamsTest {
 
-    private final IOStreams streams = IOStreams.newDefault();
+    private final IOStreams defaultStreams = IOStreams.newDefault();
+    private final IOStreams mockedStreams = new IOStreams(mock(InputStream.class), mock(PrintStream.class), mock(PrintStream.class));
 
-    @Test
-    public void testGetStderr() {
-        assertSame(System.err, streams.getStderr());
+    @Test public void testGetStderrOnDefault() {
+        assertSame(System.err, defaultStreams.getStderr());
     }
 
-    @Test
-    public void testGetStdin() {
-        assertSame(System.in, streams.getStdin());
+    @Test public void testGetStdinOnDefault() {
+        assertSame(System.in, defaultStreams.getStdin());
     }
 
-    @Test
-    public void testGetStdout() {
-        assertSame(System.out, streams.getStdout());
+    @Test public void testGetStdoutOnDefault() {
+        assertSame(System.out, defaultStreams.getStdout());
     }
 
     @Test public void println() {
         final String msg = "some text";
-        streams.println(msg);
-        verify(streams.getStdout(), times(1)).println(msg);
+        mockedStreams.println(msg);
+        verify(mockedStreams.getStdout(), times(1)).println(msg);
     }
 
     @Test public void printlnErr() {
         final String msg = "some text";
-        streams.printlnErr(msg);
-        verify(streams.getStderr(), times(1)).println(msg);
+        mockedStreams.printlnErr(msg);
+        verify(mockedStreams.getStderr(), times(1)).println(msg);
     }
 
 }
