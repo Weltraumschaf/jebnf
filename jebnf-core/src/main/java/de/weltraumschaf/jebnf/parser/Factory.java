@@ -52,7 +52,7 @@ public final class Factory {
      * @return Return new scanner instance.
      */
     public static Scanner newScanner(final Reader reader, final String fileName) {
-        final String checkedFileName = null != fileName
+        final String checkedFileName = null != fileName // NOPMD This ternary is well readable.
                                      ? fileName
                                      : "";
         return new EbnfScanner(reader, fileName); // TODO Use checkedFileName to avoid NPE.
