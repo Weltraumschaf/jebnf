@@ -18,22 +18,51 @@ import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
+ * Runs the GUI IDE.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class GuiApp implements Runnable {
 
+    /**
+     * Default diagram width.
+     */
     private static final int WIDTH = 800;
+
+    /**
+     * Default diagram height.
+     */
     private static final int HEIGHT = 600;
 
+    /**
+     * Main desktop window.
+     */
     private final JFrame frame = new JFrame();
+
+    /**
+     * USed to generated a diagram dor testing/development.
+     */
     private final CreatorHelper helper = new CreatorHelper();
+
+    /**
+     * Whether to draw debug output in diagrams.
+     */
     private final boolean debug;
 
+    /**
+     * Initializes app with debug option.
+     *
+     * @param debug Whether to draw debug output in diagrams.
+     */
     public GuiApp(final boolean debug) {
         this.debug = debug;
     }
 
+    /**
+     * Creates a {@link GuiApp} object and {@link SwingUtilities#invokeLater(java.lang.Runnable) "invokes it later"}.
+     *
+     * @param debug Whether to draw debug output in diagrams.
+     */
     public static void main(final boolean debug) {
         final GuiApp app = new GuiApp(debug);
         SwingUtilities.invokeLater(app);
@@ -52,4 +81,5 @@ public class GuiApp implements Runnable {
         frame.add(panel);
         frame.validate();
     }
+
 }
