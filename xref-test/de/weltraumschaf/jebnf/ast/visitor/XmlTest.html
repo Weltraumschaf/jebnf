@@ -55,10 +55,10 @@
 <a class="jxr_linenumber" name="45" href="#45">45</a>          fix.put(<span class="jxr_string">"title"</span>, <span class="jxr_string">"bar"</span>);
 <a class="jxr_linenumber" name="46" href="#46">46</a>  
 <a class="jxr_linenumber" name="47" href="#47">47</a>          <strong class="jxr_keyword">final</strong> Syntax syntax = Syntax.newInstance(<span class="jxr_string">"bar"</span>, <span class="jxr_string">"foo"</span>);
-<a class="jxr_linenumber" name="48" href="#48">48</a>          assertEquals(fix, Xml.extractAttributes(syntax));
+<a class="jxr_linenumber" name="48" href="#48">48</a>          assertEquals(fix, syntax.getAttributes());
 <a class="jxr_linenumber" name="49" href="#49">49</a>  
 <a class="jxr_linenumber" name="50" href="#50">50</a>          <strong class="jxr_keyword">final</strong> Loop loop = Loop.newInstance();
-<a class="jxr_linenumber" name="51" href="#51">51</a>          assertEquals(<strong class="jxr_keyword">new</strong> HashMap&lt;String, String&gt;(), Xml.extractAttributes(loop));
+<a class="jxr_linenumber" name="51" href="#51">51</a>          assertEquals(<strong class="jxr_keyword">new</strong> HashMap&lt;String, String&gt;(), loop.getAttributes());
 <a class="jxr_linenumber" name="52" href="#52">52</a>      }
 <a class="jxr_linenumber" name="53" href="#53">53</a>  
 <a class="jxr_linenumber" name="54" href="#54">54</a>      @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testGenerateXml() <strong class="jxr_keyword">throws</strong> URISyntaxException, IOException {
