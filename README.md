@@ -32,8 +32,8 @@ After successful installation you should be able to invoke the command line tool
 You can either use the shell script <kbd>bin/ebnf</kbd> for
 generating images or XML from a grammar file:
 
-    $ ./bin/ebnf -h
-    usage: ebnf
+    $ ./bin/jebnf -h
+    usage: jebnf
      -d         Enables debug output.
      -f <arg>   Output format: xml, jpg, gif.
      -h         This help.
