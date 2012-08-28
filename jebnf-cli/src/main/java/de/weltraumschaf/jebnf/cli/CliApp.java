@@ -35,7 +35,7 @@ public class CliApp implements Invokeable {
     private static final int HEIGHT = 600;
 
     /**
-     * IO Streams
+     * IO Streams.
      */
     private final IOStreams ioStreams;
 
