@@ -11,50 +11,85 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.AbstractCurve;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Choice;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Sequence;
-import de.weltraumschaf.jebnf.gfx.shapes.text.Rule;
-import de.weltraumschaf.jebnf.gfx.shapes.text.Identifier;
-import de.weltraumschaf.jebnf.gfx.shapes.text.Terminal;
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
-import de.weltraumschaf.jebnf.gfx.shapes.other.End;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Start;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSE;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSW;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.*;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.*;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.*;
+import de.weltraumschaf.jebnf.gfx.shapes.other.*;
+import de.weltraumschaf.jebnf.gfx.shapes.text.*;
 
 /**
+ * Factory to create shape objects.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class ShapeFactory {
 
-    public enum Curves { NORTH_WEST, NORTH_EAST, SOUTH_WEST, SOUTH_EAST; }
-    public enum Straights { NORT_SOUTH, WEST_EAST }
+    /**
+     * Type of curve railroad shapes.
+     */
+    public enum Curves {
 
-    private ShapeFactory() { }
+        /**
+         * Curve railroad from north to west.
+         */
+        NORTH_WEST,
 
+        /**
+         * Curve railroad from north to east.
+         */
+        NORTH_EAST,
+
+        /**
+         * Curve railroad from south to west.
+         */
+        SOUTH_WEST,
+
+        /**
+         * Curve railroad from south to east.
+         */
+        SOUTH_EAST;
+
+    }
+
+    /**
+     * Type of straight railroad shapes.
+     */
+    public enum Straights {
+
+        /**
+         * Straight railroad from north to south.
+         */
+        NORT_SOUTH,
+
+        /**
+         * Straight railroad from west to east.
+         */
+        WEST_EAST;
+
+    }
+
+    /**
+     * Private constructor for pure static utility class.
+     */
+    private ShapeFactory() {
+        super();
+    }
+
+    /**
+     * Create empty shape.
+     *
+     * @return Always return new instance.
+     */
     public static Empty empty() {
         return new Empty();
     }
 
+    /**
+     * Return array of empty shapes.
+     *
+     * @param count How many shapes to create.
+     * @return Always return new instances.
+     */
     public static Empty[] empty(final int count) {
         final Empty[] empties = new Empty[count];
         for (int i = 0; i < count; ++i) {
@@ -63,16 +98,32 @@ public final class ShapeFactory {
         return empties;
     }
 
+    /**
+     * Create railroad start shape.
+     *
+     * @return Always return new instance.
+     */
     public static Start start() {
         return new Start();
     }
 
+    /**
+     * Create railroad end shape.
+     *
+     * @return Always return new instance.
+     */
     public static End end() {
         return new End();
     }
 
-    public static AbstractCurve curve(final Curves type) {
-        AbstractCurve curve;
+    /**
+     * Creates one of the {@link Curves "curves"}.
+     *
+     * @param type Type of curve to create.
+     * @return Always return new instance.
+     */
+    public static Curve curve(final Curves type) {
+        Curve curve;
 
         switch (type) {
             case NORTH_EAST:
@@ -94,6 +145,12 @@ public final class ShapeFactory {
         return curve;
     }
 
+    /**
+     * Create one of the {@link Straights "striaghts"}.
+     *
+     * @param type Type of straight to create.
+     * @return Always return new instance.
+     */
     public static Shape straight(final Straights type) {
         switch (type) {
             case NORT_SOUTH:
@@ -105,6 +162,15 @@ public final class ShapeFactory {
         }
     }
 
+    /**
+     * Creates a fork railroad shape.
+     *
+     * A fork is a combination of a straight and curve.
+     *
+     * @param orientation Type of straight.
+     * @param curve Type of curve.
+     * @return Always return new instance.
+     */
     public static Shape fork(final Straights orientation, final Curves curve) {
         switch (orientation) {
             case NORT_SOUTH:
@@ -116,6 +182,12 @@ public final class ShapeFactory {
         }
     }
 
+    /**
+     * Creates a fork with straight railroad from north to south.
+     *
+     * @param curve Type of curve.
+     * @return Always return new instance.
+     */
     private static Shape verticalFork(final Curves curve) {
         switch (curve) {
             case NORTH_EAST:
@@ -131,6 +203,12 @@ public final class ShapeFactory {
         }
     }
 
+    /**
+     * Creates a fork with straight railroad from west to east.
+     *
+     * @param curve Type of curve.
+     * @return Always return new instance.
+     */
     private static Shape horizontalFork(final Curves curve) {
         switch (curve) {
             case NORTH_EAST:
@@ -146,46 +224,102 @@ public final class ShapeFactory {
         }
     }
 
+    /**
+     * Creates a grid layout.
+     *
+     * @return Always return new instance.
+     */
     public static GridLayout grid() {
         return new GridLayout();
     }
 
+    /**
+     * Creates a column layout.
+     *
+     * @return Always return new instance.
+     */
     public static ColumnLayout column() {
         return new ColumnLayout();
     }
 
+    /**
+     * Creates a column filled with given shapes.
+     *
+     * @param shapes Shapes appended to created column.
+     * @return Always return new instance.
+     */
     public static ColumnLayout column(final Shape... shapes) {
         final ColumnLayout column = column();
         column.append(shapes);
         return column;
     }
 
-    public static Sequence sequence() {
-        return new Sequence();
+    /**
+     * Creates a sequence.
+     *
+     * @return Always return new instance.
+     */
+    public static RowLayout sequence() {
+        return new RowLayout();
     }
 
-    public static Sequence sequence(final Shape... shapes) {
-        final Sequence sequence = sequence();
+    /**
+     * Creates a sequence filed with given shapes.
+     *
+     * @param shapes Shapes appended to created sequence.
+     * @return Always return new instance.
+     */
+    public static RowLayout sequence(final Shape... shapes) {
+        final RowLayout sequence = sequence();
         sequence.append(shapes);
         return sequence;
     }
 
-    public static AbstractTextShape rule(final String name) {
+    /**
+     * Creates a rule shape.
+     *
+     * @param name Rule name.
+     * @return Always return new instance.
+     */
+    public static TextShape rule(final String name) {
         return new Rule(name);
     }
 
-    public static AbstractTextShape terminal(final String value) {
+    /**
+     * Creates a terminal shape.
+     *
+     * @param value Terminal value.
+     * @return Always return new instance.
+     */
+    public static TextShape terminal(final String value) {
         return new Terminal(value);
     }
 
-    public static AbstractTextShape identifier(final String value) {
+    /**
+     * Creates a identifier shape.
+     *
+     * @param value Identifier value.
+     * @return Always return new instance.
+     */
+    public static TextShape identifier(final String value) {
         return new Identifier(value);
     }
 
+    /**
+     * Creates a choice shape.
+     *
+     * @return Always return new instance.
+     */
     public static Choice choice() {
         return new Choice();
     }
 
+    /**
+     * Creates a choice value filed with given shapes.
+     *
+     * @param shapes Shapes added to created choice.
+     * @return Always return new instance.
+     */
     public static Choice choice(final Shape... shapes) {
         final Choice choice = choice();
         for (Shape shape : shapes) {
@@ -194,26 +328,54 @@ public final class ShapeFactory {
         return choice;
     }
 
+    /**
+     * Creates an option shape.
+     *
+     * @return Always return new instance.
+     */
     public static Option option() {
         return new Option();
     }
 
+    /**
+     * Creates an option shape filled with option shapes.
+     *
+     * @param optional Optional shape..
+     * @return Always return new instance.
+     */
     public static Option option(final Shape optional) {
         final Option option = option();
         option.setOptional(optional);
         return option;
     }
 
+    /**
+     * Creates a loop shape.
+     *
+     * @return Always return new instance.
+     */
     public static Loop loop() {
         return new Loop();
     }
 
+    /**
+     * Creates a loop shape filed with shapes.
+     *
+     * @param looped Looped shape.
+     * @return Always return new instance.
+     */
     public static Loop loop(final Shape looped) {
         final Loop loop = loop();
         loop.setLooped(looped);
         return loop;
     }
 
+    /**
+     * Creates a loop shape with looped shape and additional shape.
+     * @param looped Looped shape.
+     * @param additional Additional shape.
+     * @return Always return new instance.
+     */
     public static Loop loop(final Shape looped, final Shape additional) {
         final Loop loop = loop(looped);
         loop.setAdditional(additional);

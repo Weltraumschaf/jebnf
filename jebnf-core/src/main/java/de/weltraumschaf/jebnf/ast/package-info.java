@@ -13,6 +13,6 @@
  * All classes needed to represent a EBNF syntax as a semantic model in an Abstract Syntax Tree.
  *
  * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/jebnf">EBNF library</a></p>
+ * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
  */
 package de.weltraumschaf.jebnf.ast;

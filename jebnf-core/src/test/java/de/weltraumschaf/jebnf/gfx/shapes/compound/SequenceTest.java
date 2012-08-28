@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Sequence;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayout;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
@@ -30,7 +30,7 @@ import static org.mockito.Mockito.*;
 public class SequenceTest {
 
     @Test public void testGetSize() {
-        final Sequence sequence = sequence();
+        final RowLayout sequence = sequence();
         Dimension size = sequence.getSize();
         assertEquals(0, size.width);
         assertEquals(0, size.height);
@@ -66,7 +66,7 @@ public class SequenceTest {
         final Shape empty2 = empty();
         final Shape empty3 = empty();
         final Shape empty7 = empty();
-        final Sequence sequence = sequence();
+        final RowLayout sequence = sequence();
         assertEquals(0, sequence.countShapes());
 
         sequence.append(empty0, empty1, empty2, empty3);
@@ -85,7 +85,7 @@ public class SequenceTest {
     }
 
     @Test public void testAppendShape() {
-        final Sequence sequence = sequence();
+        final RowLayout sequence = sequence();
         assertEquals(0, sequence.countShapes());
         sequence.append(empty());
         assertEquals(1, sequence.countShapes());
@@ -96,7 +96,7 @@ public class SequenceTest {
     }
 
     @Test public void testPaint() {
-        final Sequence sequence = sequence();
+        final RowLayout sequence = sequence();
         final Graphics2D graphics = mock(Graphics2D.class);
         sequence.paint(graphics);
 

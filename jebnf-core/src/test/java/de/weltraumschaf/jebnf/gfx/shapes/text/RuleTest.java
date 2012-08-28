@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.rule;
 import java.awt.Color;
@@ -49,7 +48,7 @@ public class RuleTest {
 
     @Test public void font() {
         final String name = "foobar";
-        final AbstractTextShape rule = rule(name);
+        final TextShape rule = rule(name);
         assertEquals(name, rule.getText());
         assertEquals(StringPainter.SANSERIF, rule.getFont());
     }
@@ -82,4 +81,5 @@ public class RuleTest {
         verify(graphics, times(1)).setFont(StringPainter.SANSERIF);
         verify(graphics, times(1)).drawString(name, 15, 19);
     }
+
 }

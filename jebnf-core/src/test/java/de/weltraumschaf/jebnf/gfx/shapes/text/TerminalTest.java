@@ -49,7 +49,7 @@ public class TerminalTest {
     }
 
     @Test public void font() {
-        final AbstractTextShape term = terminal("foobar");
+        final TextShape term = terminal("foobar");
         assertEquals("foobar", term.getText());
         assertEquals(StringPainter.MONOSPACED, term.getFont());
     }

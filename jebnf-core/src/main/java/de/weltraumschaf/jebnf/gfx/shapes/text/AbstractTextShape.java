@@ -11,12 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.Line;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
-import de.weltraumschaf.jebnf.gfx.shapes.Adjustable;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -25,9 +24,23 @@ import java.awt.geom.Rectangle2D;
 /**
  * Common functionality for all shapes with text.
  *
+ * A text shape has a text, an in and out line and some optional graphics
+ * (like rounded box for terminals or rectangular box for identifiers.).
+ *
+ * Schema of an identifier:
+ * <pre>
+ *                         inner box
+ *                        /
+ *    in line +--------------+   out line
+ *   /        |              |  /
+ * -----------+  Identifier  +-----------
+ *            |              |
+ *            +--------------+
+ * </pre>
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractTextShape extends Empty implements Adjustable {
+public abstract class AbstractTextShape extends Empty implements TextShape {
 
     /**
      * Horizontal padding.
@@ -38,6 +51,11 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
      * Default font.
      */
     private static final Font DEFUALT_FONT = StringPainter.SANSERIF;
+
+    /**
+     * Size of the shape.
+     */
+    protected Dimension textSize;
 
     /**
      * Text to paint on shape.
@@ -60,11 +78,6 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
     private Graphics2D lastContext;
 
     /**
-     * Size of the shape.
-     */
-    private Dimension textSize;
-
-    /**
      * Initializes shape with {@link #DEFUALT_FONT}.
      *
      * @param text Text to paint on shape.
@@ -85,24 +98,22 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
         this.font = font;
     }
 
-    /**
-     * Get the painted text.
-     *
-     * @return Return text as string.
-     */
+    @Override
     public String getText() {
         return text;
     }
 
-    /**
-     * Get the painted font.
-     *
-     * @return Return font object.
-     */
-    Font getFont() {
+    @Override
+    public Font getFont() {
         return font;
     }
 
+    /**
+     * Calculates the shapes width depending on the containing text box width.
+     *
+     * @param boxWidth Width of the containing text bos.
+     * @return Returns width in pixel.
+     */
     protected static int calculateWidth(final int boxWidth) {
         if (boxWidth < 0) {
             throw new IllegalArgumentException("box width need to be greater or equal zero!");
@@ -113,6 +124,12 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
         return DEFAULT_WIDTH * emtpyShapeCount;
     }
 
+    /**
+     * Creates a string painter.
+     *
+     * @param graphics Context to paint on.
+     * @return Returns the same object, unless the graphics object hasn't changed.
+     */
     protected StringPainter createStringPainter(final Graphics2D graphics) {
         if (null == textPainter || !lastContext.equals(graphics)) {
             textPainter = new StringPainter(graphics, font);
@@ -121,6 +138,12 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
         return textPainter;
     }
 
+    /**
+     * Calculates the text size.
+     *
+     * @param graphic Context used to calculate size.
+     * @return Returns size of text.
+     */
     protected Dimension calculateTextSize(final Graphics2D graphic) {
         if (null == textSize) {
             final Rectangle2D textBounds = font.getStringBounds(getText(),
@@ -131,49 +154,100 @@ public abstract class AbstractTextShape extends Empty implements Adjustable {
         return textSize;
     }
 
+    /**
+     * Calculates the railroad line into the shape.
+     *
+     * @param boxWidth Inner box width.
+     * @return Returns line object with start and end {@link Point "points"}.
+     */
     protected Line calculateInLine(final int boxWidth) {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
         final Point start    = new Point(pos.x, vCenter);
-        final Point end      = new Point(pos.x + calculateHPadding(boxWidth), vCenter);
+        final Point end      = new Point(pos.x + calculateHorizontalPadding(boxWidth), vCenter);
         return new Line(start, end);
     }
 
+    /**
+     * Calculates the railroad line out of the shape.
+     *
+     * @param boxWidth Inner box width.
+     * @return Returns line object with start and end {@link Point "points"}.
+     */
     protected Line calculateOutLine(final int boxWidth) {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
-        final Point start    = new Point(pos.x + calculateHPadding(boxWidth) + boxWidth, vCenter);
+        final Point start    = new Point(pos.x + calculateHorizontalPadding(boxWidth) + boxWidth, vCenter);
         final Point end      = new Point(pos.x + getSize().width, vCenter);
         return new Line(start, end);
     }
 
-    protected int calculateHPadding(final int boxWidth) {
+    /**
+     * Calculates horizontal padding of the inner box.
+     *
+     * @param boxWidth Inner box.
+     * @return Padding in pixel.
+     */
+    protected int calculateHorizontalPadding(final int boxWidth) {
         return (getSize().width - boxWidth) / 2;
     }
 
-    protected int calculateVPadding(final int boxHeight) {
+    /**
+     * Calculates vertical padding of the inner box.
+     *
+     * @param boxHeight Inner box.
+     * @return Padding in pixel.
+     */
+    protected int calculateVerticalPadding(final int boxHeight) {
         return (getSize().height - boxHeight) / 2;
     }
 
+    /**
+     * Calculated the shapes position with padding.
+     *
+     * @param size Size to add padding to.
+     * @return Return start point.
+     */
     protected Point calculatePaddedRectanglePosition(final Dimension size) {
         final Point pos = getPosition();
-        return new Point(pos.x + calculateHPadding(size.width),
-                         pos.y + calculateVPadding(size.height));
+        return new Point(pos.x + calculateHorizontalPadding(size.width),
+                         pos.y + calculateVerticalPadding(size.height));
     }
 
+    /**
+     * Draws a given line.
+     *
+     * @param graphic Context to draw on.
+     * @param line Line to draw.
+     */
     protected void drawLine(final Graphics2D graphic, final Line line) {
         graphic.drawLine(line.start.x, line.start.y, line.end.x, line.end.y);
     }
 
+    /**
+     * Draws the shape text string centered.
+     *
+     * @param graphic Context to draw on.
+     * @param pos Position to start drawing.
+     * @param size Dimension of available space to draw text.
+     */
     protected void drawText(final Graphics2D graphic, final Point pos, final Dimension size) {
         final StringPainter painter = createStringPainter(graphic);
         painter.drawCenteredString(getText(), pos, size);
     }
 
+    /**
+     * Draws the text and the in and out line of the shape.
+     *
+     * @param graphic Context to draw on.
+     * @param pos Position to start drawing.
+     * @param size Size to draw.
+     */
     protected void drawTextWithInAndOutLine(final Graphics2D graphic, final Point pos, final Dimension size) {
         graphic.setStroke(Strokes.createForRail());
         drawLine(graphic, calculateInLine(size.width));
         drawLine(graphic, calculateOutLine(size.width));
         drawText(graphic, pos, size);
     }
+
 }

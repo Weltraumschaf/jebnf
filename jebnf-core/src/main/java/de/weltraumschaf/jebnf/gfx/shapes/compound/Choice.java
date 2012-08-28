@@ -12,26 +12,38 @@
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
+import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNE;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNW;
-import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 
 /**
+ * Choice shape.
+ *
+ * A choice can have as many shapes as choices as needed.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class Choice extends AbstractCompund {
 
+    /**
+     * Initializes the {@link GridLayout} with three empty columns.
+     */
     public Choice() {
         super(grid().append(column())
                     .append(column())
                     .append(column()));
     }
 
+    /**
+     * Add a shape as choice.
+     *
+     * @param shape Shape to add as a choice.
+     * @return Return itself for method chaining.
+     */
     public Choice addChoice(final Shape shape) {
         final int rowCount = grid.counRows();
         Shape first;

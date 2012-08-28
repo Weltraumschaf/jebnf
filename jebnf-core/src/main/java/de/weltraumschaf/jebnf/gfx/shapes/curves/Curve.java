@@ -9,12 +9,15 @@
  *
  */
 
+package de.weltraumschaf.jebnf.gfx.shapes.curves;
+
+import de.weltraumschaf.jebnf.gfx.shapes.Shape;
+
 /**
- * Parser package.
+ * Marker interface for curves shapes.
  *
- * <p>Contains everything necessary to parse EBN syntax.
- *
- * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
+ * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-package de.weltraumschaf.jebnf.parser;
+public interface Curve extends Shape {
+
+}

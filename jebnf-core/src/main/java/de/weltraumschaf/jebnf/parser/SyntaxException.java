@@ -20,6 +20,9 @@ package de.weltraumschaf.jebnf.parser;
  */
 public class SyntaxException extends Exception {
 
+    /**
+     * Version id for serialization.
+     */
     private static final long serialVersionUID = 1L;
 
     /**
@@ -52,17 +55,12 @@ public class SyntaxException extends Exception {
     /**
      * Returns the position where the error occurred.
      *
-     * @return
+     * @return Return the position object.
      */
     public final Position getPosition() {
         return position;
     }
 
-    /**
-     * Human readable representation.
-     *
-     * @return
-     */
     @Override
     public final String toString() {
         final StringBuilder str = new StringBuilder("Syntax error: ");

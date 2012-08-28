@@ -10,16 +10,9 @@
  */
 
 /**
- * Visitors to traverse the AST.
+ * Curve railroad shapes package.
  *
  * <p>This package is a part of the open-source
  * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
- *
- * <h2>Contents</h2>
- *
- * <ul>
- * <li>{@link de.weltraumschaf.ebnf.ast.visitor.TextSyntaxTree}
- * <li>{@link de.weltraumschaf.ebnf.ast.visitor.Xml}
- * </ul>
  */
-package de.weltraumschaf.jebnf.ast.visitor;
+package de.weltraumschaf.jebnf.gfx.shapes.curves;

@@ -12,7 +12,6 @@
 package de.weltraumschaf.jebnf.parser;
 
 import de.weltraumschaf.jebnf.ast.Node;
-import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.nodes.*;
 import java.io.IOException;
 import java.util.Arrays;

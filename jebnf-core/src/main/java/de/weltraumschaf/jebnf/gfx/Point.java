@@ -23,12 +23,16 @@ public class Point {
     /**
      * Immutable x coordinate.
      */
+    // CHECKSTYLE:OFF Ignore public field warning.
     public final int x; // NOPMD Ignore short name warning.
+    // CHECKSTYLE:ON
 
     /**
      * Immutable x coordinate.
      */
-    public final int y; //NOPMD Ignore short name warning.
+    // CHECKSTYLE:OFF Ignore public field warning.
+    public final int y; // NOPMD Ignore short name warning.
+    // CHECKSTYLE:ON
 
     /**
      * Initializes a point with coordinates (0, 0).

@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
@@ -32,17 +31,33 @@ public class Terminal extends AbstractTextShape implements Shape {
     private static final int ARC_WIDTH = 25;
 
     /**
+     * Additional padding added to text width and height.
+     */
+    private static final int PADDING = 4;
+
+    /**
      * Padded box size of the text.
      */
     private Dimension boxSize;
 
+    /**
+     * Initializes shape with terminal text and {@link StringPainter#MONOSPACED "monospaced font"}.
+     *
+     * @param text Terminal value text.
+     */
     public Terminal(final String text) {
         super(text, StringPainter.MONOSPACED);
     }
 
+    /**
+     * Calculates the box size around the text.
+     *
+     * @param graphic Used to obtain string size information depending on the used font.
+     * @return Returns dimension object.
+     */
     protected Dimension calcBoxSize(final Graphics2D graphic) {
-        final Dimension textSize = calculateTextSize(graphic);
-        return new Dimension(textSize.width + HORIZONTAL_PADDING * 4, textSize.height + 4);
+        final Dimension size = calculateTextSize(graphic);
+        return new Dimension(size.width + HORIZONTAL_PADDING * PADDING, size.height + PADDING);
     }
 
     @Override

@@ -12,6 +12,7 @@
 package de.weltraumschaf.jebnf.ast.builder;
 
 import de.weltraumschaf.jebnf.ast.AbstractComposite;
+import de.weltraumschaf.jebnf.ast.Composite;
 import de.weltraumschaf.jebnf.ast.nodes.*;
 
 /**
@@ -32,7 +33,7 @@ public class GenericBuilder<P> {
     /**
      * The node built by the parent builder.
      */
-    private final AbstractComposite parentNode;
+    private final Composite parentNode;
 
     /**
      * Initializes the builder with its parent builder and node.

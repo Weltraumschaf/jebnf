@@ -7,7 +7,7 @@ import de.weltraumschaf.jebnf.parser.Token;
 import de.weltraumschaf.jebnf.parser.Position;
 import de.weltraumschaf.jebnf.parser.Parser;
 import de.weltraumschaf.jebnf.parser.SyntaxException;
-import static de.weltraumschaf.jebnf.TestHelper.helper;
+import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import de.weltraumschaf.jebnf.ast.Notification;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
@@ -79,7 +79,7 @@ public class EbnfParserTest {
     @Test public void testParse() throws SyntaxException, IOException, URISyntaxException { //NOPMD
         Syntax ast;
 
-        Parser parser = helper().createParserFromFixture("parser/rules_with_different_assignment_ops.ebnf");
+        Parser parser = getInstance().createParserFromFixture("parser/rules_with_different_assignment_ops.ebnf");
         ast = syntax("Rules with different assignment operators.")
             .rule("comment1")
                 .identifier("literal1")
@@ -93,7 +93,7 @@ public class EbnfParserTest {
         .build();
         assertEquivalentSyntax(ast, parser.parse());
 
-        parser = helper().createParserFromFixture("parser/rules_with_literals.ebnf");
+        parser = getInstance().createParserFromFixture("parser/rules_with_literals.ebnf");
         ast = syntax("Rules with literal.")
             .rule("literal") // NOPMD
                 .choice()
@@ -118,7 +118,7 @@ public class EbnfParserTest {
         .build();
         assertEquivalentSyntax(ast, parser.parse());
 
-        parser = helper().createParserFromFixture("parser/rules_with_comments.ebnf");
+        parser = getInstance().createParserFromFixture("parser/rules_with_comments.ebnf");
         ast = syntax("Rules with comments.")
             .comment("(* here are rules *)")
             .rule("title")
@@ -140,7 +140,7 @@ public class EbnfParserTest {
         .build();
         assertEquivalentSyntax(ast, parser.parse());
 
-        parser = helper().createParserFromFixture("parser/testgrammar_1.old.ebnf");
+        parser = getInstance().createParserFromFixture("parser/testgrammar_1.old.ebnf");
         ast = syntax("EBNF defined in itself.")
             .rule("syntax")
                 .sequence()

@@ -18,11 +18,20 @@ import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import java.awt.Dimension;
 
 /**
+ * Option shape.
+ *
+ * ---- [ optional shape ]------
+ *   \                      /
+ *    |                    |
+ *    \____________________/
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class Option extends AbstractCompund {
 
+    /**
+     * Initializes {@link GridLayout "grid layout"} with common shapes for option.
+     */
     public Option() {
         super(grid().set(0, 0, column().append(fork(WEST_EAST, SOUTH_WEST)))
                     .set(0, 1, curve(NORTH_EAST))
@@ -32,6 +41,11 @@ public class Option extends AbstractCompund {
                     .set(2, 1, curve(NORTH_WEST)));
     }
 
+    /**
+     * Sets the optional shape.
+     *
+     * @param shape Optional shape.
+     */
     public void setOptional(final Shape shape) {
         grid.set(1, 0, shape);
         final Dimension size = shape.getSize();

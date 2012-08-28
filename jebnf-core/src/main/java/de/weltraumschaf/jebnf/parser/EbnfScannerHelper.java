@@ -121,6 +121,7 @@ final class EbnfScannerHelper {
      *
      * @param scanner Scanner to get characters from.
      * @return Return scanned operator token.
+     * @throws SyntaxException On syntax errors.
      * @throws IOException On input stream IO errors.
      */
     public static Token scanOperator(final EbnfScanner scanner) throws SyntaxException, IOException {

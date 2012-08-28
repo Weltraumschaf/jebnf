@@ -1,6 +1,6 @@
 package de.weltraumschaf.jebnf.parser;
 
-import static de.weltraumschaf.jebnf.TestHelper.helper;
+import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Arrays;
@@ -119,7 +119,7 @@ public class EbnfScannerTest {
     }
 
     @Test public void testNextOnRulesWithRanges() throws Exception {
-        assertTokens(helper().createScannerFromFixture("parser/rules_with_ranges.ebnf"), Arrays.asList(
+        assertTokens(getInstance().createScannerFromFixture("parser/rules_with_ranges.ebnf"), Arrays.asList(
                 new Expectation("\"Rules with ranges.\"", TokenType.LITERAL, 1, 1),
                 new Expectation("{", TokenType.L_BRACE, 1, 22),
                 new Expectation("lower", TokenType.IDENTIFIER, 2, 5),
@@ -155,7 +155,7 @@ public class EbnfScannerTest {
     }
 
     @Test public void testNextOnRulesWithComments() throws Exception {
-        assertTokens(helper().createScannerFromFixture("parser/rules_with_comments.ebnf"), Arrays.asList(
+        assertTokens(getInstance().createScannerFromFixture("parser/rules_with_comments.ebnf"), Arrays.asList(
             new Expectation("\"Rules with comments.\"", TokenType.LITERAL,    1, 1),
             new Expectation("{",       TokenType.L_BRACE,   1, 24),
 
@@ -189,7 +189,7 @@ public class EbnfScannerTest {
     }
 
     @Test public void testNextOnRulesWithDifferentAssignemnts() throws Exception {
-        assertTokens(helper().createScannerFromFixture("parser/rules_with_different_assignment_ops.ebnf"),
+        assertTokens(getInstance().createScannerFromFixture("parser/rules_with_different_assignment_ops.ebnf"),
             Arrays.asList(
                 new Expectation("\"Rules with different assignment operators.\"",
                                             TokenType.LITERAL,    1, 1),
@@ -217,7 +217,7 @@ public class EbnfScannerTest {
     }
 
     @Test public void testNextOnRulesWithLiterals() throws Exception {
-        assertTokens(helper().createScannerFromFixture("parser/rules_with_literals.ebnf"),
+        assertTokens(getInstance().createScannerFromFixture("parser/rules_with_literals.ebnf"),
             Arrays.asList(
                 new Expectation("\"Rules with literal.\"", TokenType.LITERAL,    1, 1),
                 new Expectation("{",                     TokenType.L_BRACE,   1, 23),
@@ -247,7 +247,7 @@ public class EbnfScannerTest {
     }
 
     @Test public void testNextOnTestgrammar_1() throws Exception {
-        assertTokens(helper().createScannerFromFixture("parser/testgrammar_1.ebnf"), Arrays.asList(
+        assertTokens(getInstance().createScannerFromFixture("parser/testgrammar_1.ebnf"), Arrays.asList(
             new Expectation("\"EBNF defined in itself.\"",   TokenType.LITERAL, 1, 1),
             new Expectation("{",          TokenType.L_BRACE,   1,  27),
 

@@ -14,72 +14,53 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
+import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.List;
 
 /**
- * Organizes shapes in a vertical layout.
+ * Organizes shapes in a horizontal layout.
  *
  * <pre>
- * +--------------+
- * | ColumnLayout |
- * |              |
- * | +----------+ |
- * | |   Shape  | |
- * | +----------+ |
- * |              |
- * | +----------+ |
- * | |   Shape  | |
- * | +----------+ |
- * |              |
- * | +----------+ |
- * | |   Shape  | |
- * | +----------+ |
- * |      ...     |
- * +--------------+
+ * +--------------------------------------------+
+ * | RowLayout                                   |
+ * | +----------+ +----------+ +----------+     |
+ * | |   Shape  | |   Shape  | |   Shape  | ... |
+ * | +----------+ +----------+ +----------+     |
+ * +--------------------------------------------+
  * </pre>
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class ColumnLayout extends AbstractLayout implements Sequence {
+public class RowLayout extends AbstractLayout implements Sequence {
 
     /**
      * Containing shapes.
      */
-    private final List<Shape> col = Lists.newArrayList();
-
-    /**
-     * Creates a new empty column layout.
-     *
-     * @return Return always new instance.
-     */
-    public static ColumnLayout newColumnLayout() {
-        return new ColumnLayout();
-    }
+    private final List<Shape> row = Lists.newArrayList();
 
     @Override
     public Shape get(final int index) {
-        return col.get(index);
+        return row.get(index);
     }
 
     @Override
-    public ColumnLayout set(final int index, final Shape shape) {
+    public RowLayout set(final int index, final Shape shape) {
         final int count = countShapes();
 
         if (index >= count) {
-            append(empty(index - count));
+            append(empty(count - 1));
             append(shape);
         } else {
-            col.set(index, shape);
+            row.set(index, shape);
         }
 
         return this;
     }
 
     @Override
-    public ColumnLayout append(final Shape... shapes) {
+    public RowLayout append(final Shape... shapes) {
         for (Shape shape : shapes) {
             append(shape);
         }
@@ -88,14 +69,14 @@ public class ColumnLayout extends AbstractLayout implements Sequence {
     }
 
     @Override
-    public ColumnLayout append(final Shape shape) {
-        col.add(shape);
+    public RowLayout append(final Shape shape) {
+        row.add(shape);
         return this;
     }
 
     @Override
     public int countShapes() {
-        return col.size();
+        return row.size();
     }
 
     @Override
@@ -105,13 +86,13 @@ public class ColumnLayout extends AbstractLayout implements Sequence {
         }
 
         final Point pos = getPosition();
-        int currentY = pos.y;
+        int currentX = pos.x;
 
-        for (Shape shape : col) {
-            shape.setPosition(pos.setY(currentY)); // @todo remove currentY
+        for (Shape shape : row) {
+            shape.setPosition(pos.setX(currentX));
             shape.setDebug(isDebug());
             shape.paint(graphic);
-            currentY += shape.getSize().height;
+            currentX += shape.getSize().width;
         }
     }
 
@@ -120,15 +101,15 @@ public class ColumnLayout extends AbstractLayout implements Sequence {
         int width = 0;
         int height = 0;
 
-        for (Shape shape : col) {
+        for (Shape shape : row) {
             adjustShape(shape, graphics);
             final Dimension shapeSize = shape.getSize();
-            height += shapeSize.height;
-            width = Math.max(width, shapeSize.width);
+            width += shapeSize.width;
+            height = Math.max(height, shapeSize.height);
         }
 
-        for (Shape shape : col) {
-            shape.getSize().setSize(width, shape.getSize().getHeight());
+        for (Shape shape : row) {
+            shape.getSize().setSize(shape.getSize().getWidth(), height);
         }
 
         setSize(new Dimension(width, height));

@@ -2,7 +2,7 @@ package de.weltraumschaf.jebnf.ast.visitor;
 
 import de.weltraumschaf.jebnf.ast.visitor.Xml;
 import com.google.common.collect.Maps;
-import static de.weltraumschaf.jebnf.TestHelper.helper;
+import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
 import de.weltraumschaf.jebnf.ast.nodes.Loop;
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
@@ -124,7 +124,7 @@ public class XmlTest {
         visitor = new Xml();
         syntax.accept(visitor);
 
-        final String xml = helper().createStringFromFixture("ast/visitor/syntax.xml");
+        final String xml = getInstance().createStringFromFixture("ast/visitor/syntax.xml");
         assertEquals(xml, visitor.getXmlString());
     }
 

@@ -11,9 +11,9 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.curves;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Strokes;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -24,7 +24,27 @@ import java.awt.geom.Arc2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractCurve extends Empty {
+public abstract class AbstractCurve extends Empty implements Curve {
+
+    /**
+     * Arc extend to 90 degree.
+     */
+    protected static final int EXTEND_90_DEGREE = 90;
+
+    /**
+     * Arc extend to minus 90 degree.
+     */
+    protected static final int EXTEND_MINUS90_DEGREE = -90;
+
+    /**
+     * Arc start at 90 degree.
+     */
+    protected static final int START_90_DEGREE = 90;
+
+    /**
+     * Arc start at 180 degree.
+     */
+    protected static final int START_180_DEGREE = 180;
 
     @Override
     public void paint(final Graphics2D graphic) {
@@ -60,8 +80,8 @@ public abstract class AbstractCurve extends Empty {
     /**
      * Creates arc object.
      *
-     * @param start
-     * @param extent
+     * @param start Start of arc.
+     * @param extent Extension of arc.
      * @return Returns arc object.
      */
     protected Arc2D createArc(final int start, final int extent) {
@@ -71,10 +91,10 @@ public abstract class AbstractCurve extends Empty {
     /**
      * Creates arc object.
      *
-     * @param pos
-     * @param size
-     * @param start
-     * @param extent
+     * @param pos Position of arc.
+     * @param size size of arc.
+     * @param start Start of arc.
+     * @param extent Extension of arc.
      * @return Returns arc object.
      */
     protected Arc2D createArc(final Point pos, final Dimension size, final int start, final int extent) {

@@ -21,7 +21,7 @@ import de.weltraumschaf.jebnf.ast.nodes.Syntax;
 import de.weltraumschaf.jebnf.ast.nodes.Choice;
 import de.weltraumschaf.jebnf.ast.nodes.Terminal;
 import de.weltraumschaf.jebnf.ast.nodes.Rule;
-import static de.weltraumschaf.jebnf.TestHelper.helper;
+import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
 import de.weltraumschaf.jebnf.parser.Parser;
 import de.weltraumschaf.jebnf.parser.SyntaxException;
@@ -202,8 +202,8 @@ public class TextSyntaxTreeTest {
             visitor.getText()
         );
 
-        final String expected = helper().createStringFromFixture("ast/visitor/rules_with_literals_tree_output");
-        final Parser parser = helper().createParserFromFixture("parser/rules_with_literals.ebnf");
+        final String expected = getInstance().createStringFromFixture("ast/visitor/rules_with_literals_tree_output");
+        final Parser parser = getInstance().createParserFromFixture("parser/rules_with_literals.ebnf");
         ast     = parser.parse();
         visitor = new TextSyntaxTree();
         ast.accept(visitor);

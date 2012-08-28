@@ -23,7 +23,7 @@ public class CurveNE extends AbstractCurve {
 
     @Override
     protected Arc2D createArc() {
-        return createArc(180, 90);
+        return createArc(START_180_DEGREE, EXTEND_90_DEGREE);
     }
 
     @Override

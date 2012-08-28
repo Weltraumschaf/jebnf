@@ -19,17 +19,31 @@ import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
+ * Empty shape.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class Empty extends AbstractShape {
 
+    /**
+     * Whether it have transparent background or not.
+     */
     private boolean transparent;
 
+    /**
+     * Initializes the object with transparent flag.
+     *
+     * @param transparent Whether it have transparent background or not.
+     */
     public void setTransparent(final boolean transparent) {
         this.transparent = transparent;
     }
 
+    /**
+     * Whether it have transparent background or not.
+     *
+     * @return Return true if background is transparent, unless false.
+     */
     public boolean isTransparent() {
         return transparent;
     }

@@ -13,7 +13,7 @@
  * Provides an AST builder.
  *
  * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/jebnf">EBNF library</a></p>
+ * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
  *
  * <p>This package provides a builder factory implemented as an internal DSL to generate an
  * Abstract Syntax Tree for an EBNF syntax.</p>

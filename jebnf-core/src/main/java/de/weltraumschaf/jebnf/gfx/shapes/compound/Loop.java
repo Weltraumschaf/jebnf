@@ -18,11 +18,30 @@ import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import java.awt.Dimension;
 
 /**
+ * Railroad loop shape.
+ *
+ * <pre>
+ * -----[ looped shape ]------
+ *   /                   \
+ *  |                     |
+ *   \___________________/
+ * </pre>
+ *
+ * With additional shape.
+ * <pre>
+ * ------[ looped shape ]------
+ *   /                      \
+ *  |                        |
+ *   \_[ additional shape ]_/
+ * </pre>
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class Loop extends AbstractCompund {
 
+    /**
+     * Initializes the grid layout with some common base shapes.
+     */
     public Loop() {
         super(grid().set(0, 0, column().append(fork(WEST_EAST, SOUTH_EAST)))
                     .set(0, 1, column(curve(NORTH_EAST)))
@@ -32,12 +51,22 @@ public class Loop extends AbstractCompund {
                     .set(2, 1, column().append(curve(NORTH_WEST))));
     }
 
+    /**
+     * Set the looped shape.
+     *
+     * @param shape Looped shape.
+     */
     public void setLooped(final Shape shape) {
         grid.set(1, 0, shape);
         final Dimension size = shape.getSize();
         extendColumnWithStraightNS(size.height, new int[]{0, 2}, 0);
     }
 
+    /**
+     * Set the optional additional shape.
+     *
+     * @param shape Additional shape.
+     */
     public void setAdditional(final Shape shape) {
         grid.set(1, 1, shape);
         final Dimension size = shape.getSize();

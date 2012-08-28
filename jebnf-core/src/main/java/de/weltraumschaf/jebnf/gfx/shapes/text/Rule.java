@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
@@ -25,8 +24,11 @@ import java.awt.Graphics2D;
  */
 public class Rule extends AbstractTextShape implements Shape {
 
-    private Dimension textSize;
-
+    /**
+     * Initializes the object with text and {@link StringPainter.SANSERIF "font"}.
+     *
+     * @param text Rule name.
+     */
     public Rule(final String text) {
         super(text, StringPainter.SANSERIF);
     }
@@ -55,4 +57,5 @@ public class Rule extends AbstractTextShape implements Shape {
         textPainter.drawCenteredString(getText(), textPosition, textSize);
         resotreColorAndStroke(graphic);
     }
+
 }

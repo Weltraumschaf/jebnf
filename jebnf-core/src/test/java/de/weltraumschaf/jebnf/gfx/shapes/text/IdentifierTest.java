@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.identifier;
@@ -50,7 +49,7 @@ public class IdentifierTest {
 
     @Test public void font() {
         final String value = "foobar";
-        final AbstractTextShape ident = identifier(value);
+        final TextShape ident = identifier(value);
         assertEquals(value, ident.getText());
         assertEquals(StringPainter.SANSERIFIT, ident.getFont());
     }

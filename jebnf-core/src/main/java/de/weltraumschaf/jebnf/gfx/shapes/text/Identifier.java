@@ -10,7 +10,6 @@
  */
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
@@ -30,13 +29,24 @@ public class Identifier extends AbstractTextShape implements Shape {
      */
     private Dimension boxSize;
 
+    /**
+     * Initializes the identifiers with value text and {@link StringPainter#SANSERIFIT "font"}.
+     *
+     * @param text Identifier value text.
+     */
     public Identifier(final String text) {
         super(text, StringPainter.SANSERIFIT);
     }
 
+    /**
+     * Calculates size of the inner rounded box.
+     *
+     * @param graphic Context to calculate by.
+     * @return Return dimension object.
+     */
     protected Dimension calcBoxSize(final Graphics2D graphic) {
-        final Dimension textSize = calculateTextSize(graphic);
-        return new Dimension(textSize.width + HORIZONTAL_PADDING * 2, textSize.height);
+        final Dimension size = calculateTextSize(graphic);
+        return new Dimension(size.width + HORIZONTAL_PADDING * 2, size.height);
     }
 
     @Override

@@ -11,20 +11,18 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayout;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.column;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
+import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
+import de.weltraumschaf.jebnf.gfx.shapes.text.TextShape;
 import java.awt.Dimension;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -56,7 +54,7 @@ public class OptionTest {
         assertEquals(1, join.countShapes());
         assertTrue(join.get(0) instanceof HForkSE);
 
-        final AbstractTextShape term = terminal("foo");
+        final TextShape term = terminal("foo");
         option.setOptional(term);
         assertEquals(2, option.grid.counRows());
         assertEquals(3, option.grid.countCols());
@@ -91,4 +89,5 @@ public class OptionTest {
         assertTrue(join.get(1) instanceof StraightNS);
         assertTrue(join.get(2) instanceof StraightNS);
     }
+
 }

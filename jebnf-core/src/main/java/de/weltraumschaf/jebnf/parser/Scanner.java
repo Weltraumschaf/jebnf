@@ -71,6 +71,8 @@ public interface Scanner {
      * Backtrack current token one token.
      *
      * TODO: Return void.
+     *
+     * @return Return token.
      */
     Token backtrackToken();
 
@@ -80,6 +82,8 @@ public interface Scanner {
      * TODO: Return void.
      *
      * @param count How many tokens to back track.
+     * @return Return token.
      */
-    Token backtrackToken(final int count);
+    Token backtrackToken(int count);
+
 }

@@ -11,90 +11,53 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import com.google.common.collect.Lists;
-import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.shapes.Adjustable;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
-import java.awt.Dimension;
-import java.awt.Graphics2D;
-import java.util.List;
 
 /**
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Sequence extends AbstractLayout {
+public interface Sequence extends Adjustable, Shape {
 
-    private final List<Shape> row = Lists.newArrayList();
+    /**
+     * Get shape at given index.
+     *
+     * @param index Index beginning with 0.
+     * @return Return shape object.
+     */
+    Shape get(int index);
 
-    public Shape get(final int index) {
-        return row.get(index);
-    }
+    /**
+     * Set shape at given index.
+     *
+     * @param index Index beginning with 0.
+     * @param shape Shape to add.
+     * @return Return itself for method chaining.
+     */
+    Sequence set(int index, Shape shape);
 
-    public Sequence set(final int index, final Shape shape) {
-        final int count = countShapes();
+    /**
+     * Append a shapes at the bottom of the column.
+     *
+     * @param shapes Shapes to append.
+     * @return Return itself for method chaining.
+     */
+    Sequence append(final Shape... shapes);
 
-        if (index >= count) {
-            append(empty(count - 1));
-            append(shape);
-        } else {
-            row.set(index, shape);
-        }
+    /**
+     * Append a shape at the bottom of the column.
+     *
+     * @param shape Shape to append.
+     * @return Return itself for method chaining.
+     */
+    Sequence append(final Shape shape);
 
-        return this;
-    }
-
-    public Sequence append(final Shape... shapes) {
-        for (Shape shape : shapes) {
-            append(shape);
-        }
-
-        return this;
-    }
-
-    public Sequence append(final Shape shape) {
-        row.add(shape);
-        return this;
-    }
-
-    @Override
-    public void paint(final Graphics2D graphic) {
-        if (countShapes() == 0) {
-            return;
-        }
-
-        final Point pos = getPosition();
-        int currentX = pos.x;
-
-        for (Shape shape : row) {
-            shape.setPosition(pos.setX(currentX));
-            shape.setDebug(isDebug());
-            shape.paint(graphic);
-            currentX += shape.getSize().width;
-        }
-    }
-
-    public int countShapes() {
-        return row.size();
-    }
-
-    @Override
-    public void adjust(final Graphics2D graphics) {
-        int width = 0;
-        int height = 0;
-
-        for (Shape shape : row) {
-            adjustShape(shape, graphics);
-            final Dimension shapeSize = shape.getSize();
-            width += shapeSize.width;
-            height = Math.max(height, shapeSize.height);
-        }
-
-        for (Shape shape : row) {
-            shape.getSize().height = height;
-        }
-
-        setSize(new Dimension(width, height));
-    }
+    /**
+     * Count containing shapes.
+     *
+     * @return Return count of shapes.
+     */
+    int countShapes();
 
 }

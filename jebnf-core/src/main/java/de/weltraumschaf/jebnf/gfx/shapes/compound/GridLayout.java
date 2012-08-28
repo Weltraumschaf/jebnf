@@ -13,29 +13,50 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.shapes.Adjustable;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.List;
 
 /**
+ * A grid layout organizes multiple {@link ColumnLayout "column layouts"} to a two dimensional grid.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class GridLayout extends AbstractLayout {
+public class GridLayout extends AbstractLayout implements Adjustable {
 
+    /**
+     * List of column layouts.
+     */
     private final List<ColumnLayout> columns = Lists.newArrayList();
 
+    /**
+     * Count the containing columns of the grid.
+     *
+     * @return Return the number of columns.
+     */
     public int countCols() {
         return columns.size();
     }
 
+    /**
+     * Count the rows of the grid.
+     *
+     * @return Return the number of rows.
+     */
     public int counRows() {
         return countCols() == 0
                ? 0
                : columns.get(0).countShapes();
     }
 
+    /**
+     * Get the column at given index.
+     *
+     * @param columnIndex Index beginning with 0.
+     * @return Return the column.
+     */
     public ColumnLayout get(final int columnIndex) {
         ColumnLayout col;
 
@@ -53,6 +74,13 @@ public class GridLayout extends AbstractLayout {
         return col;
     }
 
+    /**
+     * Get shape at given column and row index.
+     *
+     * @param columnIndex Index beginning with 0.
+     * @param rowIndex Index beginning with 0.
+     * @return Return the shape.
+     */
     public Shape get(final int columnIndex, final int rowIndex) {
         Shape shape;
 
@@ -71,6 +99,14 @@ public class GridLayout extends AbstractLayout {
         return shape;
     }
 
+    /**
+     * Set shape at given column and row index.
+     *
+     * @param columnIndex Index beginning with 0.
+     * @param rowIndex Index beginning with 0.
+     * @param shape Shape to set.
+     * @return Return itself for method chaining.
+     */
     public GridLayout set(final int columnIndex, final int rowIndex, final Shape shape) {
         final int colCount = countCols();
 
@@ -85,6 +121,12 @@ public class GridLayout extends AbstractLayout {
         return this;
     }
 
+    /**
+     * Append columns to the grid.
+     *
+     * @param cols Columns to add.
+     * @return Return itself for method chaining.
+     */
     public GridLayout append(final ColumnLayout... cols) {
         for (ColumnLayout cl : cols) {
             append(cl);
@@ -93,6 +135,12 @@ public class GridLayout extends AbstractLayout {
         return this;
     }
 
+    /**
+     * Append column to the grid.
+     *
+     * @param col Column to add.
+     * @return Return itself for method chaining.
+     */
     public GridLayout append(final ColumnLayout col) {
         columns.add(col);
         return this;

@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;

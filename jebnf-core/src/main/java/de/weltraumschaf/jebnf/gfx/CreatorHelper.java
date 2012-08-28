@@ -11,11 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
+import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Sequence;
-import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayout;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
@@ -75,7 +75,7 @@ public class CreatorHelper {
      */
     public GridLayout createObjectDiagram(final Graphics2D graphics) {
         final GridLayout object = grid();
-        final Sequence innerSequence = sequence(identifier("string"),
+        final RowLayout innerSequence = sequence(identifier("string"),
                                                 terminal(":"),
                                                 identifier("value"));
         innerSequence.adjust(graphics);

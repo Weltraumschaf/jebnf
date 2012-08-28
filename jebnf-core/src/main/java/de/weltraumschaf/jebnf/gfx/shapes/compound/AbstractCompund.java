@@ -38,7 +38,7 @@ public class AbstractCompund extends AbstractShape implements Compund {
     /**
      * Initializes grid layout.
      *
-     * @param grid
+     * @param grid The grid layout containing the compound shapes.
      */
     public AbstractCompund(final GridLayout grid) {
         super();
