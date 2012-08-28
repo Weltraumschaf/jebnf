@@ -116,7 +116,7 @@
 <a class="jxr_linenumber" name="106" href="#106">106</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="107" href="#107">107</a> <em class="jxr_javadoccomment">     * @param code Exit code.</em>
 <a class="jxr_linenumber" name="108" href="#108">108</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="109" href="#109">109</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> exit(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ExitCode.html">ExitCode</a> code) {
+<a class="jxr_linenumber" name="109" href="#109">109</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> exit(<strong class="jxr_keyword">final</strong> ExitCode code) {
 <a class="jxr_linenumber" name="110" href="#110">110</a>         exit(code.getCode());
 <a class="jxr_linenumber" name="111" href="#111">111</a>     }
 <a class="jxr_linenumber" name="112" href="#112">112</a> 
@@ -157,7 +157,7 @@
 <a class="jxr_linenumber" name="147" href="#147">147</a>         <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="148" href="#148">148</a>             options.parse(args);
 <a class="jxr_linenumber" name="149" href="#149">149</a>         } <strong class="jxr_keyword">catch</strong> (ParseException ex) {
-<a class="jxr_linenumber" name="150" href="#150">150</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/EbnfException.html">EbnfException</a>(ex.getMessage(), 1, ex);
+<a class="jxr_linenumber" name="150" href="#150">150</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> EbnfException(ex.getMessage(), 1, ex);
 <a class="jxr_linenumber" name="151" href="#151">151</a>         }
 <a class="jxr_linenumber" name="152" href="#152">152</a>     }
 <a class="jxr_linenumber" name="153" href="#153">153</a> 
@@ -211,11 +211,11 @@
 <a class="jxr_linenumber" name="201" href="#201">201</a>         <strong class="jxr_keyword">final</strong> String fileName = options.getSyntaxFile();
 <a class="jxr_linenumber" name="202" href="#202">202</a> 
 <a class="jxr_linenumber" name="203" href="#203">203</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="204" href="#204">204</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/Parser.html">Parser</a> parser  = Factory.newParserFromSource(<strong class="jxr_keyword">new</strong> File(fileName), fileName);
-<a class="jxr_linenumber" name="205" href="#205">205</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> ast     = parser.parse();
+<a class="jxr_linenumber" name="204" href="#204">204</a>             <strong class="jxr_keyword">final</strong> Parser parser  = Factory.newParserFromSource(<strong class="jxr_keyword">new</strong> File(fileName), fileName);
+<a class="jxr_linenumber" name="205" href="#205">205</a>             <strong class="jxr_keyword">final</strong> Syntax ast     = parser.parse();
 <a class="jxr_linenumber" name="206" href="#206">206</a> 
 <a class="jxr_linenumber" name="207" href="#207">207</a>             <strong class="jxr_keyword">if</strong> (options.isTextTree()) {
-<a class="jxr_linenumber" name="208" href="#208">208</a>                 <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/visitor/TextSyntaxTree.html">TextSyntaxTree</a> visitor = <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/visitor/TextSyntaxTree.html">TextSyntaxTree</a>();
+<a class="jxr_linenumber" name="208" href="#208">208</a>                 <strong class="jxr_keyword">final</strong> TextSyntaxTree visitor = <strong class="jxr_keyword">new</strong> TextSyntaxTree();
 <a class="jxr_linenumber" name="209" href="#209">209</a>                 ast.accept(visitor);
 <a class="jxr_linenumber" name="210" href="#210">210</a>                 println(visitor.getText());
 <a class="jxr_linenumber" name="211" href="#211">211</a>             }
