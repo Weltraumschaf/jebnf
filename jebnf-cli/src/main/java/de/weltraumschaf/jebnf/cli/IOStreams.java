@@ -76,4 +76,12 @@ public final class IOStreams {
         return stdout;
     }
 
+    /**
+     * Creates a new streams object initialized with {@link System#in}, {@link System#out}, and {@link System#err}.
+     *
+     * @return Return always new instance.
+     */
+    public static IOStreams newDefault() {
+        return new IOStreams(System.in, System.out, System.err);
+    }
 }

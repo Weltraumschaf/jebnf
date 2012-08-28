@@ -37,7 +37,7 @@ public final class Invoker {
     /**
      * Default IO streams.
      */
-    private static final IOStreams DEFAULT_IO = new IOStreams(System.in, System.out, System.err);
+    private static final IOStreams DEFAULT_IO = IOStreams.newDefault();
 
     /**
      * Default command line options.
@@ -174,7 +174,7 @@ public final class Invoker {
             printlnErr(ex.getMessage());
 
             if (options.isDebug()) {
-                ex.printStackTrace(ioStreams.getStdout());
+                printStackTrace(ex);
             }
 
             exit(ex.getCode());
@@ -182,7 +182,7 @@ public final class Invoker {
             printlnErr("Fatal error!");
 
             if (options.isDebug()) {
-                ex.printStackTrace(ioStreams.getStdout());
+                printStackTrace(ex);
             }
 
             exit(ExitCode.FATAL_ERROR);
@@ -213,7 +213,7 @@ public final class Invoker {
             printlnErr("Syntax error: " + ex.getMessage());
 
             if (options.isDebug()) {
-                ex.printStackTrace(ioStreams.getStdout());
+                ex.printStackTrace(ioStreams.getStderr());
             }
 
             exit(ExitCode.SYNTAX_ERROR);
@@ -221,7 +221,7 @@ public final class Invoker {
             printlnErr(String.format("Can not read syntax file '%s'!", fileName));
 
             if (options.isDebug()) {
-                ex.printStackTrace(ioStreams.getStdout());
+                printStackTrace(ex);
             }
 
             exit(ExitCode.READ_ERROR);
@@ -229,7 +229,7 @@ public final class Invoker {
             printlnErr(String.format("Can not read syntax file '%s'!", fileName));
 
             if (options.isDebug()) {
-                ex.printStackTrace(ioStreams.getStdout());
+                printStackTrace(ex);
             }
 
             exit(ExitCode.READ_ERROR);
@@ -252,6 +252,15 @@ public final class Invoker {
      */
     public CliOptions getOptions() {
         return options;
+    }
+
+    /**
+     * Prints exception stack trace to {@link System#err}.
+     *
+     * @param ex Exception to print.
+     */
+    private void printStackTrace(Exception ex) {
+        ex.printStackTrace(ioStreams.getStderr());
     }
 
 }

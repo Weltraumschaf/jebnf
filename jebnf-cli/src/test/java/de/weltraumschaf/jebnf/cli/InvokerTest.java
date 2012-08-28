@@ -34,6 +34,13 @@ public class InvokerTest {
         verify(ioStreams.getStdout(), times(1)).println(msg);
     }
 
+    @Test public void printlnErr() {
+        final Invoker sut = new Invoker(new String[]{"foo"}, ioStreams);
+        final String msg = "some text";
+        sut.printlnErr(msg);
+        verify(ioStreams.getStderr(), times(1)).println(msg);
+    }
+
     @Test public void parseOptions() throws EbnfException, ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"-d", "-h"};
