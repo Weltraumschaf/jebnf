@@ -11,8 +11,6 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
-import de.weltraumschaf.jebnf.gfx.Line;
-import de.weltraumschaf.jebnf.gfx.Point;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -24,14 +22,14 @@ public class LineTest {
 
     @Test public void create() {
         Line sut = new Line();
-        assertEquals(new Point(0, 0), sut.start);
-        assertEquals(new Point(0, 0), sut.end);
+        assertEquals(new Point(0, 0), sut.getStart());
+        assertEquals(new Point(0, 0), sut.getEnd());
 
         final Point start = new Point(5, 6);
         final Point end = new Point(50, 60);
         sut = new Line(start, end);
-        assertEquals(start, sut.start);
-        assertEquals(end, sut.end);
+        assertEquals(start, sut.getStart());
+        assertEquals(end, sut.getEnd());
     }
 
     @Test public void testToString() {

@@ -221,7 +221,7 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @param line Line to draw.
      */
     protected void drawLine(final Graphics2D graphic, final Line line) {
-        drawLine(graphic, line.start, line.end);
+        drawLine(graphic, line.getStart(), line.getEnd());
     }
 
     /**

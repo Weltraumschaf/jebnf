@@ -23,16 +23,12 @@ public class Line {
     /**
      * Start point of line.
      */
-    // CHECKSTYLE:OFF Ignore public field warning.
-    public final Point start; // NOPMD Ignore short name warning.
-    // CHECKSTYLE:ON
+    private final Point start;
 
     /**
      * End point of line.
      */
-    // CHECKSTYLE:OFF Ignore public field warning.
-    public final Point end; // NOPMD Ignore short name warning.
-    // CHECKSTYLE:ON
+    private final Point end;
 
     /**
      * Initializes a line with both start and end with points to (0, 0).
