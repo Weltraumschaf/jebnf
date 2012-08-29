@@ -37,53 +37,56 @@ public interface Scanner {
     void close() throws IOException;
 
     /**
-     * Return true if the scanner has more tokens.
+     * Returns if there are more tokens.
      *
-     * @return Return true if ther are more tokens.
+     * This is always true if never {@link Scanner#nextToken()}
+     * was called. No more tokens are indicated if the current token is
+     * of type {@link TokenType#EOF}.
+     *
+     * @return True if {@link #nextToken()} will advance one more token.
      */
     boolean hasNextToken();
 
     /**
-     * Let the scanner scans the next token.
+     * Start the scanning of the next token.
+     *
+     * This method should be called until {@link #hasNextToken()} returns false.
      *
      * @throws SyntaxException On syntax errors.
-     * @throws IOException On IO errors.
+     * @throws IOException     On input stream IO errors.
      */
     void nextToken() throws SyntaxException, IOException;
 
-    /**
-     * Peeks one token w/o advancing current token.
+     /**
+     * Returns the next token without advancing the internal pointer (aka. lookahead).
+     *
+     * A call to {@link Scanner#nextToken()} will return this token ahead.
      *
      * @return Return peeked token.
      * @throws SyntaxException On syntax errors.
-     * @throws IOException On IO errors.
+     * @throws IOException     On input stream IO errors.
      */
     Token peekToken() throws SyntaxException, IOException;
 
     /**
-     * Get the current scanned token.
+     * Returns the current scanned token.
      *
-     * @return Return current token object.
+     * May be null if never {@link Scanner#nextToken()} was called.
+     *
+     * @return Returns always same instance until the current token is advanced by {@link #nextToken()}.
      */
     Token getCurrentToken();
 
     /**
      * Backtrack current token one token.
-     *
-     * TODO: Return void.
-     *
-     * @return Return token.
      */
-    Token backtrackToken();
+    void backtrackToken();
 
     /**
      * Backtrack current token n token.
      *
-     * TODO: Return void.
-     *
      * @param count How many tokens to back track.
-     * @return Return token.
      */
-    Token backtrackToken(int count);
+    void backtrackToken(int count);
 
 }

@@ -160,8 +160,9 @@ public class EbnfParser implements Parser {
         }
 
         if (!assertTokens(scanner.getCurrentToken(), TokenType.END_OF_RULE, END_OF_RULE)) {
+            scanner.backtrackToken(2);
             raiseError("Rule must end with '.' or ';'",
-                       scanner.backtrackToken(2).getPosition(true));
+                       scanner.getCurrentToken().getPosition(true));
         }
 
         return rule;

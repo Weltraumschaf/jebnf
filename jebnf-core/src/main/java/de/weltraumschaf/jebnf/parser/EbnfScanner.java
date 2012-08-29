@@ -125,13 +125,6 @@ public class EbnfScanner implements Scanner {
         this.line             = 1;
     }
 
-    /**
-     * Returns the file from where the input stream comes.
-     *
-     * May be null.
-     *
-     * @return The associated file name or null if not scanning from a file.
-     */
     @Override
     public final String getFile() {
         return file;
@@ -232,13 +225,6 @@ public class EbnfScanner implements Scanner {
         return new Position(line, column, file);
     }
 
-    /**
-     * Returns the current scanned token.
-     *
-     * May be null if never {@link Scanner#nextToken()} was called.
-     *
-     * @return Returns always same instance until the current token is advanced by {@link #nextToken()}.
-     */
     @Override
     public Token getCurrentToken() {
         try {
@@ -248,47 +234,24 @@ public class EbnfScanner implements Scanner {
         }
     }
 
-    /**
-     * Returns one token backwards from the current token w/o changing the {@link #currentToken() current token}.
-     *
-     * @return Backtracked token.
-     */
     @Override
-    public Token backtrackToken() {
-        return backtrackToken(1);
+    public void backtrackToken() {
+        backtrackToken(1);
     }
 
-    /**
-     * Returns the nth token backwards from the current token w/o changing the {@link #currentToken() current token}.
-     *
-     * TODO: Should change the current token and return void, to satisfy common scanning patterns.
-     *
-     * @param count How many tokens to backtrack.
-     * @return The backtracked token.
-     */
     @Override
-    public Token backtrackToken(final int count) {
-        final int index = currentToken - count;
+    public void backtrackToken(final int count) {
+        final int backtrackedIndex = currentToken - count;
 
-        try {
-            return tokens.get(index);
-        } catch (IndexOutOfBoundsException ex) {
+        if (backtrackedIndex < 0) {
             throw new IllegalArgumentException(
-                String.format("Can't backup token on positon -%d! There are only %d tokens.",
-                              count, tokens.size()),
-                ex);
+                String.format("Can't backup current token to index %d! There are only %d tokens.",
+                              backtrackedIndex, tokens.size()));
+        } else {
+            currentToken = backtrackedIndex;
         }
     }
 
-    /**
-     * Returns if there are more tokens.
-     *
-     * This is always true if never {@link Scanner#nextToken()}
-     * was called. No more tokens are indicated if the current token is
-     * of type {@link TokenType#EOF}.
-     *
-     * @return True if {@link #nextToken()} will advance one more token.
-     */
     @Override
     public boolean hasNextToken() {
         final Token token = getCurrentToken();
@@ -298,15 +261,6 @@ public class EbnfScanner implements Scanner {
                : !token.isType(TokenType.EOF);
     }
 
-    /**
-     * Returns the next token without advancing the internal pointer (aka. lookahead).
-     *
-     * A call to {@link Scanner#nextToken()} will return this token ahead.
-     *
-     * @return Return peeked token.
-     * @throws SyntaxException On syntax errors.
-     * @throws IOException     On input stream IO errors.
-     */
     @Override
     public Token peekToken() throws SyntaxException, IOException {
         nextToken();
@@ -320,14 +274,6 @@ public class EbnfScanner implements Scanner {
         return token;
     }
 
-    /**
-     * Start the scanning of the next token.
-     *
-     * This method should be called until {@link #hasNextToken()} returns false.
-     *
-     * @throws SyntaxException On syntax errors.
-     * @throws IOException     On input stream IO errors.
-     */
     @Override
     public void nextToken() throws SyntaxException, IOException {
         if (!hasNextToken()) {
@@ -397,11 +343,6 @@ public class EbnfScanner implements Scanner {
         }
     }
 
-    /**
-     * Closes the {@link #input "input reader"}.
-     *
-     * @throws IOException On input stream IO errors.
-     */
     @Override
     public void close() throws IOException {
         input.close();

@@ -58,17 +58,17 @@ public class EbnfScannerTest {
             final Token token = scanner.getCurrentToken();
             assertNotNull(token);
             final Expectation expectation = expectations.get(count);
-            assertEquals(String.format("%s %d type: %s", msg, count, token.getValue()), expectation.
-                    getType(), token.getType());
+            assertEquals(String.format("%s %d type: %s", msg, count, token.getValue()),
+                         expectation.getType(), token.getType());
             assertEquals(String.format("%s %d value: %s", msg, count, token.getValue()),
                          expectation.getValue(), token.getValue());
 
             final Position position = token.getPosition();
             assertNull(position.getFile());
-            assertEquals(String.format("%s %d line: %s", msg, count, token.getValue()), expectation.
-                    getLine(), position.getLine());
-            assertEquals(String.format("%s %d col: %s", msg, count, token.getValue()), expectation.
-                    getCol(), position.getColumn());
+            assertEquals(String.format("%s %d line: %s", msg, count, token.getValue()),
+                         expectation.getLine(), position.getLine());
+            assertEquals(String.format("%s %d col: %s", msg, count, token.getValue()),
+                         expectation.getCol(), position.getColumn());
             ++count;
         }
 
@@ -79,9 +79,11 @@ public class EbnfScannerTest {
         assertEquals("Not enough tokens!", expectations.size(), count);
 
         final int[] backtracks = {1, 3, 20, 200000};
+        int index = expectations.size() - 1;
+
         for (int i = 0; i < backtracks.length; ++i) {
             final int backtrack = backtracks[i];
-            final int index = count - (backtrack + 1);
+            index -= backtrack;
 
             if (index < 0) {
                 try {
@@ -91,14 +93,19 @@ public class EbnfScannerTest {
                     // Exception is expected here.
                 }
             } else {
-                final Token token = scanner.backtrackToken(backtrack);
+                scanner.backtrackToken(backtrack);
+                final Token token = scanner.getCurrentToken();
                 final Expectation expectation = expectations.get(index);
-                assertEquals(expectation.getType(), token.getType());
-                assertEquals(expectation.getValue(), token.getValue());
+                assertEquals(String.format("%s %d type: %s", msg, count, token.getValue()),
+                             expectation.getType(), token.getType());
+                assertEquals(String.format("%s %d value: %s", msg, count, token.getValue()),
+                             expectation.getValue(), token.getValue());
                 final Position position = token.getPosition();
                 assertNull(position.getFile());
-                assertEquals(expectation.getLine(), position.getLine());
-                assertEquals(expectation.getCol(), position.getColumn());
+                assertEquals(String.format("%s %d line: %s", msg, count, token.getValue()),
+                             expectation.getLine(), position.getLine());
+                assertEquals(String.format("%s %d col: %s", msg, count, token.getValue()),
+                             expectation.getCol(), position.getColumn());
             }
         }
 
