@@ -79,7 +79,7 @@ public class TestShape extends Empty {
                     verticalIteration));
         }
 
-        if (horizIteration % 2 == 1 && verticalIteration % 2 == 1) { 
+        if (horizIteration % 2 == 1 && verticalIteration % 2 == 1) {
             return true;
         }
 

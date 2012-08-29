@@ -11,10 +11,10 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
+import static de.weltraumschaf.jebnf.gfx.shapes.Curves.*;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.Curves.*;
-import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.Straights.WEST_EAST;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
+import static de.weltraumschaf.jebnf.gfx.shapes.Straights.WEST_EAST;
 import java.awt.Dimension;
 
 /**

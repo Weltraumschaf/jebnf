@@ -211,7 +211,9 @@
         <module name="MissingOverride">
             <property name="javaFiveCompatibility" value="true" />
         </module>
-        <module name="ClassDataAbstractionCoupling" />
+        <module name="ClassDataAbstractionCoupling" >
+            <property name="max" value="10" />
+        </module>
         <module name="ClassFanOutComplexity" />
 
         <!-- Commenting -->

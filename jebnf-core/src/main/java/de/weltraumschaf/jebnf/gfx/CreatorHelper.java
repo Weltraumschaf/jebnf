@@ -75,7 +75,7 @@ public class CreatorHelper {
      */
     public GridLayout createObjectDiagram(final Graphics2D graphics) {
         final GridLayout object = grid();
-        final RowLayout innerSequence = sequence(identifier("string"),
+        final RowLayout innerSequence = row(identifier("string"),
                                                 terminal(":"),
                                                 identifier("value"));
         innerSequence.adjust(graphics);
