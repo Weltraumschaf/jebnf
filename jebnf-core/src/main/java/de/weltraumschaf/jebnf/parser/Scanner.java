@@ -16,6 +16,8 @@ import java.io.IOException;
 /**
  * Interface for scanner.
  *
+ * TODO: Extract CharacterAccess interface.
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public interface Scanner {
@@ -88,5 +90,60 @@ public interface Scanner {
      * @param count How many tokens to back track.
      */
     void backtrackToken(int count);
+
+    /**
+     * Creates a {Position} from the current line and column in the input stream.
+     *
+     * @return Return always new instance.
+     */
+    Position createPosition();
+
+    /**
+     * Returns the character at the current cursor from the input stream.
+     *
+     * @return The current character.
+     */
+    char getCurrentCharacter();
+
+    /**
+     * Returns if there is a next character in the input stream.
+     *
+     * @return If there is one more character.
+     */
+    boolean hasNextCharacter();
+
+    /**
+     * Increments the character cursor.
+     *
+     * @throws IOException On IO errors caused by the input reader.
+     */
+    void nextCharacter() throws IOException;
+
+    /**
+     * Decrements the character cursor.
+     */
+    void backupCharacter();
+
+    /**
+     * Checks if the current character is a new line character (\n or \r)
+     * and if it is increments the line counter and resets the column counter to 0.
+     */
+    void checkNewline();
+
+    /**
+     * Returns next character without advancing the cursor.
+     *
+     * @return Returns peeked character.
+     * @throws IOException On IO errors of scanned source.
+     */
+    char peekCharacter() throws IOException;
+
+    /**
+     * Throws a {SyntaxException} with the current {Position} in the input stream.
+     *
+     * @param msg Describes raised error..
+     * @throws SyntaxException On syntax errors.
+     */
+    void raiseError(final String msg) throws SyntaxException;
 
 }

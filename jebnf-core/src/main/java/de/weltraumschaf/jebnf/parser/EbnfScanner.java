@@ -130,21 +130,13 @@ public class EbnfScanner implements Scanner {
         return file;
     }
 
-    /**
-     * Returns if there is a next character in the input stream.
-     *
-     * @return If there is one more character.
-     */
-    boolean hasNextCharacter() {
+    @Override
+    public boolean hasNextCharacter() {
         return !atEof;
     }
 
-    /**
-     * Increments the character cursor.
-     *
-     * @throws IOException On IO errors caused by the input reader.
-     */
-    void nextCharacter() throws IOException {
+    @Override
+    public void nextCharacter() throws IOException {
         if (currentCharacter > -1 && EOF == getCurrentCharacter()) {
             return;
         }
@@ -163,12 +155,8 @@ public class EbnfScanner implements Scanner {
         column++;
     }
 
-    /**
-     * Returns the character at the current cursor from the input stream.
-     *
-     * @return The current character.
-     */
-    char getCurrentCharacter() {
+    @Override
+    public char getCurrentCharacter() {
         try {
             return buffer.charAt(currentCharacter);
         } catch (StringIndexOutOfBoundsException ex) {
@@ -180,21 +168,14 @@ public class EbnfScanner implements Scanner {
         }
     }
 
-    /**
-     * Decrements the character cursor.
-     */
-    void backupCharacter() {
+    @Override
+    public void backupCharacter() {
         currentCharacter--;
         column--;
     }
 
-    /**
-     * Returns next character without advancing the cursor.
-     *
-     * @return Returns peeked character.
-     * @throws IOException On IO errors of scanned source.
-     */
-    char peekCharacter() throws IOException {
+    @Override
+    public char peekCharacter() throws IOException {
         char character = EOF;
 
         if (hasNextCharacter()) {
@@ -206,22 +187,13 @@ public class EbnfScanner implements Scanner {
         return character;
     }
 
-    /**
-     * Throws a {SyntaxException} with the current {Position} in the input stream.
-     *
-     * @param msg Describes raised error..
-     * @throws SyntaxException On syntax errors.
-     */
-    void raiseError(final String msg) throws SyntaxException {
+    @Override
+    public void raiseError(final String msg) throws SyntaxException {
         throw new SyntaxException(msg, createPosition());
     }
 
-    /**
-     * Creates a {Position} from the current line and column in the input stream.
-     *
-     * @return Return always new instance.
-     */
-    Position createPosition() {
+    @Override
+    public Position createPosition() {
         return new Position(line, column, file);
     }
 
@@ -332,11 +304,8 @@ public class EbnfScanner implements Scanner {
         currentToken++;
     }
 
-    /**
-     * Checks if the current character is a new line character (\n or \r)
-     * and if it is increments the line counter and resets the column counter to 0.
-     */
-    void checkNewline() {
+    @Override
+    public void checkNewline() {
         if ('\n' == getCurrentCharacter() || '\r' == getCurrentCharacter()) {
             line++;
             column = 0;

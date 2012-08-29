@@ -17,8 +17,6 @@ import java.io.IOException;
 /**
  * Utilities for scanning tokens.
  *
- * TODO Methods should accept {@link Scanner} instead of {@link EbnfScanner}.
- *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 final class EbnfScannerHelper {
@@ -42,7 +40,7 @@ final class EbnfScannerHelper {
      * @return Return scanned identifier token.
      * @throws IOException On input stream IO errors.
      */
-    public static Token scanIdentifier(final EbnfScanner scanner) throws IOException {
+    public static Token scanIdentifier(final Scanner scanner) throws IOException {
         final Position position = scanner.createPosition();
         final StringBuilder value = new StringBuilder();
         value.append(scanner.getCurrentCharacter());
@@ -69,7 +67,7 @@ final class EbnfScannerHelper {
      * @return Return scanned literal token.
      * @throws IOException On input stream IO errors.
      */
-    public static Token scanLiteral(final EbnfScanner scanner) throws IOException {
+    public static Token scanLiteral(final Scanner scanner) throws IOException {
         final Position position = scanner.createPosition();
         final char start = scanner.getCurrentCharacter();
         final StringBuilder value = new StringBuilder();
@@ -95,7 +93,7 @@ final class EbnfScannerHelper {
      * @return Return scanned comment token.
      * @throws IOException On input stream IO errors.
      */
-    public static Token scanComment(final EbnfScanner scanner) throws IOException {
+    public static Token scanComment(final Scanner scanner) throws IOException {
         final Position postition = scanner.createPosition();
         final StringBuilder value = new StringBuilder();
         value.append(scanner.getCurrentCharacter());
@@ -124,7 +122,7 @@ final class EbnfScannerHelper {
      * @throws SyntaxException On syntax errors.
      * @throws IOException On input stream IO errors.
      */
-    public static Token scanOperator(final EbnfScanner scanner) throws SyntaxException, IOException {
+    public static Token scanOperator(final Scanner scanner) throws SyntaxException, IOException {
         final Position position   = scanner.createPosition();
         final StringBuilder value = new StringBuilder();
         value.append(scanner.getCurrentCharacter());
@@ -183,7 +181,7 @@ final class EbnfScannerHelper {
      * @throws SyntaxException On syntax errors.
      * @throws IOException On input stream IO errors.
      */
-    private static TokenType scanColonOperator(final EbnfScanner scanner,
+    private static TokenType scanColonOperator(final Scanner scanner,
                                                final StringBuilder value) throws SyntaxException,
                                                                                  IOException {
         TokenType type;
@@ -217,7 +215,7 @@ final class EbnfScannerHelper {
      * @return Return type of token.
      * @throws IOException On input stream IO errors.
      */
-    private static TokenType scanDotOperator(final EbnfScanner scanner,
+    private static TokenType scanDotOperator(final Scanner scanner,
                                              final StringBuilder value) throws IOException {
         TokenType type;
         // range or end of rule
