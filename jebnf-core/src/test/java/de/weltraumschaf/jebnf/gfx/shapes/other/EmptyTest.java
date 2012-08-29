@@ -12,9 +12,9 @@
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -28,15 +28,15 @@ import static org.mockito.Mockito.*;
 public class EmptyTest {
     private final Graphics2D graphics = mock(Graphics2D.class);
     private final Empty empty         = empty();
-    private final Point pos      = empty.getPosition();
-    private final Dimension size = empty.getSize();
+    private final Point pos           = empty.getPosition();
+    private final Size size           = empty.getSize();
 
     @Test public void paintNotTransparent() {
         assertFalse(empty.isDebug());
         assertFalse(empty.isTransparent());
         empty.paint(graphics);
         verify(graphics, times(1)).setColor(Color.WHITE);
-        verify(graphics, times(1)).fillRect(pos.getX(), pos.getY(), size.width, size.height);
+        verify(graphics, times(1)).fillRect(pos.getX(), pos.getY(), size.getWidth(), size.getHeight());
     }
 
     @Test public void paintTransparent() {
@@ -45,7 +45,7 @@ public class EmptyTest {
         assertTrue(empty.isTransparent());
         empty.paint(graphics);
         verify(graphics, never()).setColor(Color.WHITE);
-        verify(graphics, never()).fillRect(pos.getX(), pos.getY(), size.width, size.height);
+        verify(graphics, never()).fillRect(pos.getX(), pos.getY(), size.getWidth(), size.getHeight());
     }
 
     @Test public void paintDebug() {

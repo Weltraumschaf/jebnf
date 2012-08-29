@@ -11,10 +11,10 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
 import de.weltraumschaf.jebnf.gfx.shapes.Adjustable;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
@@ -29,7 +29,7 @@ public abstract class AbstractLayout extends AbstractShape {
      */
     public AbstractLayout() {
         super();
-        setSize(new Dimension(0, 0));
+        setSize(new Size(0, 0));
     }
 
     /**

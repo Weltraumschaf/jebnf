@@ -31,7 +31,7 @@ public class End extends AbstractEndpoint {
         graphic.setStroke(Strokes.createForRail());
         final Point pos = getPosition();
         final int xStart = pos.getX();
-        final int xEnd = xStart + getSize().width / 2;
+        final int xEnd = xStart + getSize().getWidth() / 2;
         final int yCenter = getCenterY();
         graphic.drawLine(xStart, yCenter, xEnd, yCenter);
 

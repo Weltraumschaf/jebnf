@@ -11,11 +11,10 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.curves;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.AbstractCurve;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 import org.junit.Test;
@@ -42,8 +41,8 @@ public class AbstractCurveTest {
         }
 
         @Override
-        protected Dimension calcArcDimenson() {
-            return new Dimension();
+        protected Size calcArcDimenson() {
+            return new Size();
         }
 
     }

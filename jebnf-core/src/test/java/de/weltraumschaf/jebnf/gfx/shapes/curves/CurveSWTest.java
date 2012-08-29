@@ -13,7 +13,7 @@ package de.weltraumschaf.jebnf.gfx.shapes.curves;
 
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW;
 import de.weltraumschaf.jebnf.gfx.Point;
-import java.awt.Dimension;
+import de.weltraumschaf.jebnf.gfx.Size;
 import java.awt.geom.Arc2D;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
@@ -29,15 +29,15 @@ public class CurveSWTest {
         assertEquals(new Point(-16, 15), curve.calcArcPosition());
         curve.setPosition(new Point(100, 100));
         assertEquals(new Point(84, 115), curve.calcArcPosition());
-        curve.setSize(new Dimension(50, 50));
+        curve.setSize(new Size(50, 50));
         assertEquals(new Point(74, 125), curve.calcArcPosition());
     }
 
     @Test public void calcArcDimenson() {
         final CurveSW curve = new CurveSW();
-        assertEquals(new Dimension(31, 32), curve.calcArcDimenson());
-        curve.setSize(new Dimension(50, 50));
-        assertEquals(new Dimension(50, 51), curve.calcArcDimenson());
+        assertEquals(new Size(31, 32), curve.calcArcDimenson());
+        curve.setSize(new Size(50, 50));
+        assertEquals(new Size(50, 51), curve.calcArcDimenson());
     }
 
     @Test public void createArc() {

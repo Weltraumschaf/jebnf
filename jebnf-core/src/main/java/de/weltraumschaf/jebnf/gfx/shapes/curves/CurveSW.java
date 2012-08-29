@@ -12,7 +12,7 @@
 package de.weltraumschaf.jebnf.gfx.shapes.curves;
 
 import de.weltraumschaf.jebnf.gfx.Point;
-import java.awt.Dimension;
+import de.weltraumschaf.jebnf.gfx.Size;
 import java.awt.geom.Arc2D;
 
 /**
@@ -29,14 +29,13 @@ public class CurveSW extends AbstractCurve {
     @Override
     protected Point calcArcPosition() {
         final Point pos      = getPosition();
-        final Dimension size = getSize();
-        return new Point(pos.getX() - (size.width / 2) - 1, pos.getY() + size.height / 2);
+        final Size size = getSize();
+        return new Point(pos.getX() - (size.getWidth() / 2) - 1, pos.getY() + size.getHeight() / 2);
     }
 
     @Override
-    protected Dimension calcArcDimenson() {
-        final Dimension size = getSize();
-        return new Dimension(size.width, size.height + 1);
+    protected Size calcArcDimenson() {
+        return getSize().setHeight(getSize().getHeight() + 1);
     }
 
 }

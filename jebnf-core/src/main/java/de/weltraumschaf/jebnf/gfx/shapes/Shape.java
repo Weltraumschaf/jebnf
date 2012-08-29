@@ -12,7 +12,7 @@
 package de.weltraumschaf.jebnf.gfx.shapes;
 
 import de.weltraumschaf.jebnf.gfx.Point;
-import java.awt.Dimension;
+import de.weltraumschaf.jebnf.gfx.Size;
 
 /**
  * Defines the interface for railroad shapes.
@@ -20,16 +20,6 @@ import java.awt.Dimension;
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public interface Shape extends Paintable {
-
-    /**
-     * Default width for shapes.
-     */
-    int DEFAULT_WIDTH = 31;
-
-    /**
-     * Default height for shapes.
-     */
-    int DEFAULT_HEIGHT = 31;
 
     /**
      * Returns the position of the shape.
@@ -50,14 +40,14 @@ public interface Shape extends Paintable {
      *
      * @return The shapes size.
      */
-    Dimension getSize();
+    Size getSize();
 
     /**
      * Sets the size of the shape.
      *
      * @param size NEw size.
      */
-    void setSize(Dimension size);
+    void setSize(Size size);
 
     /**
      * Enables/disable debug paintings.

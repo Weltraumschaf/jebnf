@@ -13,9 +13,9 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Adjustable;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.List;
 
@@ -155,7 +155,7 @@ public class GridLayout extends AbstractLayout implements Adjustable {
             col.setPosition(pos.setX(currentX));
             col.setDebug(isDebug());
             col.paint(graphic);
-            currentX += col.getSize().width;
+            currentX += col.getSize().getWidth();
         }
     }
 
@@ -166,12 +166,12 @@ public class GridLayout extends AbstractLayout implements Adjustable {
 
         for (ColumnLayout col : columns) {
             col.adjust(graphic);
-            final  Dimension colSize = col.getSize();
-            width  += colSize.width;
-            height = Math.max(height, colSize.height);
+            final  Size colSize = col.getSize();
+            width  += colSize.getWidth();
+            height = Math.max(height, colSize.getHeight());
         }
 
-        setSize(new Dimension(width, height));
+        setSize(new Size(width, height));
     }
 
 }

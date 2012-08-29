@@ -12,9 +12,9 @@
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
@@ -27,12 +27,12 @@ public class StraightNS extends Empty {
     public void paint(final Graphics2D graphic) {
         super.paint(graphic);
         final Point pos = getPosition();
-        final Dimension size = getSize();
+        final Size size = getSize();
         backupColorAndStroke(graphic);
         graphic.setStroke(Strokes.createForRail());
         graphic.setColor(Color.BLACK);
-        final int xPosition = pos.getX() + size.width / 2;
-        graphic.drawLine(xPosition, pos.getY(), xPosition, pos.getY() + size.height);
+        final int xPosition = pos.getX() + size.getWidth() / 2;
+        graphic.drawLine(xPosition, pos.getY(), xPosition, pos.getY() + size.getHeight());
         resotreColorAndStroke(graphic);
     }
 

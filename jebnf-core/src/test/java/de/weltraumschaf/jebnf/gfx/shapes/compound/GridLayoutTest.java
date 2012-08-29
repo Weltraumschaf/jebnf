@@ -11,12 +11,8 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
+import de.weltraumschaf.jebnf.gfx.Size;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -29,30 +25,30 @@ import static org.mockito.Mockito.*;
 public class GridLayoutTest {
 
     @Test public void testGetSize() {
-        Dimension size;
+        Size size;
         final GridLayout grid = grid();
 
         size = grid.getSize();
-        assertEquals(0, size.width);
-        assertEquals(0, size.height);
+        assertEquals(0, size.getWidth());
+        assertEquals(0, size.getHeight());
 
         grid.append(column().append(empty(), empty(), empty()));
         grid.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = grid.getSize();
-        assertEquals(Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(3 * Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(3 * Size.DEFAULT_HEIGHT, size.getHeight());
 
         grid.append(column().append(empty(), empty(), empty()));
         grid.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = grid.getSize();
-        assertEquals(2 * Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(3 * Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(2 * Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(3 * Size.DEFAULT_HEIGHT, size.getHeight());
 
         grid.append(column().append(empty(), empty(), empty(), empty()));
         grid.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = grid.getSize();
-        assertEquals(3 * Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(4 * Shape.DEFAULT_WIDTH, size.height);
+        assertEquals(3 * Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(4 * Size.DEFAULT_WIDTH, size.getHeight());
 
     }
 
@@ -60,10 +56,10 @@ public class GridLayoutTest {
         final GridLayout grid = grid();
         final Graphics2D graphic = mock(Graphics2D.class);
         final ColumnLayout row1 = mock(ColumnLayout.class);
-        when(row1.getSize()).thenReturn(new Dimension());
+        when(row1.getSize()).thenReturn(new Size());
         grid.append(row1);
         final ColumnLayout row2 = mock(ColumnLayout.class);
-        when(row2.getSize()).thenReturn(new Dimension());
+        when(row2.getSize()).thenReturn(new Size());
         grid.append(row2);
         grid.paint(graphic);
         verify(row1, times(1)).paint(graphic);

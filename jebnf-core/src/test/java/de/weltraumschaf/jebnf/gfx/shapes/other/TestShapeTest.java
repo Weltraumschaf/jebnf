@@ -11,13 +11,13 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.TestShape;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import static org.junit.Assert.*;
 import org.junit.Test;
+import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.*;
 
 /**
@@ -29,7 +29,7 @@ public class TestShapeTest {
     @Test public void paint() {
         final Graphics2D graphics = mock(Graphics2D.class);
         final TestShape test = new TestShape();
-        test.setSize(new Dimension(5, 5));
+        test.setSize(new Size(5, 5));
         test.paint(graphics);
         verify(graphics, times(1)).setColor(Color.BLUE);
         verify(graphics, times(1)).setStroke(Strokes.createForDebug());

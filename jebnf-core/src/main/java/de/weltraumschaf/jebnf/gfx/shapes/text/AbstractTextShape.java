@@ -13,10 +13,10 @@ package de.weltraumschaf.jebnf.gfx.shapes.text;
 
 import de.weltraumschaf.jebnf.gfx.Line;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
@@ -55,7 +55,7 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
     /**
      * Size of the shape.
      */
-    protected Dimension textSize;
+    protected Size textSize;
 
     /**
      * Text to paint on shape.
@@ -120,8 +120,8 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
         }
 
         final int minWidth = (boxWidth + 2 * HORIZONTAL_PADDING);
-        final int emtpyShapeCount = minWidth / DEFAULT_WIDTH + 1;
-        return DEFAULT_WIDTH * emtpyShapeCount;
+        final int emtpyShapeCount = minWidth / Size.DEFAULT_WIDTH + 1;
+        return Size.DEFAULT_WIDTH * emtpyShapeCount;
     }
 
     /**
@@ -144,12 +144,12 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @param graphic Context used to calculate size.
      * @return Returns size of text.
      */
-    protected Dimension calculateTextSize(final Graphics2D graphic) {
+    protected Size calculateTextSize(final Graphics2D graphic) {
         if (null == textSize) {
             final Rectangle2D textBounds = font.getStringBounds(getText(),
                                                                 graphic.getFontRenderContext());
-            textSize = new Dimension((int) Math.ceil(textBounds.getWidth()),
-                                     (int) Math.ceil(textBounds.getHeight()));
+            textSize = new Size((int) Math.ceil(textBounds.getWidth()),
+                                (int) Math.ceil(textBounds.getHeight()));
         }
         return textSize;
     }
@@ -178,7 +178,7 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
         final Point start    = new Point(pos.getX() + calculateHorizontalPadding(boxWidth) + boxWidth, vCenter);
-        final Point end      = new Point(pos.getX() + getSize().width, vCenter);
+        final Point end      = new Point(pos.getX() + getSize().getWidth(), vCenter);
         return new Line(start, end);
     }
 
@@ -189,7 +189,7 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @return Padding in pixel.
      */
     protected int calculateHorizontalPadding(final int boxWidth) {
-        return (getSize().width - boxWidth) / 2;
+        return (getSize().getWidth() - boxWidth) / 2;
     }
 
     /**
@@ -199,7 +199,7 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @return Padding in pixel.
      */
     protected int calculateVerticalPadding(final int boxHeight) {
-        return (getSize().height - boxHeight) / 2;
+        return (getSize().getHeight() - boxHeight) / 2;
     }
 
     /**
@@ -208,10 +208,10 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @param size Size to add padding to.
      * @return Return start point.
      */
-    protected Point calculatePaddedRectanglePosition(final Dimension size) {
+    protected Point calculatePaddedRectanglePosition(final Size size) {
         final Point pos = getPosition();
-        return new Point(pos.getX() + calculateHorizontalPadding(size.width),
-                         pos.getY() + calculateVerticalPadding(size.height));
+        return new Point(pos.getX() + calculateHorizontalPadding(size.getWidth()),
+                         pos.getY() + calculateVerticalPadding(size.getHeight()));
     }
 
     /**
@@ -242,7 +242,7 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @param pos Position to start drawing.
      * @param size Dimension of available space to draw text.
      */
-    protected void drawText(final Graphics2D graphic, final Point pos, final Dimension size) {
+    protected void drawText(final Graphics2D graphic, final Point pos, final Size size) {
         final StringPainter painter = createStringPainter(graphic);
         painter.drawCenteredString(getText(), pos, size);
     }
@@ -254,10 +254,10 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @param pos Position to start drawing.
      * @param size Size to draw.
      */
-    protected void drawTextWithInAndOutLine(final Graphics2D graphic, final Point pos, final Dimension size) {
+    protected void drawTextWithInAndOutLine(final Graphics2D graphic, final Point pos, final Size size) {
         graphic.setStroke(Strokes.createForRail());
-        drawLine(graphic, calculateInLine(size.width));
-        drawLine(graphic, calculateOutLine(size.width));
+        drawLine(graphic, calculateInLine(size.getWidth()));
+        drawLine(graphic, calculateOutLine(size.getWidth()));
         drawText(graphic, pos, size);
     }
 

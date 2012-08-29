@@ -11,14 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
-import de.weltraumschaf.jebnf.gfx.Fonts;
-import de.weltraumschaf.jebnf.gfx.StringPainter;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
-import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 /**
@@ -77,7 +74,7 @@ public class StringPainterTest {
         when(graphics.getFontMetrics()).thenReturn(metrics);
 
         final StringPainter painter = new StringPainter(graphics, font);
-        painter.drawCenteredString(str, new Dimension(width, 100));
+        painter.drawCenteredString(str, new Size(width, 100));
         verify(graphics).getFont();
         verify(graphics).setFont(font);
         verify(metrics).stringWidth(str);

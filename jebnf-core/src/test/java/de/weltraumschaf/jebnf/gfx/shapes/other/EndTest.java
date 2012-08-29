@@ -11,12 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.End;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.end;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
@@ -32,11 +31,12 @@ public class EndTest {
         final End end = end();
 
         end.setPosition(new Point(0, 0));
-        end.setSize(new Dimension(31, 31));
+        end.setSize(new Size());
         end.paint(graphics);
 
         verify(graphics, atLeast(1)).setColor(Color.BLACK);
         verify(graphics, times(1)).setStroke(Strokes.createForRail());
         verify(graphics, times(1)).drawLine(0, 15, 15, 15);
     }
+
 }

@@ -10,7 +10,6 @@
  */
 package de.weltraumschaf.jebnf.gfx;
 
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
@@ -99,7 +98,7 @@ public class StringPainter {
      * @param str  String to center.
      * @param size Size of the rectangle to center inside.
      */
-    public void drawCenteredString(final String str, final Dimension size) {
+    public void drawCenteredString(final String str, final Size size) {
         drawCenteredString(str, new Point(), size);
     }
 
@@ -110,12 +109,12 @@ public class StringPainter {
      * @param offset X and y offset.
      * @param size   Size of the rectangle to center inside.
      */
-    public void drawCenteredString(final String str, final Point offset, final Dimension size) {
+    public void drawCenteredString(final String str, final Point offset, final Size size) {
         final Font backup = graphic.getFont();
         graphic.setFont(font);
         final FontMetrics metrics = graphic.getFontMetrics();
-        final int xPosition = calcXPosition(metrics.stringWidth(str), offset.getX(), size.width);
-        final int yPosition = calcYPosition(offset.getY(), size.height,
+        final int xPosition = calcXPosition(metrics.stringWidth(str), offset.getX(), size.getWidth());
+        final int yPosition = calcYPosition(offset.getY(), size.getHeight(),
                                             metrics.getAscent(), metrics.getDescent());
         graphic.drawString(str, xPosition, yPosition);
         graphic.setFont(backup);

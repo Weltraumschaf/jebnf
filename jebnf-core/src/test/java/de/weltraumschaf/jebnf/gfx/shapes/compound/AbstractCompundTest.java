@@ -11,10 +11,8 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.compound.AbstractCompund;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
 import de.weltraumschaf.jebnf.gfx.Point;
-import java.awt.Dimension;
+import de.weltraumschaf.jebnf.gfx.Size;
 import java.awt.Graphics2D;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
@@ -53,7 +51,7 @@ public class AbstractCompundTest {
         sut.getSize();
         verify(grid, times(1)).getSize();
 
-        final Dimension size = new Dimension();
+        final Size size = new Size();
         sut.setSize(size);
         verify(grid, times(1)).setSize(size);
 

@@ -12,9 +12,9 @@
 package de.weltraumschaf.jebnf.gfx.shapes;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 import java.util.Stack;
@@ -39,7 +39,7 @@ public abstract class AbstractShape implements Shape {
     /**
      * Size of the shape.
      */
-    private Dimension size;
+    private Size size;
 
     /**
      * Whether to paint debug lines.
@@ -51,7 +51,7 @@ public abstract class AbstractShape implements Shape {
      * position with (0, 0).
      */
     public AbstractShape() {
-        size     = new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+        size     = new Size();
         position = new Point();
     }
 
@@ -71,12 +71,12 @@ public abstract class AbstractShape implements Shape {
     }
 
     @Override
-    public Dimension getSize() {
+    public Size getSize() {
         return size;
     }
 
     @Override
-    public void setSize(final Dimension size) {
+    public void setSize(final Size size) {
         this.size = size;
     }
 
@@ -151,7 +151,7 @@ public abstract class AbstractShape implements Shape {
      * @return Integer greater equal 0.
      */
     protected int getCenterX() {
-        return getPosition().getX() + getSize().width / 2;
+        return position.getX() + size.getWidth() / 2;
     }
 
     /**
@@ -160,7 +160,7 @@ public abstract class AbstractShape implements Shape {
      * @return Integer greater equal 0.
      */
     protected int getCenterY() {
-        return getPosition().getY() + getSize().height / 2;
+        return position.getY() + size.getHeight() / 2;
     }
 
     /**

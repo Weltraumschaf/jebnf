@@ -11,11 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
+import de.weltraumschaf.jebnf.gfx.Size;
 import static de.weltraumschaf.jebnf.gfx.shapes.Curves.*;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import static de.weltraumschaf.jebnf.gfx.shapes.Straights.WEST_EAST;
-import java.awt.Dimension;
 
 /**
  * Railroad loop shape.
@@ -58,8 +58,8 @@ public class Loop extends AbstractCompund {
      */
     public void setLooped(final Shape shape) {
         getGrid().set(1, 0, shape);
-        final Dimension size = shape.getSize();
-        extendColumnWithStraightNS(size.height, new int[]{0, 2}, 0);
+        final Size size = shape.getSize();
+        extendColumnWithStraightNS(size.getHeight(), new int[]{0, 2}, 0);
     }
 
     /**
@@ -69,8 +69,8 @@ public class Loop extends AbstractCompund {
      */
     public void setAdditional(final Shape shape) {
         getGrid().set(1, 1, shape);
-        final Dimension size = shape.getSize();
-        extendColumnWithEmpty(size.height, new int[]{0, 2}, 1);
+        final Size size = shape.getSize();
+        extendColumnWithEmpty(size.getHeight(), new int[]{0, 2}, 1);
     }
 
 }

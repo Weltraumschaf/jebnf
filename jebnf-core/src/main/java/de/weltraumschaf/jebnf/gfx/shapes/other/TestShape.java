@@ -12,9 +12,9 @@
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
@@ -38,13 +38,13 @@ public class TestShape extends Empty {
     public void paint(final Graphics2D graphic) {
         super.paint(graphic);
         final Point pos = getPosition();
-        final Dimension size = getSize();
+        final Size size = getSize();
         backupColorAndStroke(graphic);
         graphic.setColor(Color.BLUE);
         graphic.setStroke(Strokes.createForDebug());
 
-        for (int i = 0; i < size.width; ++i) {
-            for (int j = 0; j < size.height; j++) {
+        for (int i = 0; i < size.getWidth(); ++i) {
+            for (int j = 0; j < size.getHeight(); j++) {
                 final int xPosition = pos.getX() + i;
                 final int yPosition = pos.getY() + j;
 

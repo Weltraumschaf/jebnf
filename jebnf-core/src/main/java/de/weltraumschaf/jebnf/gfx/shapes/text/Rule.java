@@ -12,10 +12,10 @@
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
@@ -36,7 +36,7 @@ public class Rule extends AbstractTextShape implements Shape {
     @Override
     public void adjust(final Graphics2D graphic) {
         textSize = calculateTextSize(graphic);
-        setSize(new Dimension(calculateWidth(textSize.width + HORIZONTAL_PADDING * 2), DEFAULT_HEIGHT));
+        setSize(new Size().setWidth(calculateWidth(textSize.getWidth() + HORIZONTAL_PADDING * 2)));
     }
 
     @Override
@@ -46,9 +46,9 @@ public class Rule extends AbstractTextShape implements Shape {
         }
 
         final Point pos = getPosition();
-        final Dimension size = getSize();
+        final Size size = getSize();
         final Point textPosition = new Point(pos.getX() + HORIZONTAL_PADDING,
-                                             pos.getY() + (size.height - textSize.height) / 2);
+                                             pos.getY() + (size.getHeight() - textSize.getHeight()) / 2);
 
         super.paint(graphic);
         backupColorAndStroke(graphic);

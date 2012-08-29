@@ -11,12 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import static org.junit.Assert.assertEquals;
@@ -31,18 +30,18 @@ public class TerminalTest {
 
     static class TerminalStub extends Terminal {
 
-        Dimension calcTextSize = new Dimension();
+        Size calcTextSize = new Size();
 
         public TerminalStub(final String text) {
             super(text);
         }
 
         @Override
-        protected Dimension calculateTextSize(final Graphics2D graphic) {
+        protected Size calculateTextSize(final Graphics2D graphic) {
             return calcTextSize;
         }
 
-        void setCalculatedTextSize(final Dimension calcTextSize) {
+        void setCalculatedTextSize(final Size calcTextSize) {
             this.calcTextSize = calcTextSize;
         }
 
@@ -56,19 +55,19 @@ public class TerminalTest {
 
     @Test public void calcBoxSize() {
         final TerminalStub term = new TerminalStub("foobar");
-        assertEquals(new Dimension(20, 4), term.calcBoxSize(null));
-        term.setCalculatedTextSize(new Dimension(100, 16));
-        assertEquals(new Dimension(120, 20), term.calcBoxSize(null));
+        assertEquals(new Size(51, 35), term.calcBoxSize(null));
+        term.setCalculatedTextSize(new Size(100, 16));
+        assertEquals(new Size(120, 20), term.calcBoxSize(null));
     }
 
     @Test public void adjust() {
         final TerminalStub term = new TerminalStub("foobar");
         term.adjust(null);
-        assertEquals(new Dimension(31, 31), term.getSize());
+        assertEquals(new Size(62, 31), term.getSize());
 
-        term.setCalculatedTextSize(new Dimension(100, 16));
+        term.setCalculatedTextSize(new Size(100, 16));
         term.adjust(null);
-        assertEquals(new Dimension(155, 31), term.getSize());
+        assertEquals(new Size(155, 31), term.getSize());
     }
 
     @Test public void paint() {
@@ -82,7 +81,7 @@ public class TerminalTest {
         when(graphics.getFontMetrics()).thenReturn(metrics);
 
         final TerminalStub term = new TerminalStub(value);
-        term.setCalculatedTextSize(new Dimension(100, 16));
+        term.setCalculatedTextSize(new Size(100, 16));
         term.paint(graphics);
 
         verify(graphics, times(1)).setColor(Color.BLACK);
@@ -94,4 +93,5 @@ public class TerminalTest {
         verify(graphics, times(1)).setFont(StringPainter.MONOSPACED);
         verify(graphics, times(1)).drawString(value, 37, 19);
     }
+
 }

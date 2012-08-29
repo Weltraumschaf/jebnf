@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.loop;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
@@ -22,7 +23,6 @@ import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
 import de.weltraumschaf.jebnf.gfx.shapes.text.Terminal;
-import java.awt.Dimension;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
@@ -88,7 +88,7 @@ public class LoopTest {
         assertTrue(grid.get(1, 1) instanceof StraightWE);
 
         final Shape greatOne = terminal("bar");
-        greatOne.setSize(new Dimension(Shape.DEFAULT_WIDTH, Shape.DEFAULT_HEIGHT * 3));
+        greatOne.setSize(new Size().setHeight(Size.DEFAULT_HEIGHT * 3));
         loop.setLooped(greatOne);
         assertTrue(grid.get(1, 0) instanceof Terminal);
         assertTrue(grid.get(1, 1) instanceof StraightWE);
@@ -117,7 +117,7 @@ public class LoopTest {
         assertTrue(grid.get(1, 1) instanceof Terminal);
 
         final Shape greatOne = terminal("bar");
-        greatOne.setSize(new Dimension(Shape.DEFAULT_WIDTH, Shape.DEFAULT_HEIGHT * 3));
+        greatOne.setSize(new Size().setHeight(Size.DEFAULT_HEIGHT * 3));
         loop.setAdditional(greatOne);
         assertTrue(grid.get(1, 0) instanceof Empty);
         assertTrue(grid.get(1, 1) instanceof Terminal);

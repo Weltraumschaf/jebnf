@@ -13,9 +13,9 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.List;
 
@@ -122,16 +122,16 @@ public class ColumnLayout extends AbstractLayout implements Sequence {
 
         for (Shape shape : col) {
             adjustShape(shape, graphics);
-            final Dimension shapeSize = shape.getSize();
+            final Size shapeSize = shape.getSize();
             height += shapeSize.getHeight();
-            width = Math.max(width, (int)shapeSize.getWidth());
+            width = Math.max(width, shapeSize.getWidth());
         }
 
-        for (Shape shape : col) {
-            shape.getSize().setSize(width, shape.getSize().getHeight());
+        for (final Shape shape : col) {
+            shape.setSize(shape.getSize().setWidth(width));
         }
 
-        setSize(new Dimension(width, height));
+        setSize(new Size(width, height));
     }
 
 }

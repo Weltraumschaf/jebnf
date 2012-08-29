@@ -11,11 +11,8 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.font.FontRenderContext;
@@ -66,17 +63,17 @@ public class AbstractTextShapeTest {
             assertEquals("box width need to be greater or equal zero!", ex.getMessage());
         }
 
-        assertEquals(1 * Shape.DEFAULT_WIDTH, AbstractTextShape.calculateWidth(0));
-        assertEquals(1 * Shape.DEFAULT_WIDTH, AbstractTextShape.calculateWidth(1));
-        assertEquals(1 * Shape.DEFAULT_WIDTH, AbstractTextShape.calculateWidth(15));
-        assertEquals(1 * Shape.DEFAULT_WIDTH,
-                     AbstractTextShape.calculateWidth(Shape.DEFAULT_WIDTH - 11));
-        assertEquals(2 * Shape.DEFAULT_WIDTH,
-                     AbstractTextShape.calculateWidth(Shape.DEFAULT_WIDTH));
-        assertEquals(3 * Shape.DEFAULT_WIDTH,
-                     AbstractTextShape.calculateWidth(3 * Shape.DEFAULT_WIDTH - 11));
-        assertEquals(4 * Shape.DEFAULT_WIDTH,
-                     AbstractTextShape.calculateWidth(3 * Shape.DEFAULT_WIDTH));
+        assertEquals(1 * Size.DEFAULT_WIDTH, AbstractTextShape.calculateWidth(0));
+        assertEquals(1 * Size.DEFAULT_WIDTH, AbstractTextShape.calculateWidth(1));
+        assertEquals(1 * Size.DEFAULT_WIDTH, AbstractTextShape.calculateWidth(15));
+        assertEquals(1 * Size.DEFAULT_WIDTH,
+                     AbstractTextShape.calculateWidth(Size.DEFAULT_WIDTH - 11));
+        assertEquals(2 * Size.DEFAULT_WIDTH,
+                     AbstractTextShape.calculateWidth(Size.DEFAULT_WIDTH));
+        assertEquals(3 * Size.DEFAULT_WIDTH,
+                     AbstractTextShape.calculateWidth(3 * Size.DEFAULT_WIDTH - 11));
+        assertEquals(4 * Size.DEFAULT_WIDTH,
+                     AbstractTextShape.calculateWidth(3 * Size.DEFAULT_WIDTH));
     }
 
     @Test public void createStringPainter() {
@@ -101,6 +98,6 @@ public class AbstractTextShapeTest {
         final Rectangle2D rect = new Rectangle2D.Float(0, 0, 10, 20);
         when(font.getStringBounds(str, context)).thenReturn(rect);
         final AbstractTextShape sut = new AbstractTextShapeStub(str, font);
-        assertEquals(new Dimension(10, 20), sut.calculateTextSize(graphics));
+        assertEquals(new Size(10, 20), sut.calculateTextSize(graphics));
     }
 }

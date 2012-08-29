@@ -11,13 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayout;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.row;
-import java.awt.Dimension;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import java.awt.Graphics2D;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -31,33 +29,33 @@ public class SequenceTest {
 
     @Test public void testGetSize() {
         final RowLayout sequence = row();
-        Dimension size = sequence.getSize();
-        assertEquals(0, size.width);
-        assertEquals(0, size.height);
+        Size size = sequence.getSize();
+        assertEquals(0, size.getWidth());
+        assertEquals(0, size.getHeight());
 
         sequence.append(empty());
         sequence.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = sequence.getSize();
-        assertEquals(Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(Size.DEFAULT_HEIGHT, size.getHeight());
 
         sequence.append(empty());
         sequence.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = sequence.getSize();
-        assertEquals(2 * Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(Shape.DEFAULT_WIDTH, size.height);
+        assertEquals(2 * Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(Size.DEFAULT_WIDTH, size.getHeight());
 
         sequence.append(empty());
         sequence.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = sequence.getSize();
-        assertEquals(3 * Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(3 * Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(Size.DEFAULT_HEIGHT, size.getHeight());
 
         sequence.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         sequence.set(0, empty());
         size = sequence.getSize();
-        assertEquals(3 * Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(3 * Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(Size.DEFAULT_HEIGHT, size.getHeight());
     }
 
     @Test public void testSetShape() {
@@ -101,10 +99,10 @@ public class SequenceTest {
         sequence.paint(graphics);
 
         final Shape shape1 = mock(Shape.class);
-        when(shape1.getSize()).thenReturn(new Dimension());
+        when(shape1.getSize()).thenReturn(new Size());
         sequence.append(shape1);
         final Shape shape2 = mock(Shape.class);
-        when(shape2.getSize()).thenReturn(new Dimension());
+        when(shape2.getSize()).thenReturn(new Size());
         sequence.append(shape2);
         sequence.paint(graphics);
         verify(shape1, times(1)).paint(graphics);

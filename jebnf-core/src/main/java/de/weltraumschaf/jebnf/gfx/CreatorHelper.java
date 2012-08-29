@@ -149,7 +149,7 @@ public class CreatorHelper {
         diagram.add(value);
 
         final GridLayout object = createObjectDiagram(graphics);
-        object.setPosition(new Point(offset.getX(), offset.getY() + value.getSize().height));
+        object.setPosition(new Point(offset.getX(), offset.getY() + value.getSize().getHeight()));
         diagram.add(object);
 
         return diagram;

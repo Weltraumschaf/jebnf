@@ -13,9 +13,9 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.util.List;
 
@@ -92,7 +92,7 @@ public class RowLayout extends AbstractLayout implements Sequence {
             shape.setPosition(pos.setX(currentX));
             shape.setDebug(isDebug());
             shape.paint(graphic);
-            currentX += shape.getSize().width;
+            currentX += shape.getSize().getWidth();
         }
     }
 
@@ -103,16 +103,16 @@ public class RowLayout extends AbstractLayout implements Sequence {
 
         for (Shape shape : row) {
             adjustShape(shape, graphics);
-            final Dimension shapeSize = shape.getSize();
-            width += shapeSize.width;
-            height = Math.max(height, shapeSize.height);
+            final Size shapeSize = shape.getSize();
+            width += shapeSize.getWidth();
+            height = Math.max(height, shapeSize.getHeight());
         }
 
         for (Shape shape : row) {
-            shape.getSize().setSize(shape.getSize().getWidth(), height);
+            shape.setSize(shape.getSize().setHeight(height));
         }
 
-        setSize(new Dimension(width, height));
+        setSize(new Size(width, height));
     }
 
 }

@@ -11,11 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.identifier;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import static org.junit.Assert.assertEquals;
@@ -30,18 +30,18 @@ public class IdentifierTest {
 
     static class IdentifierStub extends Identifier {
 
-        Dimension calcTextSize = new Dimension();
+        Size calcTextSize = new Size();
 
         public IdentifierStub(final String text) {
             super(text);
         }
 
         @Override
-        protected Dimension calculateTextSize(final Graphics2D graphic) {
+        protected Size calculateTextSize(final Graphics2D graphic) {
             return calcTextSize;
         }
 
-        void setCalculatedTextSize(final Dimension calcTextSize) {
+        void setCalculatedTextSize(final Size calcTextSize) {
             this.calcTextSize = calcTextSize;
         }
 
@@ -56,19 +56,19 @@ public class IdentifierTest {
 
     @Test public void calcBoxSize() {
         final IdentifierStub ident = new IdentifierStub("foobar");
-        assertEquals(new Dimension(10, 0), ident.calcBoxSize(null));
-        ident.setCalculatedTextSize(new Dimension(100, 16));
-        assertEquals(new Dimension(110, 16), ident.calcBoxSize(null));
+        assertEquals(new Size(41, 31), ident.calcBoxSize(null));
+        ident.setCalculatedTextSize(new Size(100, 16));
+        assertEquals(new Size(110, 16), ident.calcBoxSize(null));
     }
 
     @Test public void adjust() {
         final IdentifierStub ident = new IdentifierStub("foobar");
         ident.adjust(null);
-        assertEquals(new Dimension(31, 31), ident.getSize());
+        assertEquals(new Size(62, 31), ident.getSize());
 
-        ident.setCalculatedTextSize(new Dimension(100, 16));
+        ident.setCalculatedTextSize(new Size(100, 16));
         ident.adjust(null);
-        assertEquals(new Dimension(124, 31), ident.getSize());
+        assertEquals(new Size(124, 31), ident.getSize());
     }
 
     @Test public void paint() {
@@ -82,7 +82,7 @@ public class IdentifierTest {
         when(graphics.getFontMetrics()).thenReturn(metrics);
 
         final IdentifierStub ident = new IdentifierStub(value);
-        ident.setCalculatedTextSize(new Dimension(100, 16));
+        ident.setCalculatedTextSize(new Size(100, 16));
         ident.paint(graphics);
 
         verify(graphics, times(1)).setColor(Color.BLACK);
@@ -94,4 +94,5 @@ public class IdentifierTest {
         verify(graphics, times(1)).setFont(StringPainter.SANSERIFIT);
         verify(graphics, times(1)).drawString(value, 22, 19);
     }
+
 }

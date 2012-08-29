@@ -12,9 +12,9 @@
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
@@ -44,9 +44,9 @@ public abstract class AbstractEndpoint extends Empty {
         graphic.setColor(Color.BLACK);
         graphic.setStroke(Strokes.createForRail(true));
         final Point pos = getPosition();
-        final Dimension size = getSize();
+        final Size size = getSize();
         final int xCenter = getCenterX();
-        graphic.drawLine(xCenter, pos.getY() + TOP_PADDING, xCenter, pos.getY() + size.height - BOTTOM_PADDING);
+        graphic.drawLine(xCenter, pos.getY() + TOP_PADDING, xCenter, pos.getY() + size.getHeight() - BOTTOM_PADDING);
 
         resotreColorAndStroke(graphic);
     }

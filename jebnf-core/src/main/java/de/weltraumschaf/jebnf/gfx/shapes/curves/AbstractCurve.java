@@ -12,10 +12,10 @@
 package de.weltraumschaf.jebnf.gfx.shapes.curves;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 
@@ -68,7 +68,7 @@ public abstract class AbstractCurve extends Empty implements Curve {
      *
      * @return Returns dimension.
      */
-    protected abstract Dimension calcArcDimenson();
+    protected abstract Size calcArcDimenson();
 
     /**
      * Creates the curve arc.
@@ -97,8 +97,8 @@ public abstract class AbstractCurve extends Empty implements Curve {
      * @param extent Extension of arc.
      * @return Returns arc object.
      */
-    protected Arc2D createArc(final Point pos, final Dimension size, final int start, final int extent) {
-        return new Arc2D.Float(pos.getX(), pos.getY(), size.width, size.height, start, extent, Arc2D.OPEN);
+    protected Arc2D createArc(final Point pos, final Size size, final int start, final int extent) {
+        return new Arc2D.Float(pos.getX(), pos.getY(), size.getWidth(), size.getHeight(), start, extent, Arc2D.OPEN);
     }
 
 }

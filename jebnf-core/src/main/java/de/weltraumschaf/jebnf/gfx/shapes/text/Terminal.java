@@ -12,14 +12,15 @@
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
+ * Terminal shape.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -38,7 +39,7 @@ public class Terminal extends AbstractTextShape implements Shape {
     /**
      * Padded box size of the text.
      */
-    private Dimension boxSize;
+    private Size boxSize;
 
     /**
      * Initializes shape with terminal text and {@link StringPainter#MONOSPACED "monospaced font"}.
@@ -55,15 +56,15 @@ public class Terminal extends AbstractTextShape implements Shape {
      * @param graphic Used to obtain string size information depending on the used font.
      * @return Returns dimension object.
      */
-    protected Dimension calcBoxSize(final Graphics2D graphic) {
-        final Dimension size = calculateTextSize(graphic);
-        return new Dimension(size.width + HORIZONTAL_PADDING * PADDING, size.height + PADDING);
+    protected Size calcBoxSize(final Graphics2D graphic) {
+        final Size size = calculateTextSize(graphic);
+        return new Size(size.getWidth() + HORIZONTAL_PADDING * PADDING, size.getHeight() + PADDING);
     }
 
     @Override
     public void adjust(final Graphics2D graphic) {
         boxSize = calcBoxSize(graphic);
-        setSize(new Dimension(calculateWidth(boxSize.width), DEFAULT_HEIGHT));
+        setSize(new Size().setWidth(calculateWidth(boxSize.getWidth())));
     }
 
     @Override
@@ -80,7 +81,7 @@ public class Terminal extends AbstractTextShape implements Shape {
         graphic.setColor(Color.BLACK);
         graphic.setStroke(Strokes.createForBox());
         graphic.drawRoundRect(rectanglePosition.getX(), rectanglePosition.getY(),
-                              boxSize.width, boxSize.height,
+                              boxSize.getWidth(), boxSize.getHeight(),
                               ARC_WIDTH, ARC_WIDTH);
 
         drawTextWithInAndOutLine(graphic, rectanglePosition, boxSize);

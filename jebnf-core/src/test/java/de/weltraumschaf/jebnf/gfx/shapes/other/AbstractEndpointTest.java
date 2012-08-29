@@ -11,11 +11,10 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.AbstractEndpoint;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
@@ -35,7 +34,7 @@ public class AbstractEndpointTest {
         final AbstractEndpoint sut = new AbstractEndpointImpl();
 
         sut.setPosition(new Point(0, 0));
-        sut.setSize(new Dimension(31, 31));
+        sut.setSize(new Size());
         sut.paint(graphics);
 
         verify(graphics, times(1)).setColor(Color.BLACK);

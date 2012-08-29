@@ -11,13 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.Paintable;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import de.weltraumschaf.jebnf.gfx.shapes.AbstractShape.GraphicsSetting;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.Stroke;
 import static org.junit.Assert.*;
@@ -39,13 +37,13 @@ public class AbstractShapeTest {
 
     @Test public void createInstances() {
         final Point expectedPoint1 = new Point();
-        final Dimension expectedDim1 = new Dimension(Shape.DEFAULT_WIDTH, Shape.DEFAULT_HEIGHT);
+        final Size expectedDim1 = new Size();
         final AbstractShape sut = new AbstractShapeImpl();
         assertEquals(expectedPoint1, sut.getPosition());
         assertEquals(expectedDim1, sut.getSize());
         assertEquals(0, sut.countBackup());
         final Point expectedPoint2 = new Point(20, 30);
-        final Dimension expectedDim2 = new Dimension(100, 200);
+        final Size expectedDim2 = new Size(100, 200);
         sut.setPosition(expectedPoint2);
         sut.setSize(expectedDim2);
         assertEquals(expectedPoint2, sut.getPosition());
@@ -97,7 +95,7 @@ public class AbstractShapeTest {
     @Test public void getCenterX() {
         final AbstractShape sut = new AbstractShapeImpl();
         assertEquals(15, sut.getCenterX());
-        sut.setSize(new Dimension(100, 100));
+        sut.setSize(new Size(100, 100));
         assertEquals(50, sut.getCenterX());
         sut.setPosition(new Point(20, 20));
         assertEquals(70, sut.getCenterX());
@@ -106,7 +104,7 @@ public class AbstractShapeTest {
     @Test public void getCenterY() {
         final AbstractShape sut = new AbstractShapeImpl();
         assertEquals(15, sut.getCenterY());
-        sut.setSize(new Dimension(100, 100));
+        sut.setSize(new Size(100, 100));
         assertEquals(50, sut.getCenterY());
         sut.setPosition(new Point(20, 20));
         assertEquals(70, sut.getCenterY());

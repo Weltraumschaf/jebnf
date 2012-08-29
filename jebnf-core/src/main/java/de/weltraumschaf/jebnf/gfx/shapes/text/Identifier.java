@@ -11,14 +11,15 @@
 package de.weltraumschaf.jebnf.gfx.shapes.text;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
+ * Identifier shape.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -27,7 +28,7 @@ public class Identifier extends AbstractTextShape implements Shape {
     /**
      * Size of the padded box around the text.
      */
-    private Dimension boxSize;
+    private Size boxSize;
 
     /**
      * Initializes the identifiers with value text and {@link StringPainter#SANSERIFIT "font"}.
@@ -44,15 +45,15 @@ public class Identifier extends AbstractTextShape implements Shape {
      * @param graphic Context to calculate by.
      * @return Return dimension object.
      */
-    protected Dimension calcBoxSize(final Graphics2D graphic) {
-        final Dimension size = calculateTextSize(graphic);
-        return new Dimension(size.width + HORIZONTAL_PADDING * 2, size.height);
+    protected Size calcBoxSize(final Graphics2D graphic) {
+        final Size size = calculateTextSize(graphic);
+        return size.setWidth(size.getWidth() + HORIZONTAL_PADDING * 2);
     }
 
     @Override
     public void adjust(final Graphics2D graphic) {
         boxSize = calcBoxSize(graphic);
-        setSize(new Dimension(calculateWidth(boxSize.width), DEFAULT_HEIGHT));
+        setSize(new Size().setWidth(calculateWidth(boxSize.getWidth())));
     }
 
     @Override
@@ -68,7 +69,7 @@ public class Identifier extends AbstractTextShape implements Shape {
 
         graphic.setColor(Color.BLACK);
         graphic.setStroke(Strokes.createForBox());
-        graphic.drawRect(rectanglePosition.getX(), rectanglePosition.getY(), boxSize.width, boxSize.height);
+        graphic.drawRect(rectanglePosition.getX(), rectanglePosition.getY(), boxSize.getWidth(), boxSize.getHeight());
 
         drawTextWithInAndOutLine(graphic, rectanglePosition, boxSize);
 

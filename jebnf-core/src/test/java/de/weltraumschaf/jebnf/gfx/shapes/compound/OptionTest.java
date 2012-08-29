@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
+import de.weltraumschaf.jebnf.gfx.Size;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.column;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
@@ -22,7 +22,6 @@ import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TextShape;
-import java.awt.Dimension;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -67,7 +66,7 @@ public class OptionTest {
 
         // taller optional
         final ColumnLayout greatColumn = column();
-        greatColumn.setSize(new Dimension(Shape.DEFAULT_WIDTH, Shape.DEFAULT_HEIGHT * 3));
+        greatColumn.setSize(new Size().setHeight(Size.DEFAULT_HEIGHT * 3));
         option.setOptional(greatColumn);
         assertEquals(2, grid.counRows());
         assertEquals(3, grid.countCols());

@@ -21,6 +21,16 @@ import com.google.common.base.Objects;
 public class Size {
 
     /**
+     * Default width for shapes.
+     */
+    public static final int DEFAULT_WIDTH = 31;
+
+    /**
+     * Default height for shapes.
+     */
+    public static final int DEFAULT_HEIGHT = 31;
+
+    /**
      * Immutable x coordinate.
      */
     private final int width;
@@ -34,7 +44,7 @@ public class Size {
      * Initializes the size with zero width and height.
      */
     public Size() {
-        this(0, 0);
+        this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
     }
 
     /**
@@ -58,12 +68,32 @@ public class Size {
     }
 
     /**
+     * Returns new instance width changed width.
+     *
+     * @param newWidth Width in pixel.
+     * @return Return new instance.
+     */
+    public Size setWidth(final int newWidth) {
+        return new Size(newWidth, height);
+    }
+
+    /**
      * Get the height.
      *
      * @return Height in pixel.
      */
     public int getHeight() {
         return height;
+    }
+
+    /**
+     * Returns new instance width changed width.
+     *
+     * @param newHEight Height in pixel.
+     * @return Return new instance.
+     */
+    public Size setHeight(final int newHEight) {
+        return new Size(width, newHEight);
     }
 
     @Override

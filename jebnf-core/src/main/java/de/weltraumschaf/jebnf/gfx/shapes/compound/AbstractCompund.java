@@ -12,11 +12,11 @@
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
-import java.awt.Dimension;
 import java.awt.Graphics2D;
 
 /**
@@ -73,12 +73,12 @@ public class AbstractCompund extends AbstractShape implements Compund {
     }
 
     @Override
-    public void setSize(final Dimension size) {
+    public void setSize(final Size size) {
         grid.setSize(size);
     }
 
     @Override
-    public Dimension getSize() {
+    public Size getSize() {
         return grid.getSize();
     }
 
@@ -124,8 +124,8 @@ public class AbstractCompund extends AbstractShape implements Compund {
      */
     protected void extendColumnWithShape(final int height, final int[] colIndexs, final int rowIndex,
                                         final Class<? extends Shape> type) {
-        if (DEFAULT_HEIGHT < height) {
-            final int count = height / DEFAULT_HEIGHT - 1;
+        if (Size.DEFAULT_HEIGHT < height) {
+            final int count = height / Size.DEFAULT_HEIGHT - 1;
 
             for (int i = 0; i < count; ++i) {
                 for (int j = 0; j < colIndexs.length; ++j) {

@@ -11,13 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayout;
+import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.column;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
-import java.awt.Dimension;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import java.awt.Graphics2D;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -31,33 +29,33 @@ public class ColumnLayoutTest {
 
     @Test public void testGetSize() {
         final ColumnLayout column = column();
-        Dimension size = column.getSize();
-        assertEquals(0, size.width);
-        assertEquals(0, size.height);
+        Size size = column.getSize();
+        assertEquals(0, size.getWidth());
+        assertEquals(0, size.getHeight());
 
         column.append(empty());
         column.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = column.getSize();
-        assertEquals(Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(Size.DEFAULT_HEIGHT, size.getHeight());
 
         column.append(empty());
         column.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = column.getSize();
-        assertEquals(Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(2 * Shape.DEFAULT_WIDTH, size.height);
+        assertEquals(Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(2 * Size.DEFAULT_WIDTH, size.getHeight());
 
         column.append(empty());
         column.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         size = column.getSize();
-        assertEquals(Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(3 * Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(3 * Size.DEFAULT_HEIGHT, size.getHeight());
 
         column.adjust(mock(Graphics2D.class, CALLS_REAL_METHODS));
         column.set(0, empty());
         size = column.getSize();
-        assertEquals(Shape.DEFAULT_WIDTH, size.width);
-        assertEquals(3 * Shape.DEFAULT_HEIGHT, size.height);
+        assertEquals(Size.DEFAULT_WIDTH, size.getWidth());
+        assertEquals(3 * Size.DEFAULT_HEIGHT, size.getHeight());
     }
 
     @Test public void testSetShape() {
@@ -101,10 +99,10 @@ public class ColumnLayoutTest {
         column.paint(graphics);
 
         final Shape shape1 = mock(Shape.class);
-        when(shape1.getSize()).thenReturn(new Dimension());
+        when(shape1.getSize()).thenReturn(new Size());
         column.append(shape1);
         final Shape shape2 = mock(Shape.class);
-        when(shape2.getSize()).thenReturn(new Dimension());
+        when(shape2.getSize()).thenReturn(new Size());
         column.append(shape2);
         column.paint(graphics);
         verify(shape1, times(1)).paint(graphics);
