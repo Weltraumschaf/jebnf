@@ -180,6 +180,25 @@ public class Token {
     }
 
     /**
+     * Returns true if the token is of the type of one given {@link TokenType type} in the list.
+     *
+     * @param checkedTypes List of token types to check against.
+     * @return Return true if it is of a passed type.
+     */
+    public final boolean isOfType(final List<TokenType> checkedTypes) {
+        boolean isOfType = false;
+
+        for (final TokenType checkedType : checkedTypes) {
+            if (isType(checkedType)) {
+                isOfType = true;
+                break;
+            }
+        }
+
+        return isOfType;
+    }
+
+    /**
      * Checks if token's value is not equals any of the passed in strings.
      *
      * @param others Array of strings to check against.

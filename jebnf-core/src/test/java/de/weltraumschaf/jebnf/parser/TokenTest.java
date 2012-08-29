@@ -1,12 +1,15 @@
 package de.weltraumschaf.jebnf.parser;
 
+import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.parser.TokenType;
 import de.weltraumschaf.jebnf.parser.Position;
 import de.weltraumschaf.jebnf.parser.Token;
 import java.util.Arrays;
 import java.util.List;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.Test;
+import static org.hamcrest.CoreMatchers.*;
 
 /**
  * Unit test for Token.
@@ -155,4 +158,17 @@ public class TokenTest {
             assertFalse(token.isOperator());
         }
     }
+
+    @Test public void isOfType() {
+        Token token = new Token(TokenType.ASIGN, null, null);
+        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF)), is(false));
+        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF, TokenType.COMMENT)), is(false));
+        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF, TokenType.COMMENT, TokenType.ASIGN)), is(true));
+
+        token = new Token(TokenType.IDENTIFIER, null, null);
+        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF)), is(false));
+        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF, TokenType.IDENTIFIER)), is(true));
+        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF, TokenType.IDENTIFIER, TokenType.L_BRACK)), is(true));
+    }
+
 }

@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.parser;
 
+import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.nodes.*;
 import java.io.IOException;
@@ -41,10 +42,12 @@ public class EbnfParser implements Parser {
     /**
      * All other operator tokens.
      *
-     * TODO: Consider using List<Character>.
-     * TODO: Consider move into CharacterHelper.
+     *  {'.', '=', '|', ')', ']', '}'}
      */
-    private static final String[] OPERATOR = {".", "=", "|", ")", "]", "}"};
+    private static final List<TokenType> FACTOR_OPERATORS = Lists.newArrayList(
+        TokenType.END_OF_RULE, TokenType.ASIGN, TokenType.CHOICE,
+        TokenType.R_PAREN, TokenType.R_BRACK, TokenType.R_BRACE
+    );
 
     /**
      * Used to receive the tokens.
@@ -207,7 +210,7 @@ public class EbnfParser implements Parser {
         scanner.nextToken();
         boolean multipleFactors = false;
 
-        while (scanner.getCurrentToken().isNotEquals(OPERATOR)) {
+        while (!scanner.getCurrentToken().isOfType(FACTOR_OPERATORS)) {
             factor = parseFactor(sequenceNode);
             sequenceNode.addChild(factor);
             scanner.nextToken();
