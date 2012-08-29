@@ -6,7 +6,7 @@
 
     <groupId>de.weltraumschaf</groupId>
     <artifactId>jebnf</artifactId>
-    <version>1.2.3-SNAPSHOT</version>
+    <version>1.2.4</version>
     <packaging>pom</packaging>
     <name>JEBNF</name>
     <description>
