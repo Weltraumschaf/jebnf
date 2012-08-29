@@ -14,8 +14,6 @@ package de.weltraumschaf.jebnf.cli;
 /**
  * Supported output formats.
  *
- * TODO Add PNG.
- *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public enum OutputFormat {
@@ -33,6 +31,11 @@ public enum OutputFormat {
     /**
      * Prints the railroad diagram as gif.
      */
-    GIF;
+    GIF,
+
+    /**
+     * Prints the railroad diagram as png.
+     */
+    PNG;
 
 }

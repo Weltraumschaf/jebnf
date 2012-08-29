@@ -122,6 +122,8 @@ public final class OptionsParser {
                 options.setOutputFormat(OutputFormat.JPG);
             } else if ("gif".equalsIgnoreCase(formatOption)) {
                 options.setOutputFormat(OutputFormat.GIF);
+            } else if ("png".equalsIgnoreCase(formatOption)) {
+                options.setOutputFormat(OutputFormat.PNG);
             } else {
                 options.setOutputFormat(OutputFormat.JPG);
             }

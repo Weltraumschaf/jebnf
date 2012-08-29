@@ -81,7 +81,7 @@ public class CliOptions {
         // w/ argument
         options.addOption(OptionsParser.OPT_SYNTAX, true, "EBNF syntax file to parse.");    // required
         options.addOption(OptionsParser.OPT_OUTPUT, true, "Output file name.");
-        options.addOption(OptionsParser.OPT_FORMAT, true, "Output format: xml, jpg, gif.");
+        options.addOption(OptionsParser.OPT_FORMAT, true, "Output format: xml, jpg, gif, or png.");
         // w/o argument
         options.addOption(OptionsParser.OPT_TEXT_TREE,
                           false,
