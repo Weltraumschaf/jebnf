@@ -64,9 +64,7 @@ public interface Node extends Visitable {
     /**
      * Get the parent.
      *
-     * TODO Does it return a Null object or null?
-     *
-     * @return Return the parent node. Will return null, if {@link #hasParent()} return false.
+     * @return Return the parent node. Will return {@link Null}, if {@link #hasParent()} return false.
      */
     Node getParent();
 
