@@ -105,13 +105,13 @@ public class ColumnLayout extends AbstractLayout implements Sequence {
         }
 
         final Point pos = getPosition();
-        int currentY = pos.y;
+        int currentY = pos.getY();
 
         for (Shape shape : col) {
-            shape.setPosition(pos.setY(currentY)); // @todo remove currentY
+            shape.setPosition(pos.setY(currentY));
             shape.setDebug(isDebug());
             shape.paint(graphic);
-            currentY += shape.getSize().height;
+            currentY += shape.getSize().getHeight();
         }
     }
 
@@ -123,8 +123,8 @@ public class ColumnLayout extends AbstractLayout implements Sequence {
         for (Shape shape : col) {
             adjustShape(shape, graphics);
             final Dimension shapeSize = shape.getSize();
-            height += shapeSize.height;
-            width = Math.max(width, shapeSize.width);
+            height += shapeSize.getHeight();
+            width = Math.max(width, (int)shapeSize.getWidth());
         }
 
         for (Shape shape : col) {

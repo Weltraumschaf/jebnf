@@ -151,7 +151,7 @@ public abstract class AbstractShape implements Shape {
      * @return Integer greater equal 0.
      */
     protected int getCenterX() {
-        return getPosition().x + getSize().width / 2;
+        return getPosition().getX() + getSize().width / 2;
     }
 
     /**
@@ -160,7 +160,7 @@ public abstract class AbstractShape implements Shape {
      * @return Integer greater equal 0.
      */
     protected int getCenterY() {
-        return getPosition().y + getSize().height / 2;
+        return getPosition().getY() + getSize().height / 2;
     }
 
     /**

@@ -23,16 +23,12 @@ public class Point {
     /**
      * Immutable x coordinate.
      */
-    // CHECKSTYLE:OFF Ignore public field warning.
-    public final int x; // NOPMD Ignore short name warning.
-    // CHECKSTYLE:ON
+    private final int x; // NOPMD Ignore short name warning.
 
     /**
      * Immutable x coordinate.
      */
-    // CHECKSTYLE:OFF Ignore public field warning.
-    public final int y; // NOPMD Ignore short name warning.
-    // CHECKSTYLE:ON
+    private final int y; // NOPMD Ignore short name warning.
 
     /**
      * Initializes a point with coordinates (0, 0).
@@ -48,6 +44,7 @@ public class Point {
      * @param y Y-Coordinate.
      */
     public Point(final int x, final int y) {
+        super();
         this.x = x;
         this.y = y;
     }
@@ -63,6 +60,15 @@ public class Point {
     }
 
     /**
+     * Get the x coordinate.
+     *
+     * @return Return coordinate in pixel.
+     */
+    public int getX() {
+        return x;
+    }
+
+    /**
      * Returns a new point object with changed y-coordinate.
      *
      * @param newY The new y-coordinate.
@@ -70,6 +76,15 @@ public class Point {
      */
     public Point setY(final int newY) {
         return new Point(x, newY);
+    }
+
+    /**
+     * Get the y coordinate.
+     *
+     * @return Return coordinate in pixel.
+     */
+    public int getY() {
+        return y;
     }
 
     @Override
@@ -92,11 +107,7 @@ public class Point {
 
         final Point other = (Point) obj;
 
-        if (Objects.equal(x, other.x) && Objects.equal(y, other.y)) {
-            return true;
-        }
-
-        return false;
+        return Objects.equal(x, other.x) && Objects.equal(y, other.y);
     }
 
     @Override

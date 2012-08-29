@@ -163,8 +163,8 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
     protected Line calculateInLine(final int boxWidth) {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
-        final Point start    = new Point(pos.x, vCenter);
-        final Point end      = new Point(pos.x + calculateHorizontalPadding(boxWidth), vCenter);
+        final Point start    = new Point(pos.getX(), vCenter);
+        final Point end      = new Point(pos.getX() + calculateHorizontalPadding(boxWidth), vCenter);
         return new Line(start, end);
     }
 
@@ -177,8 +177,8 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
     protected Line calculateOutLine(final int boxWidth) {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
-        final Point start    = new Point(pos.x + calculateHorizontalPadding(boxWidth) + boxWidth, vCenter);
-        final Point end      = new Point(pos.x + getSize().width, vCenter);
+        final Point start    = new Point(pos.getX() + calculateHorizontalPadding(boxWidth) + boxWidth, vCenter);
+        final Point end      = new Point(pos.getX() + getSize().width, vCenter);
         return new Line(start, end);
     }
 
@@ -210,8 +210,8 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      */
     protected Point calculatePaddedRectanglePosition(final Dimension size) {
         final Point pos = getPosition();
-        return new Point(pos.x + calculateHorizontalPadding(size.width),
-                         pos.y + calculateVerticalPadding(size.height));
+        return new Point(pos.getX() + calculateHorizontalPadding(size.width),
+                         pos.getY() + calculateVerticalPadding(size.height));
     }
 
     /**
@@ -221,7 +221,18 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
      * @param line Line to draw.
      */
     protected void drawLine(final Graphics2D graphic, final Line line) {
-        graphic.drawLine(line.start.x, line.start.y, line.end.x, line.end.y);
+        drawLine(graphic, line.start, line.end);
+    }
+
+    /**
+     * Draws a line for given start and end point.
+     *
+     * @param graphic Context to draw on.
+     * @param start Start of line.
+     * @param end End of line.
+     */
+    protected void drawLine(final Graphics2D graphic, final Point start, final Point end) {
+        graphic.drawLine(start.getX(), start.getY(), end.getX(), end.getY());
     }
 
     /**

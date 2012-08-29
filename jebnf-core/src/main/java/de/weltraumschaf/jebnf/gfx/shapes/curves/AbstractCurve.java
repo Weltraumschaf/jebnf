@@ -98,7 +98,7 @@ public abstract class AbstractCurve extends Empty implements Curve {
      * @return Returns arc object.
      */
     protected Arc2D createArc(final Point pos, final Dimension size, final int start, final int extent) {
-        return new Arc2D.Float(pos.x, pos.y, size.width, size.height, start, extent, Arc2D.OPEN);
+        return new Arc2D.Float(pos.getX(), pos.getY(), size.width, size.height, start, extent, Arc2D.OPEN);
     }
 
 }

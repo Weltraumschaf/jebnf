@@ -149,7 +149,7 @@ public class GridLayout extends AbstractLayout implements Adjustable {
     @Override
     public void paint(final Graphics2D graphic) {
         final Point pos = getPosition();
-        int currentX = pos.x;
+        int currentX = pos.getX();
 
         for (ColumnLayout col : columns) {
             col.setPosition(pos.setX(currentX));

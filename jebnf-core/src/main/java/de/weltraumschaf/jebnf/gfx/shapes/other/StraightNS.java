@@ -31,8 +31,8 @@ public class StraightNS extends Empty {
         backupColorAndStroke(graphic);
         graphic.setStroke(Strokes.createForRail());
         graphic.setColor(Color.BLACK);
-        final int xPosition = pos.x + size.width / 2;
-        graphic.drawLine(xPosition, pos.y, xPosition, pos.y + size.height);
+        final int xPosition = pos.getX() + size.width / 2;
+        graphic.drawLine(xPosition, pos.getY(), xPosition, pos.getY() + size.height);
         resotreColorAndStroke(graphic);
     }
 

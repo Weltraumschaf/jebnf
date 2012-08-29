@@ -29,7 +29,7 @@ public class Start extends AbstractEndpoint {
         graphic.setColor(Color.BLACK);
         graphic.setStroke(Strokes.createForRail());
         final int xStart = getCenterX();
-        final int xEnd = getPosition().x + getSize().width;
+        final int xEnd = getPosition().getX() + getSize().width;
         final int yCenter = getCenterY();
         graphic.drawLine(xStart, yCenter, xEnd, yCenter);
 

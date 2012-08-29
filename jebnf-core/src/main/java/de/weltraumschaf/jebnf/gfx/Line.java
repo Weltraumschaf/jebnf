@@ -14,7 +14,7 @@ package de.weltraumschaf.jebnf.gfx;
 import com.google.common.base.Objects;
 
 /**
- * Represents a geometric line with a {@link Point start} and {@link Point end}.
+ * Represents an immutable  geometric line with a {@link Point start} and {@link Point end}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -48,8 +48,27 @@ public class Line {
      * @param end End of line.
      */
     public Line(final Point start, final Point end) {
+        super();
         this.start = start;
         this.end   = end;
+    }
+
+    /**
+     * Get start point.
+     *
+     * @return Return start point.
+     */
+    public Point getStart() {
+        return start;
+    }
+
+    /**
+     * Get end point.
+     *
+     * @return Return end point.
+     */
+    public Point getEnd() {
+        return end;
     }
 
     @Override
@@ -57,6 +76,27 @@ public class Line {
         return Objects.toStringHelper(this)
                       .add("start", start)
                       .add("end", end).toString();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(start, end);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        final Line other = (Line) obj;
+
+        return Objects.equal(start, other.start)
+            && Objects.equal(end, other.end);
     }
 
 }

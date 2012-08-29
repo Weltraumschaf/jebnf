@@ -86,7 +86,7 @@ public class RowLayout extends AbstractLayout implements Sequence {
         }
 
         final Point pos = getPosition();
-        int currentX = pos.x;
+        int currentX = pos.getX();
 
         for (Shape shape : row) {
             shape.setPosition(pos.setX(currentX));

@@ -79,7 +79,7 @@ public class Terminal extends AbstractTextShape implements Shape {
 
         graphic.setColor(Color.BLACK);
         graphic.setStroke(Strokes.createForBox());
-        graphic.drawRoundRect(rectanglePosition.x, rectanglePosition.y,
+        graphic.drawRoundRect(rectanglePosition.getX(), rectanglePosition.getY(),
                               boxSize.width, boxSize.height,
                               ARC_WIDTH, ARC_WIDTH);
 

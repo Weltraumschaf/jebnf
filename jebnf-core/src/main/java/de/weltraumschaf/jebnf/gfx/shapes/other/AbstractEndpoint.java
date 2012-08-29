@@ -46,7 +46,7 @@ public abstract class AbstractEndpoint extends Empty {
         final Point pos = getPosition();
         final Dimension size = getSize();
         final int xCenter = getCenterX();
-        graphic.drawLine(xCenter, pos.y + TOP_PADDING, xCenter, pos.y + size.height - BOTTOM_PADDING);
+        graphic.drawLine(xCenter, pos.getY() + TOP_PADDING, xCenter, pos.getY() + size.height - BOTTOM_PADDING);
 
         resotreColorAndStroke(graphic);
     }

@@ -56,7 +56,7 @@ public class Empty extends AbstractShape {
 
         if (!transparent) {
             graphic.setColor(Color.WHITE);
-            graphic.fillRect(pos.x, pos.y, size.width, size.height);
+            graphic.fillRect(pos.getX(), pos.getY(), size.width, size.height);
         }
 
         debugShape(graphic, new Paintable() {
@@ -64,24 +64,24 @@ public class Empty extends AbstractShape {
             public void paint(final Graphics2D graphic) {
                 drawHorizontalLines(graphic);
                 drawVerticalLines(graphic);
-                graphic.drawRect(pos.x, pos.y, size.width - 1, size.height - 1);
+                graphic.drawRect(pos.getX(), pos.getY(), size.width - 1, size.height - 1);
             }
 
             private void drawHorizontalLines(final Graphics2D graphic) {
                 final int step = (int) Math.ceil(DEFAULT_HEIGHT / 2);
-                final int maxYPosition = pos.y + size.height - 1;
+                final int maxYPosition = pos.getY() + size.height - 1;
 
-                for (int yPosition = pos.y + step; yPosition < maxYPosition; yPosition += step) {
-                    graphic.drawLine(pos.x, yPosition, pos.x + size.width - 1, yPosition);
+                for (int yPosition = pos.getY() + step; yPosition < maxYPosition; yPosition += step) {
+                    graphic.drawLine(pos.getX(), yPosition, pos.getX() + size.width - 1, yPosition);
                 }
             }
 
             private void drawVerticalLines(final Graphics2D graphic) {
                 final int step = (int) Math.ceil(DEFAULT_WIDTH / 2);
-                final int maxXPosition = pos.x + size.width - 1;
+                final int maxXPosition = pos.getX() + size.width - 1;
 
-                for (int xPosition = pos.x + step; xPosition < maxXPosition; xPosition += step) {
-                    graphic.drawLine(xPosition, pos.y, xPosition, pos.y + size.height - 1);
+                for (int xPosition = pos.getX() + step; xPosition < maxXPosition; xPosition += step) {
+                    graphic.drawLine(xPosition, pos.getY(), xPosition, pos.getY() + size.height - 1);
                 }
             }
         });

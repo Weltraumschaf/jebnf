@@ -68,7 +68,7 @@ public class Identifier extends AbstractTextShape implements Shape {
 
         graphic.setColor(Color.BLACK);
         graphic.setStroke(Strokes.createForBox());
-        graphic.drawRect(rectanglePosition.x, rectanglePosition.y, boxSize.width, boxSize.height);
+        graphic.drawRect(rectanglePosition.getX(), rectanglePosition.getY(), boxSize.width, boxSize.height);
 
         drawTextWithInAndOutLine(graphic, rectanglePosition, boxSize);
 

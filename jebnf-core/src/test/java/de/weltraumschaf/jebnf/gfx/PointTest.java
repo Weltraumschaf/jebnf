@@ -25,29 +25,29 @@ public class PointTest {
 
     @Test public void testCreation() {
         Point point = new Point();
-        assertEquals(0, point.x);
-        assertEquals(0, point.y);
+        assertEquals(0, point.getX());
+        assertEquals(0, point.getY());
         point = new Point(11, 22);
-        assertEquals(11, point.x);
-        assertEquals(22, point.y);
+        assertEquals(11, point.getX());
+        assertEquals(22, point.getY());
     }
 
     @Test public void testSetX() {
         Point point = new Point();
-        assertEquals(0, point.x);
-        assertEquals(0, point.y);
+        assertEquals(0, point.getX());
+        assertEquals(0, point.getY());
         point = point.setX(10);
-        assertEquals(10, point.x);
-        assertEquals(0, point.y);
+        assertEquals(10, point.getX());
+        assertEquals(0, point.getY());
     }
 
     @Test public void testSetY() {
         Point point = new Point();
-        assertEquals(0, point.x);
-        assertEquals(0, point.y);
+        assertEquals(0, point.getX());
+        assertEquals(0, point.getY());
         point = point.setY(10);
-        assertEquals(0, point.x);
-        assertEquals(10, point.y);
+        assertEquals(0, point.getX());
+        assertEquals(10, point.getY());
     }
 
     @Test public void testToString() {
@@ -79,4 +79,5 @@ public class PointTest {
         assertThat(point1, not(equalTo(point3)));
         assertThat(point2, not(equalTo(point3)));
     }
+
 }

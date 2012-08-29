@@ -36,7 +36,7 @@ public class EmptyTest {
         assertFalse(empty.isTransparent());
         empty.paint(graphics);
         verify(graphics, times(1)).setColor(Color.WHITE);
-        verify(graphics, times(1)).fillRect(pos.x, pos.y, size.width, size.height);
+        verify(graphics, times(1)).fillRect(pos.getX(), pos.getY(), size.width, size.height);
     }
 
     @Test public void paintTransparent() {
@@ -45,7 +45,7 @@ public class EmptyTest {
         assertTrue(empty.isTransparent());
         empty.paint(graphics);
         verify(graphics, never()).setColor(Color.WHITE);
-        verify(graphics, never()).fillRect(pos.x, pos.y, size.width, size.height);
+        verify(graphics, never()).fillRect(pos.getX(), pos.getY(), size.width, size.height);
     }
 
     @Test public void paintDebug() {

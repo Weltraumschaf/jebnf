@@ -45,8 +45,8 @@ public class TestShape extends Empty {
 
         for (int i = 0; i < size.width; ++i) {
             for (int j = 0; j < size.height; j++) {
-                final int xPosition = pos.x + i;
-                final int yPosition = pos.y + j;
+                final int xPosition = pos.getX() + i;
+                final int yPosition = pos.getY() + j;
 
                 if (shouldPaint(i, j)) {
                     graphic.drawLine(xPosition, yPosition, xPosition, yPosition);

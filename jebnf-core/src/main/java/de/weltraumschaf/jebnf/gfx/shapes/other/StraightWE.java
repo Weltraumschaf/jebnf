@@ -31,8 +31,8 @@ public class StraightWE extends Empty {
         backupColorAndStroke(graphic);
         graphic.setStroke(Strokes.createForRail());
         graphic.setColor(Color.BLACK);
-        final int yPosition = pos.y + size.height / 2;
-        graphic.drawLine(pos.x, yPosition, pos.x + size.width, yPosition);
+        final int yPosition = pos.getY() + size.height / 2;
+        graphic.drawLine(pos.getX(), yPosition, pos.getX() + size.width, yPosition);
         resotreColorAndStroke(graphic);
     }
 

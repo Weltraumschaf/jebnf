@@ -114,8 +114,8 @@ public class StringPainter {
         final Font backup = graphic.getFont();
         graphic.setFont(font);
         final FontMetrics metrics = graphic.getFontMetrics();
-        final int xPosition = calcXPosition(metrics.stringWidth(str), offset.x, size.width);
-        final int yPosition = calcYPosition(offset.y, size.height,
+        final int xPosition = calcXPosition(metrics.stringWidth(str), offset.getX(), size.width);
+        final int yPosition = calcYPosition(offset.getY(), size.height,
                                             metrics.getAscent(), metrics.getDescent());
         graphic.drawString(str, xPosition, yPosition);
         graphic.setFont(backup);
