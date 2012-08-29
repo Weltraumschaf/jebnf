@@ -45,6 +45,7 @@ public class Choice extends AbstractCompund {
      * @return Return itself for method chaining.
      */
     public Choice addChoice(final Shape shape) {
+        final GridLayout grid = getGrid();
         final int rowCount = grid.counRows();
         Shape first;
         Shape last;

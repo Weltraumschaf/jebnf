@@ -11,11 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 
@@ -30,10 +30,8 @@ public class AbstractCompund extends AbstractShape implements Compund {
 
     /**
      * Layout grid with child shapes.
-     *
-     * TODO Make private.
      */
-    protected final GridLayout grid;
+    private final GridLayout grid;
 
     /**
      * Initializes grid layout.
@@ -43,6 +41,15 @@ public class AbstractCompund extends AbstractShape implements Compund {
     public AbstractCompund(final GridLayout grid) {
         super();
         this.grid = grid;
+    }
+
+    /**
+     * Get the compounds grid layout.
+     *
+     * @return The grid layout instance.
+     */
+    public GridLayout getGrid() {
+        return grid;
     }
 
     @Override

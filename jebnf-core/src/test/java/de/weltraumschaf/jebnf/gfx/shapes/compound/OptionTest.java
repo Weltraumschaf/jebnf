@@ -21,7 +21,6 @@ import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
 import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
-import de.weltraumschaf.jebnf.gfx.shapes.text.AbstractTextShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TextShape;
 import java.awt.Dimension;
 import static org.junit.Assert.*;
@@ -35,55 +34,56 @@ public class OptionTest {
 
     @Test public void setOptional() {
         final Option option = new Option();
+        final GridLayout grid = option.getGrid();
         ColumnLayout split;
         ColumnLayout join;
 
-        assertEquals(2, option.grid.counRows());
-        assertEquals(3, option.grid.countCols());
-        assertTrue(option.grid.get(0, 0) instanceof ColumnLayout);
-        assertTrue(option.grid.get(1, 0) instanceof Empty);
-        assertTrue(option.grid.get(2, 0) instanceof ColumnLayout);
-        assertTrue(option.grid.get(0, 1) instanceof CurveNE);
-        assertTrue(option.grid.get(1, 1) instanceof StraightWE);
-        assertTrue(option.grid.get(2, 1) instanceof CurveNW);
+        assertEquals(2, grid.counRows());
+        assertEquals(3, grid.countCols());
+        assertTrue(grid.get(0, 0) instanceof ColumnLayout);
+        assertTrue(grid.get(1, 0) instanceof Empty);
+        assertTrue(grid.get(2, 0) instanceof ColumnLayout);
+        assertTrue(grid.get(0, 1) instanceof CurveNE);
+        assertTrue(grid.get(1, 1) instanceof StraightWE);
+        assertTrue(grid.get(2, 1) instanceof CurveNW);
 
-        split = (ColumnLayout) option.grid.get(0, 0);
+        split = (ColumnLayout) grid.get(0, 0);
         assertEquals(1, split.countShapes());
         assertTrue(split.get(0) instanceof HForkSW);
-        join = (ColumnLayout) option.grid.get(2, 0);
+        join = (ColumnLayout) grid.get(2, 0);
         assertEquals(1, join.countShapes());
         assertTrue(join.get(0) instanceof HForkSE);
 
         final TextShape term = terminal("foo");
         option.setOptional(term);
-        assertEquals(2, option.grid.counRows());
-        assertEquals(3, option.grid.countCols());
-        assertTrue(option.grid.get(0, 0) instanceof ColumnLayout);
-        assertSame(option.grid.get(1, 0), term);
-        assertTrue(option.grid.get(2, 0) instanceof ColumnLayout);
-        assertTrue(option.grid.get(0, 1) instanceof CurveNE);
-        assertTrue(option.grid.get(1, 1) instanceof StraightWE);
-        assertTrue(option.grid.get(2, 1) instanceof CurveNW);
+        assertEquals(2, grid.counRows());
+        assertEquals(3, grid.countCols());
+        assertTrue(grid.get(0, 0) instanceof ColumnLayout);
+        assertSame(grid.get(1, 0), term);
+        assertTrue(grid.get(2, 0) instanceof ColumnLayout);
+        assertTrue(grid.get(0, 1) instanceof CurveNE);
+        assertTrue(grid.get(1, 1) instanceof StraightWE);
+        assertTrue(grid.get(2, 1) instanceof CurveNW);
 
         // taller optional
         final ColumnLayout greatColumn = column();
         greatColumn.setSize(new Dimension(Shape.DEFAULT_WIDTH, Shape.DEFAULT_HEIGHT * 3));
         option.setOptional(greatColumn);
-        assertEquals(2, option.grid.counRows());
-        assertEquals(3, option.grid.countCols());
-        assertTrue(option.grid.get(0, 0) instanceof ColumnLayout);
-        assertSame(option.grid.get(1, 0), greatColumn);
-        assertTrue(option.grid.get(2, 0) instanceof ColumnLayout);
-        assertTrue(option.grid.get(0, 1) instanceof CurveNE);
-        assertTrue(option.grid.get(1, 1) instanceof StraightWE);
-        assertTrue(option.grid.get(2, 1) instanceof CurveNW);
+        assertEquals(2, grid.counRows());
+        assertEquals(3, grid.countCols());
+        assertTrue(grid.get(0, 0) instanceof ColumnLayout);
+        assertSame(grid.get(1, 0), greatColumn);
+        assertTrue(grid.get(2, 0) instanceof ColumnLayout);
+        assertTrue(grid.get(0, 1) instanceof CurveNE);
+        assertTrue(grid.get(1, 1) instanceof StraightWE);
+        assertTrue(grid.get(2, 1) instanceof CurveNW);
 
-        split = (ColumnLayout) option.grid.get(0, 0);
+        split = (ColumnLayout) grid.get(0, 0);
         assertEquals(3, split.countShapes());
         assertTrue(split.get(0) instanceof HForkSW);
         assertTrue(split.get(1) instanceof StraightNS);
         assertTrue(split.get(2) instanceof StraightNS);
-        join = (ColumnLayout) option.grid.get(2, 0);
+        join = (ColumnLayout) grid.get(2, 0);
         assertEquals(3, join.countShapes());
         assertTrue(join.get(0) instanceof HForkSE);
         assertTrue(join.get(1) instanceof StraightNS);

@@ -11,17 +11,15 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNE;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Choice;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.choice;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNW;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Ignore;
@@ -34,69 +32,71 @@ import org.junit.Test;
 public class ChoiceTest {
 
     private void assertInitialGrid(final Choice choice) {
-        assertEquals(0, choice.grid.counRows());
-        assertEquals(3, choice.grid.countCols());
-        assertEquals(choice.grid.get(0).countShapes(), 0);
-        assertEquals(choice.grid.get(1).countShapes(), 0);
-        assertEquals(choice.grid.get(2).countShapes(), 0);
+        final GridLayout grid = choice.getGrid();
+        assertEquals(0, grid.counRows());
+        assertEquals(3, grid.countCols());
+        assertEquals(grid.get(0).countShapes(), 0);
+        assertEquals(grid.get(1).countShapes(), 0);
+        assertEquals(grid.get(2).countShapes(), 0);
     }
 
     @Ignore
     @Test public void addChoice() {
         final Choice choice = choice();
+        final GridLayout grid = choice.getGrid();
         assertInitialGrid(choice);
 
         // normal sized
         choice.addChoice(terminal("foo"));
-        assertEquals(1, choice.grid.counRows());
-        assertEquals(3, choice.grid.countCols());
-        ColumnLayout split = (ColumnLayout) choice.grid.get(0, 0);
+        assertEquals(1, grid.counRows());
+        assertEquals(3, grid.countCols());
+        ColumnLayout split = (ColumnLayout) grid.get(0, 0);
         assertEquals(1, split.countShapes());
         assertTrue(split.get(0) instanceof StraightWE);
-        ColumnLayout join = (ColumnLayout) choice.grid.get(2, 0);
+        ColumnLayout join = (ColumnLayout) grid.get(2, 0);
         assertEquals(1, join.countShapes());
         assertTrue(join.get(0) instanceof StraightWE);
 
         choice.addChoice(terminal("bar"));
-        assertEquals(2, choice.grid.counRows());
-        assertEquals(3, choice.grid.countCols());
+        assertEquals(2, grid.counRows());
+        assertEquals(3, grid.countCols());
         // 1. row
-        split = (ColumnLayout) choice.grid.get(0, 0);
+        split = (ColumnLayout) grid.get(0, 0);
         assertEquals(1, split.countShapes());
         assertTrue(split.get(0) instanceof HForkSW);
-        join = (ColumnLayout) choice.grid.get(2, 0);
+        join = (ColumnLayout) grid.get(2, 0);
         assertEquals(1, join.countShapes());
         assertTrue(join.get(0) instanceof HForkSE);
         // 2. row
-        ColumnLayout split1 = (ColumnLayout) choice.grid.get(0, 1);
+        ColumnLayout split1 = (ColumnLayout) grid.get(0, 1);
         assertEquals(1, split1.countShapes());
         assertTrue(split1.get(0) instanceof CurveNE);
-        ColumnLayout join1 = (ColumnLayout) choice.grid.get(2, 1);
+        ColumnLayout join1 = (ColumnLayout) grid.get(2, 1);
         assertEquals(1, join1.countShapes());
         assertTrue(join1.get(0) instanceof CurveNW);
 
         choice.addChoice(terminal("baz"));
-        assertEquals(3, choice.grid.counRows());
-        assertEquals(3, choice.grid.countCols());
-        split = (ColumnLayout) choice.grid.get(0, 0);
+        assertEquals(3, grid.counRows());
+        assertEquals(3, grid.countCols());
+        split = (ColumnLayout) grid.get(0, 0);
         assertEquals(1, split.countShapes());
         // 1. row
         assertTrue(split.get(0) instanceof HForkSW);
-        join = (ColumnLayout) choice.grid.get(2, 0);
+        join = (ColumnLayout) grid.get(2, 0);
         assertEquals(1, join.countShapes());
         assertTrue(join.get(0) instanceof HForkSE);
         // 2. row
-        split1 = (ColumnLayout) choice.grid.get(0, 1);
+        split1 = (ColumnLayout) grid.get(0, 1);
         assertEquals(1, split1.countShapes());
         assertTrue(split1.get(0) instanceof VForkNE);
-        join1 = (ColumnLayout) choice.grid.get(2, 1);
+        join1 = (ColumnLayout) grid.get(2, 1);
         assertEquals(1, join1.countShapes());
         assertTrue(join1.get(0) instanceof VForkNW);
         // 3. row
-        ColumnLayout split2 = (ColumnLayout) choice.grid.get(0, 2);
+        ColumnLayout split2 = (ColumnLayout) grid.get(0, 2);
         assertEquals(1, split2.countShapes());
         assertTrue(split2.get(0) instanceof CurveNE);
-        ColumnLayout join2 = (ColumnLayout) choice.grid.get(2, 2);
+        ColumnLayout join2 = (ColumnLayout) grid.get(2, 2);
         assertEquals(1, join2.countShapes());
         assertTrue(join2.get(0) instanceof CurveNW);
 

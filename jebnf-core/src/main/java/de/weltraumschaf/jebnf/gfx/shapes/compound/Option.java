@@ -47,7 +47,7 @@ public class Option extends AbstractCompund {
      * @param shape Optional shape.
      */
     public void setOptional(final Shape shape) {
-        grid.set(1, 0, shape);
+        getGrid().set(1, 0, shape);
         final Dimension size = shape.getSize();
         extendColumnWithStraightNS(size.height, new int[]{0, 2}, 0);
     }

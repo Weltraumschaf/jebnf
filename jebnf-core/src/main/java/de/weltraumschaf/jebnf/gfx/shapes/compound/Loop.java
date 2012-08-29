@@ -57,7 +57,7 @@ public class Loop extends AbstractCompund {
      * @param shape Looped shape.
      */
     public void setLooped(final Shape shape) {
-        grid.set(1, 0, shape);
+        getGrid().set(1, 0, shape);
         final Dimension size = shape.getSize();
         extendColumnWithStraightNS(size.height, new int[]{0, 2}, 0);
     }
@@ -68,7 +68,7 @@ public class Loop extends AbstractCompund {
      * @param shape Additional shape.
      */
     public void setAdditional(final Shape shape) {
-        grid.set(1, 1, shape);
+        getGrid().set(1, 1, shape);
         final Dimension size = shape.getSize();
         extendColumnWithEmpty(size.height, new int[]{0, 2}, 1);
     }
