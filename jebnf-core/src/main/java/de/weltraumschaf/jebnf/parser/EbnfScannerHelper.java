@@ -128,19 +128,18 @@ final class EbnfScannerHelper {
         final Position position   = scanner.createPosition();
         final StringBuilder value = new StringBuilder();
         value.append(scanner.getCurrentCharacter());
-
-        final char peek = scanner.peekCharacter();
+        scanner.peekCharacter(); // FIXME If remove tests fail. Must not hapen. This call must be removed.
         TokenType type = null;
 
         switch (scanner.getCurrentCharacter()) {
             case ':':
-                type = scanColonOperator(peek, scanner, value);
+                type = scanColonOperator(scanner, value);
                 break;
             case '=':
                 type = TokenType.ASIGN;
                 break;
             case '.':
-                type = scanDotOperator(peek, scanner, value);
+                type = scanDotOperator(scanner, value);
                 break;
             case ';':
                 type = TokenType.END_OF_RULE;
@@ -178,21 +177,18 @@ final class EbnfScannerHelper {
      *
      * Colon operators are: ':' and ':=='.
      *
-     * TODO Parameter peek may be removed and obtained from scanner inside the method.
-     *
-     * @param peek    Peeked character.
      * @param scanner Scanner to get characters from.
      * @param value   Operator token as string.
      * @return Return type of token.
      * @throws SyntaxException On syntax errors.
      * @throws IOException On input stream IO errors.
      */
-    private static TokenType scanColonOperator(final char peek, final EbnfScanner scanner,
+    private static TokenType scanColonOperator(final EbnfScanner scanner,
                                                final StringBuilder value) throws SyntaxException,
                                                                                  IOException {
         TokenType type;
 
-        if ('=' == peek) {
+        if ('=' == scanner.peekCharacter()) {
             scanner.nextCharacter();
             value.append(scanner.getCurrentCharacter());
             scanner.nextCharacter();
@@ -216,19 +212,16 @@ final class EbnfScannerHelper {
      *
      * Colon operators are: '.' and '..'.
      *
-     * TODO Parameter peek may be removed and obtained from scanner inside the method.
-     *
-     * @param peek Peeked character.
      * @param scanner Scanner to get characters from.
      * @param value Operator token as string.
      * @return Return type of token.
      * @throws IOException On input stream IO errors.
      */
-    private static TokenType scanDotOperator(final char peek, final EbnfScanner scanner,
+    private static TokenType scanDotOperator(final EbnfScanner scanner,
                                              final StringBuilder value) throws IOException {
         TokenType type;
         // range or end of rule
-        if ('.' == peek) {
+        if ('.' == scanner.peekCharacter()) {
             scanner.nextCharacter();
             value.append(scanner.getCurrentCharacter());
             type = TokenType.RANGE;
