@@ -26,7 +26,7 @@ import java.awt.Graphics2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class AbstractCompund extends AbstractShape implements Compund {
+public class AbstractCompund extends AbstractShape implements Grid {
 
     /**
      * Layout grid with child shapes.
@@ -43,11 +43,7 @@ public class AbstractCompund extends AbstractShape implements Compund {
         this.grid = grid;
     }
 
-    /**
-     * Get the compounds grid layout.
-     *
-     * @return The grid layout instance.
-     */
+    @Override
     public GridLayout getGrid() {
         return grid;
     }

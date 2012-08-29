@@ -19,6 +19,13 @@ import de.weltraumschaf.jebnf.gfx.shapes.Shape;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public interface Compund extends Shape, Adjustable {
+public interface Grid extends Shape, Adjustable {
+
+    /**
+     * Get the compounds grid layout.
+     *
+     * @return The grid layout instance.
+     */
+    public GridLayout getGrid();
 
 }
