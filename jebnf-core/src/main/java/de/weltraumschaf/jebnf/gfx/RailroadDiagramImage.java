@@ -47,18 +47,16 @@ public class RailroadDiagramImage {
 
         /**
          * Used as file extension.
-         *
-         * TODO: Rename to fileExtension
          */
-        private final String text;
+        private final String formatName;
 
         /**
          * Initializes type with text.
          *
-         * @param text Text used as file extension.
+         * @param formatName Text used as file extension.
          */
-        private Type(final String text) {
-            this.text = text;
+        private Type(final String formatName) {
+            this.formatName = formatName;
         }
 
         /**
@@ -66,8 +64,8 @@ public class RailroadDiagramImage {
          *
          * @return Return the text string.
          */
-        public String getText() {
-            return text;
+        public String getFormatName() {
+            return formatName;
         }
 
     }
@@ -171,7 +169,7 @@ public class RailroadDiagramImage {
      * @throws IOException On file IO errors.
      */
     public void save() throws IOException {
-        ImageIO.write(image, type.getText(), file);
+        ImageIO.write(image, type.getFormatName(), file);
     }
 
 }
