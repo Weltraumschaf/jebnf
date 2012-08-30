@@ -38,6 +38,7 @@ public class CliOptionsTest {
         assertFalse(options.hasOutputFile());
         assertFalse(options.hasSyntaxFile());
         assertFalse(options.hasOutputFormat());
+        assertFalse(options.isShowVersion());
     }
 
     @Test public void parseNoArgOptions() throws ParseException {
@@ -46,30 +47,42 @@ public class CliOptionsTest {
         assertFalse(options.isHelp());
         assertFalse(options.isTextTree());
         assertFalse(options.isIde());
+        assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"-h"});
         assertTrue(options.isHelp());
         assertFalse(options.isDebug());
         assertFalse(options.isTextTree());
         assertFalse(options.isIde());
+        assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"-t"});
         assertTrue(options.isTextTree());
         assertFalse(options.isDebug());
         assertFalse(options.isHelp());
         assertFalse(options.isIde());
+        assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"-i"});
         assertTrue(options.isIde());
         assertFalse(options.isTextTree());
         assertFalse(options.isDebug());
         assertFalse(options.isHelp());
+        assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"--ide"});
         assertTrue(options.isIde());
         assertFalse(options.isTextTree());
         assertFalse(options.isDebug());
         assertFalse(options.isHelp());
+        assertFalse(options.isShowVersion());
+
+        options = setUpSut(new String[] {"-v"});
+        assertFalse(options.isIde());
+        assertFalse(options.isTextTree());
+        assertFalse(options.isDebug());
+        assertFalse(options.isHelp());
+        assertTrue(options.isShowVersion());
     }
 
     @Test public void parseArgOptions() throws ParseException {
@@ -100,6 +113,10 @@ public class CliOptionsTest {
         assertTrue(options.hasOutputFormat());
         assertEquals(OutputFormat.GIF, options.getOutputFormat());
 
+        options = setUpSut(new String[] {"-f", "png"});
+        assertTrue(options.hasOutputFormat());
+        assertEquals(OutputFormat.PNG, options.getOutputFormat());
+
         options = setUpSut(new String[] {"-f", "foobar"});
         assertTrue(options.hasOutputFormat());
         assertEquals(OutputFormat.JPG, options.getOutputFormat());
@@ -111,4 +128,5 @@ public class CliOptionsTest {
         options.format(formatter);
         verify(formatter, times(1)).printHelp("jebnf", options.getOptions());
     }
+
 }
