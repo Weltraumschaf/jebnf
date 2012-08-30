@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.parser;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import java.util.List;
 import java.util.Set;
