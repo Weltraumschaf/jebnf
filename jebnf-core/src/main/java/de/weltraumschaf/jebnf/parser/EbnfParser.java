@@ -30,7 +30,7 @@ public class EbnfParser implements Parser {
      *  {'.', '=', '|', ')', ']', '}'}
      */
     private static final List<TokenType> FACTOR_OPERATORS = Lists.newArrayList(
-        TokenType.END_OF_RULE, TokenType.ASIGN, TokenType.CHOICE,
+        TokenType.END_OF_RULE, TokenType.ASSIGN, TokenType.CHOICE,
         TokenType.R_PAREN, TokenType.R_BRACK, TokenType.R_BRACE
     );
 
@@ -133,7 +133,7 @@ public class EbnfParser implements Parser {
             scanner.nextToken();
         }
 
-        if (!assertTokens(scanner.getCurrentToken(), TokenType.ASIGN, TokenType.ASSIGN_STRINGS)) {
+        if (!assertTokens(scanner.getCurrentToken(), TokenType.ASSIGN, TokenType.ASSIGN_STRINGS)) {
             raiseError("Identifier must be followed by '='");
         }
 

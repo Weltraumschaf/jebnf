@@ -134,7 +134,7 @@ final class EbnfScannerHelper {
                 type = scanColonOperator(scanner, value);
                 break;
             case '=':
-                type = TokenType.ASIGN;
+                type = TokenType.ASSIGN;
                 break;
             case '.':
                 type = scanDotOperator(scanner, value);
@@ -197,9 +197,9 @@ final class EbnfScannerHelper {
             }
 
             value.append(scanner.getCurrentCharacter());
-            type = TokenType.ASIGN;
+            type = TokenType.ASSIGN;
         } else {
-            type = TokenType.ASIGN;
+            type = TokenType.ASSIGN;
         }
 
         return type;

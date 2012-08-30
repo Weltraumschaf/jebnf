@@ -44,7 +44,7 @@ public enum TokenType {
     /**
      * Operator types for: ':==' or ':' or '='.
      */
-    ASIGN,
+    ASSIGN,
 
     /**
      * Operator types for: '.' or ';'.

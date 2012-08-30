@@ -41,29 +41,29 @@ public class EbnfParserTest {
 
     @Test public void testAssertToken() {
         final EbnfParser parser = (EbnfParser) Factory.newParserFromSource("");
-        final Token token1  = new Token(TokenType.ASIGN, ":", new Position(0, 0));
+        final Token token1  = new Token(TokenType.ASSIGN, ":", new Position(0, 0));
         final Token token2  = new Token(TokenType.IDENTIFIER, "foobar", new Position(0, 0));
 
-        assertTrue(parser.assertToken(token1, TokenType.ASIGN, ":"));
+        assertTrue(parser.assertToken(token1, TokenType.ASSIGN, ":"));
         assertFalse(parser.assertToken(token1, TokenType.IDENTIFIER, ":"));
-        assertFalse(parser.assertToken(token1, TokenType.ASIGN, ","));
+        assertFalse(parser.assertToken(token1, TokenType.ASSIGN, ","));
         assertFalse(parser.assertToken(token1, TokenType.IDENTIFIER, ","));
 
         assertTrue(parser.assertToken(token2, TokenType.IDENTIFIER, "foobar"));
-        assertFalse(parser.assertToken(token2, TokenType.ASIGN, "foobar"));
+        assertFalse(parser.assertToken(token2, TokenType.ASSIGN, "foobar"));
         assertFalse(parser.assertToken(token2, TokenType.IDENTIFIER, "snafu"));
-        assertFalse(parser.assertToken(token2, TokenType.ASIGN, "snafu"));
+        assertFalse(parser.assertToken(token2, TokenType.ASSIGN, "snafu"));
     }
 
     @Test public void testAssertTokens() {
         final EbnfParser parser = (EbnfParser) Factory.newParserFromSource("");
-        final Token token1  = new Token(TokenType.ASIGN, ":", new Position(0, 0));
-        final Token token2  = new Token(TokenType.ASIGN, "=", new Position(0, 0));
+        final Token token1  = new Token(TokenType.ASSIGN, ":", new Position(0, 0));
+        final Token token2  = new Token(TokenType.ASSIGN, "=", new Position(0, 0));
 
-        assertTrue(parser.assertTokens(token1, TokenType.ASIGN, Arrays.asList("=", ":", ":==")));
-        assertFalse(parser.assertTokens(token1, TokenType.ASIGN, Arrays.asList("+", "-", "*")));
-        assertTrue(parser.assertTokens(token2, TokenType.ASIGN, Arrays.asList("=", ":", ":==")));
-        assertFalse(parser.assertTokens(token2, TokenType.ASIGN, Arrays.asList("+", "-", "*")));
+        assertTrue(parser.assertTokens(token1, TokenType.ASSIGN, Arrays.asList("=", ":", ":==")));
+        assertFalse(parser.assertTokens(token1, TokenType.ASSIGN, Arrays.asList("+", "-", "*")));
+        assertTrue(parser.assertTokens(token2, TokenType.ASSIGN, Arrays.asList("=", ":", ":==")));
+        assertFalse(parser.assertTokens(token2, TokenType.ASSIGN, Arrays.asList("+", "-", "*")));
     }
 
     @Ignore("TODO: Implement range parsing.")

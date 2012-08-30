@@ -130,25 +130,25 @@ public class EbnfScannerTest {
                 new Expectation("\"Rules with ranges.\"", TokenType.LITERAL, 1, 1),
                 new Expectation("{", TokenType.L_BRACE, 1, 22),
                 new Expectation("lower", TokenType.IDENTIFIER, 2, 5),
-                new Expectation("=", TokenType.ASIGN, 2, 15),
+                new Expectation("=", TokenType.ASSIGN, 2, 15),
                 new Expectation("\"a\"", TokenType.LITERAL, 2, 17),
                 new Expectation("..", TokenType.RANGE, 2, 21),
                 new Expectation("\"z\"", TokenType.LITERAL, 2, 24),
                 new Expectation(";", TokenType.END_OF_RULE, 2, 28),
                 new Expectation("upper", TokenType.IDENTIFIER, 3, 5),
-                new Expectation("=", TokenType.ASIGN, 3, 15),
+                new Expectation("=", TokenType.ASSIGN, 3, 15),
                 new Expectation("\"A\"", TokenType.LITERAL, 3, 17),
                 new Expectation("..", TokenType.RANGE, 3, 21),
                 new Expectation("\"Z\"", TokenType.LITERAL, 3, 24),
                 new Expectation(";", TokenType.END_OF_RULE, 3, 28),
                 new Expectation("number", TokenType.IDENTIFIER, 4, 5),
-                new Expectation("=", TokenType.ASIGN, 4, 15),
+                new Expectation("=", TokenType.ASSIGN, 4, 15),
                 new Expectation("\"0\"", TokenType.LITERAL, 4, 17),
                 new Expectation("..", TokenType.RANGE, 4, 21),
                 new Expectation("\"9\"", TokenType.LITERAL, 4, 24),
                 new Expectation(";", TokenType.END_OF_RULE, 4, 28),
                 new Expectation("alpha-num", TokenType.IDENTIFIER, 5, 5),
-                new Expectation("=", TokenType.ASIGN, 5, 15),
+                new Expectation("=", TokenType.ASSIGN, 5, 15),
                 new Expectation("\"a\"", TokenType.LITERAL, 5, 17),
                 new Expectation("..", TokenType.RANGE, 5, 21),
                 new Expectation("\"z\"", TokenType.LITERAL, 5, 24),
@@ -169,14 +169,14 @@ public class EbnfScannerTest {
             new Expectation("(* here are rules *)", TokenType.COMMENT, 2, 5),
 
             new Expectation("title",   TokenType.IDENTIFIER,  3, 5),
-            new Expectation("=",       TokenType.ASIGN,       3, 16),
+            new Expectation("=",       TokenType.ASSIGN,       3, 16),
             new Expectation("literal", TokenType.IDENTIFIER,  3, 18), // NOPMD
             new Expectation(".",       TokenType.END_OF_RULE, 3, 26),
             new Expectation("(* Comment * at the end of line *)",
                                         TokenType.COMMENT,    3, 28),
 
             new Expectation("comment", TokenType.IDENTIFIER,  4, 5), // NOPMD
-            new Expectation("=",       TokenType.ASIGN,       4, 16),
+            new Expectation("=",       TokenType.ASSIGN,       4, 16),
             new Expectation("literal", TokenType.IDENTIFIER,  4, 18),
             new Expectation(".",       TokenType.END_OF_RULE, 4, 26),
 
@@ -184,7 +184,7 @@ public class EbnfScannerTest {
 
             new Expectation("comment",   TokenType.IDENTIFIER,  7, 5),
             new Expectation("(* foo *)", TokenType.COMMENT,     7, 13),
-            new Expectation("=",         TokenType.ASIGN,       7, 23),
+            new Expectation("=",         TokenType.ASSIGN,       7, 23),
             new Expectation("(* bar *)", TokenType.COMMENT,     7, 25),
             new Expectation("literal",   TokenType.IDENTIFIER,  7, 35),
             new Expectation("(* baz *)", TokenType.COMMENT,     7, 43),
@@ -203,17 +203,17 @@ public class EbnfScannerTest {
                 new Expectation("{",        TokenType.L_BRACE,   1, 46),
 
                 new Expectation("comment1", TokenType.IDENTIFIER, 2, 5),
-                new Expectation("=",        TokenType.ASIGN,   2, 14),
+                new Expectation("=",        TokenType.ASSIGN,   2, 14),
                 new Expectation("literal1", TokenType.IDENTIFIER, 2, 18),
                 new Expectation(".",        TokenType.END_OF_RULE,   2, 27),
 
                 new Expectation("comment2", TokenType.IDENTIFIER, 3, 5),
-                new Expectation(":",        TokenType.ASIGN,   3, 14),
+                new Expectation(":",        TokenType.ASSIGN,   3, 14),
                 new Expectation("literal2", TokenType.IDENTIFIER, 3, 18),
                 new Expectation(".",        TokenType.END_OF_RULE,   3, 27),
 
                 new Expectation("comment3", TokenType.IDENTIFIER, 4, 5),
-                new Expectation(":==",      TokenType.ASIGN,   4, 14),
+                new Expectation(":==",      TokenType.ASSIGN,   4, 14),
                 new Expectation("literal3", TokenType.IDENTIFIER, 4, 18),
                 new Expectation(".",        TokenType.END_OF_RULE,   4, 27),
 
@@ -230,7 +230,7 @@ public class EbnfScannerTest {
                 new Expectation("{",                     TokenType.L_BRACE,   1, 23),
 
                 new Expectation("literal",   TokenType.IDENTIFIER, 2, 5),
-                new Expectation("=",         TokenType.ASIGN,   2, 13),
+                new Expectation("=",         TokenType.ASSIGN,   2, 13),
                 new Expectation("\"\'\"",      TokenType.LITERAL,    2, 15), // NOPMD
                 new Expectation("character", TokenType.IDENTIFIER, 2, 19), // NOPMD
                 new Expectation("{",         TokenType.L_BRACE,   2, 29),
@@ -259,7 +259,7 @@ public class EbnfScannerTest {
             new Expectation("{",          TokenType.L_BRACE,   1,  27),
 
             new Expectation("syntax",     TokenType.IDENTIFIER, 2,  3),
-            new Expectation("=",          TokenType.ASIGN,   2,  14),
+            new Expectation("=",          TokenType.ASSIGN,   2,  14),
             new Expectation("[",          TokenType.L_BRACK,   2,  16),
             new Expectation("title",      TokenType.IDENTIFIER, 2,  18),
             new Expectation("]",          TokenType.R_BRACK,   2,  24),
@@ -274,7 +274,7 @@ public class EbnfScannerTest {
             new Expectation(".",          TokenType.END_OF_RULE,   2,  55),
 
             new Expectation("rule",       TokenType.IDENTIFIER, 3,  3),
-            new Expectation("=",          TokenType.ASIGN,   3,  14),
+            new Expectation("=",          TokenType.ASSIGN,   3,  14),
             new Expectation("identifier", TokenType.IDENTIFIER, 3,  16),
             new Expectation("(",          TokenType.L_PAREN,   3,  27),
             new Expectation("\"=\"",        TokenType.LITERAL,    3,  29),
@@ -292,7 +292,7 @@ public class EbnfScannerTest {
             new Expectation(".",          TokenType.END_OF_RULE,   3,  74),
 
             new Expectation("expression", TokenType.IDENTIFIER, 4,  3),
-            new Expectation("=",          TokenType.ASIGN,   4,  14),
+            new Expectation("=",          TokenType.ASSIGN,   4,  14),
             new Expectation("term",       TokenType.IDENTIFIER, 4,  16),
             new Expectation("{",          TokenType.L_BRACE,   4,  21),
             new Expectation("\"|\"",        TokenType.LITERAL,    4,  23),
@@ -301,7 +301,7 @@ public class EbnfScannerTest {
             new Expectation(".",          TokenType.END_OF_RULE,   4,  34),
 
             new Expectation("term",       TokenType.IDENTIFIER, 5,  3),
-            new Expectation("=",          TokenType.ASIGN,   5,  14),
+            new Expectation("=",          TokenType.ASSIGN,   5,  14),
             new Expectation("factor",     TokenType.IDENTIFIER, 5,  16),
             new Expectation("{",          TokenType.L_BRACE,   5,  23),
             new Expectation("factor",     TokenType.IDENTIFIER, 5,  25),
@@ -309,7 +309,7 @@ public class EbnfScannerTest {
             new Expectation(".",          TokenType.END_OF_RULE,   5,  34),
 
             new Expectation("factor",     TokenType.IDENTIFIER, 6,  3),
-            new Expectation("=",          TokenType.ASIGN,   6,  14),
+            new Expectation("=",          TokenType.ASSIGN,   6,  14),
             new Expectation("identifier", TokenType.IDENTIFIER, 6,  16),
             new Expectation("|",          TokenType.CHOICE,   7,  14),
             new Expectation("literal",    TokenType.IDENTIFIER, 7,  16),
@@ -330,7 +330,7 @@ public class EbnfScannerTest {
             new Expectation(".",          TokenType.END_OF_RULE,   11, 35),
 
             new Expectation("identifier", TokenType.IDENTIFIER, 12, 3),
-            new Expectation("=",          TokenType.ASIGN,   12, 14),
+            new Expectation("=",          TokenType.ASSIGN,   12, 14),
             new Expectation("character",  TokenType.IDENTIFIER, 12, 16),
             new Expectation("{",          TokenType.L_BRACE,   12, 26),
             new Expectation("character",  TokenType.IDENTIFIER, 12, 28),
@@ -338,24 +338,24 @@ public class EbnfScannerTest {
             new Expectation(".",          TokenType.END_OF_RULE,   12, 40),
 
             new Expectation("range",      TokenType.IDENTIFIER, 13, 3),
-            new Expectation("=",          TokenType.ASIGN,   13, 14),
+            new Expectation("=",          TokenType.ASSIGN,   13, 14),
             new Expectation("character",  TokenType.IDENTIFIER, 13, 16),
             new Expectation("\"..\"",       TokenType.LITERAL,    13, 26),
             new Expectation("character",  TokenType.IDENTIFIER, 13, 31),
             new Expectation(".",          TokenType.END_OF_RULE,   13, 41),
 
             new Expectation("title",      TokenType.IDENTIFIER, 14, 3),
-            new Expectation("=",          TokenType.ASIGN,   14, 14),
+            new Expectation("=",          TokenType.ASSIGN,   14, 14),
             new Expectation("literal",    TokenType.IDENTIFIER, 14, 16),
             new Expectation(".",          TokenType.END_OF_RULE,   14, 24),
 
             new Expectation("comment",    TokenType.IDENTIFIER, 15, 3),
-            new Expectation("=",          TokenType.ASIGN,   15, 14),
+            new Expectation("=",          TokenType.ASSIGN,   15, 14),
             new Expectation("literal",    TokenType.IDENTIFIER, 15, 16),
             new Expectation(".",          TokenType.END_OF_RULE,   15, 24),
 
             new Expectation("literal",    TokenType.IDENTIFIER, 16, 3),
-            new Expectation("=",          TokenType.ASIGN,   16, 14),
+            new Expectation("=",          TokenType.ASSIGN,   16, 14),
             new Expectation("\"\'\"",       TokenType.LITERAL,    16, 16),
             new Expectation("character",  TokenType.IDENTIFIER, 16, 20),
             new Expectation("{",          TokenType.L_BRACE,   16, 30),
@@ -372,7 +372,7 @@ public class EbnfScannerTest {
             new Expectation(".",          TokenType.END_OF_RULE,   17, 48),
 
             new Expectation("character",  TokenType.IDENTIFIER, 18, 3),
-            new Expectation("=",          TokenType.ASIGN,   18, 14),
+            new Expectation("=",          TokenType.ASSIGN,   18, 14),
             new Expectation("\"a\"",        TokenType.LITERAL,    18, 16),
             new Expectation("..",         TokenType.RANGE,   18, 20),
             new Expectation("\"z\"",        TokenType.LITERAL,    18, 23),

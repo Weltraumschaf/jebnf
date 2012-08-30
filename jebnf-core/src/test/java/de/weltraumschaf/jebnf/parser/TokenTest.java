@@ -138,7 +138,7 @@ public class TokenTest {
         List<TokenType> types;
 
         types = Arrays.asList(
-            TokenType.ASIGN, TokenType.CHOICE, TokenType.END_OF_RULE, TokenType.RANGE,
+            TokenType.ASSIGN, TokenType.CHOICE, TokenType.END_OF_RULE, TokenType.RANGE,
             TokenType.L_BRACE, TokenType.L_BRACK, TokenType.L_PAREN,
             TokenType.R_BRACE, TokenType.R_BRACK, TokenType.R_PAREN
         );
@@ -160,10 +160,10 @@ public class TokenTest {
     }
 
     @Test public void isOfType() {
-        Token token = new Token(TokenType.ASIGN, null, null);
+        Token token = new Token(TokenType.ASSIGN, null, null);
         assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF)), is(false));
         assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF, TokenType.COMMENT)), is(false));
-        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF, TokenType.COMMENT, TokenType.ASIGN)), is(true));
+        assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF, TokenType.COMMENT, TokenType.ASSIGN)), is(true));
 
         token = new Token(TokenType.IDENTIFIER, null, null);
         assertThat(token.isOfType(Lists.newArrayList(TokenType.EOF)), is(false));

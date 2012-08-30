@@ -34,7 +34,7 @@ public class Token {
      * All operator token types.
      */
     private static final List<TokenType> OPERATOR_TYPES = Lists.newArrayList(
-        TokenType.ASIGN,
+        TokenType.ASSIGN,
         TokenType.CHOICE,
         TokenType.END_OF_RULE,
         TokenType.RANGE,
