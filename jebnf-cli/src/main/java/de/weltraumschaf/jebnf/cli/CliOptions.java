@@ -109,28 +109,28 @@ public class CliOptions {
     /**
      * Set print debugging.
      *
-     * @param debug True enables, false disables (default).
+     * @param onOrOff True enables, false disables (default).
      */
-    public void setDebug(final boolean debug) {
-        this.debug = debug;
+    public void setDebug(final boolean onOrOff) {
+        this.debug = onOrOff;
     }
 
     /**
      * Set show help message.
      *
-     * @param help True enables, false disables (default).
+     * @param onOrOff True enables, false disables (default).
      */
-    public void setHelp(final boolean help) {
-        this.help = help;
+    public void setHelp(final boolean onOrOff) {
+        this.help = onOrOff;
     }
 
     /**
      * Set start IDE.
      *
-     * @param ide True enables, false disables (default).
+     * @param onOrOff True enables, false disables (default).
      */
-    public void setIde(final boolean ide) {
-        this.ide = ide;
+    public void setIde(final boolean onOrOff) {
+        this.ide = onOrOff;
     }
 
     /**
@@ -163,20 +163,20 @@ public class CliOptions {
     /**
      * Set print ASCII text tree.
      *
-     * @param textTree True prints text ree, false is default.
+     * @param onOrOff True prints text ree, false is default.
      */
-    public void setTextTree(final boolean textTree) {
-        this.textTree = textTree;
+    public void setTextTree(final boolean onOrOff) {
+        this.textTree = onOrOff;
     }
 
 
     /**
      * Set version output option.
      *
-     * @param showVersion True will shows version, false not.
+     * @param onOrOff True will shows version, false not.
      */
-    public void setVersion(final boolean showVersion) {
-        this.showVersion = showVersion;
+    public void setVersion(final boolean onOrOff) {
+        this.showVersion = onOrOff;
     }
 
     /**
