@@ -11,9 +11,12 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import java.io.OutputStream;
+import java.io.PrintStream;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
@@ -123,10 +126,29 @@ public class CliOptionsTest {
     }
 
     @Test public void format() {
-        final HelpFormatter formatter = mock(HelpFormatter.class);
+        final String expectedHelpMessage = String.format(
+            "usage: jebnf [-d] [-f <format>] [-h] [-i] [-o <file>] [-s <file>] [-t]%n" +
+            "       [-v]%n" +
+            "%n" +
+            "Write sone helpful text.%n" +
+            " -d            Enables debug output.%n" +
+            " -f <format>   Output format: xml, jpg, gif, or png.%n" +
+            " -h            This help.%n" +
+            " -i,--ide      Starts the GUI IDE.%n" +
+            " -o <file>     Output file name.%n" +
+            " -s <file>     EBNF syntax file to parse.%n" +
+            " -t            Prints textual representation of the syntax tree to stdout.%n" +
+            " -v            Show version information.%n" +
+            "%n" +
+            "Written 2012 by Sven Strittmatter <weltraumschaf@googlemail.com>%n" +
+            "Write bugs to https://github.com/Weltraumschaf/jebnf/issues%n");
+        final CapturingOutputStream stream = new CapturingOutputStream();
+        final PrintStream out = new PrintStream(stream);
+
+        final HelpFormatter formatter = new HelpFormatter();
         final CliOptions options = new CliOptions();
-        options.format(formatter);
-        verify(formatter, times(1)).printHelp("jebnf", options.getOptions());
+        options.format(formatter, out);
+        assertEquals(expectedHelpMessage, stream.getCapturedOutput());
     }
 
 }

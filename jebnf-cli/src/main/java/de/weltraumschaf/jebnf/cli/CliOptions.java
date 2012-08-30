@@ -11,7 +11,10 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import java.io.PrintStream;
+import java.io.PrintWriter;
 import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.OptionBuilder;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
@@ -25,7 +28,29 @@ public class CliOptions {
     /**
      * Name of the CLI executable.
      */
-    private static final String EXECUTABLE = "jebnf";
+    static final String EXECUTABLE = "jebnf";
+
+    /**
+     * Usage header.
+     *
+     * TODO: Write text.
+     */
+    private static final String HEADER = String.format("%nWrite sone helpful text.%n%n");
+
+    /**
+     * Author name and email address.
+     */
+    private static final String AUTHOR = "Sven Strittmatter <weltraumschaf@googlemail.com>";
+
+    /**
+     * URI to issue tracker.
+     */
+    private static final String ISSUE_TRACKER = "https://github.com/Weltraumschaf/jebnf/issues";
+    /**
+     * Usage footer.
+     */
+    private static final String FOOTER = String.format("%nWritten 2012 by %s%nWrite bugs to %s",
+                                                       AUTHOR, ISSUE_TRACKER);
 
     /**
      * Options configuration.
@@ -84,9 +109,18 @@ public class CliOptions {
     public CliOptions() {
         options = new Options();
         // w/ argument
-        options.addOption(OptionsParser.OPT_SYNTAX, true, "EBNF syntax file to parse."); // required
-        options.addOption(OptionsParser.OPT_OUTPUT, true, "Output file name.");
-        options.addOption(OptionsParser.OPT_FORMAT, true, "Output format: xml, jpg, gif, or png.");
+        options.addOption(OptionBuilder.withDescription("EBNF syntax file to parse.")
+                                       .withArgName("file")
+                                       .hasArg()
+                                       .create(OptionsParser.OPT_SYNTAX));
+        options.addOption(OptionBuilder.withDescription("Output file name.")
+                                       .withArgName("file")
+                                       .hasArg()
+                                       .create(OptionsParser.OPT_OUTPUT));
+        options.addOption(OptionBuilder.withDescription("Output format: xml, jpg, gif, or png.")
+                                       .withArgName("format")
+                                       .hasArg()
+                                       .create(OptionsParser.OPT_FORMAT));
         // w/o argument
         options.addOption(OptionsParser.OPT_TEXT_TREE,
                           false,
@@ -100,7 +134,7 @@ public class CliOptions {
     /**
      * Get the configured options.
      *
-     * @return Jopt simple object.
+     * @return Commons CLI object.
      */
     public Options getOptions() {
         return options;
@@ -295,9 +329,21 @@ public class CliOptions {
      * Useful to show help message.
      *
      * @param formatter Formatter to format with.
+     * @param out Stream to print formatted output.
      */
-    public void format(final HelpFormatter formatter) {
-        formatter.printHelp(EXECUTABLE, options);
+    public void format(final HelpFormatter formatter, final PrintStream out) {
+        final PrintWriter writer = new PrintWriter(out);
+        formatter.printHelp(
+            writer,
+            HelpFormatter.DEFAULT_WIDTH,
+            EXECUTABLE,
+            HEADER,
+            options,
+            HelpFormatter.DEFAULT_LEFT_PAD,
+            HelpFormatter.DEFAULT_DESC_PAD,
+            FOOTER,
+            true);
+        writer.flush();
     }
 
 }

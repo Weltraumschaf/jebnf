@@ -134,7 +134,7 @@ public final class Invoker {
             parseOptions();
 
             if (options.isHelp()) {
-                options.format(new HelpFormatter());
+                options.format(new HelpFormatter(), ioStreams.getStdout());
                 exit(ExitCode.OK);
             }
 
