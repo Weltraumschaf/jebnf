@@ -126,7 +126,6 @@ final class EbnfScannerHelper {
         final Position position   = scanner.createPosition();
         final StringBuilder value = new StringBuilder();
         value.append(scanner.getCurrentCharacter());
-        scanner.peekCharacter(); // FIXME If remove tests fail. Must not hapen. This call must be removed.
         TokenType type = null;
 
         switch (scanner.getCurrentCharacter()) {

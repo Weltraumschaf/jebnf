@@ -46,11 +46,6 @@ import java.util.List;
 public class EbnfScanner implements Scanner {
 
     /**
-     * End of file character.
-     */
-    private static final char EOF = (char) 0;
-
-    /**
      * The input stream to read from.
      */
     private final Reader input;
@@ -291,6 +286,8 @@ public class EbnfScanner implements Scanner {
                 return;
             } else if (isWhiteSpace(getCurrentCharacter())) { // NOPMD
                 // Ignore white spaces.
+            } else if(EOF == getCurrentCharacter()) {
+                break;
             } else {
                 raiseError(String.format("Invalid character '%s' at %s",
                                         getCurrentCharacter(),

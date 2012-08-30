@@ -21,6 +21,11 @@ import java.io.Closeable;
 public interface Scanner extends CharacterAccess, TokenAccess, Closeable {
 
     /**
+     * End of file character.
+     */
+    char EOF = (char) 0;
+
+    /**
      * Get the scanned file name.
      *
      * This may be any string, if not scanning from a real file.

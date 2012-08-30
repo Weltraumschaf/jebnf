@@ -158,7 +158,7 @@ public class EbnfScannerTest {
                 new Expectation("\"9\"", TokenType.LITERAL, 5, 37),
                 new Expectation(";", TokenType.END_OF_RULE, 5, 41),
                 new Expectation("}", TokenType.R_BRACE, 6, 1),
-                new Expectation("", TokenType.EOF, 6, 1)), "Rules with range.");
+                new Expectation("", TokenType.EOF, 6, 2)), "Rules with range.");
     }
 
     @Test public void testNextOnRulesWithComments() throws Exception {
@@ -191,7 +191,7 @@ public class EbnfScannerTest {
             new Expectation(".",         TokenType.END_OF_RULE, 7, 53),
 
             new Expectation("}",       TokenType.R_BRACE, 8, 1),
-            new Expectation("",      TokenType.EOF,     8, 1)
+            new Expectation("",      TokenType.EOF,     8, 2)
         ), "Rule with comment.");
     }
 
@@ -218,7 +218,7 @@ public class EbnfScannerTest {
                 new Expectation(".",        TokenType.END_OF_RULE,   4, 27),
 
                 new Expectation("}",        TokenType.R_BRACE,   5, 1),
-                new Expectation("",       TokenType.EOF,        5, 1)
+                new Expectation("",       TokenType.EOF,        5, 2)
             ),
         "Assignemnt operators.");
     }
@@ -248,7 +248,7 @@ public class EbnfScannerTest {
                 new Expectation(".",         TokenType.END_OF_RULE,   3, 47),
 
                 new Expectation("}",       TokenType.R_BRACE,   4, 1),
-                new Expectation("",        TokenType.EOF,        4, 1)
+                new Expectation("",        TokenType.EOF,        4, 2)
             ),
         "Rules with literal.");
     }
@@ -386,7 +386,7 @@ public class EbnfScannerTest {
             new Expectation("\"9\"",        TokenType.LITERAL,    20, 23),
             new Expectation(".",          TokenType.END_OF_RULE,   20, 27),
             new Expectation("}",          TokenType.R_BRACE,   21, 1),
-            new Expectation("",           TokenType.EOF,        21, 1)
+            new Expectation("",           TokenType.EOF,        21, 2)
         ), "testgrammar_1.ebnf");
     }
 
@@ -464,4 +464,23 @@ public class EbnfScannerTest {
         assertEquals(TokenType.EOF, token.getType());
     }
 
+    @Test public void peekCharacter() throws IOException {
+        final Scanner scanner = Factory.newScanner(new StringReader("comment :== literal ."));
+        scanner.nextCharacter();
+        assertEquals('c', scanner.getCurrentCharacter());
+        assertEquals('o', scanner.peekCharacter());
+        assertEquals('c', scanner.getCurrentCharacter());
+
+        scanner.nextCharacter();
+        assertEquals('o', scanner.getCurrentCharacter());
+        scanner.nextCharacter();
+        assertEquals('m', scanner.getCurrentCharacter());
+        scanner.nextCharacter();
+        assertEquals('m', scanner.getCurrentCharacter());
+
+        assertEquals('e', scanner.peekCharacter());
+        assertEquals('m', scanner.getCurrentCharacter());
+        assertEquals('e', scanner.peekCharacter());
+        assertEquals('m', scanner.getCurrentCharacter());
+    }
 }
