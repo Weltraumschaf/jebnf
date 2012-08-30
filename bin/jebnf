@@ -1,3 +1,5 @@
 #!/bin/bash
 
-java -jar jebnf-cli/target/jebnf-cli.jar $*
+BASE_DIR="$(dirname $0)/.."
+
+java -jar ${BASE_DIR}/jebnf-cli/target/jebnf-cli.jar $*
