@@ -15,7 +15,6 @@ import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.nodes.*;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,20 +23,6 @@ import java.util.List;
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class EbnfParser implements Parser {
-
-    /**
-     * Assignment tokens.
-     *
-     * TODO: Consider move into CharacterHelper.
-     */
-    private static final List<String> ASSIGN = Arrays.asList("=", ":", ":==");
-
-    /**
-     * Rule termination tokens.
-     *
-     * TODO: Consider move into CharacterHelper.
-     */
-    private static final List<String> END_OF_RULE = Arrays.asList(".", ";");
 
     /**
      * All other operator tokens.
@@ -148,7 +133,7 @@ public class EbnfParser implements Parser {
             scanner.nextToken();
         }
 
-        if (!assertTokens(scanner.getCurrentToken(), TokenType.ASIGN, ASSIGN)) {
+        if (!assertTokens(scanner.getCurrentToken(), TokenType.ASIGN, TokenType.ASSIGN_STRINGS)) {
             raiseError("Identifier must be followed by '='");
         }
 
@@ -162,7 +147,7 @@ public class EbnfParser implements Parser {
             scanner.nextToken();
         }
 
-        if (!assertTokens(scanner.getCurrentToken(), TokenType.END_OF_RULE, END_OF_RULE)) {
+        if (!assertTokens(scanner.getCurrentToken(), TokenType.END_OF_RULE, TokenType.END_OF_RULE_STRINGS)) {
             scanner.backtrackToken(2);
             raiseError("Rule must end with '.' or ';'",
                        scanner.getCurrentToken().getPosition(true));

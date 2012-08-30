@@ -11,6 +11,9 @@
 
 package de.weltraumschaf.jebnf.parser;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Defines all token types.
  *
@@ -87,5 +90,15 @@ public enum TokenType {
      * Operator types for: '|'.
      */
     CHOICE;
+
+    /**
+     * Possible token strings for assign tokens.
+     */
+    public static final List<String> ASSIGN_STRINGS = Arrays.asList("=", ":", ":==");
+
+    /**
+     * Possible token strings for end of rule token.
+     */
+    public static final List<String> END_OF_RULE_STRINGS = Arrays.asList(".", ";");
 
 }
