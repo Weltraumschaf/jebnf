@@ -107,7 +107,7 @@ public final class Invoker {
      *
      * @param code Exit code.
      */
-    static void exit(final int code) {
+    void exit(final int code) {
         System.exit(code);
     }
 
@@ -139,7 +139,7 @@ public final class Invoker {
             }
 
             if (options.isShowVersion()) {
-                ioStreams.println(String.format("Version: %s", Version.VERSION));
+                ioStreams.println(String.format("Version: %s", Version.getInstance()));
                 exit(ExitCode.OK);
             }
 

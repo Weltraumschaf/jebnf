@@ -11,37 +11,133 @@
 
 package de.weltraumschaf.jebnf;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 /**
  * Holds the current version.
  *
+ * Class is implemented as singleton.
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public enum Version {
+public final class Version {
 
     /**
-     * There is only one version.
-     *
-     * TODO Maven should set this string.
+     * Available properties in the file.
      */
-    VERSION("1.2.4");
+    enum PropertyNames {
 
-    /**
-     * Version string.
-     */
-    private final String version;
+        /**
+         * Version property.
+         */
+        VERSION("jebnf.version");
 
-    /**
-     * Initializes the version string.
-     *
-     * @param version The version string.
-     */
-    Version(final String version) {
-        this.version = version;
+        /**
+         * Property name.
+         */
+        private final String name;
+
+        /**
+         * Initializes the enum with the property name.
+         *
+         * @param name The property name.
+         */
+        PropertyNames(final String name) {
+            this.name = name;
+        }
+
+        /**
+         * Returns the property name.
+         *
+         * @return String containing the property name.
+         */
+        @Override
+        public String toString() {
+            return name;
+        }
+
     }
 
+    /**
+     * Location of property file.
+     */
+    private static final String FILE_NAME = "/de/weltraumschaf/jebnf/version.properties";
+
+    /**
+     * Thread save singleton instance.
+     */
+    private static final Version INSTANCE = new Version();
+
+    /**
+     * Indicates whether the properties are already loaded or not.
+     */
+    private boolean propertiesLoaded;
+
+    /**
+     * Properties..
+     */
+    private final Properties properties = new Properties();
+
+    /**
+     * Private constructor for singleton.
+     */
+    private Version() {
+        super();
+    }
+
+    /**
+     * Return the singleton instance.
+     *
+     * @return Always the same object.
+     * @throws IOException On IO errors of the property file.
+     */
+    public static Version getInstance() throws IOException {
+        if (!INSTANCE.arePropertiesLoaded()) {
+            INSTANCE.loadProperties();
+        }
+
+        return INSTANCE;
+    }
+
+    /**
+     * Indicates if properties were load.
+     *
+     * @return True if properties are loaded, unless false.
+     */
+    private boolean arePropertiesLoaded() {
+        return propertiesLoaded;
+    }
+
+    /**
+     * Opens the properties file and loads it.
+     *
+     * @throws IOException On IO errors of the property file.
+     */
+    private void loadProperties() throws IOException {
+        final InputStream in = getClass().getResourceAsStream(FILE_NAME);
+        properties.load(in);
+        propertiesLoaded = true;
+    }
+
+    /**
+     * Get the version string.
+     *
+     * @return The version string.
+     */
+    public String getVersion() {
+        return properties.getProperty(PropertyNames.VERSION.toString(), "Not available!");
+    }
+
+    /**
+     * Returns the version string.
+     *
+     * @return Same as {@link #getVersion()}.
+     */
     @Override
     public String toString() {
-        return version;
+        return getVersion();
     }
 
 }
