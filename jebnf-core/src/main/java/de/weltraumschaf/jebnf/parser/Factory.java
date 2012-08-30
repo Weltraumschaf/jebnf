@@ -37,7 +37,7 @@ public final class Factory {
      * @return Return new scanner instance.
      */
     public static Scanner newScanner(final Reader reader) {
-        return newScanner(reader, null); // TODO Use "" as filename to avoid NPW.
+        return newScanner(reader, "");
     }
 
     /**
@@ -55,7 +55,7 @@ public final class Factory {
         final String checkedFileName = null != fileName // NOPMD This ternary is well readable.
                                      ? fileName
                                      : "";
-        return new EbnfScanner(reader, fileName); // TODO Use checkedFileName to avoid NPE.
+        return new EbnfScanner(reader, checkedFileName);
     }
 
     /**
@@ -76,7 +76,7 @@ public final class Factory {
      * @throws FileNotFoundException If no file found at the given URI.
      */
     public static Parser newParserFromSource(final URI uri) throws FileNotFoundException {
-        return newParserFromSource(uri, null); // TODO Use uri.toString() as fileName.
+        return newParserFromSource(uri, uri.toString());
     }
 
     /**
@@ -99,7 +99,7 @@ public final class Factory {
      * @throws FileNotFoundException If no file found at the given file.
      */
     public static Parser newParserFromSource(final File file) throws FileNotFoundException {
-        return newParserFromSource(file, null); // TODO use file.getPath() as fileName.
+        return newParserFromSource(file, file.getAbsolutePath());
     }
 
     /**
@@ -111,7 +111,7 @@ public final class Factory {
      * @throws FileNotFoundException If no file found at the given file.
      */
     public static Parser newParserFromSource(final File file, final String fileName) throws FileNotFoundException {
-        return newParserFromSource(new FileReader(file), fileName); // TODO use file.getPath() as fileName.
+        return newParserFromSource(new FileReader(file), file.getAbsolutePath());
     }
 
     /**
@@ -121,7 +121,7 @@ public final class Factory {
      * @return Return new instance.
      */
     public static Parser newParserFromSource(final String src) {
-        return newParserFromSource(src, null); // TODO USe "" as fileName.
+        return newParserFromSource(src, "");
     }
 
     /**
@@ -141,7 +141,7 @@ public final class Factory {
      * @return Return new instance.
      */
     public static Parser newParserFromSource(final Reader reader) {
-        return newParserFromSource(reader, null); // TODO USe "" as fileName.
+        return newParserFromSource(reader, "");
     }
 
     /**
