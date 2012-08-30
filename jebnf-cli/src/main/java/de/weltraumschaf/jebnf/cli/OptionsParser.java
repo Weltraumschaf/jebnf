@@ -26,17 +26,17 @@ public final class OptionsParser {
     /**
      * Short option for syntax file to read from.
      */
-    public static final String OPT_SYNTAX    = "s";
+    public static final String OPT_SYNTAX = "s";
 
     /**
      * Short option for the output file to write in.
      */
-    public static final String OPT_OUTPUT    = "o";
+    public static final String OPT_OUTPUT = "o";
 
     /**
      * Short option for the output format.
      */
-    public static final String OPT_FORMAT    = "f";
+    public static final String OPT_FORMAT = "f";
 
     /**
      * Short option to print a syntax as ASCII text tree.
@@ -46,22 +46,27 @@ public final class OptionsParser {
     /**
      * Short option to enable debug output (also in the generated output).
      */
-    public static final String OPT_DEBUG     = "d";
+    public static final String OPT_DEBUG = "d";
 
     /**
      * Short option for help message.
      */
-    public static final String OPT_HELP      = "h";
+    public static final String OPT_HELP = "h";
 
     /**
      * Short option to start the IDE.
      */
-    public static final String OPT_IDE       = "i";
+    public static final String OPT_IDE = "i";
+
+    /**
+     * Short option to show the version.
+     */
+    public static final String OPT_VERSION = "v";
 
     /**
      * Long option to start the IDE.
      */
-    public static final String OPT_IDE_LONG  = "ide";
+    public static final String OPT_IDE_LONG = "ide";
 
     /**
      * The parsed and found options.
@@ -93,6 +98,7 @@ public final class OptionsParser {
         optTextTree(cmd);
         optDebug(cmd);
         optHelp(cmd);
+        optVersion(cmd);
         optIde(cmd);
     }
 
@@ -174,6 +180,17 @@ public final class OptionsParser {
     private void optHelp(final CommandLine cmd) {
         if (cmd.hasOption(OPT_HELP)) {
             options.setHelp(true);
+        }
+    }
+
+    /**
+     * Determines if version option is set and prepares the {@link CliOptions "options"} object.
+     *
+     * @param cmd Parsed command line.
+     */
+    private void optVersion(final CommandLine cmd) {
+        if (cmd.hasOption(OPT_VERSION)) {
+            options.setVersion(true);
         }
     }
 

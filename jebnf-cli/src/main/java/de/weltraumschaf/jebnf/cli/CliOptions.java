@@ -74,12 +74,17 @@ public class CliOptions {
     private boolean ide;
 
     /**
+     * Show version or net.
+     */
+    private boolean showVersion;
+
+    /**
      * Configures the {@link #options}.
      */
     public CliOptions() {
         options = new Options();
         // w/ argument
-        options.addOption(OptionsParser.OPT_SYNTAX, true, "EBNF syntax file to parse.");    // required
+        options.addOption(OptionsParser.OPT_SYNTAX, true, "EBNF syntax file to parse."); // required
         options.addOption(OptionsParser.OPT_OUTPUT, true, "Output file name.");
         options.addOption(OptionsParser.OPT_FORMAT, true, "Output format: xml, jpg, gif, or png.");
         // w/o argument
@@ -88,6 +93,7 @@ public class CliOptions {
                           "Prints textual representation of the syntax tree to stdout.");
         options.addOption(OptionsParser.OPT_DEBUG,     false, "Enables debug output.");
         options.addOption(OptionsParser.OPT_HELP,      false, "This help.");
+        options.addOption(OptionsParser.OPT_VERSION,   false, "Show version information.");
         options.addOption(OptionsParser.OPT_IDE, OptionsParser.OPT_IDE_LONG, false, "Starts the GUI IDE.");
     }
 
@@ -161,6 +167,16 @@ public class CliOptions {
      */
     public void setTextTree(final boolean textTree) {
         this.textTree = textTree;
+    }
+
+
+    /**
+     * Set version output option.
+     *
+     * @param showVersion True will shows version, false not.
+     */
+    public void setVersion(final boolean showVersion) {
+        this.showVersion = showVersion;
     }
 
     /**
@@ -253,6 +269,15 @@ public class CliOptions {
      */
     public boolean isTextTree() {
         return textTree;
+    }
+
+    /**
+     * Whether show version information is enabled or not.
+     *
+     * @return Return true if show version is enabled, unless false.
+     */
+    boolean isShowVersion() {
+        return showVersion;
     }
 
     /**

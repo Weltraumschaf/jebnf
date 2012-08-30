@@ -13,6 +13,7 @@ package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCode;
+import de.weltraumschaf.jebnf.Version;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
@@ -134,6 +135,11 @@ public final class Invoker {
 
             if (options.isHelp()) {
                 options.format(new HelpFormatter());
+                exit(ExitCode.OK);
+            }
+
+            if (options.isShowVersion()) {
+                ioStreams.println(String.format("Version: %s", Version.VERSION));
                 exit(ExitCode.OK);
             }
 
