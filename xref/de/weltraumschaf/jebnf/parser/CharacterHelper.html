@@ -20,8 +20,8 @@
 <a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="11" href="#11">11</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.parser;
 <a class="jxr_linenumber" name="12" href="#12">12</a>  
-<a class="jxr_linenumber" name="13" href="#13">13</a>  <strong class="jxr_keyword">import</strong> com.google.common.collect.Lists;
-<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> java.util.List;
+<a class="jxr_linenumber" name="13" href="#13">13</a>  <strong class="jxr_keyword">import</strong> com.google.common.collect.Sets;
+<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> java.util.Set;
 <a class="jxr_linenumber" name="15" href="#15">15</a>  
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <em class="jxr_javadoccomment"> * Helper methods for the scanner.</em>
@@ -33,7 +33,7 @@
 <a class="jxr_linenumber" name="23" href="#23">23</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="24" href="#24">24</a>  <em class="jxr_javadoccomment">     * EBNF operators.</em>
 <a class="jxr_linenumber" name="25" href="#25">25</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="26" href="#26">26</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> List&lt;Character&gt; OPERATORS = Lists.newArrayList('(', ')', '[', ']', '{',
+<a class="jxr_linenumber" name="26" href="#26">26</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> Set&lt;Character&gt; OPERATORS = Sets.newHashSet('(', ')', '[', ']', '{',
 <a class="jxr_linenumber" name="27" href="#27">27</a>          '}', '=', '.', ';', '|', ',', '-', ':');
 <a class="jxr_linenumber" name="28" href="#28">28</a>  
 <a class="jxr_linenumber" name="29" href="#29">29</a>      <em class="jxr_javadoccomment">/**</em>
