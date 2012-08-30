@@ -43,4 +43,13 @@ public class IOStreamsTest {
         verify(mockedStreams.getStderr(), times(1)).println(msg);
     }
 
+    @Test public void printStackTraceToStdErr() {
+        final PrintStream err = mock(PrintStream.class);
+        final Exception ex = mock(Exception.class);
+        final IOStreams streams = new IOStreams(mock(InputStream.class), mock(PrintStream.class), err);
+
+        streams.printStackTraceToStdErr(ex);
+        verify(ex, times(1)).printStackTrace(err);
+    }
+
 }
