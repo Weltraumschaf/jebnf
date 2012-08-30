@@ -178,7 +178,7 @@ public class Token {
      * @return             True or false.
      */
     public final boolean isType(final TokenType checkedType) {
-        return type.equals(checkedType);
+        return type == checkedType;
     }
 
     /**

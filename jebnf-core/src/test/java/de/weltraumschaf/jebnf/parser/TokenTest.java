@@ -1,15 +1,11 @@
 package de.weltraumschaf.jebnf.parser;
 
 import com.google.common.collect.Lists;
-import de.weltraumschaf.jebnf.parser.TokenType;
-import de.weltraumschaf.jebnf.parser.Position;
-import de.weltraumschaf.jebnf.parser.Token;
 import java.util.Arrays;
 import java.util.List;
-import static org.junit.Assert.*;
-import org.junit.Ignore;
-import org.junit.Test;
 import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Unit test for Token.
@@ -17,6 +13,9 @@ import static org.hamcrest.CoreMatchers.*;
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class TokenTest {
+
+    private static final String[] CHAR_SET_1 = {"a", "b", "c"};
+    private static final String[] CHAR_SET_2 = {"x", "y", "z"};
 
     @Test public void testGetTypeAsString() {
         final Position pos = new Position(5, 10);
@@ -109,13 +108,11 @@ public class TokenTest {
             new Token(TokenType.IDENTIFIER, "c", new Position(0, 0))
         );
 
-        final String[] set1 = {"a", "b", "c"};
-        final String[] set2 = {"x", "y", "z"};
         for (Token token : tokens) {
-            assertTrue(token.isEquals(set1));
-            assertFalse(token.isEquals(set2));
-            assertFalse(token.isNotEquals(set1));
-            assertTrue(token.isNotEquals(set2));
+            assertTrue(token.isEquals(CHAR_SET_1));
+            assertFalse(token.isEquals(CHAR_SET_2));
+            assertFalse(token.isNotEquals(CHAR_SET_1));
+            assertTrue(token.isNotEquals(CHAR_SET_2));
         }
     }
 

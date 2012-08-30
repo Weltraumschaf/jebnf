@@ -126,8 +126,7 @@ public abstract class AbstractNode implements Node {
 
     @Override
     public boolean isType(final NodeType checked) {
-        return type.equals(checked);
+        return type == checked;
     }
-
 
 }
