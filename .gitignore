@@ -14,3 +14,7 @@
 .classpath
 .project
 dependency-reduced-pom.xml
+
+# IntelliJ IDEA
+.idea/
+*.iml
