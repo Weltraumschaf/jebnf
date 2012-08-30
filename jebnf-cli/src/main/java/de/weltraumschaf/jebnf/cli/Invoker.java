@@ -14,6 +14,9 @@ package de.weltraumschaf.jebnf.cli;
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCode;
 import de.weltraumschaf.jebnf.Version;
+import de.weltraumschaf.jebnf.cli.system.DefaultExiter;
+import de.weltraumschaf.jebnf.cli.system.Exitable;
+import de.weltraumschaf.jebnf.cli.system.NullExiter;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
@@ -50,6 +53,13 @@ public final class Invoker {
      * Current command line options.
      */
     private final CliOptions options;
+
+    /**
+     * Abstracts {@link System#exit(int)}.
+     *
+     * By default this filed is a {@link NullExiter} to prevent NPE.
+     */
+    private Exitable exiter = new NullExiter();
 
     /**
      * Initializes object with {@link #DEFAULT_IO}.
@@ -90,7 +100,18 @@ public final class Invoker {
      * @param args Command line arguments.
      */
     public static void main(final String[] args) {
-        new Invoker(args).run();
+        final Invoker invoker = new Invoker(args);
+        invoker.setExiter(new DefaultExiter());
+        invoker.run();
+    }
+
+    /**
+     * Set the exiter.
+     *
+     * @param exiter
+     */
+    public void setExiter(Exitable exiter) {
+        this.exiter = exiter;
     }
 
     /**
@@ -108,7 +129,7 @@ public final class Invoker {
      * @param code Exit code.
      */
     void exit(final int code) {
-        System.exit(code);
+        exiter.exit(code);
     }
 
     /**

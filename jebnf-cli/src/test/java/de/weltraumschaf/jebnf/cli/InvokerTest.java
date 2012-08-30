@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import org.apache.commons.cli.ParseException;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
@@ -53,5 +54,20 @@ public class InvokerTest {
         }
 
         verify(options, times(1)).parse(args);
+    }
+
+    @Ignore("TODO Implement test.")
+    @Test public void isHelp() {
+
+    }
+
+    @Ignore("TODO Implement test.")
+    @Test public void isShowVersion() {
+
+    }
+
+    @Ignore("TODO Implement test.")
+    @Test public void isIde() {
+        
     }
 }
