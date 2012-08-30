@@ -168,7 +168,7 @@
 <a class="jxr_linenumber" name="158" href="#158">158</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"\&quot;9\&quot;"</span>, TokenType.LITERAL, 5, 37),
 <a class="jxr_linenumber" name="159" href="#159">159</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">";"</span>, TokenType.END_OF_RULE, 5, 41),
 <a class="jxr_linenumber" name="160" href="#160">160</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"}"</span>, TokenType.R_BRACE, 6, 1),
-<a class="jxr_linenumber" name="161" href="#161">161</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>, TokenType.EOF, 6, 1)), <span class="jxr_string">"Rules with range."</span>);
+<a class="jxr_linenumber" name="161" href="#161">161</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>, TokenType.EOF, 6, 2)), <span class="jxr_string">"Rules with range."</span>);
 <a class="jxr_linenumber" name="162" href="#162">162</a>     }
 <a class="jxr_linenumber" name="163" href="#163">163</a> 
 <a class="jxr_linenumber" name="164" href="#164">164</a>     @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> testNextOnRulesWithComments() <strong class="jxr_keyword">throws</strong> Exception {
@@ -201,7 +201,7 @@
 <a class="jxr_linenumber" name="191" href="#191">191</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"."</span>,         TokenType.END_OF_RULE, 7, 53),
 <a class="jxr_linenumber" name="192" href="#192">192</a> 
 <a class="jxr_linenumber" name="193" href="#193">193</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"}"</span>,       TokenType.R_BRACE, 8, 1),
-<a class="jxr_linenumber" name="194" href="#194">194</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,      TokenType.EOF,     8, 1)
+<a class="jxr_linenumber" name="194" href="#194">194</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,      TokenType.EOF,     8, 2)
 <a class="jxr_linenumber" name="195" href="#195">195</a>         ), <span class="jxr_string">"Rule with comment."</span>);
 <a class="jxr_linenumber" name="196" href="#196">196</a>     }
 <a class="jxr_linenumber" name="197" href="#197">197</a> 
@@ -228,7 +228,7 @@
 <a class="jxr_linenumber" name="218" href="#218">218</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"."</span>,        TokenType.END_OF_RULE,   4, 27),
 <a class="jxr_linenumber" name="219" href="#219">219</a> 
 <a class="jxr_linenumber" name="220" href="#220">220</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"}"</span>,        TokenType.R_BRACE,   5, 1),
-<a class="jxr_linenumber" name="221" href="#221">221</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,       TokenType.EOF,        5, 1)
+<a class="jxr_linenumber" name="221" href="#221">221</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,       TokenType.EOF,        5, 2)
 <a class="jxr_linenumber" name="222" href="#222">222</a>             ),
 <a class="jxr_linenumber" name="223" href="#223">223</a>         <span class="jxr_string">"Assignemnt operators."</span>);
 <a class="jxr_linenumber" name="224" href="#224">224</a>     }
@@ -258,7 +258,7 @@
 <a class="jxr_linenumber" name="248" href="#248">248</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"."</span>,         TokenType.END_OF_RULE,   3, 47),
 <a class="jxr_linenumber" name="249" href="#249">249</a> 
 <a class="jxr_linenumber" name="250" href="#250">250</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"}"</span>,       TokenType.R_BRACE,   4, 1),
-<a class="jxr_linenumber" name="251" href="#251">251</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,        TokenType.EOF,        4, 1)
+<a class="jxr_linenumber" name="251" href="#251">251</a>                 <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,        TokenType.EOF,        4, 2)
 <a class="jxr_linenumber" name="252" href="#252">252</a>             ),
 <a class="jxr_linenumber" name="253" href="#253">253</a>         <span class="jxr_string">"Rules with literal."</span>);
 <a class="jxr_linenumber" name="254" href="#254">254</a>     }
@@ -396,7 +396,7 @@
 <a class="jxr_linenumber" name="386" href="#386">386</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"\&quot;9\&quot;"</span>,        TokenType.LITERAL,    20, 23),
 <a class="jxr_linenumber" name="387" href="#387">387</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"."</span>,          TokenType.END_OF_RULE,   20, 27),
 <a class="jxr_linenumber" name="388" href="#388">388</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">"}"</span>,          TokenType.R_BRACE,   21, 1),
-<a class="jxr_linenumber" name="389" href="#389">389</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,           TokenType.EOF,        21, 1)
+<a class="jxr_linenumber" name="389" href="#389">389</a>             <strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfScannerTest.html">Expectation</a>(<span class="jxr_string">""</span>,           TokenType.EOF,        21, 2)
 <a class="jxr_linenumber" name="390" href="#390">390</a>         ), <span class="jxr_string">"testgrammar_1.ebnf"</span>);
 <a class="jxr_linenumber" name="391" href="#391">391</a>     }
 <a class="jxr_linenumber" name="392" href="#392">392</a> 
@@ -474,7 +474,26 @@
 <a class="jxr_linenumber" name="464" href="#464">464</a>         assertEquals(TokenType.EOF, token.getType());
 <a class="jxr_linenumber" name="465" href="#465">465</a>     }
 <a class="jxr_linenumber" name="466" href="#466">466</a> 
-<a class="jxr_linenumber" name="467" href="#467">467</a> }
+<a class="jxr_linenumber" name="467" href="#467">467</a>     @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> peekCharacter() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="468" href="#468">468</a>         <strong class="jxr_keyword">final</strong> Scanner scanner = Factory.newScanner(<strong class="jxr_keyword">new</strong> StringReader(<span class="jxr_string">"comment :== literal ."</span>));
+<a class="jxr_linenumber" name="469" href="#469">469</a>         scanner.nextCharacter();
+<a class="jxr_linenumber" name="470" href="#470">470</a>         assertEquals('c', scanner.getCurrentCharacter());
+<a class="jxr_linenumber" name="471" href="#471">471</a>         assertEquals('o', scanner.peekCharacter());
+<a class="jxr_linenumber" name="472" href="#472">472</a>         assertEquals('c', scanner.getCurrentCharacter());
+<a class="jxr_linenumber" name="473" href="#473">473</a> 
+<a class="jxr_linenumber" name="474" href="#474">474</a>         scanner.nextCharacter();
+<a class="jxr_linenumber" name="475" href="#475">475</a>         assertEquals('o', scanner.getCurrentCharacter());
+<a class="jxr_linenumber" name="476" href="#476">476</a>         scanner.nextCharacter();
+<a class="jxr_linenumber" name="477" href="#477">477</a>         assertEquals('m', scanner.getCurrentCharacter());
+<a class="jxr_linenumber" name="478" href="#478">478</a>         scanner.nextCharacter();
+<a class="jxr_linenumber" name="479" href="#479">479</a>         assertEquals('m', scanner.getCurrentCharacter());
+<a class="jxr_linenumber" name="480" href="#480">480</a> 
+<a class="jxr_linenumber" name="481" href="#481">481</a>         assertEquals('e', scanner.peekCharacter());
+<a class="jxr_linenumber" name="482" href="#482">482</a>         assertEquals('m', scanner.getCurrentCharacter());
+<a class="jxr_linenumber" name="483" href="#483">483</a>         assertEquals('e', scanner.peekCharacter());
+<a class="jxr_linenumber" name="484" href="#484">484</a>         assertEquals('m', scanner.getCurrentCharacter());
+<a class="jxr_linenumber" name="485" href="#485">485</a>     }
+<a class="jxr_linenumber" name="486" href="#486">486</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>
