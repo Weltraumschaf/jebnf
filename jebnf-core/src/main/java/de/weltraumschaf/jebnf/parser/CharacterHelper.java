@@ -10,8 +10,8 @@
  */
 package de.weltraumschaf.jebnf.parser;
 
-import com.google.common.collect.Lists;
-import java.util.List;
+import com.google.common.collect.Sets;
+import java.util.Set;
 
 /**
  * Helper methods for the scanner.
@@ -23,7 +23,7 @@ public final class CharacterHelper {
     /**
      * EBNF operators.
      */
-    private static final List<Character> OPERATORS = Lists.newArrayList('(', ')', '[', ']', '{',
+    private static final Set<Character> OPERATORS = Sets.newHashSet('(', ')', '[', ']', '{',
         '}', '=', '.', ';', '|', ',', '-', ':');
 
     /**

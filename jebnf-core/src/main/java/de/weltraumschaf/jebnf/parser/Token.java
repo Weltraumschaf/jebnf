@@ -12,7 +12,9 @@
 package de.weltraumschaf.jebnf.parser;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Represents a scanned EBNF token with its type, value and position in the source file.
@@ -33,7 +35,7 @@ public class Token {
     /**
      * All operator token types.
      */
-    private static final List<TokenType> OPERATOR_TYPES = Lists.newArrayList(
+    private static final Set<TokenType> OPERATOR_TYPES = Sets.newHashSet(
         TokenType.ASSIGN,
         TokenType.CHOICE,
         TokenType.END_OF_RULE,
