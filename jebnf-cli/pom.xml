@@ -4,7 +4,7 @@
     <parent>
         <artifactId>jebnf</artifactId>
         <groupId>de.weltraumschaf</groupId>
-        <version>1.2.4</version>
+        <version>1.2.5</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
@@ -18,13 +18,13 @@
         <dependency>
             <groupId>de.weltraumschaf</groupId>
             <artifactId>jebnf-core</artifactId>
-            <version>1.2.4</version>
+            <version>1.2.5</version>
         </dependency>
 
         <dependency>
             <groupId>de.weltraumschaf</groupId>
             <artifactId>jebnf-gui</artifactId>
-            <version>1.2.4</version>
+            <version>1.2.5</version>
         </dependency>
 
     </dependencies>
