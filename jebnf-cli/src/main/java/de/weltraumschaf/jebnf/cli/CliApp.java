@@ -67,10 +67,9 @@ public class CliApp extends BaseInvokeable implements Invokeable {
         final String fileName = options.getSyntaxFile();
 
         try {
-            final Parser parser  = Factory.newParserFromSource(new File(fileName), fileName);
-            final Syntax ast     = parser.parse();
-
             if (options.isTextTree()) {
+                final Parser parser  = Factory.newParserFromSource(new File(fileName), fileName);
+                final Syntax ast     = parser.parse();
                 final TextSyntaxTree visitor = new TextSyntaxTree();
                 ast.accept(visitor);
                 ioStreams.println(visitor.getText());
