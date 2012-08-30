@@ -37,41 +37,34 @@
 <a class="jxr_linenumber" name="27" href="#27">27</a>  
 <a class="jxr_linenumber" name="28" href="#28">28</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> IOStreams ioStreams = <strong class="jxr_keyword">new</strong> IOStreams(mock(InputStream.<strong class="jxr_keyword">class</strong>), mock(PrintStream.<strong class="jxr_keyword">class</strong>), mock(PrintStream.<strong class="jxr_keyword">class</strong>));
 <a class="jxr_linenumber" name="29" href="#29">29</a>  
-<a class="jxr_linenumber" name="30" href="#30">30</a>      @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> println() {
-<a class="jxr_linenumber" name="31" href="#31">31</a>          <strong class="jxr_keyword">final</strong> Invoker sut = <strong class="jxr_keyword">new</strong> Invoker(<strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"foo"</span>}, ioStreams);
-<a class="jxr_linenumber" name="32" href="#32">32</a>          <strong class="jxr_keyword">final</strong> String msg = <span class="jxr_string">"some text"</span>;
-<a class="jxr_linenumber" name="33" href="#33">33</a>          sut.println(msg);
-<a class="jxr_linenumber" name="34" href="#34">34</a>          verify(ioStreams.getStdout(), times(1)).println(msg);
-<a class="jxr_linenumber" name="35" href="#35">35</a>      }
-<a class="jxr_linenumber" name="36" href="#36">36</a>  
-<a class="jxr_linenumber" name="37" href="#37">37</a>      @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> parseOptions() <strong class="jxr_keyword">throws</strong> EbnfException, ParseException {
-<a class="jxr_linenumber" name="38" href="#38">38</a>          <strong class="jxr_keyword">final</strong> CliOptions options = mock(CliOptions.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="39" href="#39">39</a>          <strong class="jxr_keyword">final</strong> String[] args = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-d"</span>, <span class="jxr_string">"-h"</span>};
-<a class="jxr_linenumber" name="40" href="#40">40</a>          <strong class="jxr_keyword">final</strong> Invoker sut = <strong class="jxr_keyword">new</strong> Invoker(args, ioStreams, options);
-<a class="jxr_linenumber" name="41" href="#41">41</a>          sut.parseOptions();
-<a class="jxr_linenumber" name="42" href="#42">42</a>          <strong class="jxr_keyword">final</strong> CliOptions parsedOptions = sut.getOptions();
-<a class="jxr_linenumber" name="43" href="#43">43</a>          assertSame(options, parsedOptions);
-<a class="jxr_linenumber" name="44" href="#44">44</a>          verify(options, times(1)).parse(args);
-<a class="jxr_linenumber" name="45" href="#45">45</a>      }
+<a class="jxr_linenumber" name="30" href="#30">30</a>      @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> parseOptions() <strong class="jxr_keyword">throws</strong> EbnfException, ParseException {
+<a class="jxr_linenumber" name="31" href="#31">31</a>          <strong class="jxr_keyword">final</strong> CliOptions options = mock(CliOptions.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="32" href="#32">32</a>          <strong class="jxr_keyword">final</strong> String[] args = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"-d"</span>, <span class="jxr_string">"-h"</span>};
+<a class="jxr_linenumber" name="33" href="#33">33</a>          <strong class="jxr_keyword">final</strong> Invoker sut = <strong class="jxr_keyword">new</strong> Invoker(args, ioStreams, options);
+<a class="jxr_linenumber" name="34" href="#34">34</a>          sut.parseOptions();
+<a class="jxr_linenumber" name="35" href="#35">35</a>          <strong class="jxr_keyword">final</strong> CliOptions parsedOptions = sut.getOptions();
+<a class="jxr_linenumber" name="36" href="#36">36</a>          assertSame(options, parsedOptions);
+<a class="jxr_linenumber" name="37" href="#37">37</a>          verify(options, times(1)).parse(args);
+<a class="jxr_linenumber" name="38" href="#38">38</a>      }
+<a class="jxr_linenumber" name="39" href="#39">39</a>  
+<a class="jxr_linenumber" name="40" href="#40">40</a>      @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> parseOptionsWithPArseError() <strong class="jxr_keyword">throws</strong> ParseException {
+<a class="jxr_linenumber" name="41" href="#41">41</a>          <strong class="jxr_keyword">final</strong> CliOptions options = mock(CliOptions.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="42" href="#42">42</a>          <strong class="jxr_keyword">final</strong> String[] args = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"foo"</span>};
+<a class="jxr_linenumber" name="43" href="#43">43</a>          <strong class="jxr_keyword">final</strong> Invoker sut = <strong class="jxr_keyword">new</strong> Invoker(args, ioStreams, options);
+<a class="jxr_linenumber" name="44" href="#44">44</a>          <strong class="jxr_keyword">final</strong> ParseException throwed = <strong class="jxr_keyword">new</strong> ParseException(<span class="jxr_string">"foobar"</span>);
+<a class="jxr_linenumber" name="45" href="#45">45</a>          doThrow(throwed).when(options).parse(args);
 <a class="jxr_linenumber" name="46" href="#46">46</a>  
-<a class="jxr_linenumber" name="47" href="#47">47</a>      @Test <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> parseOptionsWithPArseError() <strong class="jxr_keyword">throws</strong> ParseException {
-<a class="jxr_linenumber" name="48" href="#48">48</a>          <strong class="jxr_keyword">final</strong> CliOptions options = mock(CliOptions.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="49" href="#49">49</a>          <strong class="jxr_keyword">final</strong> String[] args = <strong class="jxr_keyword">new</strong> String[]{<span class="jxr_string">"foo"</span>};
-<a class="jxr_linenumber" name="50" href="#50">50</a>          <strong class="jxr_keyword">final</strong> Invoker sut = <strong class="jxr_keyword">new</strong> Invoker(args, ioStreams, options);
-<a class="jxr_linenumber" name="51" href="#51">51</a>          <strong class="jxr_keyword">final</strong> ParseException throwed = <strong class="jxr_keyword">new</strong> ParseException(<span class="jxr_string">"foobar"</span>);
-<a class="jxr_linenumber" name="52" href="#52">52</a>          doThrow(throwed).when(options).parse(args);
-<a class="jxr_linenumber" name="53" href="#53">53</a>  
-<a class="jxr_linenumber" name="54" href="#54">54</a>          <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="55" href="#55">55</a>              sut.parseOptions();
-<a class="jxr_linenumber" name="56" href="#56">56</a>              fail(<span class="jxr_string">"Expected exeption not thrown!"</span>);
-<a class="jxr_linenumber" name="57" href="#57">57</a>          } <strong class="jxr_keyword">catch</strong> (EbnfException ex) {
-<a class="jxr_linenumber" name="58" href="#58">58</a>              assertEquals(throwed.getMessage(), ex.getMessage());
-<a class="jxr_linenumber" name="59" href="#59">59</a>              assertSame(throwed, ex.getCause());
-<a class="jxr_linenumber" name="60" href="#60">60</a>          }
-<a class="jxr_linenumber" name="61" href="#61">61</a>  
-<a class="jxr_linenumber" name="62" href="#62">62</a>          verify(options, times(1)).parse(args);
-<a class="jxr_linenumber" name="63" href="#63">63</a>      }
-<a class="jxr_linenumber" name="64" href="#64">64</a>  }
+<a class="jxr_linenumber" name="47" href="#47">47</a>          <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="48" href="#48">48</a>              sut.parseOptions();
+<a class="jxr_linenumber" name="49" href="#49">49</a>              fail(<span class="jxr_string">"Expected exeption not thrown!"</span>);
+<a class="jxr_linenumber" name="50" href="#50">50</a>          } <strong class="jxr_keyword">catch</strong> (EbnfException ex) {
+<a class="jxr_linenumber" name="51" href="#51">51</a>              assertEquals(throwed.getMessage(), ex.getMessage());
+<a class="jxr_linenumber" name="52" href="#52">52</a>              assertSame(throwed, ex.getCause());
+<a class="jxr_linenumber" name="53" href="#53">53</a>          }
+<a class="jxr_linenumber" name="54" href="#54">54</a>  
+<a class="jxr_linenumber" name="55" href="#55">55</a>          verify(options, times(1)).parse(args);
+<a class="jxr_linenumber" name="56" href="#56">56</a>      }
+<a class="jxr_linenumber" name="57" href="#57">57</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

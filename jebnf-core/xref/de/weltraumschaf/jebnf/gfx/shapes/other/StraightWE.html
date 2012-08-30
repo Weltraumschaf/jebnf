@@ -22,9 +22,9 @@
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx.shapes.other;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
 <a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Point;
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Strokes;
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> java.awt.Color;
-<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> java.awt.Dimension;
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Size;
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Strokes;
+<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> java.awt.Color;
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment">/**</em>
@@ -37,12 +37,12 @@
 <a class="jxr_linenumber" name="27" href="#27">27</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paint(<strong class="jxr_keyword">final</strong> Graphics2D graphic) {
 <a class="jxr_linenumber" name="28" href="#28">28</a>          <strong class="jxr_keyword">super</strong>.paint(graphic);
 <a class="jxr_linenumber" name="29" href="#29">29</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Point.html">Point</a> pos = getPosition();
-<a class="jxr_linenumber" name="30" href="#30">30</a>          <strong class="jxr_keyword">final</strong> Dimension size = getSize();
+<a class="jxr_linenumber" name="30" href="#30">30</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Size.html">Size</a> size = getSize();
 <a class="jxr_linenumber" name="31" href="#31">31</a>          backupColorAndStroke(graphic);
 <a class="jxr_linenumber" name="32" href="#32">32</a>          graphic.setStroke(Strokes.createForRail());
 <a class="jxr_linenumber" name="33" href="#33">33</a>          graphic.setColor(Color.BLACK);
-<a class="jxr_linenumber" name="34" href="#34">34</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> yPosition = pos.y + size.height / 2;
-<a class="jxr_linenumber" name="35" href="#35">35</a>          graphic.drawLine(pos.x, yPosition, pos.x + size.width, yPosition);
+<a class="jxr_linenumber" name="34" href="#34">34</a>          <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> yPosition = pos.getY() + size.getHeight() / 2;
+<a class="jxr_linenumber" name="35" href="#35">35</a>          graphic.drawLine(pos.getX(), yPosition, pos.getX() + size.getWidth(), yPosition);
 <a class="jxr_linenumber" name="36" href="#36">36</a>          resotreColorAndStroke(graphic);
 <a class="jxr_linenumber" name="37" href="#37">37</a>      }
 <a class="jxr_linenumber" name="38" href="#38">38</a>  

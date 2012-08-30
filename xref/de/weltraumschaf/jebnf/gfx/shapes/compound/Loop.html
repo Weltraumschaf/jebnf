@@ -21,11 +21,11 @@
 <a class="jxr_linenumber" name="11" href="#11">11</a>  
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx.shapes.compound;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
-<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.Shape;
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.Curves.*;
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.Straights.WEST_EAST;
+<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Size;
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.gfx.shapes.Curves.*;
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.Shape;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> java.awt.Dimension;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> de.weltraumschaf.jebnf.gfx.shapes.Straights.WEST_EAST;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <em class="jxr_javadoccomment"> * Railroad loop shape.</em>
@@ -67,9 +67,9 @@
 <a class="jxr_linenumber" name="57" href="#57">57</a>  <em class="jxr_javadoccomment">     * @param shape Looped shape.</em>
 <a class="jxr_linenumber" name="58" href="#58">58</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="59" href="#59">59</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setLooped(<strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> shape) {
-<a class="jxr_linenumber" name="60" href="#60">60</a>          grid.set(1, 0, shape);
-<a class="jxr_linenumber" name="61" href="#61">61</a>          <strong class="jxr_keyword">final</strong> Dimension size = shape.getSize();
-<a class="jxr_linenumber" name="62" href="#62">62</a>          extendColumnWithStraightNS(size.height, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[]{0, 2}, 0);
+<a class="jxr_linenumber" name="60" href="#60">60</a>          getGrid().set(1, 0, shape);
+<a class="jxr_linenumber" name="61" href="#61">61</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Size.html">Size</a> size = shape.getSize();
+<a class="jxr_linenumber" name="62" href="#62">62</a>          extendColumnWithStraightNS(size.getHeight(), <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[]{0, 2}, 0);
 <a class="jxr_linenumber" name="63" href="#63">63</a>      }
 <a class="jxr_linenumber" name="64" href="#64">64</a>  
 <a class="jxr_linenumber" name="65" href="#65">65</a>      <em class="jxr_javadoccomment">/**</em>
@@ -78,9 +78,9 @@
 <a class="jxr_linenumber" name="68" href="#68">68</a>  <em class="jxr_javadoccomment">     * @param shape Additional shape.</em>
 <a class="jxr_linenumber" name="69" href="#69">69</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="70" href="#70">70</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setAdditional(<strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> shape) {
-<a class="jxr_linenumber" name="71" href="#71">71</a>          grid.set(1, 1, shape);
-<a class="jxr_linenumber" name="72" href="#72">72</a>          <strong class="jxr_keyword">final</strong> Dimension size = shape.getSize();
-<a class="jxr_linenumber" name="73" href="#73">73</a>          extendColumnWithEmpty(size.height, <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[]{0, 2}, 1);
+<a class="jxr_linenumber" name="71" href="#71">71</a>          getGrid().set(1, 1, shape);
+<a class="jxr_linenumber" name="72" href="#72">72</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Size.html">Size</a> size = shape.getSize();
+<a class="jxr_linenumber" name="73" href="#73">73</a>          extendColumnWithEmpty(size.getHeight(), <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">int</strong>[]{0, 2}, 1);
 <a class="jxr_linenumber" name="74" href="#74">74</a>      }
 <a class="jxr_linenumber" name="75" href="#75">75</a>  
 <a class="jxr_linenumber" name="76" href="#76">76</a>  }

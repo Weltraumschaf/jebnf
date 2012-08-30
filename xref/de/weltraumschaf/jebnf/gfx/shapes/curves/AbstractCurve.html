@@ -22,10 +22,10 @@
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx.shapes.curves;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
 <a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Point;
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Strokes;
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
-<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> java.awt.Color;
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> java.awt.Dimension;
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Size;
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Strokes;
+<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> java.awt.Color;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> java.awt.geom.Arc2D;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  
@@ -78,7 +78,7 @@
 <a class="jxr_linenumber" name="68" href="#68">68</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="69" href="#69">69</a>  <em class="jxr_javadoccomment">     * @return Returns dimension.</em>
 <a class="jxr_linenumber" name="70" href="#70">70</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="71" href="#71">71</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> Dimension calcArcDimenson();
+<a class="jxr_linenumber" name="71" href="#71">71</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">abstract</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Size.html">Size</a> calcArcDimenson();
 <a class="jxr_linenumber" name="72" href="#72">72</a>  
 <a class="jxr_linenumber" name="73" href="#73">73</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="74" href="#74">74</a>  <em class="jxr_javadoccomment">     * Creates the curve arc.</em>
@@ -107,8 +107,8 @@
 <a class="jxr_linenumber" name="97" href="#97">97</a>  <em class="jxr_javadoccomment">     * @param extent Extension of arc.</em>
 <a class="jxr_linenumber" name="98" href="#98">98</a>  <em class="jxr_javadoccomment">     * @return Returns arc object.</em>
 <a class="jxr_linenumber" name="99" href="#99">99</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="100" href="#100">100</a>     <strong class="jxr_keyword">protected</strong> Arc2D createArc(<strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Point.html">Point</a> pos, <strong class="jxr_keyword">final</strong> Dimension size, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> start, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> extent) {
-<a class="jxr_linenumber" name="101" href="#101">101</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Arc2D.Float(pos.x, pos.y, size.width, size.height, start, extent, Arc2D.OPEN);
+<a class="jxr_linenumber" name="100" href="#100">100</a>     <strong class="jxr_keyword">protected</strong> Arc2D createArc(<strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Point.html">Point</a> pos, <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Size.html">Size</a> size, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> start, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> extent) {
+<a class="jxr_linenumber" name="101" href="#101">101</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> Arc2D.Float(pos.getX(), pos.getY(), size.getWidth(), size.getHeight(), start, extent, Arc2D.OPEN);
 <a class="jxr_linenumber" name="102" href="#102">102</a>     }
 <a class="jxr_linenumber" name="103" href="#103">103</a> 
 <a class="jxr_linenumber" name="104" href="#104">104</a> }

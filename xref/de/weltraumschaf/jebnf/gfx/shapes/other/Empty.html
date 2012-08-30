@@ -22,10 +22,10 @@
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx.shapes.other;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
 <a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Point;
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.Paintable;
-<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> java.awt.Color;
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> java.awt.Dimension;
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Size;
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
+<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.Paintable;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> java.awt.Color;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <em class="jxr_javadoccomment">/**</em>
@@ -62,11 +62,11 @@
 <a class="jxr_linenumber" name="52" href="#52">52</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paint(<strong class="jxr_keyword">final</strong> Graphics2D graphic) {
 <a class="jxr_linenumber" name="53" href="#53">53</a>          backupColorAndStroke(graphic);
 <a class="jxr_linenumber" name="54" href="#54">54</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Point.html">Point</a> pos = getPosition();
-<a class="jxr_linenumber" name="55" href="#55">55</a>          <strong class="jxr_keyword">final</strong> Dimension size = getSize();
+<a class="jxr_linenumber" name="55" href="#55">55</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/Size.html">Size</a> size = getSize();
 <a class="jxr_linenumber" name="56" href="#56">56</a>  
 <a class="jxr_linenumber" name="57" href="#57">57</a>          <strong class="jxr_keyword">if</strong> (!transparent) {
 <a class="jxr_linenumber" name="58" href="#58">58</a>              graphic.setColor(Color.WHITE);
-<a class="jxr_linenumber" name="59" href="#59">59</a>              graphic.fillRect(pos.x, pos.y, size.width, size.height);
+<a class="jxr_linenumber" name="59" href="#59">59</a>              graphic.fillRect(pos.getX(), pos.getY(), size.getWidth(), size.getHeight());
 <a class="jxr_linenumber" name="60" href="#60">60</a>          }
 <a class="jxr_linenumber" name="61" href="#61">61</a>  
 <a class="jxr_linenumber" name="62" href="#62">62</a>          debugShape(graphic, <strong class="jxr_keyword">new</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/Paintable.html">Paintable</a>() {
@@ -74,24 +74,24 @@
 <a class="jxr_linenumber" name="64" href="#64">64</a>              <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> paint(<strong class="jxr_keyword">final</strong> Graphics2D graphic) {
 <a class="jxr_linenumber" name="65" href="#65">65</a>                  drawHorizontalLines(graphic);
 <a class="jxr_linenumber" name="66" href="#66">66</a>                  drawVerticalLines(graphic);
-<a class="jxr_linenumber" name="67" href="#67">67</a>                  graphic.drawRect(pos.x, pos.y, size.width - 1, size.height - 1);
+<a class="jxr_linenumber" name="67" href="#67">67</a>                  graphic.drawRect(pos.getX(), pos.getY(), size.getWidth() - 1, size.getHeight() - 1);
 <a class="jxr_linenumber" name="68" href="#68">68</a>              }
 <a class="jxr_linenumber" name="69" href="#69">69</a>  
 <a class="jxr_linenumber" name="70" href="#70">70</a>              <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> drawHorizontalLines(<strong class="jxr_keyword">final</strong> Graphics2D graphic) {
-<a class="jxr_linenumber" name="71" href="#71">71</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> step = (<strong class="jxr_keyword">int</strong>) Math.ceil(DEFAULT_HEIGHT / 2);
-<a class="jxr_linenumber" name="72" href="#72">72</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> maxYPosition = pos.y + size.height - 1;
+<a class="jxr_linenumber" name="71" href="#71">71</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> step = (<strong class="jxr_keyword">int</strong>) Math.ceil(Size.DEFAULT_HEIGHT / 2);
+<a class="jxr_linenumber" name="72" href="#72">72</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> maxYPosition = pos.getY() + size.getHeight() - 1;
 <a class="jxr_linenumber" name="73" href="#73">73</a>  
-<a class="jxr_linenumber" name="74" href="#74">74</a>                  <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> yPosition = pos.y + step; yPosition &lt; maxYPosition; yPosition += step) {
-<a class="jxr_linenumber" name="75" href="#75">75</a>                      graphic.drawLine(pos.x, yPosition, pos.x + size.width - 1, yPosition);
+<a class="jxr_linenumber" name="74" href="#74">74</a>                  <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> yPosition = pos.getY() + step; yPosition &lt; maxYPosition; yPosition += step) {
+<a class="jxr_linenumber" name="75" href="#75">75</a>                      graphic.drawLine(pos.getX(), yPosition, pos.getX() + size.getWidth() - 1, yPosition);
 <a class="jxr_linenumber" name="76" href="#76">76</a>                  }
 <a class="jxr_linenumber" name="77" href="#77">77</a>              }
 <a class="jxr_linenumber" name="78" href="#78">78</a>  
 <a class="jxr_linenumber" name="79" href="#79">79</a>              <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> drawVerticalLines(<strong class="jxr_keyword">final</strong> Graphics2D graphic) {
-<a class="jxr_linenumber" name="80" href="#80">80</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> step = (<strong class="jxr_keyword">int</strong>) Math.ceil(DEFAULT_WIDTH / 2);
-<a class="jxr_linenumber" name="81" href="#81">81</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> maxXPosition = pos.x + size.width - 1;
+<a class="jxr_linenumber" name="80" href="#80">80</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> step = (<strong class="jxr_keyword">int</strong>) Math.ceil(Size.DEFAULT_WIDTH / 2);
+<a class="jxr_linenumber" name="81" href="#81">81</a>                  <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> maxXPosition = pos.getX() + size.getWidth() - 1;
 <a class="jxr_linenumber" name="82" href="#82">82</a>  
-<a class="jxr_linenumber" name="83" href="#83">83</a>                  <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> xPosition = pos.x + step; xPosition &lt; maxXPosition; xPosition += step) {
-<a class="jxr_linenumber" name="84" href="#84">84</a>                      graphic.drawLine(xPosition, pos.y, xPosition, pos.y + size.height - 1);
+<a class="jxr_linenumber" name="83" href="#83">83</a>                  <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> xPosition = pos.getX() + step; xPosition &lt; maxXPosition; xPosition += step) {
+<a class="jxr_linenumber" name="84" href="#84">84</a>                      graphic.drawLine(xPosition, pos.getY(), xPosition, pos.getY() + size.getHeight() - 1);
 <a class="jxr_linenumber" name="85" href="#85">85</a>                  }
 <a class="jxr_linenumber" name="86" href="#86">86</a>              }
 <a class="jxr_linenumber" name="87" href="#87">87</a>          });
