@@ -79,7 +79,7 @@ public final class Invoker {
      */
     protected Invoker(final String[] args, final IOStreams ioStreams, final CliOptions options) {
         super();
-        this.args      = args;
+        this.args      = args.clone();
         this.ioStreams = ioStreams;
         this.options   = options;
     }
