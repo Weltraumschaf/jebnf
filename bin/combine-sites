@@ -1,0 +1,10 @@
+#!/bin/bash
+
+BASE_DIR="$(dirname $0)/.."
+DESTINATION="${BASE_DIR}/target/site/";
+MODULES=("jebnf-cli" "jebnf-core" "jebnf-gui")
+
+for module in ${MODULES[@]}
+do
+    cp -rv "${BASE_DIR}/${module}/target/site/" "${DESTINATION}/${module}"
+done
