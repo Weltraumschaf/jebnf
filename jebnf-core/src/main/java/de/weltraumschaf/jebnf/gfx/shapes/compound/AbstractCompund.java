@@ -22,8 +22,6 @@ import java.awt.Graphics2D;
 /**
  * Compound shapes consist other child shapes.
  *
- * TODO Extract methods to Compound interface.
- *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class AbstractCompund extends AbstractShape implements Grid {
