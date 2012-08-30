@@ -26,6 +26,6 @@ public interface Grid extends Shape, Adjustable {
      *
      * @return The grid layout instance.
      */
-    public GridLayout getGrid();
+    GridLayout getGrid();
 
 }
