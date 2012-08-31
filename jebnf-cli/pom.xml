@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jebnf-cli</artifactId>
     <name>JEBNF - Comand line tool</name>
-    <version>1.2.4</version>
+    <version>1.2.5</version>
     <description>The JEBNF toola invokable by command line.</description>
 
     <dependencies>
