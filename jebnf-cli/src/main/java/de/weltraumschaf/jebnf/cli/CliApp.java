@@ -118,11 +118,8 @@ public class CliApp extends BaseInvokeable implements Invokeable {
      * XXX: Does at the moment print always the same thing for development.
      *
      * @param ast Syntax tree to format.
-     * @throws FileNotFoundException
-     * @throws SyntaxException
-     * @throws IOException
      */
-    private void generateRailroadImage(final Syntax ast) throws FileNotFoundException, SyntaxException, IOException {
+    private void generateRailroadImage(final Syntax ast) {
         final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, new File("./test.png"));
         final RailroadDiagram diagram = helper.createDiagram(img.getGraphics());
         diagram.setDebug(options.isDebug());

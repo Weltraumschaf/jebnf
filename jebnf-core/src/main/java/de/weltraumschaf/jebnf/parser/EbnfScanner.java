@@ -286,7 +286,8 @@ public class EbnfScanner implements Scanner {
                 return;
             } else if (isWhiteSpace(getCurrentCharacter())) { // NOPMD
                 // Ignore white spaces.
-            } else if(EOF == getCurrentCharacter()) {
+            } else if (EOF == getCurrentCharacter()) {
+                // Break out the loop, if there are no more characters.
                 break;
             } else {
                 raiseError(String.format("Invalid character '%s' at %s",

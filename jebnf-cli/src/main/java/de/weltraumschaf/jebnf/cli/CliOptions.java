@@ -109,11 +109,13 @@ public class CliOptions {
     public CliOptions() {
         options = new Options();
         // w/ argument
-        options.addOption(OptionBuilder.withDescription("EBNF syntax file to parse. Required option, unless you use the IDE.")
+        options.addOption(OptionBuilder.withDescription(
+                "EBNF syntax file to parse. Required option, unless you use the IDE.")
                                        .withArgName("file")
                                        .hasArg()
                                        .create(OptionsParser.OPT_SYNTAX));
-        options.addOption(OptionBuilder.withDescription("Output file name. If omitted output will be print to STDOUT.")
+        options.addOption(OptionBuilder.withDescription(
+                "Output file name. If omitted output will be print to STDOUT.")
                                        .withArgName("file")
                                        .hasArg()
                                        .create(OptionsParser.OPT_OUTPUT));

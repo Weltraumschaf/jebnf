@@ -13,7 +13,7 @@ package de.weltraumschaf.jebnf.cli.system;
 
 /**
  * Invokes {@link System#exit(int)}.
- 
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class DefaultExiter extends BaseExiter {
