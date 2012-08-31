@@ -135,8 +135,10 @@ public class CliOptionsTest {
             " -f <format>   Output format: xml, jpg, gif, or png.%n" +
             " -h            This help.%n" +
             " -i,--ide      Starts the GUI IDE.%n" +
-            " -o <file>     Output file name.%n" +
-            " -s <file>     EBNF syntax file to parse.%n" +
+            " -o <file>     Output file name. If omitted output will be print to%n" +
+            "               STDOUT.%n" +
+            " -s <file>     EBNF syntax file to parse. Required option, unless you use%n" +
+            "               the IDE.%n" +
             " -t            Prints textual representation of the syntax tree to stdout.%n" +
             " -v            Show version information.%n" +
             "%n" +
