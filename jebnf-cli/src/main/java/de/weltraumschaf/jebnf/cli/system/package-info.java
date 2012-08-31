@@ -9,18 +9,10 @@
  *
  */
 
-package de.weltraumschaf.jebnf.cli.system;
-
 /**
- * Invokes {@link System#exit(int)}.
- 
- * @author Sven Strittmatter <weltraumschaf@googlemail.com>
+ * Abstractions for system things.
+ *
+ * <p>This package is a part of the open-source
+ * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
  */
-public class DefaultExiter extends BaseExiter {
-
-    @Override
-    public void exit(int status) {
-        System.exit(status);
-    }
-
-}
+package de.weltraumschaf.jebnf.cli.system;

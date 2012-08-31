@@ -108,9 +108,9 @@ public final class Invoker {
     /**
      * Set the exiter.
      *
-     * @param exiter
+     * @param exiter The used exiter.
      */
-    public void setExiter(Exitable exiter) {
+    public void setExiter(final Exitable exiter) {
         this.exiter = exiter;
     }
 
@@ -120,16 +120,7 @@ public final class Invoker {
      * @param code Exit code.
      */
     void exit(final ExitCode code) {
-        exit(code.getCode());
-    }
-
-    /**
-     * Exits the application with given exit code.
-     *
-     * @param code Exit code.
-     */
-    void exit(final int code) {
-        exiter.exit(code);
+        exiter.exit(code.getCode());
     }
 
     /**
@@ -150,7 +141,7 @@ public final class Invoker {
      *
      * Parse options, determine to show help. Then executes either {@link CliApp} or {@link GuiApp}.
      */
-    private void run() {
+    public void run() {
         try {
             parseOptions();
 
@@ -180,7 +171,7 @@ public final class Invoker {
                 ioStreams.printStackTraceToStdErr(ex);
             }
 
-            exit(ex.getCode());
+            exiter.exit(ex.getCode());
         } catch (Exception ex) { // NOPMD Catch all exceptions!
             ioStreams.printlnErr("Fatal error!");
 

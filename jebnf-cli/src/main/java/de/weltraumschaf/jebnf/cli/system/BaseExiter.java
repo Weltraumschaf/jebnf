@@ -14,24 +14,15 @@ package de.weltraumschaf.jebnf.cli.system;
 import de.weltraumschaf.jebnf.ExitCode;
 
 /**
- * An exitable gives the interface to exit an program w/o calling {@link System#exit(int)} directly.
+ * Common shared functionality for exiters.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public interface Exitable {
+public abstract class BaseExiter implements Exitable {
 
-    /**
-     * Exits the program.
-     *
-     * @param status Status code.
-     */
-    void exit(int status);
-
-    /**
-     * Exits the program.
-     *
-     * @param status Exit code.
-     */
-    void exit(final ExitCode status);
+    @Override
+    public void exit(ExitCode status) {
+        exit(status.getCode());
+    }
 
 }

@@ -12,6 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.EbnfException;
+import de.weltraumschaf.jebnf.cli.system.NullExiter;
 import java.io.InputStream;
 import java.io.PrintStream;
 import org.apache.commons.cli.ParseException;
@@ -57,17 +58,25 @@ public class InvokerTest {
     }
 
     @Ignore("TODO Implement test.")
-    @Test public void isHelp() {
-
+    @Test(expected=NullExiter.ExitException.class)
+    public void isHelp() {
+        final Invoker invoker = new Invoker(new String[]{"-h"}, ioStreams);
+        invoker.setExiter(new NullExiter());
+        invoker.run();
     }
 
     @Ignore("TODO Implement test.")
     @Test public void isShowVersion() {
-
+        final Invoker invoker = new Invoker(new String[]{"-v"}, ioStreams);
+        invoker.setExiter(new NullExiter());
+        invoker.run();
     }
 
     @Ignore("TODO Implement test.")
     @Test public void isIde() {
-        
+        final Invoker invoker = new Invoker(new String[]{"-i"}, ioStreams);
+        invoker.setExiter(new NullExiter());
+        invoker.run();
     }
+
 }
