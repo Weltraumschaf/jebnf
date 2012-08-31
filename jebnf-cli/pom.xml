@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jebnf-cli</artifactId>
     <name>JEBNF - Comand line tool</name>
-    <version>1.2.5</version>
     <description>The JEBNF toola invokable by command line.</description>
 
     <dependencies>
@@ -18,13 +17,13 @@
         <dependency>
             <groupId>de.weltraumschaf</groupId>
             <artifactId>jebnf-core</artifactId>
-            <version>1.2.5</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
         <dependency>
             <groupId>de.weltraumschaf</groupId>
             <artifactId>jebnf-gui</artifactId>
-            <version>1.2.5</version>
+            <version>${project.parent.version}</version>
         </dependency>
 
     </dependencies>

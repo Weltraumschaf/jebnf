@@ -10,7 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>jebnf-core</artifactId>
     <name>JEBNF - Core</name>
-    <version>1.2.5</version>
     <description>Core library</description>
 
     <dependencies/>
