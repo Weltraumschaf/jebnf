@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.8645083932853717" branch-rate="0.8560311284046692" lines-covered="1442" lines-valid="1668" branches-covered="440" branches-valid="514" complexity="1.6772277227722772" version="1.9.4.1" timestamp="1346405771538">
+<coverage line-rate="0.8645083932853717" branch-rate="0.8560311284046692" lines-covered="1442" lines-valid="1668" branches-covered="440" branches-valid="514" complexity="1.6772277227722772" version="1.9.4.1" timestamp="1346406337982">
 	<sources>
 		<source>/Users/sxs/src/java/jebnf/jebnf-core/src/main/java</source>
 		<source>--source</source>
