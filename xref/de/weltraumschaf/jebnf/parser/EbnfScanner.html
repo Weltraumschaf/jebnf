@@ -296,35 +296,36 @@
 <a class="jxr_linenumber" name="286" href="#286">286</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="287" href="#287">287</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (isWhiteSpace(getCurrentCharacter())) { <em class="jxr_comment">// NOPMD</em>
 <a class="jxr_linenumber" name="288" href="#288">288</a>                 <em class="jxr_comment">// Ignore white spaces.</em>
-<a class="jxr_linenumber" name="289" href="#289">289</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong>(EOF == getCurrentCharacter()) {
-<a class="jxr_linenumber" name="290" href="#290">290</a>                 <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="291" href="#291">291</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="292" href="#292">292</a>                 raiseError(String.format(<span class="jxr_string">"Invalid character '%s' at %s"</span>,
-<a class="jxr_linenumber" name="293" href="#293">293</a>                                         getCurrentCharacter(),
-<a class="jxr_linenumber" name="294" href="#294">294</a>                                         createPosition()));
-<a class="jxr_linenumber" name="295" href="#295">295</a>             }
-<a class="jxr_linenumber" name="296" href="#296">296</a> 
-<a class="jxr_linenumber" name="297" href="#297">297</a>             checkNewline();
-<a class="jxr_linenumber" name="298" href="#298">298</a>         }
-<a class="jxr_linenumber" name="299" href="#299">299</a> 
-<a class="jxr_linenumber" name="300" href="#300">300</a>         tokens.add(<strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/Token.html">Token</a>(TokenType.EOF, file, createPosition()));
-<a class="jxr_linenumber" name="301" href="#301">301</a>         currentToken++;
-<a class="jxr_linenumber" name="302" href="#302">302</a>     }
-<a class="jxr_linenumber" name="303" href="#303">303</a> 
-<a class="jxr_linenumber" name="304" href="#304">304</a>     @Override
-<a class="jxr_linenumber" name="305" href="#305">305</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> checkNewline() {
-<a class="jxr_linenumber" name="306" href="#306">306</a>         <strong class="jxr_keyword">if</strong> ('\n' == getCurrentCharacter() || '\r' == getCurrentCharacter()) {
-<a class="jxr_linenumber" name="307" href="#307">307</a>             line++;
-<a class="jxr_linenumber" name="308" href="#308">308</a>             column = 0;
-<a class="jxr_linenumber" name="309" href="#309">309</a>         }
-<a class="jxr_linenumber" name="310" href="#310">310</a>     }
-<a class="jxr_linenumber" name="311" href="#311">311</a> 
-<a class="jxr_linenumber" name="312" href="#312">312</a>     @Override
-<a class="jxr_linenumber" name="313" href="#313">313</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> close() <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="314" href="#314">314</a>         input.close();
-<a class="jxr_linenumber" name="315" href="#315">315</a>     }
-<a class="jxr_linenumber" name="316" href="#316">316</a> 
-<a class="jxr_linenumber" name="317" href="#317">317</a> }
+<a class="jxr_linenumber" name="289" href="#289">289</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (EOF == getCurrentCharacter()) {
+<a class="jxr_linenumber" name="290" href="#290">290</a>                 <em class="jxr_comment">// Break out the loop, if there are no more characters.</em>
+<a class="jxr_linenumber" name="291" href="#291">291</a>                 <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="292" href="#292">292</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="293" href="#293">293</a>                 raiseError(String.format(<span class="jxr_string">"Invalid character '%s' at %s"</span>,
+<a class="jxr_linenumber" name="294" href="#294">294</a>                                         getCurrentCharacter(),
+<a class="jxr_linenumber" name="295" href="#295">295</a>                                         createPosition()));
+<a class="jxr_linenumber" name="296" href="#296">296</a>             }
+<a class="jxr_linenumber" name="297" href="#297">297</a> 
+<a class="jxr_linenumber" name="298" href="#298">298</a>             checkNewline();
+<a class="jxr_linenumber" name="299" href="#299">299</a>         }
+<a class="jxr_linenumber" name="300" href="#300">300</a> 
+<a class="jxr_linenumber" name="301" href="#301">301</a>         tokens.add(<strong class="jxr_keyword">new</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/Token.html">Token</a>(TokenType.EOF, file, createPosition()));
+<a class="jxr_linenumber" name="302" href="#302">302</a>         currentToken++;
+<a class="jxr_linenumber" name="303" href="#303">303</a>     }
+<a class="jxr_linenumber" name="304" href="#304">304</a> 
+<a class="jxr_linenumber" name="305" href="#305">305</a>     @Override
+<a class="jxr_linenumber" name="306" href="#306">306</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> checkNewline() {
+<a class="jxr_linenumber" name="307" href="#307">307</a>         <strong class="jxr_keyword">if</strong> ('\n' == getCurrentCharacter() || '\r' == getCurrentCharacter()) {
+<a class="jxr_linenumber" name="308" href="#308">308</a>             line++;
+<a class="jxr_linenumber" name="309" href="#309">309</a>             column = 0;
+<a class="jxr_linenumber" name="310" href="#310">310</a>         }
+<a class="jxr_linenumber" name="311" href="#311">311</a>     }
+<a class="jxr_linenumber" name="312" href="#312">312</a> 
+<a class="jxr_linenumber" name="313" href="#313">313</a>     @Override
+<a class="jxr_linenumber" name="314" href="#314">314</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> close() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="315" href="#315">315</a>         input.close();
+<a class="jxr_linenumber" name="316" href="#316">316</a>     }
+<a class="jxr_linenumber" name="317" href="#317">317</a> 
+<a class="jxr_linenumber" name="318" href="#318">318</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

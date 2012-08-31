@@ -65,7 +65,7 @@
 <a class="jxr_linenumber" name="55" href="#55">55</a>          Xml visitor = <strong class="jxr_keyword">new</strong> Xml();
 <a class="jxr_linenumber" name="56" href="#56">56</a>          assertEquals(
 <a class="jxr_linenumber" name="57" href="#57">57</a>              <span class="jxr_string">"&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot;?&gt;"</span>,
-<a class="jxr_linenumber" name="58" href="#58">58</a>              visitor.getXmlString()
+<a class="jxr_linenumber" name="58" href="#58">58</a>              visitor.getText()
 <a class="jxr_linenumber" name="59" href="#59">59</a>          );
 <a class="jxr_linenumber" name="60" href="#60">60</a>  
 <a class="jxr_linenumber" name="61" href="#61">61</a>          Syntax syntax = Syntax.newInstance(<span class="jxr_string">"xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3"</span>,
@@ -75,7 +75,7 @@
 <a class="jxr_linenumber" name="65" href="#65">65</a>          assertEquals(<span class="jxr_string">"&lt;?xml version=\&quot;1.0\&quot; encoding=\&quot;utf-8\&quot;?&gt;\n"</span>
 <a class="jxr_linenumber" name="66" href="#66">66</a>                     + <span class="jxr_string">"&lt;syntax title=\&quot;xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ "</span>
 <a class="jxr_linenumber" name="67" href="#67">67</a>                     + <span class="jxr_string">"gpl3\&quot; meta=\&quot;EBNF defined in itself.\&quot;/&gt;"</span>,
-<a class="jxr_linenumber" name="68" href="#68">68</a>              visitor.getXmlString()
+<a class="jxr_linenumber" name="68" href="#68">68</a>              visitor.getText()
 <a class="jxr_linenumber" name="69" href="#69">69</a>          );
 <a class="jxr_linenumber" name="70" href="#70">70</a>  
 <a class="jxr_linenumber" name="71" href="#71">71</a>          syntax = syntax(<span class="jxr_string">"EBNF defined in itself."</span>, <span class="jxr_string">"xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3"</span>)
@@ -135,7 +135,7 @@
 <a class="jxr_linenumber" name="125" href="#125">125</a>         syntax.accept(visitor);
 <a class="jxr_linenumber" name="126" href="#126">126</a> 
 <a class="jxr_linenumber" name="127" href="#127">127</a>         <strong class="jxr_keyword">final</strong> String xml = getInstance().createStringFromFixture(<span class="jxr_string">"ast/visitor/syntax.xml"</span>);
-<a class="jxr_linenumber" name="128" href="#128">128</a>         assertEquals(xml, visitor.getXmlString());
+<a class="jxr_linenumber" name="128" href="#128">128</a>         assertEquals(xml, visitor.getText());
 <a class="jxr_linenumber" name="129" href="#129">129</a>     }
 <a class="jxr_linenumber" name="130" href="#130">130</a> 
 <a class="jxr_linenumber" name="131" href="#131">131</a> }
