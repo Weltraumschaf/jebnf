@@ -76,7 +76,7 @@ public class SyntaxBuilderTest {
         final String xml   = getInstance().createStringFromFixture("ast/visitor/syntax.xml");
         final Xml visitor  = new Xml();
         syntax.accept(visitor);
-        assertEquals(xml, visitor.getXmlString());
+        assertEquals(xml, visitor.getText());
     }
 
 }

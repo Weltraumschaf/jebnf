@@ -99,8 +99,8 @@ public class CliOptionsTest {
         assertFalse(options.hasSyntaxFile());
 
         options = setUpSut(new String[] {"-s", "foo.ebnf", "-f", "xml"});
-        assertTrue(options.hasOutputFile());
-        assertEquals("foo.xml", options.getOutputFile());
+        assertFalse(options.hasOutputFile());
+        assertEquals("", options.getOutputFile());
     }
 
     @Test public void parseOutputFormatOptions() throws ParseException {

@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast;
 
+import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import com.google.common.collect.Maps;
 import java.util.Iterator;
 import java.util.Map;

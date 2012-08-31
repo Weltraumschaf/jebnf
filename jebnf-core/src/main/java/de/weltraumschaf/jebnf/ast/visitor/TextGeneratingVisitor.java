@@ -9,24 +9,21 @@
  *
  */
 
-package de.weltraumschaf.jebnf.ast;
-
-import de.weltraumschaf.jebnf.ast.visitor.Visitor;
+package de.weltraumschaf.jebnf.ast.visitor;
 
 /**
- * Defines interface for a visitable AST tree node.
- *
- * Interface for <a href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor Pattern</a>.
+ * Visitors which generates a textual representation of the visited tree.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public interface Visitable {
+public interface TextGeneratingVisitor extends Visitor {
+
 
     /**
-     * Defines method to accept {@link Visitor}.
+     * Returns the text string the visitor generates.
      *
-     * @param visitor Object which visits the visitable.
+     * @return Returns XML string.
      */
-    void accept(Visitor visitor);
+    String getText();
 
 }

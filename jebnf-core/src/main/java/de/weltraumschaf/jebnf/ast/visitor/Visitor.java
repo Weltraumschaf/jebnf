@@ -9,7 +9,9 @@
  *
  */
 
-package de.weltraumschaf.jebnf.ast;
+package de.weltraumschaf.jebnf.ast.visitor;
+
+import de.weltraumschaf.jebnf.ast.Visitable;
 
 /**
  * Defines interface for an AST tree visitor.

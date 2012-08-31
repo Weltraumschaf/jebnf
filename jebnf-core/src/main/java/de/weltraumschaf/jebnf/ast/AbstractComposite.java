@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast;
 
+import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import com.google.common.collect.Lists;
 import java.util.List;
 

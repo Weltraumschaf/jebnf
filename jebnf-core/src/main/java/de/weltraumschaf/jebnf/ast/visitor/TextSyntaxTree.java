@@ -15,7 +15,6 @@ import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Visitable;
-import de.weltraumschaf.jebnf.ast.Visitor;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
@@ -50,7 +49,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class TextSyntaxTree implements Visitor {
+public class TextSyntaxTree implements TextGeneratingVisitor {
 
     /**
      * ASCII pattern for branch.
@@ -255,6 +254,7 @@ public class TextSyntaxTree implements Visitor {
      *
      * @return Return formated text.
      */
+    @Override
     public String getText() {
         if (null == text) {
             final StringBuilder buffer = new StringBuilder();

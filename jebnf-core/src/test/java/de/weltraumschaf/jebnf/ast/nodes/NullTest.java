@@ -15,7 +15,7 @@ import de.weltraumschaf.jebnf.ast.nodes.Sequence;
 import de.weltraumschaf.jebnf.ast.nodes.Null;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
-import de.weltraumschaf.jebnf.ast.Visitor;
+import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import static org.junit.Assert.*;
 import org.junit.Test;
 import static org.mockito.Mockito.*;

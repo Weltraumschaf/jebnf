@@ -14,7 +14,6 @@ package de.weltraumschaf.jebnf.ast.visitor;
 import de.weltraumschaf.jebnf.ast.Composite;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.Visitable;
-import de.weltraumschaf.jebnf.ast.Visitor;
 import java.util.Map;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -24,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Xml implements Visitor {
+public class Xml implements TextGeneratingVisitor {
 
     /**
      * Default XML version.
@@ -225,7 +224,8 @@ public class Xml implements Visitor {
      *
      * @return Returns XML string.
      */
-    public String getXmlString() {
+    @Override
+    public String getText() {
         return xmlString.toString();
     }
 

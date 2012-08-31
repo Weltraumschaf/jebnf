@@ -55,7 +55,7 @@ public class XmlTest {
         Xml visitor = new Xml();
         assertEquals(
             "<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-            visitor.getXmlString()
+            visitor.getText()
         );
 
         Syntax syntax = Syntax.newInstance("xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3",
@@ -65,7 +65,7 @@ public class XmlTest {
         assertEquals("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    + "<syntax title=\"xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ "
                    + "gpl3\" meta=\"EBNF defined in itself.\"/>",
-            visitor.getXmlString()
+            visitor.getText()
         );
 
         syntax = syntax("EBNF defined in itself.", "xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3")
@@ -125,7 +125,7 @@ public class XmlTest {
         syntax.accept(visitor);
 
         final String xml = getInstance().createStringFromFixture("ast/visitor/syntax.xml");
-        assertEquals(xml, visitor.getXmlString());
+        assertEquals(xml, visitor.getText());
     }
 
 }

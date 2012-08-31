@@ -224,6 +224,7 @@ public class EbnfParser implements Parser {
         }
 
         if (scanner.getCurrentToken().isType(TokenType.LITERAL)) {
+            // TODO Implement range parsing.
             /*if (assertToken(scanner.peekToken(), TokenType.OPERATOR, ".")) {
                 echo "range";
                 range = dom.createElement(Type.RANGE);

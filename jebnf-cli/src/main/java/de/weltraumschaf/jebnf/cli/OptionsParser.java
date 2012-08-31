@@ -40,6 +40,8 @@ public final class OptionsParser {
 
     /**
      * Short option to print a syntax as ASCII text tree.
+     *
+     * TODO Convert to output format.
      */
     public static final String OPT_TEXT_TREE = "t";
 
@@ -144,9 +146,8 @@ public final class OptionsParser {
     private void optOutputFile(final CommandLine cmd) {
         if (cmd.hasOption(OPT_OUTPUT)) {
             options.setOutputFile(cmd.getOptionValue(OPT_OUTPUT));
-        } else if (options.hasOutputFormat() && options.hasSyntaxFile()) {
-            final String outputFormat = options.getOutputFormat().name().toLowerCase();
-            options.setOutputFile(options.getSyntaxFile().replace(".ebnf", "." + outputFormat));
+        } else {
+            options.setOutputFile("");
         }
     }
 
