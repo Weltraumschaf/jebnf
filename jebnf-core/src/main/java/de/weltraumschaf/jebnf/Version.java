@@ -20,6 +20,8 @@ import java.util.Properties;
  *
  * Class is implemented as singleton.
  *
+ * XXX: Good candidate for de.weltraumschaf.commons.
+ * 
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class Version {
