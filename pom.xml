@@ -51,9 +51,9 @@
     </issueManagement>
 
     <scm>
-        <connection>scm:git:git://github.com/weltraumschaf/jebnf.git</connection>
-        <developerConnection>scm:git:git@github.com:weltraumschaf/jebnf.git</developerConnection>
-        <url>https://github.com/weltraumschaf/jebnf</url>
+        <connection>scm:git:git://github.com/Weltraumschaf/jebnf.git</connection>
+        <developerConnection>scm:git:git@github.com:Weltraumschaf/jebnf.git</developerConnection>
+        <url>https://github.com/Weltraumschaf/jebnf</url>
     </scm>
 
     <distributionManagement>
