@@ -11,6 +11,8 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import de.weltraumschaf.commons.IOStreams;
+
 /**
  * Common functionality for base invokable apps.
  *
