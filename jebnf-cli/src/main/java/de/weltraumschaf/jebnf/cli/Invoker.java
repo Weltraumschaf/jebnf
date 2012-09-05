@@ -19,11 +19,14 @@ import de.weltraumschaf.jebnf.cli.system.Exitable;
 import de.weltraumschaf.jebnf.cli.system.NullExiter;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
+import de.weltraumschaf.commons.IOStreams;
 
 /**
  * Main class.
  *
  * Invokes {@link Invokeable "applications"}.
+ *
+ * XXX: Good candidate for de.weltraumschaf.commons.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */

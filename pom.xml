@@ -100,19 +100,28 @@
             <version>1.2</version>
         </dependency>
         <dependency>
+            <!-- http://commons.apache.org/lang/ -->
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.1</version>
         </dependency>
         <dependency>
+            <!-- http://commons.apache.org/io/ -->
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.4</version>
         </dependency>
         <dependency>
+            <!-- http://code.google.com/p/guava-libraries/ -->
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>13.0.1</version>
+        </dependency>
+        <dependency>
+            <!-- http://weltraumschaf.github.com/commons/ -->
+            <groupId>de.weltraumschaf</groupId>
+            <artifactId>commons</artifactId>
+            <version>0.1.4</version>
         </dependency>
     </dependencies>
 
