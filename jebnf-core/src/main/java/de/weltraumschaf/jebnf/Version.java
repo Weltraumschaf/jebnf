@@ -78,7 +78,7 @@ public final class Version {
     private boolean propertiesLoaded;
 
     /**
-     * Properties..
+     * Properties.
      */
     private final Properties properties = new Properties();
 
@@ -120,6 +120,7 @@ public final class Version {
     private void loadProperties() throws IOException {
         final InputStream in = getClass().getResourceAsStream(FILE_NAME);
         properties.load(in);
+        in.close();
         propertiesLoaded = true;
     }
 
