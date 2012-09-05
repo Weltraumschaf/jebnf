@@ -3,8 +3,6 @@ de.weltraumschaf.jebnf.ast
 de.weltraumschaf.jebnf.ast.builder
 de.weltraumschaf.jebnf.ast.nodes
 de.weltraumschaf.jebnf.ast.visitor
-de.weltraumschaf.jebnf.cli
-de.weltraumschaf.jebnf.cli.system
 de.weltraumschaf.jebnf.gfx
 de.weltraumschaf.jebnf.gfx.shapes
 de.weltraumschaf.jebnf.gfx.shapes.compound
@@ -12,5 +10,4 @@ de.weltraumschaf.jebnf.gfx.shapes.curves
 de.weltraumschaf.jebnf.gfx.shapes.forkes
 de.weltraumschaf.jebnf.gfx.shapes.other
 de.weltraumschaf.jebnf.gfx.shapes.text
-de.weltraumschaf.jebnf.gui
 de.weltraumschaf.jebnf.parser
