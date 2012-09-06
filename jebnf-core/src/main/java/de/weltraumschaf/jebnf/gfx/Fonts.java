@@ -38,7 +38,7 @@ public enum Fonts {
     /**
      * Default font size.
      */
-    public static final int DEFAULT_SIZE = 6;
+    public static final int DEFAULT_SIZE = 14;
 
     /**
      * Font name.
