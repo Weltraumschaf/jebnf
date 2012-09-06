@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
+import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
@@ -144,11 +145,11 @@ public class CreatorHelper {
     public RailroadDiagram createDiagram(final Graphics2D graphics) {
         final Point offset = new Point(20, 20);
         final RailroadDiagram diagram = new RailroadDiagram();
-        final GridLayout value = createValueDiagram(graphics);
+        final Shape value = createValueDiagram(graphics);
         value.setPosition(offset);
         diagram.add(value);
 
-        final GridLayout object = createObjectDiagram(graphics);
+        final Shape object = createObjectDiagram(graphics);
         object.setPosition(new Point(offset.getX(), offset.getY() + value.getSize().getHeight()));
         diagram.add(object);
 
