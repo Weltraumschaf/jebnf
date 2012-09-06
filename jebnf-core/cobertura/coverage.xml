@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
 
-<coverage line-rate="0.8645083932853717" branch-rate="0.8560311284046692" lines-covered="1442" lines-valid="1668" branches-covered="440" branches-valid="514" complexity="1.6772277227722772" version="1.9.4.1" timestamp="1346406337982">
+<coverage line-rate="0.8639904134212103" branch-rate="0.8560311284046692" lines-covered="1442" lines-valid="1669" branches-covered="440" branches-valid="514" complexity="1.6772277227722772" version="1.9.4.1" timestamp="1346970104610">
 	<sources>
 		<source>/Users/sxs/src/java/jebnf/jebnf-core/src/main/java</source>
 		<source>--source</source>
 	</sources>
 	<packages>
-		<package name="de.weltraumschaf.jebnf" line-rate="0.5238095238095238" branch-rate="0.0" complexity="1.0625">
+		<package name="de.weltraumschaf.jebnf" line-rate="0.5116279069767442" branch-rate="0.0" complexity="1.0625">
 			<classes>
 				<class name="de.weltraumschaf.jebnf.EbnfException" filename="de/weltraumschaf/jebnf/EbnfException.java" line-rate="1.0" branch-rate="1.0" complexity="1.0">
 					<methods>
@@ -113,90 +113,92 @@
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="71" hits="0" branch="false"/>
+								<line number="73" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="81" hits="0" branch="false"/>
-								<line number="87" hits="0" branch="false"/>
-								<line number="88" hits="0" branch="false"/>
+								<line number="83" hits="0" branch="false"/>
+								<line number="89" hits="0" branch="false"/>
+								<line number="90" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="arePropertiesLoaded" signature="()Z" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="110" hits="0" branch="false"/>
+								<line number="112" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="getInstance" signature="()Lde/weltraumschaf/jebnf/Version;" line-rate="0.0" branch-rate="0.0">
 							<lines>
-								<line number="97" hits="0" branch="true" condition-coverage="0% (0/2)">
+								<line number="99" hits="0" branch="true" condition-coverage="0% (0/2)">
 									<conditions>
 										<condition number="0" type="jump" coverage="0%"/>
 									</conditions>
 								</line>
-								<line number="98" hits="0" branch="false"/>
-								<line number="101" hits="0" branch="false"/>
+								<line number="100" hits="0" branch="false"/>
+								<line number="103" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="getVersion" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="130" hits="0" branch="false"/>
+								<line number="133" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="loadProperties" signature="()V" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="119" hits="0" branch="false"/>
-								<line number="120" hits="0" branch="false"/>
 								<line number="121" hits="0" branch="false"/>
 								<line number="122" hits="0" branch="false"/>
+								<line number="123" hits="0" branch="false"/>
+								<line number="124" hits="0" branch="false"/>
+								<line number="125" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="toString" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="140" hits="0" branch="false"/>
+								<line number="143" hits="0" branch="false"/>
 							</lines>
 						</method>
 					</methods>
 					<lines>
-						<line number="71" hits="0" branch="false"/>
-						<line number="81" hits="0" branch="false"/>
-						<line number="87" hits="0" branch="false"/>
-						<line number="88" hits="0" branch="false"/>
-						<line number="97" hits="0" branch="true" condition-coverage="0% (0/2)">
+						<line number="73" hits="0" branch="false"/>
+						<line number="83" hits="0" branch="false"/>
+						<line number="89" hits="0" branch="false"/>
+						<line number="90" hits="0" branch="false"/>
+						<line number="99" hits="0" branch="true" condition-coverage="0% (0/2)">
 							<conditions>
 								<condition number="0" type="jump" coverage="0%"/>
 							</conditions>
 						</line>
-						<line number="98" hits="0" branch="false"/>
-						<line number="101" hits="0" branch="false"/>
-						<line number="110" hits="0" branch="false"/>
-						<line number="119" hits="0" branch="false"/>
-						<line number="120" hits="0" branch="false"/>
+						<line number="100" hits="0" branch="false"/>
+						<line number="103" hits="0" branch="false"/>
+						<line number="112" hits="0" branch="false"/>
 						<line number="121" hits="0" branch="false"/>
 						<line number="122" hits="0" branch="false"/>
-						<line number="130" hits="0" branch="false"/>
-						<line number="140" hits="0" branch="false"/>
+						<line number="123" hits="0" branch="false"/>
+						<line number="124" hits="0" branch="false"/>
+						<line number="125" hits="0" branch="false"/>
+						<line number="133" hits="0" branch="false"/>
+						<line number="143" hits="0" branch="false"/>
 					</lines>
 				</class>
 				<class name="de.weltraumschaf.jebnf.Version$PropertyNames" filename="de/weltraumschaf/jebnf/Version.java" line-rate="0.0" branch-rate="1.0" complexity="1.125">
 					<methods>
 						<method name="&lt;clinit&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="30" hits="0" branch="false"/>
-								<line number="35" hits="0" branch="false"/>
+								<line number="32" hits="0" branch="false"/>
+								<line number="37" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="&lt;init&gt;" signature="(Ljava/lang/String;ILjava/lang/String;)V" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="47" hits="0" branch="false"/>
-								<line number="48" hits="0" branch="false"/>
 								<line number="49" hits="0" branch="false"/>
+								<line number="50" hits="0" branch="false"/>
+								<line number="51" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="toString" signature="()Ljava/lang/String;" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="58" hits="0" branch="false"/>
+								<line number="60" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="valueOf" signature="(Ljava/lang/String;)Lde/weltraumschaf/jebnf/Version$PropertyNames;" line-rate="1.0" branch-rate="1.0">
@@ -209,12 +211,12 @@
 						</method>
 					</methods>
 					<lines>
-						<line number="30" hits="0" branch="false"/>
-						<line number="35" hits="0" branch="false"/>
-						<line number="47" hits="0" branch="false"/>
-						<line number="48" hits="0" branch="false"/>
+						<line number="32" hits="0" branch="false"/>
+						<line number="37" hits="0" branch="false"/>
 						<line number="49" hits="0" branch="false"/>
-						<line number="58" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+						<line number="51" hits="0" branch="false"/>
+						<line number="60" hits="0" branch="false"/>
 					</lines>
 				</class>
 			</classes>
@@ -2335,86 +2337,86 @@
 					<methods>
 						<method name="&lt;init&gt;" signature="()V" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="29" hits="0" branch="false"/>
+								<line number="30" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="createDiagram" signature="(Ljava/awt/Graphics2D;)Lde/weltraumschaf/jebnf/gfx/RailroadDiagram;" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="145" hits="0" branch="false"/>
 								<line number="146" hits="0" branch="false"/>
 								<line number="147" hits="0" branch="false"/>
 								<line number="148" hits="0" branch="false"/>
 								<line number="149" hits="0" branch="false"/>
-								<line number="151" hits="0" branch="false"/>
+								<line number="150" hits="0" branch="false"/>
 								<line number="152" hits="0" branch="false"/>
 								<line number="153" hits="0" branch="false"/>
-								<line number="155" hits="0" branch="false"/>
+								<line number="154" hits="0" branch="false"/>
+								<line number="156" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="createDiagram" signature="(Ljava/awt/Graphics;)Lde/weltraumschaf/jebnf/gfx/RailroadDiagram;" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="135" hits="0" branch="false"/>
+								<line number="136" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="createObjectDiagram" signature="(Ljava/awt/Graphics2D;)Lde/weltraumschaf/jebnf/gfx/shapes/compound/GridLayout;" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="77" hits="0" branch="false"/>
 								<line number="78" hits="0" branch="false"/>
-								<line number="81" hits="0" branch="false"/>
+								<line number="79" hits="0" branch="false"/>
 								<line number="82" hits="0" branch="false"/>
 								<line number="83" hits="0" branch="false"/>
 								<line number="84" hits="0" branch="false"/>
-								<line number="86" hits="0" branch="false"/>
-								<line number="94" hits="0" branch="false"/>
-								<line number="102" hits="0" branch="false"/>
-								<line number="108" hits="0" branch="false"/>
-								<line number="116" hits="0" branch="false"/>
-								<line number="124" hits="0" branch="false"/>
+								<line number="85" hits="0" branch="false"/>
+								<line number="87" hits="0" branch="false"/>
+								<line number="95" hits="0" branch="false"/>
+								<line number="103" hits="0" branch="false"/>
+								<line number="109" hits="0" branch="false"/>
+								<line number="117" hits="0" branch="false"/>
 								<line number="125" hits="0" branch="false"/>
+								<line number="126" hits="0" branch="false"/>
 							</lines>
 						</method>
 						<method name="createValueDiagram" signature="(Ljava/awt/Graphics2D;)Lde/weltraumschaf/jebnf/gfx/shapes/compound/GridLayout;" line-rate="0.0" branch-rate="1.0">
 							<lines>
-								<line number="38" hits="0" branch="false"/>
 								<line number="39" hits="0" branch="false"/>
-								<line number="49" hits="0" branch="false"/>
-								<line number="56" hits="0" branch="false"/>
-								<line number="66" hits="0" branch="false"/>
+								<line number="40" hits="0" branch="false"/>
+								<line number="50" hits="0" branch="false"/>
+								<line number="57" hits="0" branch="false"/>
 								<line number="67" hits="0" branch="false"/>
+								<line number="68" hits="0" branch="false"/>
 							</lines>
 						</method>
 					</methods>
 					<lines>
-						<line number="29" hits="0" branch="false"/>
-						<line number="38" hits="0" branch="false"/>
+						<line number="30" hits="0" branch="false"/>
 						<line number="39" hits="0" branch="false"/>
-						<line number="49" hits="0" branch="false"/>
-						<line number="56" hits="0" branch="false"/>
-						<line number="66" hits="0" branch="false"/>
+						<line number="40" hits="0" branch="false"/>
+						<line number="50" hits="0" branch="false"/>
+						<line number="57" hits="0" branch="false"/>
 						<line number="67" hits="0" branch="false"/>
-						<line number="77" hits="0" branch="false"/>
+						<line number="68" hits="0" branch="false"/>
 						<line number="78" hits="0" branch="false"/>
-						<line number="81" hits="0" branch="false"/>
+						<line number="79" hits="0" branch="false"/>
 						<line number="82" hits="0" branch="false"/>
 						<line number="83" hits="0" branch="false"/>
 						<line number="84" hits="0" branch="false"/>
-						<line number="86" hits="0" branch="false"/>
-						<line number="94" hits="0" branch="false"/>
-						<line number="102" hits="0" branch="false"/>
-						<line number="108" hits="0" branch="false"/>
-						<line number="116" hits="0" branch="false"/>
-						<line number="124" hits="0" branch="false"/>
+						<line number="85" hits="0" branch="false"/>
+						<line number="87" hits="0" branch="false"/>
+						<line number="95" hits="0" branch="false"/>
+						<line number="103" hits="0" branch="false"/>
+						<line number="109" hits="0" branch="false"/>
+						<line number="117" hits="0" branch="false"/>
 						<line number="125" hits="0" branch="false"/>
-						<line number="135" hits="0" branch="false"/>
-						<line number="145" hits="0" branch="false"/>
+						<line number="126" hits="0" branch="false"/>
+						<line number="136" hits="0" branch="false"/>
 						<line number="146" hits="0" branch="false"/>
 						<line number="147" hits="0" branch="false"/>
 						<line number="148" hits="0" branch="false"/>
 						<line number="149" hits="0" branch="false"/>
-						<line number="151" hits="0" branch="false"/>
+						<line number="150" hits="0" branch="false"/>
 						<line number="152" hits="0" branch="false"/>
 						<line number="153" hits="0" branch="false"/>
-						<line number="155" hits="0" branch="false"/>
+						<line number="154" hits="0" branch="false"/>
+						<line number="156" hits="0" branch="false"/>
 					</lines>
 				</class>
 				<class name="de.weltraumschaf.jebnf.gfx.Fonts" filename="de/weltraumschaf/jebnf/gfx/Fonts.java" line-rate="1.0" branch-rate="1.0" complexity="1.25">
