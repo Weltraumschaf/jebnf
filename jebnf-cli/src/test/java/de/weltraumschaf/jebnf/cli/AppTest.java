@@ -13,37 +13,32 @@ package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.cli.system.NullExiter;
-import java.io.InputStream;
-import java.io.PrintStream;
 import org.apache.commons.cli.ParseException;
 import static org.junit.Assert.*;
 import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
-import de.weltraumschaf.commons.IOStreams;
 
 /**
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class InvokerTest {
-
-    private final IOStreams ioStreams = new IOStreams(mock(InputStream.class), mock(PrintStream.class), mock(PrintStream.class));
+public class AppTest {
 
     @Test public void parseOptions() throws EbnfException, ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"-d", "-h"};
-        final Invoker sut = new Invoker(args, ioStreams, options);
+        final App sut = new App(args, options);
         sut.parseOptions();
         final CliOptions parsedOptions = sut.getOptions();
         assertSame(options, parsedOptions);
         verify(options, times(1)).parse(args);
     }
 
-    @Test public void parseOptionsWithPArseError() throws ParseException {
+    @Test public void parseOptionsWithParseError() throws ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"foo"};
-        final Invoker sut = new Invoker(args, ioStreams, options);
+        final App sut = new App(args, options);
         final ParseException throwed = new ParseException("foobar");
         doThrow(throwed).when(options).parse(args);
 
@@ -60,24 +55,24 @@ public class InvokerTest {
 
     @Ignore("TODO Implement test.")
     @Test(expected=NullExiter.ExitException.class)
-    public void isHelp() {
-        final Invoker invoker = new Invoker(new String[]{"-h"}, ioStreams);
+    public void isHelp() throws Exception {
+        final App invoker = new App(new String[]{"-h"});
         invoker.setExiter(new NullExiter());
-        invoker.run();
+        invoker.execute();
     }
 
     @Ignore("TODO Implement test.")
-    @Test public void isShowVersion() {
-        final Invoker invoker = new Invoker(new String[]{"-v"}, ioStreams);
+    @Test public void isShowVersion() throws Exception {
+        final App invoker = new App(new String[]{"-v"});
         invoker.setExiter(new NullExiter());
-        invoker.run();
+        invoker.execute();
     }
 
     @Ignore("TODO Implement test.")
-    @Test public void isIde() {
-        final Invoker invoker = new Invoker(new String[]{"-i"}, ioStreams);
+    @Test public void isIde() throws Exception {
+        final App invoker = new App(new String[]{"-i"});
         invoker.setExiter(new NullExiter());
-        invoker.run();
+        invoker.execute();
     }
 
 }

@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import de.weltraumschaf.commons.IOStreams;
 import de.weltraumschaf.jebnf.ExitCode;
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
 import de.weltraumschaf.jebnf.ast.visitor.TextGeneratingVisitor;
@@ -28,7 +29,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import de.weltraumschaf.commons.IOStreams;
 
 /**
  * Command line application.
@@ -59,7 +59,7 @@ public class CliApp extends BaseInvokeable implements Invokeable {
      * @param ioStreams IO streams.
      * @param invoker Invoked the invokable.
      */
-    public CliApp(final CliOptions options, final IOStreams ioStreams, final Invoker invoker) {
+    public CliApp(final CliOptions options, final IOStreams ioStreams, final App invoker) {
         super(options, ioStreams, invoker);
     }
 

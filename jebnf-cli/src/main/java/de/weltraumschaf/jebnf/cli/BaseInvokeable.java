@@ -33,7 +33,7 @@ public class BaseInvokeable {
     /**
      * Invoked the invokable.
      */
-    protected final Invoker invoker;
+    protected final App invoker;
 
     /**
      * Initializes app with options and IO streams.
@@ -42,7 +42,7 @@ public class BaseInvokeable {
      * @param ioStreams IO streams.
      * @param invoker Invoked the invokable.
      */
-    public BaseInvokeable(final CliOptions options, final IOStreams ioStreams, final Invoker invoker) {
+    public BaseInvokeable(final CliOptions options, final IOStreams ioStreams, final App invoker) {
         this.ioStreams = ioStreams;
         this.options = options;
         this.invoker = invoker;

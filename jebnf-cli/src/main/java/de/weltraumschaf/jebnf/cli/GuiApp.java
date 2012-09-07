@@ -53,7 +53,7 @@ public class GuiApp extends BaseInvokeable implements Runnable, Invokeable {
      * @param ioStreams IO streams.
      * @param invoker Invoked the invokable.
      */
-    public GuiApp(final CliOptions options, final IOStreams ioStreams, final Invoker invoker) {
+    public GuiApp(final CliOptions options, final IOStreams ioStreams, final App invoker) {
         super(options, ioStreams, invoker);
     }
 

@@ -11,31 +11,23 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import de.weltraumschaf.commons.InvokableAdapter;
+import de.weltraumschaf.commons.Version;
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCode;
-import de.weltraumschaf.jebnf.Version;
-import de.weltraumschaf.jebnf.cli.system.DefaultExiter;
 import de.weltraumschaf.jebnf.cli.system.Exitable;
 import de.weltraumschaf.jebnf.cli.system.NullExiter;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
-import de.weltraumschaf.commons.IOStreams;
 
 /**
  * Main class.
  *
  * Invokes {@link Invokeable "applications"}.
  *
- * XXX: Good candidate for de.weltraumschaf.commons.
- *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Invoker {
-
-    /**
-     * Default IO streams.
-     */
-    private static final IOStreams DEFAULT_IO = IOStreams.newDefault();
+public final class App extends InvokableAdapter {
 
     /**
      * Default command line options.
@@ -43,19 +35,14 @@ public final class Invoker {
     private static final CliOptions DEFAULT_OPTIONS = new CliOptions();
 
     /**
-     * Holds the IO streams (stdin, stdout, stderr).
-     */
-    private final IOStreams ioStreams;
-
-    /**
-     * Command line arguments from the JVM.
-     */
-    private final String[] args;
-
-    /**
      * Current command line options.
      */
     private final CliOptions options;
+
+    /**
+     * Version information.
+     */
+    private final Version version;
 
     /**
      * Abstracts {@link System#exit(int)}.
@@ -65,47 +52,33 @@ public final class Invoker {
     private Exitable exiter = new NullExiter();
 
     /**
-     * Initializes object with {@link #DEFAULT_IO}.
-     *
-     * @param args Command line arguments.
-     */
-    protected Invoker(final String[] args) {
-        this(args, DEFAULT_IO);
-    }
-
-    /**
      * Initializes object with {@link #DEFAULT_OPTIONS}.
      *
      * @param args Command line arguments.
-     * @param ioStreams IO streams.
      */
-    protected Invoker(final String[] args, IOStreams ioStreams) {
-        this(args, ioStreams, DEFAULT_OPTIONS);
+    protected App(final String[] args) {
+        this(args, DEFAULT_OPTIONS);
     }
 
     /**
      * Dedicated constructor.
      *
      * @param args Command line arguments.
-     * @param ioStreams IO streams.
      * @param options Command line options.
      */
-    protected Invoker(final String[] args, final IOStreams ioStreams, final CliOptions options) {
-        super();
-        this.args      = args.clone();
-        this.ioStreams = ioStreams;
-        this.options   = options;
+    protected App(final String[] args, final CliOptions options) {
+        super(args);
+        this.options = options;
+        this.version = new Version("/de/weltraumschaf/jebnf/version.properties");
     }
 
     /**
-     * Invoked by the JVM.
+     * Delegate application invocation to {@link InvokableAdapter#main(de.weltraumschaf.commons.Invokable)}.
      *
      * @param args Command line arguments.
      */
     public static void main(final String[] args) {
-        final Invoker invoker = new Invoker(args);
-        invoker.setExiter(new DefaultExiter());
-        invoker.run();
+        InvokableAdapter.main(new App(args));
     }
 
     /**
@@ -120,6 +93,8 @@ public final class Invoker {
     /**
      * Exits the application with given exit code.
      *
+     * @FIXME USe super#exit().
+     * 
      * @param code Exit code.
      */
     void exit(final ExitCode code) {
@@ -133,7 +108,7 @@ public final class Invoker {
      */
     protected void parseOptions() throws EbnfException {
         try {
-            options.parse(args);
+            options.parse(getArgs());
         } catch (ParseException ex) {
             throw new EbnfException(ex.getMessage(), 1, ex);
         }
@@ -143,43 +118,46 @@ public final class Invoker {
      * Runs the application.
      *
      * Parse options, determine to show help. Then executes either {@link CliApp} or {@link GuiApp}.
+     *
+     * @throws Exception On parse or I/O errors.
      */
-    public void run() {
+    @Override
+    public void execute() throws Exception {
         try {
             parseOptions();
 
             if (options.isHelp()) {
-                options.format(new HelpFormatter(), ioStreams.getStdout());
+                options.format(new HelpFormatter(), getIoStreams().getStdout());
                 exit(ExitCode.OK);
             }
 
             if (options.isShowVersion()) {
-                ioStreams.println(String.format("Version: %s", Version.getInstance()));
+                getIoStreams().println(String.format("Version: %s", version));
                 exit(ExitCode.OK);
             }
 
             Invokeable app;
 
             if (options.isIde()) {
-                app = new GuiApp(options, ioStreams, this);
+                app = new GuiApp(options, getIoStreams(), this);
             } else {
-                app = new CliApp(options, ioStreams, this);
+                app = new CliApp(options, getIoStreams(), this);
             }
 
             app.execute();
         } catch (EbnfException ex) {
-            ioStreams.printlnErr(ex.getMessage());
+            getIoStreams().printlnErr(ex.getMessage());
 
             if (options.isDebug()) {
-                ioStreams.printStackTraceToStdErr(ex);
+                getIoStreams().printStackTraceToStdErr(ex);
             }
 
             exiter.exit(ex.getCode());
         } catch (Exception ex) { // NOPMD Catch all exceptions!
-            ioStreams.printlnErr("Fatal error!");
+            getIoStreams().printlnErr("Fatal error!");
 
             if (options.isDebug()) {
-                ioStreams.printStackTraceToStdErr(ex);
+                getIoStreams().printStackTraceToStdErr(ex);
             }
 
             exit(ExitCode.FATAL_ERROR);

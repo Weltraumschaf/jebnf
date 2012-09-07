@@ -11,14 +11,11 @@
 
 package de.weltraumschaf.jebnf.cli;
 
-import java.io.OutputStream;
 import java.io.PrintStream;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.Test;
-import static org.mockito.Mockito.*;
 
 /**
  *
