@@ -16,7 +16,7 @@ package de.weltraumschaf.jebnf;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public enum ExitCode {
+public enum ExitCodeImpl {
 
     /**
      * Exit code for everything ok.
@@ -49,7 +49,7 @@ public enum ExitCode {
      *
      * @param code Integer error code.
      */
-    private ExitCode(final int code) {
+    private ExitCodeImpl(final int code) {
         this.code = code;
     }
 

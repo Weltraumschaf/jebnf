@@ -18,7 +18,7 @@ import de.weltraumschaf.commons.IOStreams;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class BaseInvokeable {
+public class DefaultApplication {
 
     /**
      * IO Streams.
@@ -33,7 +33,7 @@ public class BaseInvokeable {
     /**
      * Invoked the invokable.
      */
-    protected final App invoker;
+    protected final Main invoker;
 
     /**
      * Initializes app with options and IO streams.
@@ -42,7 +42,7 @@ public class BaseInvokeable {
      * @param ioStreams IO streams.
      * @param invoker Invoked the invokable.
      */
-    public BaseInvokeable(final CliOptions options, final IOStreams ioStreams, final App invoker) {
+    public DefaultApplication(final CliOptions options, final IOStreams ioStreams, final Main invoker) {
         this.ioStreams = ioStreams;
         this.options = options;
         this.invoker = invoker;

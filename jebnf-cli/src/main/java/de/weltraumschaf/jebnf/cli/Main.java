@@ -13,21 +13,21 @@ package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.InvokableAdapter;
 import de.weltraumschaf.commons.Version;
+import de.weltraumschaf.commons.system.Exitable;
+import de.weltraumschaf.commons.system.NullExiter;
 import de.weltraumschaf.jebnf.EbnfException;
-import de.weltraumschaf.jebnf.ExitCode;
-import de.weltraumschaf.jebnf.cli.system.Exitable;
-import de.weltraumschaf.jebnf.cli.system.NullExiter;
+import de.weltraumschaf.jebnf.ExitCodeImpl;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
 /**
  * Main class.
  *
- * Invokes {@link Invokeable "applications"}.
+ * Invokes {@link Application "applications"}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class App extends InvokableAdapter {
+public final class Main extends InvokableAdapter {
 
     /**
      * Default command line options.
@@ -56,7 +56,7 @@ public final class App extends InvokableAdapter {
      *
      * @param args Command line arguments.
      */
-    protected App(final String[] args) {
+    protected Main(final String[] args) {
         this(args, DEFAULT_OPTIONS);
     }
 
@@ -66,7 +66,7 @@ public final class App extends InvokableAdapter {
      * @param args Command line arguments.
      * @param options Command line options.
      */
-    protected App(final String[] args, final CliOptions options) {
+    protected Main(final String[] args, final CliOptions options) {
         super(args);
         this.options = options;
         this.version = new Version("/de/weltraumschaf/jebnf/version.properties");
@@ -78,7 +78,7 @@ public final class App extends InvokableAdapter {
      * @param args Command line arguments.
      */
     public static void main(final String[] args) {
-        InvokableAdapter.main(new App(args));
+        InvokableAdapter.main(new Main(args));
     }
 
     /**
@@ -94,10 +94,10 @@ public final class App extends InvokableAdapter {
      * Exits the application with given exit code.
      *
      * @FIXME USe super#exit().
-     * 
+     *
      * @param code Exit code.
      */
-    void exit(final ExitCode code) {
+    void exit(final ExitCodeImpl code) {
         exiter.exit(code.getCode());
     }
 
@@ -117,7 +117,7 @@ public final class App extends InvokableAdapter {
     /**
      * Runs the application.
      *
-     * Parse options, determine to show help. Then executes either {@link CliApp} or {@link GuiApp}.
+     * Parse options, determine to show help. Then executes either {@link CliApplication} or {@link GuiApplication}.
      *
      * @throws Exception On parse or I/O errors.
      */
@@ -128,20 +128,20 @@ public final class App extends InvokableAdapter {
 
             if (options.isHelp()) {
                 options.format(new HelpFormatter(), getIoStreams().getStdout());
-                exit(ExitCode.OK);
+                exit(ExitCodeImpl.OK);
             }
 
             if (options.isShowVersion()) {
                 getIoStreams().println(String.format("Version: %s", version));
-                exit(ExitCode.OK);
+                exit(ExitCodeImpl.OK);
             }
 
-            Invokeable app;
+            Application app;
 
             if (options.isIde()) {
-                app = new GuiApp(options, getIoStreams(), this);
+                app = new GuiApplication(options, getIoStreams(), this);
             } else {
-                app = new CliApp(options, getIoStreams(), this);
+                app = new CliApplication(options, getIoStreams(), this);
             }
 
             app.execute();
@@ -160,7 +160,7 @@ public final class App extends InvokableAdapter {
                 getIoStreams().printStackTraceToStdErr(ex);
             }
 
-            exit(ExitCode.FATAL_ERROR);
+            exit(ExitCodeImpl.FATAL_ERROR);
         }
     }
 

@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import de.weltraumschaf.commons.CapturingOutputStream;
 import java.io.PrintStream;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;

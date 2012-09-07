@@ -12,7 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.jebnf.EbnfException;
-import de.weltraumschaf.jebnf.cli.system.NullExiter;
+import de.weltraumschaf.commons.system.NullExiter;
 import org.apache.commons.cli.ParseException;
 import static org.junit.Assert.*;
 import org.junit.Ignore;
@@ -23,12 +23,12 @@ import static org.mockito.Mockito.*;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class AppTest {
+public class MainTest {
 
     @Test public void parseOptions() throws EbnfException, ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"-d", "-h"};
-        final App sut = new App(args, options);
+        final Main sut = new Main(args, options);
         sut.parseOptions();
         final CliOptions parsedOptions = sut.getOptions();
         assertSame(options, parsedOptions);
@@ -38,7 +38,7 @@ public class AppTest {
     @Test public void parseOptionsWithParseError() throws ParseException {
         final CliOptions options = mock(CliOptions.class);
         final String[] args = new String[]{"foo"};
-        final App sut = new App(args, options);
+        final Main sut = new Main(args, options);
         final ParseException throwed = new ParseException("foobar");
         doThrow(throwed).when(options).parse(args);
 
@@ -56,21 +56,21 @@ public class AppTest {
     @Ignore("TODO Implement test.")
     @Test(expected=NullExiter.ExitException.class)
     public void isHelp() throws Exception {
-        final App invoker = new App(new String[]{"-h"});
+        final Main invoker = new Main(new String[]{"-h"});
         invoker.setExiter(new NullExiter());
         invoker.execute();
     }
 
     @Ignore("TODO Implement test.")
     @Test public void isShowVersion() throws Exception {
-        final App invoker = new App(new String[]{"-v"});
+        final Main invoker = new Main(new String[]{"-v"});
         invoker.setExiter(new NullExiter());
         invoker.execute();
     }
 
     @Ignore("TODO Implement test.")
     @Test public void isIde() throws Exception {
-        final App invoker = new App(new String[]{"-i"});
+        final Main invoker = new Main(new String[]{"-i"});
         invoker.setExiter(new NullExiter());
         invoker.execute();
     }

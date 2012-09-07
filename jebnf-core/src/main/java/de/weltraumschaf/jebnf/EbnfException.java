@@ -38,7 +38,7 @@ public class EbnfException extends Exception {
      * @param message Error message.
      */
     public EbnfException(final String message) {
-        this(message, ExitCode.FATAL_ERROR);
+        this(message, ExitCodeImpl.FATAL_ERROR);
     }
 
     /**
@@ -47,7 +47,7 @@ public class EbnfException extends Exception {
      * @param message Error message.
      * @param code Exit code.
      */
-    public EbnfException(final String message, final ExitCode code) {
+    public EbnfException(final String message, final ExitCodeImpl code) {
         this(message, code.getCode());
     }
 
@@ -68,7 +68,7 @@ public class EbnfException extends Exception {
      * @param code Exit code.
      * @param cause Previous error.
      */
-    public EbnfException(final String message, final ExitCode code, final Throwable cause) {
+    public EbnfException(final String message, final ExitCodeImpl code, final Throwable cause) {
         this(message, code.getCode(), cause);
     }
 

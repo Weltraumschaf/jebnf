@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf;
 
-import de.weltraumschaf.jebnf.ExitCode;
+import de.weltraumschaf.jebnf.ExitCodeImpl;
 import de.weltraumschaf.jebnf.EbnfException;
 import java.io.IOException;
 import static org.junit.Assert.*;
@@ -26,12 +26,12 @@ public class EbnfExceptionTest {
     @Test public void creation() {
         EbnfException sut = new EbnfException("foo");
         assertEquals("foo", sut.getMessage());
-        assertEquals(ExitCode.FATAL_ERROR.getCode(), sut.getCode());
+        assertEquals(ExitCodeImpl.FATAL_ERROR.getCode(), sut.getCode());
         assertNull(sut.getCause());
 
-        sut = new EbnfException("bar", ExitCode.NO_SYNTAX);
+        sut = new EbnfException("bar", ExitCodeImpl.NO_SYNTAX);
         assertEquals("bar", sut.getMessage());
-        assertEquals(ExitCode.NO_SYNTAX.getCode(), sut.getCode());
+        assertEquals(ExitCodeImpl.NO_SYNTAX.getCode(), sut.getCode());
         assertNull(sut.getCause());
 
         sut = new EbnfException("baz", 5);
@@ -45,9 +45,9 @@ public class EbnfExceptionTest {
         assertEquals(5, sut.getCode());
         assertSame(cause, sut.getCause());
 
-        sut = new EbnfException("bla", ExitCode.NO_SYNTAX, cause);
+        sut = new EbnfException("bla", ExitCodeImpl.NO_SYNTAX, cause);
         assertEquals("bla", sut.getMessage());
-        assertEquals(ExitCode.NO_SYNTAX.getCode(), sut.getCode());
+        assertEquals(ExitCodeImpl.NO_SYNTAX.getCode(), sut.getCode());
         assertSame(cause, sut.getCause());
     }
 }

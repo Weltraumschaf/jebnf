@@ -12,7 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
-import de.weltraumschaf.jebnf.ExitCode;
+import de.weltraumschaf.jebnf.ExitCodeImpl;
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
 import de.weltraumschaf.jebnf.ast.visitor.TextGeneratingVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree;
@@ -35,7 +35,7 @@ import java.io.Writer;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CliApp extends BaseInvokeable implements Invokeable {
+public class CliApplication extends DefaultApplication implements Application {
 
     /**
      * Default width in pixel.
@@ -59,7 +59,7 @@ public class CliApp extends BaseInvokeable implements Invokeable {
      * @param ioStreams IO streams.
      * @param invoker Invoked the invokable.
      */
-    public CliApp(final CliOptions options, final IOStreams ioStreams, final App invoker) {
+    public CliApplication(final CliOptions options, final IOStreams ioStreams, final Main invoker) {
         super(options, ioStreams, invoker);
     }
 
@@ -67,7 +67,7 @@ public class CliApp extends BaseInvokeable implements Invokeable {
     public void execute() {
         if (!options.hasSyntaxFile()) {
             ioStreams.printlnErr("No syntax file given!");
-            invoker.exit(ExitCode.NO_SYNTAX);
+            invoker.exit(ExitCodeImpl.NO_SYNTAX);
         }
 
         final String syntaxFileName = options.getSyntaxFile();
@@ -91,7 +91,7 @@ public class CliApp extends BaseInvokeable implements Invokeable {
                 ioStreams.printStackTraceToStdErr(ex);
             }
 
-            invoker.exit(ExitCode.SYNTAX_ERROR);
+            invoker.exit(ExitCodeImpl.SYNTAX_ERROR);
         } catch (FileNotFoundException ex) {
             ioStreams.printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
 
@@ -99,7 +99,7 @@ public class CliApp extends BaseInvokeable implements Invokeable {
                 ioStreams.printStackTraceToStdErr(ex);
             }
 
-            invoker.exit(ExitCode.READ_ERROR);
+            invoker.exit(ExitCodeImpl.READ_ERROR);
         } catch (IOException ex) {
             ioStreams.printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
 
@@ -107,10 +107,10 @@ public class CliApp extends BaseInvokeable implements Invokeable {
                 ioStreams.printStackTraceToStdErr(ex);
             }
 
-            invoker.exit(ExitCode.READ_ERROR);
+            invoker.exit(ExitCodeImpl.READ_ERROR);
         }
 
-        invoker.exit(ExitCode.OK);
+        invoker.exit(ExitCodeImpl.OK);
     }
 
     /**

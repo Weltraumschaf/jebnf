@@ -24,7 +24,7 @@ import de.weltraumschaf.commons.IOStreams;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class GuiApp extends BaseInvokeable implements Runnable, Invokeable {
+public class GuiApplication extends DefaultApplication implements Runnable, Application {
 
     /**
      * Default diagram width.
@@ -53,7 +53,7 @@ public class GuiApp extends BaseInvokeable implements Runnable, Invokeable {
      * @param ioStreams IO streams.
      * @param invoker Invoked the invokable.
      */
-    public GuiApp(final CliOptions options, final IOStreams ioStreams, final App invoker) {
+    public GuiApplication(final CliOptions options, final IOStreams ioStreams, final Main invoker) {
         super(options, ioStreams, invoker);
     }
 

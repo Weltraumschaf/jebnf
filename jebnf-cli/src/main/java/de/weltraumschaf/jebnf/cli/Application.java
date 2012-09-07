@@ -9,20 +9,20 @@
  *
  */
 
-package de.weltraumschaf.jebnf.cli.system;
-
-import de.weltraumschaf.jebnf.ExitCode;
+package de.weltraumschaf.jebnf.cli;
 
 /**
- * Common shared functionality for exiters.
+ * Interface to describe command pattern.
+ *
+ * XXX: Good candidate for de.weltraumschaf.commons.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class BaseExiter implements Exitable {
+public interface Application {
 
-    @Override
-    public void exit(ExitCode status) {
-        exit(status.getCode());
-    }
+    /**
+     * Executable command method.
+     */
+    void execute();
 
 }
