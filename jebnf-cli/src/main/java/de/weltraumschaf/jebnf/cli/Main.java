@@ -13,7 +13,6 @@ package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.InvokableAdapter;
 import de.weltraumschaf.commons.Version;
-import de.weltraumschaf.commons.system.Exitable;
 import de.weltraumschaf.commons.system.NullExiter;
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
@@ -45,18 +44,11 @@ public final class Main extends InvokableAdapter {
     private final Version version;
 
     /**
-     * Abstracts {@link System#exit(int)}.
-     *
-     * By default this filed is a {@link NullExiter} to prevent NPE.
-     */
-    private Exitable exiter = new NullExiter();
-
-    /**
      * Initializes object with {@link #DEFAULT_OPTIONS}.
      *
      * @param args Command line arguments.
      */
-    protected Main(final String[] args) {
+    public Main(final String[] args) {
         this(args, DEFAULT_OPTIONS);
     }
 
@@ -66,7 +58,7 @@ public final class Main extends InvokableAdapter {
      * @param args Command line arguments.
      * @param options Command line options.
      */
-    protected Main(final String[] args, final CliOptions options) {
+    public Main(final String[] args, final CliOptions options) {
         super(args);
         this.options = options;
         this.version = new Version("/de/weltraumschaf/jebnf/version.properties");
@@ -79,26 +71,6 @@ public final class Main extends InvokableAdapter {
      */
     public static void main(final String[] args) {
         InvokableAdapter.main(new Main(args));
-    }
-
-    /**
-     * Set the exiter.
-     *
-     * @param exiter The used exiter.
-     */
-    public void setExiter(final Exitable exiter) {
-        this.exiter = exiter;
-    }
-
-    /**
-     * Exits the application with given exit code.
-     *
-     * @FIXME USe super#exit().
-     *
-     * @param code Exit code.
-     */
-    void exit(final ExitCodeImpl code) {
-        exiter.exit(code.getCode());
     }
 
     /**
@@ -140,6 +112,7 @@ public final class Main extends InvokableAdapter {
 
             if (options.isIde()) {
                 app = new GuiApplication(options, getIoStreams(), this);
+                setExiter(new NullExiter()); // Do not exit on return.
             } else {
                 app = new CliApplication(options, getIoStreams(), this);
             }
@@ -152,7 +125,7 @@ public final class Main extends InvokableAdapter {
                 getIoStreams().printStackTraceToStdErr(ex);
             }
 
-            exiter.exit(ex.getCode());
+            exit(ex.getCode());
         } catch (Exception ex) { // NOPMD Catch all exceptions!
             getIoStreams().printlnErr("Fatal error!");
 

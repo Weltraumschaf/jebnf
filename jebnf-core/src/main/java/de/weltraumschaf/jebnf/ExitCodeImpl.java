@@ -11,12 +11,14 @@
 
 package de.weltraumschaf.jebnf;
 
+import de.weltraumschaf.commons.system.ExitCode;
+
 /**
  * Enumerates the exit codes with an associated error code number.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public enum ExitCodeImpl {
+public enum ExitCodeImpl implements ExitCode {
 
     /**
      * Exit code for everything ok.

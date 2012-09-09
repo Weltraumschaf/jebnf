@@ -11,8 +11,8 @@
 
 package de.weltraumschaf.jebnf.cli;
 
-import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.commons.system.NullExiter;
+import de.weltraumschaf.jebnf.EbnfException;
 import org.apache.commons.cli.ParseException;
 import static org.junit.Assert.*;
 import org.junit.Ignore;
@@ -54,7 +54,6 @@ public class MainTest {
     }
 
     @Ignore("TODO Implement test.")
-    @Test(expected=NullExiter.ExitException.class)
     public void isHelp() throws Exception {
         final Main invoker = new Main(new String[]{"-h"});
         invoker.setExiter(new NullExiter());
