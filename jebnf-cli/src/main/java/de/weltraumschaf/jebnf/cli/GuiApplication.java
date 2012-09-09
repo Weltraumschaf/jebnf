@@ -24,7 +24,7 @@ import de.weltraumschaf.commons.IOStreams;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class GuiApplication extends DefaultApplication implements Runnable, Application {
+public class GuiApplication extends ApplicationAdapter implements Runnable {
 
     /**
      * Default diagram width.

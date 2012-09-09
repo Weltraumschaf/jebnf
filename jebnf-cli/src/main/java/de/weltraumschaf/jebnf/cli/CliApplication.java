@@ -35,7 +35,7 @@ import java.io.Writer;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CliApplication extends DefaultApplication implements Application {
+public class CliApplication extends ApplicationAdapter {
 
     /**
      * Default width in pixel.

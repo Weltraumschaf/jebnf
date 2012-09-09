@@ -18,7 +18,7 @@ import de.weltraumschaf.commons.IOStreams;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class DefaultApplication {
+public abstract class ApplicationAdapter implements Application {
 
     /**
      * IO Streams.
@@ -42,7 +42,7 @@ public class DefaultApplication {
      * @param ioStreams IO streams.
      * @param invoker Invoked the invokable.
      */
-    public DefaultApplication(final CliOptions options, final IOStreams ioStreams, final Main invoker) {
+    public ApplicationAdapter(final CliOptions options, final IOStreams ioStreams, final Main invoker) {
         this.ioStreams = ioStreams;
         this.options = options;
         this.invoker = invoker;
