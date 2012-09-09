@@ -144,7 +144,7 @@ public class CreatorHelper {
      */
     public RailroadDiagram createDiagram(final Graphics2D graphics) {
         final Point offset = new Point(20, 20);
-        final RailroadDiagram diagram = new RailroadDiagram();
+        final RailroadDiagram diagram = new RailroadDiagram(true);
         final Shape value = createValueDiagram(graphics);
         value.setPosition(offset);
         diagram.add(value);

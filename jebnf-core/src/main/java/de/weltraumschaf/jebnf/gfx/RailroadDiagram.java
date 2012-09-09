@@ -83,11 +83,7 @@ public class RailroadDiagram {
      * @param graphic Context to use with antialiasing.
      */
     private void antialiase(final Graphics2D graphic) {
-        final RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-                                                        RenderingHints.VALUE_ANTIALIAS_ON);
-
-        hints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
-        graphic.setRenderingHints(hints);
+        Antialiaser.turnOn(graphic);
     }
 
     /**
