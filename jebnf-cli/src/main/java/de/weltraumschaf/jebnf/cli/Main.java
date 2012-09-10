@@ -16,6 +16,14 @@ import de.weltraumschaf.commons.Version;
 import de.weltraumschaf.commons.system.NullExiter;
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
+import de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder;
+import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.parser.Factory;
+import de.weltraumschaf.jebnf.parser.Parser;
+import de.weltraumschaf.jebnf.parser.SyntaxException;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import org.apache.commons.cli.HelpFormatter;
 import org.apache.commons.cli.ParseException;
 
@@ -108,6 +116,44 @@ public final class Main extends InvokableAdapter {
                 exit(ExitCodeImpl.OK);
             }
 
+            if (!options.hasSyntaxFile()) {
+                getIoStreams().printlnErr("No syntax file given!");
+                exit(ExitCodeImpl.NO_SYNTAX);
+            }
+
+            final String syntaxFileName = options.getSyntaxFile();
+            Syntax ast = null;
+
+            try {
+                final File syntaxFile = new File(syntaxFileName);
+                final Parser parser   = Factory.newParserFromSource(syntaxFile);
+                ast = parser.parse();
+            } catch (SyntaxException ex) {
+                getIoStreams().printlnErr("Syntax error: " + ex.getMessage());
+
+                if (options.isDebug()) {
+                    getIoStreams().printStackTraceToStdErr(ex);
+                }
+
+                exit(ExitCodeImpl.SYNTAX_ERROR);
+            } catch (FileNotFoundException ex) {
+                getIoStreams().printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
+
+                if (options.isDebug()) {
+                    getIoStreams().printStackTraceToStdErr(ex);
+                }
+
+                exit(ExitCodeImpl.READ_ERROR);
+            } catch (IOException ex) {
+                getIoStreams().printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
+
+                if (options.isDebug()) {
+                    getIoStreams().printStackTraceToStdErr(ex);
+                }
+
+                exit(ExitCodeImpl.READ_ERROR);
+            }
+
             Application app;
 
             if (options.isIde()) {
@@ -117,6 +163,7 @@ public final class Main extends InvokableAdapter {
                 app = new CliApplication(options, getIoStreams(), this);
             }
 
+            app.setSyntax(ast);
             app.execute();
         } catch (EbnfException ex) {
             getIoStreams().printlnErr(ex.getMessage());

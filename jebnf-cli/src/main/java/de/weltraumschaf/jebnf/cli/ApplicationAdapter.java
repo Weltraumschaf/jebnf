@@ -12,6 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
+import de.weltraumschaf.jebnf.ast.nodes.Syntax;
 
 /**
  * Common functionality for base invokable apps.
@@ -35,6 +36,8 @@ public abstract class ApplicationAdapter implements Application {
      */
     protected final Main invoker;
 
+    protected Syntax ast;
+
     /**
      * Initializes app with options and IO streams.
      *
@@ -48,4 +51,8 @@ public abstract class ApplicationAdapter implements Application {
         this.invoker = invoker;
     }
 
+    @Override
+    public void setSyntax(final Syntax ast) {
+        this.ast = ast;
+    }
 }

@@ -20,12 +20,8 @@ import de.weltraumschaf.jebnf.ast.visitor.Xml;
 import de.weltraumschaf.jebnf.gfx.CreatorHelper;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagramImage;
-import de.weltraumschaf.jebnf.parser.Factory;
-import de.weltraumschaf.jebnf.parser.Parser;
-import de.weltraumschaf.jebnf.parser.SyntaxException;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -64,50 +60,13 @@ public class CliApplication extends ApplicationAdapter {
     }
 
     @Override
-    public void execute() {
-        if (!options.hasSyntaxFile()) {
-            ioStreams.printlnErr("No syntax file given!");
-            invoker.exit(ExitCodeImpl.NO_SYNTAX);
-        }
-
-        final String syntaxFileName = options.getSyntaxFile();
-
-        try {
-            final File syntaxFile = new File(syntaxFileName);
-            final Parser parser   = Factory.newParserFromSource(syntaxFile);
-            final Syntax ast      = parser.parse();
-
-            if (options.isTextTree()) {
-                generateTextTree(ast);
-            } else if (options.getOutputFormat() == OutputFormat.XML) {
-                generateXmlTree(ast);
-            } else {
-                generateRailroadImage(ast);
-            }
-        } catch (SyntaxException ex) {
-            ioStreams.printlnErr("Syntax error: " + ex.getMessage());
-
-            if (options.isDebug()) {
-                ioStreams.printStackTraceToStdErr(ex);
-            }
-
-            invoker.exit(ExitCodeImpl.SYNTAX_ERROR);
-        } catch (FileNotFoundException ex) {
-            ioStreams.printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
-
-            if (options.isDebug()) {
-                ioStreams.printStackTraceToStdErr(ex);
-            }
-
-            invoker.exit(ExitCodeImpl.READ_ERROR);
-        } catch (IOException ex) {
-            ioStreams.printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
-
-            if (options.isDebug()) {
-                ioStreams.printStackTraceToStdErr(ex);
-            }
-
-            invoker.exit(ExitCodeImpl.READ_ERROR);
+    public void execute() throws IOException {
+        if (options.getOutputFormat() == OutputFormat.TREE) {
+            generateTextTree(ast);
+        } else if (options.getOutputFormat() == OutputFormat.XML) {
+            generateXmlTree(ast);
+        } else {
+            generateRailroadImage(ast);
         }
 
         invoker.exit(ExitCodeImpl.OK);
@@ -121,7 +80,8 @@ public class CliApplication extends ApplicationAdapter {
      * @param ast Syntax tree to format.
      */
     private void generateRailroadImage(final Syntax ast) {
-        final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, new File("./test.png"));
+        final File outputFile = new File(options.getOutputFile());
+        final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, outputFile);
         final RailroadDiagram diagram = helper.createDiagram(img.getGraphics());
         diagram.setDebug(options.isDebug());
         img.setDiagram(diagram);

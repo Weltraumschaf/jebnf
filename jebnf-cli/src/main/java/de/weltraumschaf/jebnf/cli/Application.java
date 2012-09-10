@@ -11,6 +11,9 @@
 
 package de.weltraumschaf.jebnf.cli;
 
+import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import java.io.IOException;
+
 /**
  * Interface to describe command pattern.
  *
@@ -23,6 +26,8 @@ public interface Application {
     /**
      * Executable command method.
      */
-    void execute();
+    void execute() throws IOException ;
+
+    void setSyntax(Syntax ast);
 
 }
