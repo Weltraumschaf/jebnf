@@ -27,15 +27,17 @@ public class AntialiaserTest {
     @Test
     public void turnOn() {
         assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, sut.getRenderingHint(Antialiaser.HINT_KEY));
-        Antialiaser.turnOn(sut);
+        final Object oldValue = Antialiaser.turnOn(sut);
         assertEquals(RenderingHints.VALUE_ANTIALIAS_ON, sut.getRenderingHint(Antialiaser.HINT_KEY));
+        assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, oldValue);
     }
 
     @Test
     public void turnOff() {
         assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, sut.getRenderingHint(Antialiaser.HINT_KEY));
-        Antialiaser.turnOff(sut);
+        final Object oldValue = Antialiaser.turnOff(sut);
         assertEquals(RenderingHints.VALUE_ANTIALIAS_OFF, sut.getRenderingHint(Antialiaser.HINT_KEY));
+        assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, oldValue);
     }
 
 }
