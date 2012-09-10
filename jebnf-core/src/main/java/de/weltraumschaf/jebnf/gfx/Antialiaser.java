@@ -43,7 +43,7 @@ public final class Antialiaser {
      */
     public static Object turnOn(final Graphics2D graphic) {
         final Object oldValue = graphic.getRenderingHint(HINT_KEY);
-        graphic.setRenderingHint(HINT_KEY, RenderingHints.VALUE_ANTIALIAS_ON);
+        setHintOnGraphics(graphic, RenderingHints.VALUE_ANTIALIAS_ON);
         return oldValue;
     }
 
@@ -54,8 +54,18 @@ public final class Antialiaser {
      */
     public static Object turnOff(final Graphics2D graphic) {
         final Object oldValue = graphic.getRenderingHint(HINT_KEY);
-        graphic.setRenderingHint(HINT_KEY, RenderingHints.VALUE_ANTIALIAS_OFF);
+        setHintOnGraphics(graphic, RenderingHints.VALUE_ANTIALIAS_OFF);
         return oldValue;
+    }
+
+    /**
+     * Sets a hint on the given graphics context.
+     *
+     * @param graphic Context to set hint.
+     * @param hint Hint to set.
+     */
+    public static void setHintOnGraphics(final Graphics2D graphic, final Object hint) {
+        graphic.setRenderingHint(HINT_KEY, hint);
     }
 
 }
