@@ -87,6 +87,26 @@ public class Point {
         return y;
     }
 
+    /**
+     * Returns a new point moved on x for given pixels.
+     *
+     * @param pixels How many pixels to move.
+     * @return new instance.
+     */
+    public Point moveX(final int pixels) {
+        return new Point(x + pixels, y);
+    }
+
+    /**
+     * Returns a new point moved on y for given pixels.
+     *
+     * @param pixels How many pixels to move.
+     * @return new instance.
+     */
+    public Point moveY(final int pixels) {
+        return new Point(x, y + pixels);
+    }
+
     @Override
     public String toString() {
         return Objects.toStringHelper(this)

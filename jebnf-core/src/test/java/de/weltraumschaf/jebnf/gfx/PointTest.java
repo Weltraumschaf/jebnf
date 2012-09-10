@@ -15,6 +15,7 @@ import de.weltraumschaf.jebnf.gfx.Point;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -78,6 +79,20 @@ public class PointTest {
         assertThat(point1, equalTo(point2));
         assertThat(point1, not(equalTo(point3)));
         assertThat(point2, not(equalTo(point3)));
+    }
+
+    @Test public void moveX() {
+        final Point startPoint = new Point(11, 22);
+        final Point movedPoint = startPoint.moveX(5);
+        assertEquals(16, movedPoint.getX());
+        assertEquals(22, movedPoint.getY());
+    }
+
+    @Test public void moveY() {
+        final Point startPoint = new Point(11, 22);
+        final Point movedPoint = startPoint.moveY(5);
+        assertEquals(11, movedPoint.getX());
+        assertEquals(27, movedPoint.getY());
     }
 
 }
