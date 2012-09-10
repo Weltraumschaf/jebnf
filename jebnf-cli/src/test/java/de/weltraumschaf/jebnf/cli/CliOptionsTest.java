@@ -34,7 +34,6 @@ public class CliOptionsTest {
         final CliOptions options = new CliOptions();
         assertFalse(options.isDebug());
         assertFalse(options.isHelp());
-        assertFalse(options.isTextTree());
         assertFalse(options.isIde());
         assertFalse(options.hasOutputFile());
         assertFalse(options.hasSyntaxFile());
@@ -46,41 +45,29 @@ public class CliOptionsTest {
         CliOptions options = setUpSut(new String[] {"-d"});
         assertTrue(options.isDebug());
         assertFalse(options.isHelp());
-        assertFalse(options.isTextTree());
         assertFalse(options.isIde());
         assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"-h"});
         assertTrue(options.isHelp());
         assertFalse(options.isDebug());
-        assertFalse(options.isTextTree());
-        assertFalse(options.isIde());
-        assertFalse(options.isShowVersion());
-
-        options = setUpSut(new String[] {"-t"});
-        assertTrue(options.isTextTree());
-        assertFalse(options.isDebug());
-        assertFalse(options.isHelp());
         assertFalse(options.isIde());
         assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"-i"});
         assertTrue(options.isIde());
-        assertFalse(options.isTextTree());
         assertFalse(options.isDebug());
         assertFalse(options.isHelp());
         assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"--ide"});
         assertTrue(options.isIde());
-        assertFalse(options.isTextTree());
         assertFalse(options.isDebug());
         assertFalse(options.isHelp());
         assertFalse(options.isShowVersion());
 
         options = setUpSut(new String[] {"-v"});
         assertFalse(options.isIde());
-        assertFalse(options.isTextTree());
         assertFalse(options.isDebug());
         assertFalse(options.isHelp());
         assertTrue(options.isShowVersion());
@@ -106,6 +93,10 @@ public class CliOptionsTest {
         assertTrue(options.hasOutputFormat());
         assertEquals(OutputFormat.XML, options.getOutputFormat());
 
+        options = setUpSut(new String[] {"-f", "tree"});
+        assertTrue(options.hasOutputFormat());
+        assertEquals(OutputFormat.TREE, options.getOutputFormat());
+
         options = setUpSut(new String[] {"-f", "jpg"});
         assertTrue(options.hasOutputFormat());
         assertEquals(OutputFormat.JPG, options.getOutputFormat());
@@ -125,19 +116,17 @@ public class CliOptionsTest {
 
     @Test public void format() {
         final String expectedHelpMessage = String.format(
-            "usage: jebnf [-d] [-f <format>] [-h] [-i] [-o <file>] [-s <file>] [-t]%n" +
-            "       [-v]%n" +
+            "usage: jebnf [-d] [-f <format>] [-h] [-i] [-o <file>] [-s <file>] [-v]%n" +
             "%n" +
             "Write sone helpful text.%n" +
             " -d            Enables debug output.%n" +
-            " -f <format>   Output format: xml, jpg, gif, or png.%n" +
+            " -f <format>   Output format: tree, xml, jpg, gif, or png.%n" +
             " -h            This help.%n" +
             " -i,--ide      Starts the GUI IDE.%n" +
             " -o <file>     Output file name. If omitted output will be print to%n" +
             "               STDOUT.%n" +
             " -s <file>     EBNF syntax file to parse. Required option, unless you use%n" +
             "               the IDE.%n" +
-            " -t            Prints textual representation of the syntax tree to stdout.%n" +
             " -v            Show version information.%n" +
             "%n" +
             "Written 2012 by Sven Strittmatter <weltraumschaf@googlemail.com>%n" +
