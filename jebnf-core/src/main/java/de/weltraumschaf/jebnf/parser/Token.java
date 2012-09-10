@@ -177,7 +177,7 @@ public class Token {
      * @return             True or false.
      */
     public final boolean isType(final TokenType checkedType) {
-        return type == checkedType;
+        return type == checkedType; // NOPMD Enums may be treated like integers.
     }
 
     /**

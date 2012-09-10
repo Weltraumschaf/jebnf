@@ -127,7 +127,7 @@ public abstract class AbstractNode implements Node {
 
     @Override
     public boolean isType(final NodeType checked) {
-        return type == checked;
+        return type == checked; // NOPMD Enums may be treated like integers.
     }
 
 }

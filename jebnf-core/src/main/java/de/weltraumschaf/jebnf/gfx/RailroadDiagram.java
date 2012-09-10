@@ -14,7 +14,6 @@ package de.weltraumschaf.jebnf.gfx;
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
 import java.util.List;
 
 /**
