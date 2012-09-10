@@ -163,7 +163,7 @@ public abstract class AbstractTextShape extends Empty implements TextShape {
     protected Line calculateInLine(final int boxWidth) {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
-        final Point start    = new Point(pos.getX(), vCenter);
+        final Point start    = new Point(pos.getX() - 1, vCenter);
         final Point end      = new Point(pos.getX() + calculateHorizontalPadding(boxWidth), vCenter);
         return new Line(start, end);
     }

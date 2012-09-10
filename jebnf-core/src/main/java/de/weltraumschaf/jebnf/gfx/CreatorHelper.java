@@ -13,6 +13,7 @@ package de.weltraumschaf.jebnf.gfx;
 
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
+import de.weltraumschaf.jebnf.gfx.shapes.Straights;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
@@ -28,6 +29,29 @@ import java.awt.Graphics2D;
  */
 @Deprecated
 public class CreatorHelper {
+
+    private static final int START_X = 20;
+
+    private static final int START_Y = 20;
+
+    public GridLayout createStraights(final Graphics2D graphics) {
+        final GridLayout straights = grid();
+        straights.append(
+            column().append(
+                row().append(
+                    empty(),
+                    straight(Straights.WEST_EAST),
+                    straight(Straights.WEST_EAST),
+                    empty(),
+                    straight(Straights.NORT_SOUTH),
+                    empty()
+                )
+            )
+        );
+
+        straights.adjust(graphics);
+        return straights;
+    }
 
     /**
      * Creates a diagram for the "value syntax" of JavaScript. See json.org.
@@ -143,14 +167,21 @@ public class CreatorHelper {
      * @return New instance.
      */
     public RailroadDiagram createDiagram(final Graphics2D graphics) {
-        final Point offset = new Point(20, 20);
+        Point offset = new Point(START_X, START_Y);
         final RailroadDiagram diagram = new RailroadDiagram(true);
+
+        final Shape straights = createStraights(graphics);
+        straights.setPosition(offset);
+        diagram.add(straights);
+
+        offset = offset.moveY(straights.getSize().getHeight());
         final Shape value = createValueDiagram(graphics);
         value.setPosition(offset);
         diagram.add(value);
 
+        offset = offset.moveY(value.getSize().getHeight());
         final Shape object = createObjectDiagram(graphics);
-        object.setPosition(new Point(offset.getX(), offset.getY() + value.getSize().getHeight()));
+        object.setPosition(offset);
         diagram.add(object);
 
         return diagram;

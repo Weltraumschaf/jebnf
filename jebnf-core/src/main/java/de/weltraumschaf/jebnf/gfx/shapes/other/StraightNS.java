@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
+import de.weltraumschaf.jebnf.gfx.Antialiaser;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
@@ -28,12 +29,20 @@ public class StraightNS extends Empty {
         super.paint(graphic);
         final Point pos = getPosition();
         final Size size = getSize();
+
+        // Disable antialiasing for straight lines.
+        final Object oldRenderingHint = Antialiaser.turnOff(graphic);
         backupColorAndStroke(graphic);
+
         graphic.setStroke(Strokes.createForRail());
         graphic.setColor(Color.BLACK);
+
         final int xPosition = pos.getX() + size.getWidth() / 2;
         graphic.drawLine(xPosition, pos.getY(), xPosition, pos.getY() + size.getHeight());
+
+        // Restore previous settings
         resotreColorAndStroke(graphic);
+        Antialiaser.setHintOnGraphics(graphic, oldRenderingHint);
     }
 
 }

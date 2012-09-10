@@ -19,6 +19,7 @@ import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
@@ -88,7 +89,7 @@ public class TerminalTest {
         verify(graphics, times(1)).setStroke(Strokes.createForBox());
         verify(graphics, times(1)).drawRoundRect(17, 5, 120, 20, 25, 25);
         verify(graphics, times(1)).setStroke(Strokes.createForRail());
-        verify(graphics, times(1)).drawLine(0, 15, 17, 15);
+        verify(graphics, times(1)).drawLine(-1, 15, 17, 15);
         verify(graphics, times(1)).drawLine(137, 15, 155, 15);
         verify(graphics, times(1)).setFont(StringPainter.MONOSPACED);
         verify(graphics, times(1)).drawString(value, 37, 19);

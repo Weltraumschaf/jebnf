@@ -30,7 +30,7 @@ public class CurveNW extends AbstractCurve {
     protected Point calcArcPosition() {
         final Point pos = getPosition();
         final Size size = getSize();
-        return new Point(pos.getX() - size.getWidth() / 2, pos.getY() - (size.getHeight() / 2) - 1);
+        return new Point(pos.getX() - size.getWidth() / 2 - 1, pos.getY() - (size.getHeight() / 2) - 1);
     }
 
     @Override

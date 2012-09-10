@@ -25,11 +25,11 @@ public class CurveNWTest {
 
     @Test public void calcArcPosition() {
         final CurveNW curve = new CurveNW();
-        assertEquals(new Point(-15, -16), curve.calcArcPosition());
+        assertEquals(new Point(-16, -16), curve.calcArcPosition());
         curve.setPosition(new Point(100, 100));
-        assertEquals(new Point(85, 84), curve.calcArcPosition());
+        assertEquals(new Point(84, 84), curve.calcArcPosition());
         curve.setSize(new Size(50, 50));
-        assertEquals(new Point(75, 74), curve.calcArcPosition());
+        assertEquals(new Point(74, 74), curve.calcArcPosition());
     }
 
     @Test public void calcArcDimenson() {

@@ -36,7 +36,7 @@ public class EndTest {
 
         verify(graphics, atLeast(1)).setColor(Color.BLACK);
         verify(graphics, times(1)).setStroke(Strokes.createForRail());
-        verify(graphics, times(1)).drawLine(0, 15, 15, 15);
+        verify(graphics, times(1)).drawLine(15, 3, 15, 27);
     }
 
 }

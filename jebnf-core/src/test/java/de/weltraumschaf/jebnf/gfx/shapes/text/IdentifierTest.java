@@ -19,6 +19,7 @@ import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
@@ -89,7 +90,7 @@ public class IdentifierTest {
         verify(graphics, times(1)).setStroke(Strokes.createForBox());
         verify(graphics, times(1)).drawRect(7, 7, 110, 16);
         verify(graphics, times(1)).setStroke(Strokes.createForRail());
-        verify(graphics, times(1)).drawLine(0, 15, 7, 15);
+        verify(graphics, times(1)).drawLine(-1, 15, 7, 15);
         verify(graphics, times(1)).drawLine(117, 15, 124, 15);
         verify(graphics, times(1)).setFont(StringPainter.SANSERIFIT);
         verify(graphics, times(1)).drawString(value, 22, 19);
