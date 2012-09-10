@@ -2,11 +2,18 @@
 <!-- see http://www.smartics.eu/pom-java/pom-documentation.html -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>7</version>
+    </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.weltraumschaf.jebnf</groupId>
     <artifactId>jebnf</artifactId>
-    <version>1.2.5</version>
+    <version>1.2.6-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>JEBNF</name>
     <description>
@@ -257,6 +264,16 @@
                 <plugin>
                     <artifactId>maven-jxr-plugin</artifactId>
                     <version>2.3</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-gpg-plugin</artifactId>
+                    <version>1.4</version>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <version>2.2</version>
                 </plugin>
 
                 <plugin>
@@ -519,6 +536,46 @@
                         <ruleset>/rulesets/design.xml</ruleset>
                     </rulesets>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <configuration>
+                    <keyname>BA265082</keyname>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
