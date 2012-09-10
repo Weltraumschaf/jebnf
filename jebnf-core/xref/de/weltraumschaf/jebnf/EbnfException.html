@@ -48,7 +48,7 @@
 <a class="jxr_linenumber" name="38" href="#38">38</a>  <em class="jxr_javadoccomment">     * @param message Error message.</em>
 <a class="jxr_linenumber" name="39" href="#39">39</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="40" href="#40">40</a>      <strong class="jxr_keyword">public</strong> <a href="../../../de/weltraumschaf/jebnf/EbnfException.html">EbnfException</a>(<strong class="jxr_keyword">final</strong> String message) {
-<a class="jxr_linenumber" name="41" href="#41">41</a>          <strong class="jxr_keyword">this</strong>(message, ExitCode.FATAL_ERROR);
+<a class="jxr_linenumber" name="41" href="#41">41</a>          <strong class="jxr_keyword">this</strong>(message, ExitCodeImpl.FATAL_ERROR);
 <a class="jxr_linenumber" name="42" href="#42">42</a>      }
 <a class="jxr_linenumber" name="43" href="#43">43</a>  
 <a class="jxr_linenumber" name="44" href="#44">44</a>      <em class="jxr_javadoccomment">/**</em>
@@ -57,7 +57,7 @@
 <a class="jxr_linenumber" name="47" href="#47">47</a>  <em class="jxr_javadoccomment">     * @param message Error message.</em>
 <a class="jxr_linenumber" name="48" href="#48">48</a>  <em class="jxr_javadoccomment">     * @param code Exit code.</em>
 <a class="jxr_linenumber" name="49" href="#49">49</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="50" href="#50">50</a>      <strong class="jxr_keyword">public</strong> <a href="../../../de/weltraumschaf/jebnf/EbnfException.html">EbnfException</a>(<strong class="jxr_keyword">final</strong> String message, <strong class="jxr_keyword">final</strong> <a href="../../../de/weltraumschaf/jebnf/ExitCode.html">ExitCode</a> code) {
+<a class="jxr_linenumber" name="50" href="#50">50</a>      <strong class="jxr_keyword">public</strong> <a href="../../../de/weltraumschaf/jebnf/EbnfException.html">EbnfException</a>(<strong class="jxr_keyword">final</strong> String message, <strong class="jxr_keyword">final</strong> <a href="../../../de/weltraumschaf/jebnf/ExitCodeImpl.html">ExitCodeImpl</a> code) {
 <a class="jxr_linenumber" name="51" href="#51">51</a>          <strong class="jxr_keyword">this</strong>(message, code.getCode());
 <a class="jxr_linenumber" name="52" href="#52">52</a>      }
 <a class="jxr_linenumber" name="53" href="#53">53</a>  
@@ -78,7 +78,7 @@
 <a class="jxr_linenumber" name="68" href="#68">68</a>  <em class="jxr_javadoccomment">     * @param code Exit code.</em>
 <a class="jxr_linenumber" name="69" href="#69">69</a>  <em class="jxr_javadoccomment">     * @param cause Previous error.</em>
 <a class="jxr_linenumber" name="70" href="#70">70</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="71" href="#71">71</a>      <strong class="jxr_keyword">public</strong> <a href="../../../de/weltraumschaf/jebnf/EbnfException.html">EbnfException</a>(<strong class="jxr_keyword">final</strong> String message, <strong class="jxr_keyword">final</strong> <a href="../../../de/weltraumschaf/jebnf/ExitCode.html">ExitCode</a> code, <strong class="jxr_keyword">final</strong> Throwable cause) {
+<a class="jxr_linenumber" name="71" href="#71">71</a>      <strong class="jxr_keyword">public</strong> <a href="../../../de/weltraumschaf/jebnf/EbnfException.html">EbnfException</a>(<strong class="jxr_keyword">final</strong> String message, <strong class="jxr_keyword">final</strong> <a href="../../../de/weltraumschaf/jebnf/ExitCodeImpl.html">ExitCodeImpl</a> code, <strong class="jxr_keyword">final</strong> Throwable cause) {
 <a class="jxr_linenumber" name="72" href="#72">72</a>          <strong class="jxr_keyword">this</strong>(message, code.getCode(), cause);
 <a class="jxr_linenumber" name="73" href="#73">73</a>      }
 <a class="jxr_linenumber" name="74" href="#74">74</a>  
