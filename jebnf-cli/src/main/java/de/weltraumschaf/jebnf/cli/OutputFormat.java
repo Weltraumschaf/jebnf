@@ -19,6 +19,11 @@ package de.weltraumschaf.jebnf.cli;
 public enum OutputFormat {
 
     /**
+     * Prints the parsed syntax tree as ASCII text tree.
+     */
+    TREE,
+
+    /**
      * Prints the parsed syntax tree as XML.
      */
     XML,

@@ -39,13 +39,6 @@ public final class OptionsParser {
     public static final String OPT_FORMAT = "f";
 
     /**
-     * Short option to print a syntax as ASCII text tree.
-     *
-     * TODO Convert to output format.
-     */
-    public static final String OPT_TEXT_TREE = "t";
-
-    /**
      * Short option to enable debug output (also in the generated output).
      */
     public static final String OPT_DEBUG = "d";
@@ -97,7 +90,6 @@ public final class OptionsParser {
         optSyntax(cmd);
         optFormat(cmd);
         optOutputFile(cmd);
-        optTextTree(cmd);
         optDebug(cmd);
         optHelp(cmd);
         optVersion(cmd);
@@ -124,7 +116,9 @@ public final class OptionsParser {
         if (cmd.hasOption(OPT_FORMAT)) {
             final String formatOption = cmd.getOptionValue(OPT_FORMAT);
 
-            if ("xml".equalsIgnoreCase(formatOption)) {
+            if ("tree".equalsIgnoreCase(formatOption)) {
+                options.setOutputFormat(OutputFormat.TREE);
+            } else if ("xml".equalsIgnoreCase(formatOption)) {
                 options.setOutputFormat(OutputFormat.XML);
             } else if ("jpg".equalsIgnoreCase(formatOption)) {
                 options.setOutputFormat(OutputFormat.JPG);
@@ -148,17 +142,6 @@ public final class OptionsParser {
             options.setOutputFile(cmd.getOptionValue(OPT_OUTPUT));
         } else {
             options.setOutputFile("");
-        }
-    }
-
-    /**
-     * Determines if ASCII text tree file option is set and prepares the {@link CliOptions "options"} object.
-     *
-     * @param cmd Parsed command line.
-     */
-    private void optTextTree(final CommandLine cmd) {
-        if (cmd.hasOption(OPT_TEXT_TREE)) {
-            options.setTextTree(true);
         }
     }
 

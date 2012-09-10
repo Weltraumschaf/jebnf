@@ -75,11 +75,6 @@ public class CliOptions {
     private String outputFile = "";
 
     /**
-     * Print ASCII text tree or not.
-     */
-    private boolean textTree;
-
-    /**
      * Print debug information or not.
      */
     private boolean debug;
@@ -119,14 +114,11 @@ public class CliOptions {
                                        .withArgName("file")
                                        .hasArg()
                                        .create(OptionsParser.OPT_OUTPUT));
-        options.addOption(OptionBuilder.withDescription("Output format: xml, jpg, gif, or png.")
+        options.addOption(OptionBuilder.withDescription("Output format: tree, xml, jpg, gif, or png.")
                                        .withArgName("format")
                                        .hasArg()
                                        .create(OptionsParser.OPT_FORMAT));
         // w/o argument
-        options.addOption(OptionsParser.OPT_TEXT_TREE,
-                          false,
-                          "Prints textual representation of the syntax tree to stdout.");
         options.addOption(OptionsParser.OPT_DEBUG,     false, "Enables debug output.");
         options.addOption(OptionsParser.OPT_HELP,      false, "This help.");
         options.addOption(OptionsParser.OPT_VERSION,   false, "Show version information.");
@@ -195,16 +187,6 @@ public class CliOptions {
     public void setSyntaxFile(final String syntaxFile) {
         this.syntaxFile = syntaxFile;
     }
-
-    /**
-     * Set print ASCII text tree.
-     *
-     * @param onOrOff True prints text ree, false is default.
-     */
-    public void setTextTree(final boolean onOrOff) {
-        this.textTree = onOrOff;
-    }
-
 
     /**
      * Set version output option.
@@ -296,15 +278,6 @@ public class CliOptions {
      */
     public boolean isHelp() {
         return help;
-    }
-
-    /**
-     * Whether print text tree is enabled or not.
-     *
-     * @return Return true if print text tree is enabled, unless false.
-     */
-    public boolean isTextTree() {
-        return textTree;
     }
 
     /**
