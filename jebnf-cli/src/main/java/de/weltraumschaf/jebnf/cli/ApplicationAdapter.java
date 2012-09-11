@@ -22,6 +22,16 @@ import de.weltraumschaf.jebnf.ast.nodes.Syntax;
 public abstract class ApplicationAdapter implements Application {
 
     /**
+     * Default diagram width.
+     */
+    protected static final int WIDTH = 800;
+
+    /**
+     * Default diagram height.
+     */
+    protected static final int HEIGHT = 600;
+
+    /**
      * IO Streams.
      */
     protected final IOStreams ioStreams;

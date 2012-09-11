@@ -13,11 +13,10 @@ package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.visitor.Diagram;
 import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.ast.visitor.Xml;
-import de.weltraumschaf.jebnf.gfx.CreatorHelper;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagramImage;
 import java.io.BufferedWriter;
@@ -34,21 +33,6 @@ import java.io.Writer;
 public class CliApplication extends ApplicationAdapter {
 
     /**
-     * Default width in pixel.
-     */
-    private static final int WIDTH = 800;
-
-    /**
-     * Default height in pixel.
-     */
-    private static final int HEIGHT = 600;
-
-    /**
-     * Helper to create diagrams.
-     */
-    private final CreatorHelper helper = new CreatorHelper();
-
-    /**
      * Initializes app with options and IO streams.
      *
      * @param options Command line options
@@ -62,11 +46,11 @@ public class CliApplication extends ApplicationAdapter {
     @Override
     public void execute() throws IOException {
         if (options.getOutputFormat() == OutputFormat.TREE) {
-            generateTextTree(syntax);
+            generateTextTree();
         } else if (options.getOutputFormat() == OutputFormat.XML) {
-            generateXmlTree(syntax);
+            generateXmlTree();
         } else {
-            generateRailroadImage(syntax);
+            generateRailroadImage();
         }
 
         invoker.exit(ExitCodeImpl.OK);
@@ -74,16 +58,15 @@ public class CliApplication extends ApplicationAdapter {
 
     /**
      * Play around with image generation.
-     *
-     * XXX: Does at the moment print always the same thing for development.
-     *
-     * @param syntax Syntax tree to format.
      */
-    private void generateRailroadImage(final Syntax syntax) {
-        final File outputFile = new File(options.getOutputFile());
-        final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, outputFile);
-        final RailroadDiagram diagram = helper.createDiagram(img.getGraphics());
+    private void generateRailroadImage() {
+        final Visitor<RailroadDiagram> visitor = new Diagram();
+        syntax.accept(visitor);
+
+        final RailroadDiagram diagram = visitor.getResult();
         diagram.setDebug(options.isDebug());
+
+        final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, new File(options.getOutputFile()));
         img.setDiagram(diagram);
         img.paint();
 
@@ -97,10 +80,9 @@ public class CliApplication extends ApplicationAdapter {
     /**
      * Generate ASCII text tree from syntax tree.
      *
-     * @param syntax Syntax tree to format.
      * @throws IOException On write error to output file.
      */
-    private void generateTextTree(final Syntax syntax) throws IOException {
+    private void generateTextTree() throws IOException {
         final Visitor<String> visitor = new TextSyntaxTree();
         syntax.accept(visitor);
         handleOutput(visitor.getResult());
@@ -109,10 +91,9 @@ public class CliApplication extends ApplicationAdapter {
     /**
      * Generate XML from the syntax tree.
      *
-     * @param syntax Syntax tree to format.
      * @throws IOException On write error to output file.
      */
-    private void generateXmlTree(final Syntax syntax) throws IOException {
+    private void generateXmlTree() throws IOException {
         final Visitor<String> visitor = new Xml();
         syntax.accept(visitor);
         handleOutput(visitor.getResult());

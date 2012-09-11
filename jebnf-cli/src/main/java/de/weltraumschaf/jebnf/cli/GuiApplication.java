@@ -11,13 +11,14 @@
 
 package de.weltraumschaf.jebnf.cli;
 
-import de.weltraumschaf.jebnf.gfx.CreatorHelper;
+import de.weltraumschaf.commons.IOStreams;
+import de.weltraumschaf.jebnf.ast.visitor.Diagram;
+import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gui.RailroadDiagramPanel;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
-import de.weltraumschaf.commons.IOStreams;
 
 /**
  * Runs the GUI IDE.
@@ -27,24 +28,9 @@ import de.weltraumschaf.commons.IOStreams;
 public class GuiApplication extends ApplicationAdapter implements Runnable {
 
     /**
-     * Default diagram width.
-     */
-    private static final int WIDTH = 800;
-
-    /**
-     * Default diagram height.
-     */
-    private static final int HEIGHT = 600;
-
-    /**
      * Main desktop window.
      */
     private final JFrame frame = new JFrame();
-
-    /**
-     * USed to generated a diagram dor testing/development.
-     */
-    private final CreatorHelper helper = new CreatorHelper();
 
     /**
      * Initializes app with options and IO streams.
@@ -72,10 +58,14 @@ public class GuiApplication extends ApplicationAdapter implements Runnable {
         frame.setSize(new Dimension(WIDTH, HEIGHT));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        final RailroadDiagram diagram = helper.createDiagram(frame.getGraphics());
+
+        final Visitor<RailroadDiagram> visitor = new Diagram();
+        syntax.accept(visitor);
+
+        final RailroadDiagram diagram = visitor.getResult();
         diagram.setDebug(options.isDebug());
-        final RailroadDiagramPanel panel = new RailroadDiagramPanel(diagram);
-        frame.add(panel);
+
+        frame.add(new RailroadDiagramPanel(diagram));
         frame.validate();
     }
 
