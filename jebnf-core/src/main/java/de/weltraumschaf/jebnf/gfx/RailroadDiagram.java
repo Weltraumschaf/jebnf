@@ -41,6 +41,16 @@ public class RailroadDiagram {
     private boolean debug;
 
     /**
+     * Syntax railroad diagram title.
+     */
+    private String title = "";
+
+    /**
+     * Syntax railroad diagram meta.
+     */
+    private String meta = "";
+
+    /**
      * Initializes object with {@link #antialiasing} set to false.
      */
     public RailroadDiagram() {
@@ -55,7 +65,6 @@ public class RailroadDiagram {
     public RailroadDiagram(final boolean antialiasing) {
         super();
         this.antialiasing = antialiasing;
-        this.debug = false;
     }
 
     /**
@@ -99,6 +108,24 @@ public class RailroadDiagram {
             id.setDebug(debug);
             id.paint(graphic);
         }
+    }
+
+    /**
+     * Sets the syntax railroad diagram's title.
+     *
+     * @param title The title string.
+     */
+    public void setTitle(final String title) {
+        this.title = title;
+    }
+
+    /**
+     * Sets the syntax railroad diagram's meta.
+     *
+     * @param meta The meta string.
+     */
+    public void setMeta(final String meta) {
+        this.meta = meta;
     }
 
 }
