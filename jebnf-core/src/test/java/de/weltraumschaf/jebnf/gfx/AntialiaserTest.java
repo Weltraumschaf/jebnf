@@ -15,7 +15,6 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
