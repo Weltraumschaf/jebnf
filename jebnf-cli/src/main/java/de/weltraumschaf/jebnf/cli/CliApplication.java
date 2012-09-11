@@ -14,8 +14,8 @@ package de.weltraumschaf.jebnf.cli;
 import de.weltraumschaf.commons.IOStreams;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
-import de.weltraumschaf.jebnf.ast.visitor.TextGeneratingVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree;
+import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.ast.visitor.Xml;
 import de.weltraumschaf.jebnf.gfx.CreatorHelper;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
@@ -101,9 +101,9 @@ public class CliApplication extends ApplicationAdapter {
      * @throws IOException On write error to output file.
      */
     private void generateTextTree(final Syntax syntax) throws IOException {
-        final TextGeneratingVisitor visitor = new TextSyntaxTree();
+        final Visitor<String> visitor = new TextSyntaxTree();
         syntax.accept(visitor);
-        handleOutput(visitor.getText());
+        handleOutput(visitor.getResult());
     }
 
     /**
@@ -113,9 +113,9 @@ public class CliApplication extends ApplicationAdapter {
      * @throws IOException On write error to output file.
      */
     private void generateXmlTree(final Syntax syntax) throws IOException {
-        final TextGeneratingVisitor visitor = new Xml();
+        final Visitor<String> visitor = new Xml();
         syntax.accept(visitor);
-        handleOutput(visitor.getText());
+        handleOutput(visitor.getResult());
     }
 
     /**

@@ -49,7 +49,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class TextSyntaxTree implements TextGeneratingVisitor {
+public class TextSyntaxTree implements Visitor<String> {
 
     /**
      * ASCII pattern for branch.
@@ -256,7 +256,7 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
      * @return Return formated text.
      */
     @Override
-    public String getText() {
+    public String getResult() {
         if (null == text) {
             final StringBuilder buffer = new StringBuilder();
 

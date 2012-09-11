@@ -19,8 +19,9 @@ import de.weltraumschaf.jebnf.ast.Visitable;
  * Interface for <a href="http://en.wikipedia.org/wiki/Visitor_pattern">Visitor Pattern</a>.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
+ * @param <R> Type of result the visitor generates.
  */
-public interface Visitor {
+public interface Visitor<R> {
 
     /**
      * Template method to hook in before specific node visitor method
@@ -44,5 +45,12 @@ public interface Visitor {
      * @param visitable Visited {@link de.weltraumschaf.jebnf.ast.Visitable}.
      */
     void afterVisit(Visitable visitable);
+
+    /**
+     * Returns the result the visitor generates while visiting.
+     *
+     * @return Object of type R.
+     */
+    R getResult();
 
 }

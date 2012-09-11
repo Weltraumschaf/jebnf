@@ -23,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Xml implements TextGeneratingVisitor {
+public class Xml implements Visitor<String> {
 
     /**
      * Default XML version.
@@ -225,7 +225,7 @@ public class Xml implements TextGeneratingVisitor {
      * @return Returns XML string.
      */
     @Override
-    public String getText() {
+    public String getResult() {
         return xmlString.toString();
     }
 

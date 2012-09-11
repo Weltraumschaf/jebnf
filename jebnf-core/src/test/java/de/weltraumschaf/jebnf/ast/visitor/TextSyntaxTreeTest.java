@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.ast.visitor;
 
-import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree;
 import de.weltraumschaf.jebnf.ast.nodes.Loop;
 import de.weltraumschaf.jebnf.ast.nodes.Comment;
 import de.weltraumschaf.jebnf.ast.nodes.Sequence;
@@ -131,7 +130,7 @@ public class TextSyntaxTreeTest {
         TextSyntaxTree visitor = new TextSyntaxTree();
         Syntax ast = syntax("foo").build();
         ast.accept(visitor);
-        assertEquals("[syntax]\n", visitor.getText()); // NOPMD
+        assertEquals("[syntax]\n", visitor.getResult()); // NOPMD
 
         ast = syntax("foo")
             .rule("rule-1")
@@ -140,7 +139,7 @@ public class TextSyntaxTreeTest {
         ast.accept(visitor);
         assertEquals("[syntax]\n"
                    + " +--[rule='rule-1']\n",
-            visitor.getText()
+            visitor.getResult()
         );
 
         ast = syntax("foo")
@@ -153,7 +152,7 @@ public class TextSyntaxTreeTest {
         assertEquals("[syntax]\n"
                    + " +--[rule='rule-1']\n"
                    + " +--[rule='rule-2']\n",
-            visitor.getText()
+            visitor.getResult()
         );
 
         ast = syntax("foo")
@@ -166,7 +165,7 @@ public class TextSyntaxTreeTest {
         assertEquals("[syntax]\n"
                    + " +--[rule='name']\n"
                    + "     +--[choice]\n",
-            visitor.getText()
+            visitor.getResult()
         );
 
         ast = syntax("foo")
@@ -183,7 +182,7 @@ public class TextSyntaxTreeTest {
                    + "     +--[choice]\n"
                    + "         +--[identifier='ident']\n"
                    + "         +--[terminal='term']\n",
-            visitor.getText()
+            visitor.getResult()
         );
 
         ast = syntax("foobar") // NOPMD
@@ -199,7 +198,7 @@ public class TextSyntaxTreeTest {
                    + " +--[rule='one']\n"
                    + " |   +--[choice]\n"
                    + " +--[rule='two']\n",
-            visitor.getText()
+            visitor.getResult()
         );
 
         final String expected = getInstance().createStringFromFixture("ast/visitor/rules_with_literals_tree_output");
@@ -209,7 +208,7 @@ public class TextSyntaxTreeTest {
         ast.accept(visitor);
         assertEquals(
             expected,
-            visitor.getText()
+            visitor.getResult()
         );
     }
 
