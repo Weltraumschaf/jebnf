@@ -46,7 +46,7 @@ public final class Null extends AbstractNode {
     }
 
     @Override
-    public void accept(final Visitor visitor) {
+    public void accept(final Visitor<?> visitor) {
         // Do nothing here.
     }
 

@@ -27,6 +27,6 @@ public interface Visitable {
      *
      * @param visitor Object which visits the visitable.
      */
-    void accept(Visitor visitor);
+    void accept(Visitor<?> visitor);
 
 }

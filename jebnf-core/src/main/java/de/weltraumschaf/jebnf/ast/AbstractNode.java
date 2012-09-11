@@ -74,7 +74,7 @@ public abstract class AbstractNode implements Node {
     }
 
     @Override
-    public void accept(final Visitor visitor) {
+    public void accept(final Visitor<?> visitor) {
         visitor.beforeVisit(this);
         visitor.visit(this);
         visitor.afterVisit(this);
