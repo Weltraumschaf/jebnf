@@ -33,9 +33,37 @@ public class CliOptions {
     /**
      * Usage header.
      *
-     * TODO: Write text.
+     * FIXME Better formatting with newlines.
      */
-    private static final String HEADER = String.format("%nWrite sone helpful text.%n%n");
+    static final String HEADER = String.format("%n"
+        + "This command line tool reads EBNF files and generates railroad diagrams for"
+        + "the recognized syntax grammar.%n%n"
+
+        + "This tool can either be used as pure commnd line tool or as an IDE. The IDE"
+        + "will be invoked if you pass the optione --ide (-i) to the command line. The"
+        + "IDE gives WYSIWYG editing of an EBNF syntax. The pure command line tool can"
+        + "generate various output formats of the syntax:%n%n"
+
+        + "  - ASCII Text Tree (tree):%n%n"
+
+        + "    Prints a tree like a directory tree of the syntax.%n%n"
+
+        + "  - XML (xml):%n%n"
+
+        + "    Prints the recognized abstract syntax tree of the EBNF parser of the given"
+        + "    syntax. This XML represents the \"intermediate code\" used in JEBNF.%n"
+
+        + "  - JPEG Image (jpg):%n"
+
+        + "    Generates an JPEG file.%n"
+
+        + "  - GIF Image (gif):%n"
+
+        + "    Generates an GIF file.%n"
+
+        + "  - PNG Image (png):%n"
+
+        + "    Generates an PNG file.%n%n");
 
     /**
      * Author name and email address.
