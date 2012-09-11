@@ -12,7 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 
 /**
  * Common functionality for base invokable apps.
@@ -49,7 +49,7 @@ public abstract class ApplicationAdapter implements Application {
     /**
      * The abstract syntax tree the application works with.
      */
-    protected Syntax syntax;
+    protected SyntaxNode syntax;
 
     /**
      * Initializes app with options and IO streams.
@@ -65,7 +65,7 @@ public abstract class ApplicationAdapter implements Application {
     }
 
     @Override
-    public void setSyntax(final Syntax syntax) {
+    public void setSyntax(final SyntaxNode syntax) {
         this.syntax = syntax;
     }
 }

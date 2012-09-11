@@ -32,12 +32,12 @@ public final class Option extends AbstractComposite {
     }
 
     /**
-     * Creates an new option node with a {@link Null} parent node.
+     * Creates an new option node with a {@link NullNode} parent node.
      *
      * @return New instance.
      */
     public static Option newInstance() {
-        return newInstance(Null.getInstance());
+        return newInstance(NullNode.getInstance());
     }
 
     /**

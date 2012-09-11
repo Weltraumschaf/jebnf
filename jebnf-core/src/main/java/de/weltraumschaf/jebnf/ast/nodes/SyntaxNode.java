@@ -17,13 +17,13 @@ import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import java.util.List;
 
 /**
- * Syntax node.
+ * SyntaxNode node.
  *
  * The root of the AST.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Syntax extends AbstractNode implements Composite {
+public final class SyntaxNode extends AbstractNode implements Composite {
 
     /**
      * Default meta string.
@@ -53,11 +53,11 @@ public final class Syntax extends AbstractNode implements Composite {
     /**
      * Initializes the object with title and meta.
      *
-     * @param title Syntax title.
-     * @param meta Syntax meta.
+     * @param title SyntaxNode title.
+     * @param meta SyntaxNode meta.
      */
-    private Syntax(final String title, final String meta) {
-        super(Null.getInstance(), NodeType.SYNTAX);
+    private SyntaxNode(final String title, final String meta) {
+        super(NullNode.getInstance(), NodeType.SYNTAX);
         setAttribute(ATTR_TITLE, title);
         setAttribute(ATTR_META, meta);
     }
@@ -67,7 +67,7 @@ public final class Syntax extends AbstractNode implements Composite {
      *
      * @return New instance.
      */
-    public static Syntax newInstance() {
+    public static SyntaxNode newInstance() {
         return newInstance("");
     }
 
@@ -77,7 +77,7 @@ public final class Syntax extends AbstractNode implements Composite {
      * @param title Title of the syntax.
      * @return New instance.
      */
-    public static Syntax newInstance(final String title) {
+    public static SyntaxNode newInstance(final String title) {
         return newInstance(title, DEFAULT_META);
     }
 
@@ -88,8 +88,8 @@ public final class Syntax extends AbstractNode implements Composite {
      * @param meta  Meta of the syntax.
      * @return New instance.
      */
-    public static Syntax newInstance(final String title, final String meta) {
-        return new Syntax(title, meta);
+    public static SyntaxNode newInstance(final String title, final String meta) {
+        return new SyntaxNode(title, meta);
     }
 
     @Override
@@ -115,7 +115,7 @@ public final class Syntax extends AbstractNode implements Composite {
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         try {
-            final Syntax syntax = (Syntax) other;
+            final SyntaxNode syntax = (SyntaxNode) other;
 
             if (!getAttribute(ATTR_TITLE).equals(syntax.getAttribute(ATTR_TITLE))) {
                 result.error("Titles of syntx differs: '%s' != '%s'!", getAttribute(ATTR_TITLE),

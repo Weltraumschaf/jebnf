@@ -11,8 +11,8 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.Sequence;
-import de.weltraumschaf.jebnf.ast.nodes.Null;
+import de.weltraumschaf.jebnf.ast.nodes.SequenceNode;
+import de.weltraumschaf.jebnf.ast.nodes.NullNode;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
@@ -24,9 +24,9 @@ import static org.mockito.Mockito.*;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class NullTest {
+public class NullNodeTest {
 
-    private final Null sut = Null.getInstance();
+    private final NullNode sut = NullNode.getInstance();
 
     @Test public void getNodeName() {
         assertEquals("null", sut.getNodeName());
@@ -47,7 +47,7 @@ public class NullTest {
         assertTrue(notification.isOk());
 
         notification = new Notification();
-        sut.probeEquivalence(Sequence.newInstance(), notification);
+        sut.probeEquivalence(SequenceNode.newInstance(), notification);
         assertFalse(notification.isOk());
     }
 

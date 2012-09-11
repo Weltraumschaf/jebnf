@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.Loop;
+import de.weltraumschaf.jebnf.ast.nodes.LoopNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import static org.junit.Assert.assertEquals;
@@ -23,10 +23,10 @@ import static org.mockito.Mockito.when;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class LoopTest {
+public class LoopNodeTest {
 
     @Test public void testToString() {
-        final Loop loop = Loop.newInstance();
+        final LoopNode loop = LoopNode.newInstance();
         assertEquals("<LOOP>", loop.toString());
         final Node node1 = mock(Node.class);
         when(node1.toString()).thenReturn("<foo>");
@@ -38,7 +38,7 @@ public class LoopTest {
     }
 
     @Test public void getType() {
-        assertEquals(NodeType.LOOP, Loop.newInstance().getType());
+        assertEquals(NodeType.LOOP, LoopNode.newInstance().getType());
     }
 
 }

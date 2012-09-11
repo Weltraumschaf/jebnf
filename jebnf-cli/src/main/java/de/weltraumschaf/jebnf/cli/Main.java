@@ -16,7 +16,7 @@ import de.weltraumschaf.commons.Version;
 import de.weltraumschaf.commons.system.NullExiter;
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import de.weltraumschaf.jebnf.parser.Factory;
 import de.weltraumschaf.jebnf.parser.Parser;
 import de.weltraumschaf.jebnf.parser.SyntaxException;
@@ -121,7 +121,7 @@ public final class Main extends InvokableAdapter {
             }
 
             final String syntaxFileName = options.getSyntaxFile();
-            Syntax ast = null;
+            SyntaxNode ast = null;
 
             try {
                 final File syntaxFile = new File(syntaxFileName);

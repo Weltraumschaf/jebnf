@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast.builder;
 
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 
 /**
  * Entry point to build an AST.
@@ -23,7 +23,7 @@ import de.weltraumschaf.jebnf.ast.nodes.Syntax;
  * <code>
  * import static de.weltraumschaf.ebnf.ast.builder.SyntaxBuilder.syntax;
  * ...
- * Syntax syntax = syntax("EBNF defined in itself.")
+ * SyntaxNode syntax = syntax("EBNF defined in itself.")
  * ...
  * </code>
  *
@@ -45,7 +45,7 @@ public final class SyntaxBuilder {
      * @return Return a rule builder object.
      */
     public static RuleBuilder syntax(final String title) {
-        return syntax(title, Syntax.DEFAULT_META);
+        return syntax(title, SyntaxNode.DEFAULT_META);
     }
 
     /**
@@ -56,7 +56,7 @@ public final class SyntaxBuilder {
      * @return Return a rule builder object.
      */
     public static RuleBuilder syntax(final String title, final String meta) {
-        return new RuleBuilder(Syntax.newInstance(title, meta));
+        return new RuleBuilder(SyntaxNode.newInstance(title, meta));
     }
 
 }

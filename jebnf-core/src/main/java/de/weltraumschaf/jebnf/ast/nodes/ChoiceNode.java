@@ -16,28 +16,28 @@ import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 
 /**
- * Choice node.
+ * ChoiceNode node.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Choice extends AbstractComposite {
+public final class ChoiceNode extends AbstractComposite {
 
     /**
      * Initializes object with parent node.
      *
      * @param parent The parent node.
      */
-    private Choice(final Node parent) {
+    private ChoiceNode(final Node parent) {
         super(parent, NodeType.CHOICE);
     }
 
     /**
-     * Creates a new choice node instance with a {@link Null} parent node.
+     * Creates a new choice node instance with a {@link NullNode} parent node.
      *
      * @return Return new instance.
      */
-    public static Choice newInstance() {
-        return newInstance(Null.getInstance());
+    public static ChoiceNode newInstance() {
+        return newInstance(NullNode.getInstance());
     }
 
     /**
@@ -46,8 +46,8 @@ public final class Choice extends AbstractComposite {
      * @param parent The associated parent node.
      * @return Return new instance.
      */
-    public static Choice newInstance(final Node parent) {
-        return new Choice(parent);
+    public static ChoiceNode newInstance(final Node parent) {
+        return new ChoiceNode(parent);
     }
 
     @Override

@@ -16,7 +16,7 @@ import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.AbstractNode;
 import de.weltraumschaf.jebnf.ast.nodes.NodeFactory;
-import de.weltraumschaf.jebnf.ast.nodes.Null;
+import de.weltraumschaf.jebnf.ast.nodes.NullNode;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -50,9 +50,9 @@ public class AbstractNodeTest {
         assertFalse(sut.hasParent());
         assertNull(sut.getParent());
 
-        sut = new AbstractNodeStub(Null.getInstance(), NodeType.CHOICE);
+        sut = new AbstractNodeStub(NullNode.getInstance(), NodeType.CHOICE);
         assertFalse(sut.hasParent());
-        assertSame(Null.getInstance(), sut.getParent());
+        assertSame(NullNode.getInstance(), sut.getParent());
         final Node parent = NodeFactory.newNode(NodeType.LOOP);
         sut = new AbstractNodeStub(parent, NodeType.CHOICE);
         assertTrue(sut.hasParent());

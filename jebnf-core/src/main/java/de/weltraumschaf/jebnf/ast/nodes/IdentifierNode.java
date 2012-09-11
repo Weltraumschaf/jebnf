@@ -17,13 +17,13 @@ import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
 
 /**
- * Identifier node.
+ * IdentifierNode node.
  *
  * Has no sub nodes.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Identifier extends AbstractNode {
+public final class IdentifierNode extends AbstractNode {
 
     /**
      * Key for the value attribute.
@@ -36,28 +36,28 @@ public final class Identifier extends AbstractNode {
      * @param parent The parent node.
      * @param value The identifier value.
      */
-    private Identifier(final Node parent, final String value) {
+    private IdentifierNode(final Node parent, final String value) {
         super(parent, NodeType.IDENTIFIER);
         setAttribute(ATTR_VALUE, value);
     }
 
     /**
-     * Creates an new identifier node with a {@link Null} parent node and empty value string.
+     * Creates an new identifier node with a {@link NullNode} parent node and empty value string.
      *
      * @return New instance.
      */
-    public static Identifier newInstance() {
-        return newInstance(Null.getInstance());
+    public static IdentifierNode newInstance() {
+        return newInstance(NullNode.getInstance());
     }
 
     /**
-     * Creates an new identifier node with a {@link Null} parent node.
+     * Creates an new identifier node with a {@link NullNode} parent node.
      *
      * @param value The identifier name.
      * @return New instance.
      */
-    public static Identifier newInstance(final String value) {
-        return newInstance(Null.getInstance(), value);
+    public static IdentifierNode newInstance(final String value) {
+        return newInstance(NullNode.getInstance(), value);
     }
 
     /**
@@ -66,7 +66,7 @@ public final class Identifier extends AbstractNode {
      * @param parent The parent node.
      * @return New instance.
      */
-    public static Identifier newInstance(final Node parent) {
+    public static IdentifierNode newInstance(final Node parent) {
         return newInstance(parent, "");
     }
 
@@ -77,14 +77,14 @@ public final class Identifier extends AbstractNode {
      * @param value The identifier name.
      * @return New instance.
      */
-    public static Identifier newInstance(final Node parent, final String value) {
-        return new Identifier(parent, value);
+    public static IdentifierNode newInstance(final Node parent, final String value) {
+        return new IdentifierNode(parent, value);
     }
 
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         try {
-            final Identifier ident = (Identifier) other;
+            final IdentifierNode ident = (IdentifierNode) other;
 
             if (!getAttribute(ATTR_VALUE).equals(ident.getAttribute(ATTR_VALUE))) {
                 result.error("Identifier value mismatch: '%s' != '%s'!", getAttribute(ATTR_VALUE),

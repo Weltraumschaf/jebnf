@@ -1,10 +1,19 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast;
 
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
-import de.weltraumschaf.jebnf.ast.nodes.Rule;
-import de.weltraumschaf.jebnf.ast.Notification;
-import de.weltraumschaf.jebnf.ast.Node;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
+import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import java.util.List;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -17,11 +26,11 @@ import org.junit.Test;
 public class IntegrationTest {
 
     @Test public void testIntegration() {
-        final Syntax syntax = Syntax.newInstance("foo", "bar"); // NOPMD
+        final SyntaxNode syntax = SyntaxNode.newInstance("foo", "bar"); // NOPMD
         List<Node> children = syntax.getChildren();
         assertEquals(0, children.size());
 
-        final Rule rule1 = Rule.newInstance(syntax);
+        final RuleNode rule1 = RuleNode.newInstance(syntax);
         assertSame(syntax, rule1.getParent());
         rule1.setAttribute("name", "first");
         syntax.addChild(rule1);
@@ -30,7 +39,7 @@ public class IntegrationTest {
         assertEquals(1, children.size());
         assertSame(rule1, children.get(0));
 
-        final Rule rule2 = Rule.newInstance(syntax);
+        final RuleNode rule2 = RuleNode.newInstance(syntax);
         rule2.setAttribute("name", "second");
         assertSame(syntax, rule1.getParent());
         syntax.addChild(rule2);
@@ -42,13 +51,13 @@ public class IntegrationTest {
     }
 
     @Test public void testProbeEquivalenceSyntax() {
-        final Syntax syntax1 = Syntax.newInstance("foo", "bar");
+        final SyntaxNode syntax1 = SyntaxNode.newInstance("foo", "bar");
         syntax1.setAttribute("title", "foo");
         syntax1.setAttribute("meta", "bar");
-        final Syntax syntax2 = Syntax.newInstance("foo", "bar");
+        final SyntaxNode syntax2 = SyntaxNode.newInstance("foo", "bar");
         syntax2.setAttribute("title", "foo");
         syntax2.setAttribute("meta", "bar");
-        final Syntax syntax3 = Syntax.newInstance("bla", "blub");
+        final SyntaxNode syntax3 = SyntaxNode.newInstance("bla", "blub");
         syntax3.setAttribute("title", "bla");
         syntax3.setAttribute("meta", "blub");
 
@@ -100,10 +109,10 @@ public class IntegrationTest {
         assertEquals(errors.toString(), notification.report());
 
         errors = new StringBuilder();
-        errors.append("Probed node types mismatch: 'class de.weltraumschaf.jebnf.ast.nodes.Syntax'"
-                    + " != 'class de.weltraumschaf.jebnf.ast.nodes.Rule'!");
-        final Syntax stub = Syntax.newInstance();
-        final Node mock = Rule.newInstance(stub);
+        errors.append("Probed node types mismatch: 'class de.weltraumschaf.jebnf.ast.nodes.SyntaxNode'"
+                    + " != 'class de.weltraumschaf.jebnf.ast.nodes.RuleNode'!");
+        final SyntaxNode stub = SyntaxNode.newInstance();
+        final Node mock = RuleNode.newInstance(stub);
         notification = new Notification();
         stub.probeEquivalence(mock, notification);
         assertFalse(notification.isOk());
@@ -111,10 +120,10 @@ public class IntegrationTest {
     }
 
     @Test public void testProbeEquivalenceSyntaxWithRules() {
-        final Syntax syntax1 = Syntax.newInstance("foo", "bar");
-        final Syntax syntax2 = Syntax.newInstance("foo", "bar");
-        final Syntax syntax3 = Syntax.newInstance("foo", "bar");
-        final Rule rule1 = Rule.newInstance();
+        final SyntaxNode syntax1 = SyntaxNode.newInstance("foo", "bar");
+        final SyntaxNode syntax2 = SyntaxNode.newInstance("foo", "bar");
+        final SyntaxNode syntax3 = SyntaxNode.newInstance("foo", "bar");
+        final RuleNode rule1 = RuleNode.newInstance();
         rule1.setAttribute("name", "rule1");
         syntax1.addChild(rule1);
         syntax2.addChild(rule1);
@@ -129,7 +138,7 @@ public class IntegrationTest {
         assertTrue(notification.report(), notification.isOk());
         assertEquals("", notification.report());
 
-        final Rule rule2 = Rule.newInstance();
+        final RuleNode rule2 = RuleNode.newInstance();
         rule2.setAttribute("name", "rule2");
         syntax1.addChild(rule2);
         StringBuilder error = new StringBuilder();
@@ -158,7 +167,7 @@ public class IntegrationTest {
         assertTrue(notification.report(), notification.isOk());
         assertEquals("", notification.report());
 
-        final Rule rule3 = Rule.newInstance();
+        final RuleNode rule3 = RuleNode.newInstance();
         rule3.setAttribute("name", "rule3");
         syntax3.addChild(rule1);
         syntax3.addChild(rule3);
@@ -169,8 +178,8 @@ public class IntegrationTest {
     }
 
     @Test public void testProbeEquivalenceSyntaxWithRulesAndSubnodes() { //NOPMD
-        Syntax syntax1;
-        Syntax syntax2;
+        SyntaxNode syntax1;
+        SyntaxNode syntax2;
 
         syntax1 = syntax("foo", "bar")
             .rule("syntax") // NOPMD

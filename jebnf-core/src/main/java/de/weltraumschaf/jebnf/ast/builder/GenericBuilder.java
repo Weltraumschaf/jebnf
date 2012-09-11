@@ -58,56 +58,56 @@ public class GenericBuilder<P> {
     }
 
     /**
-     * Creates an {@link Identifier} node and returns the same builder.
+     * Creates an {@link IdentifierNode} node and returns the same builder.
      *
      * @param value The identifier value.
      * @return Returns this for method chaining.
      */
     public GenericBuilder<P> identifier(final String value) {
-        parentNode.addChild(Identifier.newInstance(parentNode, value));
+        parentNode.addChild(IdentifierNode.newInstance(parentNode, value));
         return this;
     }
 
     /**
-     * Creates a {@link Terminal} node and returns the same builder.
+     * Creates a {@link TerminalNode} node and returns the same builder.
      *
      * @param value The terminal value.
      * @return Returns this for method chaining.
      */
     public GenericBuilder<P> terminal(final String value) {
-        parentNode.addChild(Terminal.newInstance(parentNode, value));
+        parentNode.addChild(TerminalNode.newInstance(parentNode, value));
         return this;
     }
 
     /**
-     * Creates a {@link Comment} node and returns the same builder.
+     * Creates a {@link CommentNode} node and returns the same builder.
      *
      * @param value The comment value.
      * @return Returns this for method chaining.
      */
     public GenericBuilder<P> comment(final String value) {
-        parentNode.addChild(Comment.newInstance(parentNode, value));
+        parentNode.addChild(CommentNode.newInstance(parentNode, value));
         return this;
     }
 
     /**
-     * Creates a {@link Choice} node and returns a sub builder for adding nodes to the {@link Choice} node.
+     * Creates a {@link ChoiceNode} node and returns a sub builder for adding nodes to the {@link ChoiceNode} node.
      *
      * @return Returns a new generic builder for a choice node.
      */
     public GenericBuilder<GenericBuilder<P>> choice() {
-        final Choice choice = Choice.newInstance(parentNode);
+        final ChoiceNode choice = ChoiceNode.newInstance(parentNode);
         parentNode.addChild(choice);
         return new GenericBuilder<GenericBuilder<P>>(this, choice);
     }
 
     /**
-     * Creates a {@link Loop} node and returns a sub builder for adding nodes to the {@link Loop} node.
+     * Creates a {@link LoopNode} node and returns a sub builder for adding nodes to the {@link LoopNode} node.
      *
      * @return Returns a new generic builder for a loop node.
      */
     public GenericBuilder<GenericBuilder<P>> loop() {
-        final Loop loop = Loop.newInstance(parentNode);
+        final LoopNode loop = LoopNode.newInstance(parentNode);
         parentNode.addChild(loop);
         return new GenericBuilder<GenericBuilder<P>>(this, loop);
     }
@@ -124,12 +124,12 @@ public class GenericBuilder<P> {
     }
 
     /**
-     * Creates a {@link Sequence} node and returns a sub builder for adding nodes to the {@link Sequence} node.
+     * Creates a {@link SequenceNode} node and returns a sub builder for adding nodes to the {@link SequenceNode} node.
      *
      * @return Returns a new generic builder for a sequence node.
      */
     public GenericBuilder<GenericBuilder<P>> sequence() {
-        final Sequence seq = Sequence.newInstance(parentNode);
+        final SequenceNode seq = SequenceNode.newInstance(parentNode);
         parentNode.addChild(seq);
         return new GenericBuilder<GenericBuilder<P>>(this, seq);
     }

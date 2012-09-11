@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.parser;
 
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import java.io.IOException;
 
 /**
@@ -28,6 +28,6 @@ public interface Parser {
      * @throws SyntaxException On parse or scan errors.
      * @throws IOException On source input io errors.
      */
-    Syntax parse() throws SyntaxException, IOException;
+    SyntaxNode parse() throws SyntaxException, IOException;
 
 }

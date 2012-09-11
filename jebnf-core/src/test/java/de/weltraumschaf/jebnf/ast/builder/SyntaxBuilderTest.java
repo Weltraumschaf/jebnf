@@ -13,7 +13,7 @@ package de.weltraumschaf.jebnf.ast.builder;
 
 import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import de.weltraumschaf.jebnf.ast.visitor.Xml;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -31,7 +31,7 @@ import org.junit.Test;
 public class SyntaxBuilderTest {
 
     @Test public void testBuilder() throws IOException, URISyntaxException {
-        final Syntax syntax = syntax("EBNF defined in itself.")
+        final SyntaxNode syntax = syntax("EBNF defined in itself.")
             .rule("syntax")
                 .sequence()
                     .option()

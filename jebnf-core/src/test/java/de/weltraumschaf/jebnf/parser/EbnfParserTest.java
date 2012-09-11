@@ -10,7 +10,7 @@ import de.weltraumschaf.jebnf.parser.SyntaxException;
 import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import de.weltraumschaf.jebnf.ast.Notification;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -26,7 +26,7 @@ import org.junit.Test;
  */
 public class EbnfParserTest {
 
-    private void assertEquivalentSyntax(final Syntax expected, final Syntax actual) {
+    private void assertEquivalentSyntax(final SyntaxNode expected, final SyntaxNode actual) {
         Notification notification = new Notification();
         expected.probeEquivalence(actual, notification);
         assertNotificationOk(notification);
@@ -77,7 +77,7 @@ public class EbnfParserTest {
     }
 
     @Test public void testParse() throws SyntaxException, IOException, URISyntaxException { //NOPMD
-        Syntax ast;
+        SyntaxNode ast;
 
         Parser parser = getInstance().createParserFromFixture("parser/rules_with_different_assignment_ops.ebnf");
         ast = syntax("Rules with different assignment operators.")

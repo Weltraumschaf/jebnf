@@ -11,9 +11,9 @@
 
 package de.weltraumschaf.jebnf.ast.builder;
 
-import de.weltraumschaf.jebnf.ast.nodes.Comment;
-import de.weltraumschaf.jebnf.ast.nodes.Rule;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.CommentNode;
+import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 
 /**
  * Sub builder providing methods to create rules and finaly build the syntax.
@@ -25,7 +25,7 @@ public class RuleBuilder {
     /**
      * The created syntax.
      */
-    private final Syntax syntax;
+    private final SyntaxNode syntax;
 
     /**
      * Sets the syntax to create the rules on.
@@ -34,7 +34,7 @@ public class RuleBuilder {
      *
      * @param syntax The syntax to which the all builded nodes belongs.
      */
-    RuleBuilder(final Syntax syntax) {
+    RuleBuilder(final SyntaxNode syntax) {
         this.syntax = syntax;
     }
 
@@ -45,7 +45,7 @@ public class RuleBuilder {
      * @return Returns a generic builder of type {@link RuleBuilder}.
      */
     public GenericBuilder<RuleBuilder> rule(final String name) {
-        final Rule rule = Rule.newInstance(syntax, name);
+        final RuleNode rule = RuleNode.newInstance(syntax, name);
         syntax.addChild(rule);
         return new GenericBuilder<RuleBuilder>(this, rule);
     }
@@ -57,7 +57,7 @@ public class RuleBuilder {
      * @return Returns this for method chaining.
      */
     public RuleBuilder comment(final String value) {
-        final Comment comment = Comment.newInstance(syntax, value);
+        final CommentNode comment = CommentNode.newInstance(syntax, value);
         syntax.addChild(comment);
         return this;
     }
@@ -67,7 +67,7 @@ public class RuleBuilder {
      *
      * @return Returns the created syntax object.
      */
-    public Syntax build() {
+    public SyntaxNode build() {
         return syntax;
     }
 

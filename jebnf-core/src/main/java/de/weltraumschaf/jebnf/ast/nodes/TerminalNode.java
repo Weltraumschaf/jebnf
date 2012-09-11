@@ -17,11 +17,13 @@ import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
 
 /**
- * Comment node.
+ * TerminalNode node.
+ *
+ * Has no sub nodes.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Comment extends AbstractNode {
+public final class TerminalNode extends AbstractNode {
 
     /**
      * Key for the value attribute.
@@ -32,61 +34,61 @@ public final class Comment extends AbstractNode {
      * Initializes object with empty value and parent node.
      *
      * @param parent The parent node.
-     * @param value Comment value.
+     * @param value The terminal value.
      */
-    private Comment(final Node parent, final String value) {
-        super(parent, NodeType.COMMENT);
+    private TerminalNode(final Node parent, final String value) {
+        super(parent, NodeType.TERMINAL);
         setAttribute(ATTR_VALUE, value);
     }
 
     /**
-     * Creates new comment node with {@link Null} parent node and empty string value.
+     * Creates an new terminal node with a {@link NullNode} parent node and empty value string.
      *
      * @return New instance.
      */
-    public static Comment newInstance() {
-        return newInstance(Null.getInstance());
+    public static TerminalNode newInstance() {
+        return newInstance(NullNode.getInstance());
     }
 
     /**
-     * Creates new comment node with {@link Null} parent node.
+     * Creates an new terminal node with a {@link NullNode} parent node.
      *
-     * @param value The comment string.
-     * @return       New instance.
+     * @param value The terminal value.
+     * @return New instance.
      */
-    public static Comment newInstance(final String value) {
-        return newInstance(Null.getInstance(), value);
+    public static TerminalNode newInstance(final String value) {
+        return newInstance(NullNode.getInstance(), value);
     }
 
     /**
-     * Creates new comment node with empty string value.
+     * Creates an new terminal node with an empty value string.
      *
-     * @param parent The node's parent.
-     * @return        New instance.
+     * @param parent The parent node.
+     * @return New instance.
      */
-    public static Comment newInstance(final Node parent) {
+    public static TerminalNode newInstance(final Node parent) {
         return newInstance(parent, "");
     }
 
     /**
-     * Creates new comment node.
+     * Creates an new terminal node.
      *
-     * @param parent The node's parent.
-     * @param value  The comment string.
-     * @return        New instance.
+     * @param parent The parent node.
+     * @param value The terminal value.
+     * @return New instance.
      */
-    public static Comment newInstance(final Node parent, final String value) {
-        return new Comment(parent, value);
+    public static TerminalNode newInstance(final Node parent, final String value) {
+        return new TerminalNode(parent, value);
     }
 
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         try {
-            final Comment terminal = (Comment) other;
+            final TerminalNode terminal = (TerminalNode) other;
 
             if (!getAttribute(ATTR_VALUE).equals(terminal.getAttribute(ATTR_VALUE))) {
-                result.error("Comment value mismatch: '%s' != '%s'!", getAttribute(ATTR_VALUE),
-                                                                      terminal.getAttribute(ATTR_VALUE));
+                result.error("Terminal value mismatch: '%s' != '%s'!", getAttribute(ATTR_VALUE),
+                                                                       terminal.getAttribute(ATTR_VALUE));
             }
         } catch (ClassCastException ex) {
             result.error(

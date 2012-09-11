@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.cli;
 
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import java.io.IOException;
 
 /**
@@ -29,10 +29,10 @@ public interface Application {
     void execute() throws IOException;
 
     /**
-     * Set the parsed {@link de.weltraumschaf.jebnf.ast.nodes.Syntax}.
+     * Set the parsed {@link de.weltraumschaf.jebnf.ast.nodes.SyntaxNode}.
      *
      * @param Syntaxt The abstract syntax tree.
      */
-    void setSyntax(Syntax Syntaxt);
+    void setSyntax(SyntaxNode Syntaxt);
 
 }

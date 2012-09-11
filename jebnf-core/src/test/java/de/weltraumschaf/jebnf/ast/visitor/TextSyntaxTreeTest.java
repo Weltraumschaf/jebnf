@@ -11,15 +11,15 @@
 
 package de.weltraumschaf.jebnf.ast.visitor;
 
-import de.weltraumschaf.jebnf.ast.nodes.Loop;
-import de.weltraumschaf.jebnf.ast.nodes.Comment;
-import de.weltraumschaf.jebnf.ast.nodes.Sequence;
+import de.weltraumschaf.jebnf.ast.nodes.LoopNode;
+import de.weltraumschaf.jebnf.ast.nodes.CommentNode;
+import de.weltraumschaf.jebnf.ast.nodes.SequenceNode;
 import de.weltraumschaf.jebnf.ast.nodes.Option;
-import de.weltraumschaf.jebnf.ast.nodes.Identifier;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
-import de.weltraumschaf.jebnf.ast.nodes.Choice;
-import de.weltraumschaf.jebnf.ast.nodes.Terminal;
-import de.weltraumschaf.jebnf.ast.nodes.Rule;
+import de.weltraumschaf.jebnf.ast.nodes.IdentifierNode;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
+import de.weltraumschaf.jebnf.ast.nodes.ChoiceNode;
+import de.weltraumschaf.jebnf.ast.nodes.TerminalNode;
+import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
 import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
 import de.weltraumschaf.jebnf.parser.Parser;
@@ -53,7 +53,7 @@ public class TextSyntaxTreeTest {
     }
 
     @Test public void testGenerateMatrix() {
-        Syntax ast = syntax("fobar")
+        SyntaxNode ast = syntax("fobar")
             .rule("one")
             .end()
             .rule("two")
@@ -128,7 +128,7 @@ public class TextSyntaxTreeTest {
 
     @Test public void testGenerateText() throws URISyntaxException, IOException, SyntaxException {
         TextSyntaxTree visitor = new TextSyntaxTree();
-        Syntax ast = syntax("foo").build();
+        SyntaxNode ast = syntax("foo").build();
         ast.accept(visitor);
         assertEquals("[syntax]\n", visitor.getResult()); // NOPMD
 
@@ -215,47 +215,47 @@ public class TextSyntaxTreeTest {
     @Test public void testFormatNode() {
         assertEquals(
             "[choice]",
-            TextSyntaxTree.formatNode(Choice.newInstance()));
+            TextSyntaxTree.formatNode(ChoiceNode.newInstance()));
         assertEquals(
             "[identifier]",
-            TextSyntaxTree.formatNode(Identifier.newInstance()));
+            TextSyntaxTree.formatNode(IdentifierNode.newInstance()));
         assertEquals(
             "[identifier='foobar']",
-            TextSyntaxTree.formatNode(Identifier.newInstance("foobar")));
+            TextSyntaxTree.formatNode(IdentifierNode.newInstance("foobar")));
         assertEquals(
             "[loop]",
-            TextSyntaxTree.formatNode(Loop.newInstance()));
+            TextSyntaxTree.formatNode(LoopNode.newInstance()));
         assertEquals(
             "[option]",
             TextSyntaxTree.formatNode(Option.newInstance()));
         assertEquals(
             "[rule]",
-            TextSyntaxTree.formatNode(Rule.newInstance()));
+            TextSyntaxTree.formatNode(RuleNode.newInstance()));
         assertEquals(
             "[rule='snafu']",
-            TextSyntaxTree.formatNode(Rule.newInstance("snafu")));
+            TextSyntaxTree.formatNode(RuleNode.newInstance("snafu")));
         assertEquals(
             "[sequence]",
-            TextSyntaxTree.formatNode(Sequence.newInstance()));
+            TextSyntaxTree.formatNode(SequenceNode.newInstance()));
         assertEquals(
             "[syntax]",
-            TextSyntaxTree.formatNode(Syntax.newInstance()));
+            TextSyntaxTree.formatNode(SyntaxNode.newInstance()));
         assertEquals(
             "[terminal]",
-            TextSyntaxTree.formatNode(Terminal.newInstance()));
+            TextSyntaxTree.formatNode(TerminalNode.newInstance()));
         assertEquals(
             "[terminal='foobar']",
-            TextSyntaxTree.formatNode(Terminal.newInstance("foobar")));
+            TextSyntaxTree.formatNode(TerminalNode.newInstance("foobar")));
         assertEquals(
             "[comment]",
-            TextSyntaxTree.formatNode(Comment.newInstance()));
+            TextSyntaxTree.formatNode(CommentNode.newInstance()));
         assertEquals(
             "[comment='foobar']",
-            TextSyntaxTree.formatNode(Comment.newInstance("foobar")));
+            TextSyntaxTree.formatNode(CommentNode.newInstance("foobar")));
         assertEquals(
             "[comment='foobar very very ver...']",
             TextSyntaxTree.formatNode(
-                Comment.newInstance("foobar very very very long comment string")));
+                CommentNode.newInstance("foobar very very very long comment string")));
     }
 
 }

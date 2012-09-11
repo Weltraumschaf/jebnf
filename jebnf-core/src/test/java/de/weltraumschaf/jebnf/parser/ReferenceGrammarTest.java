@@ -13,7 +13,7 @@ package de.weltraumschaf.jebnf.parser;
 
 import de.weltraumschaf.jebnf.parser.ReferenceGrammar;
 import de.weltraumschaf.jebnf.parser.SyntaxException;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import static org.junit.Assert.assertSame;
 import org.junit.Test;
 
@@ -26,7 +26,7 @@ public class ReferenceGrammarTest {
     @Test public void getInstanceAndSyntax() throws SyntaxException {
         final ReferenceGrammar grammar = ReferenceGrammar.getInstance();
         assertSame(grammar, ReferenceGrammar.getInstance());
-        final Syntax syntax = grammar.getSyntax();
+        final SyntaxNode syntax = grammar.getSyntax();
         assertSame(syntax, grammar.getSyntax());
     }
 }

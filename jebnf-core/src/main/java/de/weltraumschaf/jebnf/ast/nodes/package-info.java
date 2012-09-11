@@ -23,12 +23,12 @@
  * The nodes are dived in three types:
  *
  * <ol>
- *  <li>Leafs: The nodes {@link de.weltraumschaf.jebnf.ast.nodes.Identifier},
- *      {@link de.weltraumschaf.jebnf.ast.nodes.Terminal}, and
- *      {@link de.weltraumschaf.jebnf.ast.nodes.Null} are leafs. They can not contain other nodes
+ *  <li>Leafs: The nodes {@link de.weltraumschaf.jebnf.ast.nodes.IdentifierNode},
+ *      {@link de.weltraumschaf.jebnf.ast.nodes.TerminalNode}, and
+ *      {@link de.weltraumschaf.jebnf.ast.nodes.NullNode} are leafs. They can not contain other nodes
  *      as children.
  *  <li>Composites: All other nodes are composite nodes and may have one or more child nodes.
- *  <li>Special: The leaf node {@link de.weltraumschaf.jebnf.ast.nodes.Null} is a special
+ *  <li>Special: The leaf node {@link de.weltraumschaf.jebnf.ast.nodes.NullNode} is a special
  *      purpose node mostly used in the unit tests or to prevent NullPointerExceptions.
  *      It is used as default parent node for all composite nodes.
  * </ol>

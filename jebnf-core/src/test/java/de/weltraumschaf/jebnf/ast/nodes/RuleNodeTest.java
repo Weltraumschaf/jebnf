@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.Choice;
+import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import static org.junit.Assert.assertEquals;
@@ -23,22 +23,23 @@ import static org.mockito.Mockito.when;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class ChoiceTest {
+public class RuleNodeTest {
 
     @Test public void testToString() {
-        final Choice choice = Choice.newInstance();
-        assertEquals("<CHOICE>", choice.toString());
+        final RuleNode rule = RuleNode.newInstance("foo");
+        assertEquals("<RULE name=foo>", rule.toString());
         final Node node1 = mock(Node.class);
         when(node1.toString()).thenReturn("<foo>");
-        choice.addChild(node1);
+        rule.addChild(node1);
         final Node node2 = mock(Node.class);
         when(node2.toString()).thenReturn("<bar>");
-        choice.addChild(node2);
-        assertEquals("<CHOICE>\n<foo>\n<bar>", choice.toString());
+        rule.addChild(node2);
+        assertEquals("<RULE name=foo>\n"
+                   + "<foo>\n"
+                   + "<bar>", rule.toString());
     }
 
     @Test public void getType() {
-        assertEquals(NodeType.CHOICE, Choice.newInstance().getType());
+        assertEquals(NodeType.RULE, RuleNode.newInstance().getType());
     }
-
 }

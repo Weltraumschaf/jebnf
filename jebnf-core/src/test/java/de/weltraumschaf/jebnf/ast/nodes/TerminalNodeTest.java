@@ -1,37 +1,46 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.Identifier;
-import de.weltraumschaf.jebnf.ast.nodes.Terminal;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
- * Unit test for Terminal.
+ * Unit test for TerminalNode.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class TerminalTest {
+public class TerminalNodeTest {
 
     @Test public void testProbeEquivalence() {
         Notification notification;
-        final Terminal term1 = Terminal.newInstance();
+        final TerminalNode term1 = TerminalNode.newInstance();
         term1.setAttribute("value", "a");
         notification = new Notification();
         term1.probeEquivalence(term1, notification);
         assertTrue(notification.isOk());
 
-        final Terminal term2 = Terminal.newInstance();
+        final TerminalNode term2 = TerminalNode.newInstance();
         term2.setAttribute("value", "b");
         notification = new Notification();
         term2.probeEquivalence(term2, notification);
         assertTrue(notification.isOk());
 
-        term1.probeEquivalence(Identifier.newInstance(), notification);
+        term1.probeEquivalence(IdentifierNode.newInstance(), notification);
         assertFalse(notification.isOk());
-        assertEquals("Probed node types mismatch: 'class de.weltraumschaf.jebnf.ast.nodes.Terminal' "
-                   + "!= 'class de.weltraumschaf.jebnf.ast.nodes.Identifier'!",
+        assertEquals("Probed node types mismatch: 'class de.weltraumschaf.jebnf.ast.nodes.TerminalNode' "
+                   + "!= 'class de.weltraumschaf.jebnf.ast.nodes.IdentifierNode'!",
             notification.report()
         );
 
@@ -47,18 +56,18 @@ public class TerminalTest {
     }
 
     @Test public void testDepth() {
-        final Terminal term1 = Terminal.newInstance();
+        final TerminalNode term1 = TerminalNode.newInstance();
         assertEquals(1, term1.depth());
     }
 
     @Test public void testToString() {
-        final Terminal term = Terminal.newInstance();
+        final TerminalNode term = TerminalNode.newInstance();
         assertEquals("<TERMINAL value=>", term.toString());
         term.setAttribute("value", "foo");
         assertEquals("<TERMINAL value=foo>", term.toString());
     }
 
     @Test public void getType() {
-        assertEquals(NodeType.TERMINAL, Terminal.newInstance().getType());
+        assertEquals(NodeType.TERMINAL, TerminalNode.newInstance().getType());
     }
 }

@@ -16,38 +16,38 @@ import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 
 /**
- * Lop node.
+ * SequenceNode node.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Loop extends AbstractComposite {
+public final class SequenceNode extends AbstractComposite {
 
     /**
      * Initializes object with parent node.
      *
      * @param parent The parent node.
      */
-    private Loop(final Node parent) {
-        super(parent, NodeType.LOOP);
+    private SequenceNode(final Node parent) {
+        super(parent, NodeType.SEQUENCE);
     }
 
     /**
-     * Creates new loop node with a {@link Null} as parent.
+     * Creates an new sequence node with a {@link NullNode} parent node.
      *
      * @return New instance.
      */
-    public static Loop newInstance() {
-        return newInstance(Null.getInstance());
+    public static SequenceNode newInstance() {
+        return newInstance(NullNode.getInstance());
     }
 
     /**
-     * Creates new loop node.
+     * Creates an new sequence node.
      *
      * @param parent The parent node.
      * @return        New instance.
      */
-    public static Loop newInstance(final Node parent) {
-        return new Loop(parent);
+    public static SequenceNode newInstance(final Node parent) {
+        return new SequenceNode(parent);
     }
 
     @Override

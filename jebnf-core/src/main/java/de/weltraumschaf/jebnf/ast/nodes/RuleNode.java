@@ -17,11 +17,11 @@ import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
 
 /**
- * Rule node.
+ * RuleNode node.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Rule extends AbstractComposite {
+public final class RuleNode extends AbstractComposite {
 
     /**
      * Key for the name attribute.
@@ -34,28 +34,28 @@ public final class Rule extends AbstractComposite {
      * @param parent The parent node.
      * @param name The rule name.
      */
-    private Rule(final Node parent, final String name) {
+    private RuleNode(final Node parent, final String name) {
         super(parent, NodeType.RULE);
         setAttribute(ATTRIBUTE_NAME, name);
     }
 
     /**
-     * Creates an new rule node with a {@link Null} parent node and empty name string.
+     * Creates an new rule node with a {@link NullNode} parent node and empty name string.
      *
      * @return New instance.
      */
-    public static Rule newInstance() {
-        return newInstance(Null.getInstance());
+    public static RuleNode newInstance() {
+        return newInstance(NullNode.getInstance());
     }
 
     /**
-     * Creates an new rule node with a {@link Null} parent node.
+     * Creates an new rule node with a {@link NullNode} parent node.
      *
      * @param name The rule name.
      * @return      New instance.
      */
-    public static Rule newInstance(final String name) {
-        return newInstance(Null.getInstance(), name);
+    public static RuleNode newInstance(final String name) {
+        return newInstance(NullNode.getInstance(), name);
     }
 
     /**
@@ -64,7 +64,7 @@ public final class Rule extends AbstractComposite {
      * @param parent The parent node.
      * @return        New instance.
      */
-    public static Rule newInstance(final Node parent) {
+    public static RuleNode newInstance(final Node parent) {
         return newInstance(parent, "");
     }
 
@@ -75,15 +75,15 @@ public final class Rule extends AbstractComposite {
      * @param name   The rule name.
      * @return        New instance.
      */
-    public static Rule newInstance(final Node parent, final String name) {
-        return new Rule(parent, name);
+    public static RuleNode newInstance(final Node parent, final String name) {
+        return new RuleNode(parent, name);
     }
 
     @Override
     public void probeEquivalence(final Node other, final Notification result) {
         super.probeEquivalence(other, result);
 
-        final Rule rule = (Rule) other;
+        final RuleNode rule = (RuleNode) other;
 
         if (!getAttribute(ATTRIBUTE_NAME).equals(rule.getAttribute(ATTRIBUTE_NAME))) {
             result.error("Names of rule differs: '%s' != '%s'!", getAttribute(ATTRIBUTE_NAME),

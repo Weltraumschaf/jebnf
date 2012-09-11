@@ -1,3 +1,14 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 42):
+ * "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a beer in return.
+ *
+ */
+
 package de.weltraumschaf.jebnf.ast;
 
 import de.weltraumschaf.jebnf.ast.nodes.*;
@@ -16,7 +27,7 @@ public class AbstractCompositeTest {
     static class AbstractCompositeImpl extends AbstractComposite {
 
         public AbstractCompositeImpl() {
-            super(Null.getInstance(), null);
+            super(NullNode.getInstance(), null);
         }
 
     }
@@ -50,53 +61,53 @@ public class AbstractCompositeTest {
     @Test public void probeEquivalenceInternal() {
         final AbstractComposite comp = new AbstractCompositeImpl();
         Notification notification = new Notification();
-        comp.probeEquivalence(Terminal.newInstance(), notification);
+        comp.probeEquivalence(TerminalNode.newInstance(), notification);
         assertFalse(notification.isOk());
         assertEquals("Probed node is not a composite node: "
-                   + "'class de.weltraumschaf.jebnf.ast.nodes.Terminal'!",
+                   + "'class de.weltraumschaf.jebnf.ast.nodes.TerminalNode'!",
             notification.report()
         );
 
         notification = new Notification();
-        comp.probeEquivalence(Rule.newInstance(), notification);
+        comp.probeEquivalence(RuleNode.newInstance(), notification);
         assertFalse(notification.isOk());
         assertEquals("Probed node types mismatch: "
             + "'class de.weltraumschaf.jebnf.ast.AbstractCompositeTest$AbstractCompositeImpl' "
-            + "!= 'class de.weltraumschaf.jebnf.ast.nodes.Rule'!",
+            + "!= 'class de.weltraumschaf.jebnf.ast.nodes.RuleNode'!",
             notification.report()
         );
     }
 
     @Test public void depth() {
-        final Syntax syntax = Syntax.newInstance();
+        final SyntaxNode syntax = SyntaxNode.newInstance();
         assertEquals(1, syntax.depth());
 
-        final Rule rule = Rule.newInstance();
+        final RuleNode rule = RuleNode.newInstance();
         assertEquals(1, rule.depth());
         syntax.addChild(rule);
         assertEquals(2, syntax.depth());
 
-        final Sequence seq = Sequence.newInstance();
+        final SequenceNode seq = SequenceNode.newInstance();
         assertEquals(1, seq.depth());
         rule.addChild(seq);
         assertEquals(2, rule.depth());
         assertEquals(3, syntax.depth());
 
-        final Identifier ident = Identifier.newInstance();
+        final IdentifierNode ident = IdentifierNode.newInstance();
         assertEquals(1, ident.depth());
         seq.addChild(ident);
         assertEquals(2, seq.depth());
         assertEquals(3, rule.depth());
         assertEquals(4, syntax.depth());
 
-        final Loop loop = Loop.newInstance();
+        final LoopNode loop = LoopNode.newInstance();
         assertEquals(1, loop.depth());
         seq.addChild(loop);
         assertEquals(2, seq.depth());
         assertEquals(3, rule.depth());
         assertEquals(4, syntax.depth());
 
-        final Terminal term = Terminal.newInstance();
+        final TerminalNode term = TerminalNode.newInstance();
         assertEquals(1, term.depth());
         loop.addChild(term);
         assertEquals(2, loop.depth());

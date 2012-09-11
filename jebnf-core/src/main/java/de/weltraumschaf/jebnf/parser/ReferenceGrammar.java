@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.parser;
 
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,11 +32,11 @@ public final class ReferenceGrammar {
     private static final ReferenceGrammar INSTANCE = new ReferenceGrammar();
 
     /**
-     * Holds the AST {@link de.weltraumschaf.jebnf.ast.nodes.Syntax} node for the reference grammar for reuse.
+     * Holds the AST {@link de.weltraumschaf.jebnf.ast.nodes.SyntaxNode} node for the reference grammar for reuse.
      *
      * Is lazy computed.
      */
-    private Syntax syntax;
+    private SyntaxNode syntax;
 
     /**
      * Not instantiated from outside, because pure static utility class.
@@ -88,10 +88,10 @@ public final class ReferenceGrammar {
     /**
      * Returns the reference syntax as abstract syntax tree.
      *
-     * @throws SyntaxException On Syntax errors.
-     * @return Returns the grammars {@link Syntax} object.
+     * @throws SyntaxException On SyntaxNode errors.
+     * @return Returns the grammars {@link SyntaxNode} object.
      */
-    public Syntax getSyntax() throws SyntaxException {
+    public SyntaxNode getSyntax() throws SyntaxException {
         if (null == syntax) {
             final Parser parser = Factory.newParserFromSource(toString());
 

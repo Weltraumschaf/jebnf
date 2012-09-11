@@ -3,8 +3,8 @@ package de.weltraumschaf.jebnf.ast.visitor;
 import com.google.common.collect.Maps;
 import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
-import de.weltraumschaf.jebnf.ast.nodes.Loop;
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.LoopNode;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -43,10 +43,10 @@ public class XmlTest {
         fix.put("meta", "foo");
         fix.put("title", "bar");
 
-        final Syntax syntax = Syntax.newInstance("bar", "foo");
+        final SyntaxNode syntax = SyntaxNode.newInstance("bar", "foo");
         assertEquals(fix, syntax.getAttributes());
 
-        final Loop loop = Loop.newInstance();
+        final LoopNode loop = LoopNode.newInstance();
         assertEquals(new HashMap<String, String>(), loop.getAttributes());
     }
 
@@ -57,7 +57,7 @@ public class XmlTest {
             visitor.getResult()
         );
 
-        Syntax syntax = Syntax.newInstance("xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3",
+        SyntaxNode syntax = SyntaxNode.newInstance("xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3",
                                            "EBNF defined in itself.");
         visitor = new Xml();
         syntax.accept(visitor);

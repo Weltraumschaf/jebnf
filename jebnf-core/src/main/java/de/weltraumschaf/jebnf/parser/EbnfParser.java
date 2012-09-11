@@ -42,7 +42,7 @@ public class EbnfParser implements Parser {
     /**
      * The abstract syntax tree.
      */
-    private final Syntax ast;
+    private final SyntaxNode ast;
 
     /**
      * Initialized with a scanner which produced the token stream.
@@ -52,7 +52,7 @@ public class EbnfParser implements Parser {
     public EbnfParser(final Scanner scanner) {
         super();
         this.scanner = scanner;
-        this.ast     = Syntax.newInstance();
+        this.ast     = SyntaxNode.newInstance();
     }
 
     /**
@@ -65,7 +65,7 @@ public class EbnfParser implements Parser {
      * @return Return the parsed syntax tree.
      */
     @Override
-    public Syntax parse() throws SyntaxException, IOException {
+    public SyntaxNode parse() throws SyntaxException, IOException {
         scanner.nextToken();
 
         if (scanner.getCurrentToken().isType(TokenType.LITERAL)) {
@@ -85,7 +85,7 @@ public class EbnfParser implements Parser {
                 ast.addChild(rules);
                 scanner.nextToken();
             } else if (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-                final Comment comment = Comment.newInstance(ast,
+                final CommentNode comment = CommentNode.newInstance(ast,
                                                             scanner.getCurrentToken().getValue());
                 ast.addChild(comment);
                 scanner.nextToken();
@@ -124,11 +124,11 @@ public class EbnfParser implements Parser {
             raiseError("Production must start with an identifier");
         }
 
-        final Rule rule = Rule.newInstance(ast, scanner.getCurrentToken().getValue());
+        final RuleNode rule = RuleNode.newInstance(ast, scanner.getCurrentToken().getValue());
         scanner.nextToken();
 
         if (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-            final Comment comment = Comment.newInstance(rule, scanner.getCurrentToken().getValue());
+            final CommentNode comment = CommentNode.newInstance(rule, scanner.getCurrentToken().getValue());
             rule.addChild(comment);
             scanner.nextToken();
         }
@@ -142,7 +142,7 @@ public class EbnfParser implements Parser {
         rule.addChild(expressions);
 
         if (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-            final Comment comment = Comment.newInstance(rule, scanner.getCurrentToken().getValue());
+            final CommentNode comment = CommentNode.newInstance(rule, scanner.getCurrentToken().getValue());
             rule.addChild(comment);
             scanner.nextToken();
         }
@@ -165,7 +165,7 @@ public class EbnfParser implements Parser {
      * @return Return parsed expression node.
      */
     private Node parseExpression(final Node parent) throws SyntaxException, IOException {
-        final Choice choiceNode = Choice.newInstance(parent);
+        final ChoiceNode choiceNode = ChoiceNode.newInstance(parent);
         Node term = parseTerm(choiceNode);
         choiceNode.addChild(term);
         boolean multipleTerms = false;
@@ -189,7 +189,7 @@ public class EbnfParser implements Parser {
      * @return Return parsed term node.
      */
     private Node parseTerm(final Node parent) throws SyntaxException, IOException {
-        final Sequence sequenceNode = Sequence.newInstance(parent);
+        final SequenceNode sequenceNode = SequenceNode.newInstance(parent);
         Node factor = parseFactor(sequenceNode);
         sequenceNode.addChild(factor);
         scanner.nextToken();
@@ -220,7 +220,7 @@ public class EbnfParser implements Parser {
      */
     private Node parseFactor(final Node parent) throws SyntaxException, IOException {
         if (scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {
-            return Identifier.newInstance(parent, scanner.getCurrentToken().getValue());
+            return IdentifierNode.newInstance(parent, scanner.getCurrentToken().getValue());
         }
 
         if (scanner.getCurrentToken().isType(TokenType.LITERAL)) {
@@ -235,11 +235,11 @@ public class EbnfParser implements Parser {
                 return range;
             }*/
 
-            return Terminal.newInstance(parent, scanner.getCurrentToken().getValue(true));
+            return TerminalNode.newInstance(parent, scanner.getCurrentToken().getValue(true));
         }
 
         if (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-            return Comment.newInstance(parent, scanner.getCurrentToken().getValue());
+            return CommentNode.newInstance(parent, scanner.getCurrentToken().getValue());
         }
 
         if (assertToken(scanner.getCurrentToken(), TokenType.L_PAREN, "(")) {
@@ -269,7 +269,7 @@ public class EbnfParser implements Parser {
         if (assertToken(scanner.getCurrentToken(), TokenType.L_BRACE, "{")) {
             scanner.nextToken();
             final Node expression = parseExpression(parent);
-            final Loop loop       = Loop.newInstance(parent);
+            final LoopNode loop       = LoopNode.newInstance(parent);
             loop.addChild(expression);
 
             if (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACE, "}")) {

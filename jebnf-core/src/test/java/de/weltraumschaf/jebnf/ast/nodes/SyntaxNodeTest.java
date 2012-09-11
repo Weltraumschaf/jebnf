@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.Rule;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import static org.junit.Assert.assertEquals;
@@ -23,23 +23,23 @@ import static org.mockito.Mockito.when;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class RuleTest {
-
-    @Test public void testToString() {
-        final Rule rule = Rule.newInstance("foo");
-        assertEquals("<RULE name=foo>", rule.toString());
-        final Node node1 = mock(Node.class);
-        when(node1.toString()).thenReturn("<foo>");
-        rule.addChild(node1);
-        final Node node2 = mock(Node.class);
-        when(node2.toString()).thenReturn("<bar>");
-        rule.addChild(node2);
-        assertEquals("<RULE name=foo>\n"
-                   + "<foo>\n"
-                   + "<bar>", rule.toString());
-    }
+public class SyntaxNodeTest {
 
     @Test public void getType() {
-        assertEquals(NodeType.RULE, Rule.newInstance().getType());
+        assertEquals(NodeType.SYNTAX, SyntaxNode.newInstance().getType());
+    }
+
+    @Test public void testToString() {
+        final SyntaxNode syntax = SyntaxNode.newInstance("foo", "bar");
+        assertEquals("<SYNTAX title=foo meta=bar>", syntax.toString());
+        final Node node1 = mock(Node.class);
+        when(node1.toString()).thenReturn("<foo>");
+        syntax.addChild(node1);
+        final Node node2 = mock(Node.class);
+        when(node2.toString()).thenReturn("<bar>");
+        syntax.addChild(node2);
+        assertEquals("<SYNTAX title=foo meta=bar>\n"
+                   + "<foo>\n"
+                   + "<bar>", syntax.toString());
     }
 }

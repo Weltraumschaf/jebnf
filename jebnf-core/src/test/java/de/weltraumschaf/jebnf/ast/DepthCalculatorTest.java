@@ -3,7 +3,7 @@ package de.weltraumschaf.jebnf.ast;
 import de.weltraumschaf.jebnf.ast.DepthCalculator;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.AbstractComposite;
-import de.weltraumschaf.jebnf.ast.nodes.Null;
+import de.weltraumschaf.jebnf.ast.nodes.NullNode;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import static org.mockito.Mockito.mock;
@@ -19,7 +19,7 @@ public class DepthCalculatorTest {
     static class AbstractCompositeImpl extends AbstractComposite {
 
         public AbstractCompositeImpl() {
-            super(Null.getInstance(), null);
+            super(NullNode.getInstance(), null);
         }
 
 

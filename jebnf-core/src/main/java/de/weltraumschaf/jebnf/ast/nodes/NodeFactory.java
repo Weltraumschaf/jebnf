@@ -38,21 +38,21 @@ public final class NodeFactory {
     public static Node newNode(final NodeType type, final Node parent) {
         switch (type) {
             case CHOICE:
-                return Choice.newInstance(parent);
+                return ChoiceNode.newInstance(parent);
             case COMMENT:
-                return Comment.newInstance(parent);
+                return CommentNode.newInstance(parent);
             case IDENTIFIER:
-                return Identifier.newInstance(parent);
+                return IdentifierNode.newInstance(parent);
             case LOOP:
-                return Loop.newInstance(parent);
+                return LoopNode.newInstance(parent);
             case OPTION:
                 return Option.newInstance(parent);
             case RULE:
-                return Rule.newInstance(parent);
+                return RuleNode.newInstance(parent);
             case SEQUENCE:
-                return Sequence.newInstance(parent);
+                return SequenceNode.newInstance(parent);
             case TERMINAL:
-                return Terminal.newInstance(parent);
+                return TerminalNode.newInstance(parent);
             default:
                 // This may happen if someone adds new NodeType enum w/o adding them here.
                 throw new IllegalArgumentException(String.format("Unsupported node type '%s'!", type));
@@ -62,7 +62,7 @@ public final class NodeFactory {
     /**
      * Creates nodes w/o parent node.
      *
-     * Only {@link Syntax} and {@link Null} has no parent nodes. All other nodes get a {@link Null}
+     * Only {@link SyntaxNode} and {@link NullNode} has no parent nodes. All other nodes get a {@link NullNode}
      * object as parent.
      *
      * @param type Type of node to create.
@@ -70,11 +70,11 @@ public final class NodeFactory {
      */
     public static Node newNode(final NodeType type) {
         if (NodeType.SYNTAX == type) {
-            return Syntax.newInstance();
+            return SyntaxNode.newInstance();
         } else if (NodeType.NULL == type) {
-            return Null.getInstance();
+            return NullNode.getInstance();
         } else {
-            return newNode(type, Null.getInstance());
+            return newNode(type, NullNode.getInstance());
         }
     }
 }

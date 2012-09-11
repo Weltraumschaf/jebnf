@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.Syntax;
+import de.weltraumschaf.jebnf.ast.nodes.ChoiceNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import static org.junit.Assert.assertEquals;
@@ -23,23 +23,22 @@ import static org.mockito.Mockito.when;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class SyntaxTest {
-
-    @Test public void getType() {
-        assertEquals(NodeType.SYNTAX, Syntax.newInstance().getType());
-    }
+public class ChoiceNodeTest {
 
     @Test public void testToString() {
-        final Syntax syntax = Syntax.newInstance("foo", "bar");
-        assertEquals("<SYNTAX title=foo meta=bar>", syntax.toString());
+        final ChoiceNode choice = ChoiceNode.newInstance();
+        assertEquals("<CHOICE>", choice.toString());
         final Node node1 = mock(Node.class);
         when(node1.toString()).thenReturn("<foo>");
-        syntax.addChild(node1);
+        choice.addChild(node1);
         final Node node2 = mock(Node.class);
         when(node2.toString()).thenReturn("<bar>");
-        syntax.addChild(node2);
-        assertEquals("<SYNTAX title=foo meta=bar>\n"
-                   + "<foo>\n"
-                   + "<bar>", syntax.toString());
+        choice.addChild(node2);
+        assertEquals("<CHOICE>\n<foo>\n<bar>", choice.toString());
     }
+
+    @Test public void getType() {
+        assertEquals(NodeType.CHOICE, ChoiceNode.newInstance().getType());
+    }
+
 }

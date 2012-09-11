@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.Sequence;
+import de.weltraumschaf.jebnf.ast.nodes.SequenceNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import static org.junit.Assert.assertEquals;
@@ -23,10 +23,10 @@ import static org.mockito.Mockito.when;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class SequenceTest {
+public class SequenceNodeTest {
 
     @Test public void testToString() {
-        final Sequence sequence = Sequence.newInstance();
+        final SequenceNode sequence = SequenceNode.newInstance();
         assertEquals("<SEQUENCE>", sequence.toString());
         final Node node1 = mock(Node.class);
         when(node1.toString()).thenReturn("<foo>");
@@ -38,6 +38,6 @@ public class SequenceTest {
     }
 
     @Test public void getType() {
-        assertEquals(NodeType.SEQUENCE, Sequence.newInstance().getType());
+        assertEquals(NodeType.SEQUENCE, SequenceNode.newInstance().getType());
     }
 }
