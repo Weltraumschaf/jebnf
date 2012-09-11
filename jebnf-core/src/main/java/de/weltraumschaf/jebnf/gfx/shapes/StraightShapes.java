@@ -9,10 +9,23 @@
  *
  */
 
+package de.weltraumschaf.jebnf.gfx.shapes;
+
 /**
- * Compound railroad shapes package.
+ * Type of straight railroad shapes.
  *
- * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
+ * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-package de.weltraumschaf.jebnf.gfx.shapes.compound;
+public enum StraightShapes {
+
+     /**
+    * Straight railroad from north to south.
+     */
+    NORT_SOUTH,
+
+    /**
+     * Straight railroad from west to east.
+     */
+    WEST_EAST;
+
+}

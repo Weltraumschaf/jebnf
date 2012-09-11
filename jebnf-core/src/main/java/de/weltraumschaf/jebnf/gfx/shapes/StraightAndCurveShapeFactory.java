@@ -11,13 +11,13 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.Curve;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSE;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape;
 
 /**
  * Creates straight and curve shapes.
@@ -34,26 +34,26 @@ public final class StraightAndCurveShapeFactory {
     }
 
     /**
-     * Creates one of the {@link Curves "curves"}.
+     * Creates one of the {@link CurveShapes "curves"}.
      *
      * @param type Type of curve to create.
      * @return Always return new instance.
      */
-    public static Curve curve(final Curves type) {
-        Curve curve;
+    public static CurveShape curve(final CurveShapes type) {
+        CurveShape curve;
 
         switch (type) {
             case NORTH_EAST:
-                curve = new CurveNE();
+                curve = new CurveNorthEastShape();
                 break;
             case NORTH_WEST:
-                curve = new CurveNW();
+                curve = new CurveNorthWestShape();
                 break;
             case SOUTH_EAST:
-                curve = new CurveSE();
+                curve = new CurveSouthEastShape();
                 break;
             case SOUTH_WEST:
-                curve = new CurveSW();
+                curve = new CurveSouthWestShape();
                 break;
             default:
                 throw new IllegalArgumentException(String.format("Unsupported type: %s!", type));
@@ -63,17 +63,17 @@ public final class StraightAndCurveShapeFactory {
     }
 
     /**
-     * Create one of the {@link Straights "striaghts"}.
+     * Create one of the {@link StraightShapes "striaghts"}.
      *
      * @param type Type of straight to create.
      * @return Always return new instance.
      */
-    public static Shape straight(final Straights type) {
+    public static Shape straight(final StraightShapes type) {
         switch (type) {
             case NORT_SOUTH:
-                return new StraightNS();
+                return new StraightNorthSouthShape();
             case WEST_EAST:
-                return new StraightWE();
+                return new StraightWestEastShape();
             default:
                 throw new IllegalArgumentException("Unsupported type: " + type + "!");
         }

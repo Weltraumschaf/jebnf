@@ -11,15 +11,15 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Choice;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.text.Identifier;
-import de.weltraumschaf.jebnf.gfx.shapes.text.Rule;
-import de.weltraumschaf.jebnf.gfx.shapes.text.Terminal;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.ChoiceShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayoutShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayoutShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.LoopShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.OptionShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayoutShape;
+import de.weltraumschaf.jebnf.gfx.shapes.text.IdentifierShape;
+import de.weltraumschaf.jebnf.gfx.shapes.text.RuleShape;
+import de.weltraumschaf.jebnf.gfx.shapes.text.TerminalShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TextShape;
 
 /**
@@ -41,8 +41,8 @@ public final class CompundShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static GridLayout grid() {
-        return new GridLayout();
+    public static GridLayoutShape grid() {
+        return new GridLayoutShape();
     }
 
     /**
@@ -50,8 +50,8 @@ public final class CompundShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static ColumnLayout column() {
-        return new ColumnLayout();
+    public static ColumnLayoutShape column() {
+        return new ColumnLayoutShape();
     }
 
     /**
@@ -60,8 +60,8 @@ public final class CompundShapeFactory {
      * @param shapes Shapes appended to created column.
      * @return Always return new instance.
      */
-    public static ColumnLayout column(final Shape... shapes) {
-        final ColumnLayout column = column();
+    public static ColumnLayoutShape column(final Shape... shapes) {
+        final ColumnLayoutShape column = column();
         column.append(shapes);
         return column;
     }
@@ -71,8 +71,8 @@ public final class CompundShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static RowLayout row() {
-        return new RowLayout();
+    public static RowLayoutShape row() {
+        return new RowLayoutShape();
     }
 
     /**
@@ -81,8 +81,8 @@ public final class CompundShapeFactory {
      * @param shapes Shapes appended to created row.
      * @return Always return new instance.
      */
-    public static RowLayout row(final Shape... shapes) {
-        final RowLayout sequence = row();
+    public static RowLayoutShape row(final Shape... shapes) {
+        final RowLayoutShape sequence = row();
         sequence.append(shapes);
         return sequence;
     }
@@ -90,31 +90,31 @@ public final class CompundShapeFactory {
     /**
      * Creates a rule shape.
      *
-     * @param name Rule name.
+     * @param name RuleShape name.
      * @return Always return new instance.
      */
     public static TextShape rule(final String name) {
-        return new Rule(name);
+        return new RuleShape(name);
     }
 
     /**
      * Creates a terminal shape.
      *
-     * @param value Terminal value.
+     * @param value TerminalShape value.
      * @return Always return new instance.
      */
     public static TextShape terminal(final String value) {
-        return new Terminal(value);
+        return new TerminalShape(value);
     }
 
     /**
      * Creates a identifier shape.
      *
-     * @param value Identifier value.
+     * @param value IdentifierShape value.
      * @return Always return new instance.
      */
     public static TextShape identifier(final String value) {
-        return new Identifier(value);
+        return new IdentifierShape(value);
     }
 
     /**
@@ -122,8 +122,8 @@ public final class CompundShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Choice choice() {
-        return new Choice();
+    public static ChoiceShape choice() {
+        return new ChoiceShape();
     }
 
     /**
@@ -132,8 +132,8 @@ public final class CompundShapeFactory {
      * @param shapes Shapes added to created choice.
      * @return Always return new instance.
      */
-    public static Choice choice(final Shape... shapes) {
-        final Choice choice = choice();
+    public static ChoiceShape choice(final Shape... shapes) {
+        final ChoiceShape choice = choice();
         for (Shape shape : shapes) {
             choice.addChoice(shape);
         }
@@ -145,8 +145,8 @@ public final class CompundShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Option option() {
-        return new Option();
+    public static OptionShape option() {
+        return new OptionShape();
     }
 
     /**
@@ -155,8 +155,8 @@ public final class CompundShapeFactory {
      * @param optional Optional shape..
      * @return Always return new instance.
      */
-    public static Option option(final Shape optional) {
-        final Option option = option();
+    public static OptionShape option(final Shape optional) {
+        final OptionShape option = option();
         option.setOptional(optional);
         return option;
     }
@@ -166,8 +166,8 @@ public final class CompundShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Loop loop() {
-        return new Loop();
+    public static LoopShape loop() {
+        return new LoopShape();
     }
 
     /**
@@ -176,8 +176,8 @@ public final class CompundShapeFactory {
      * @param looped Looped shape.
      * @return Always return new instance.
      */
-    public static Loop loop(final Shape looped) {
-        final Loop loop = loop();
+    public static LoopShape loop(final Shape looped) {
+        final LoopShape loop = loop();
         loop.setLooped(looped);
         return loop;
     }
@@ -188,8 +188,8 @@ public final class CompundShapeFactory {
      * @param additional Additional shape.
      * @return Always return new instance.
      */
-    public static Loop loop(final Shape looped, final Shape additional) {
-        final Loop loop = loop(looped);
+    public static LoopShape loop(final Shape looped, final Shape additional) {
+        final LoopShape loop = loop(looped);
         loop.setAdditional(additional);
         return loop;
     }

@@ -9,10 +9,15 @@
  *
  */
 
+package de.weltraumschaf.jebnf.gfx.shapes.curves;
+
+import de.weltraumschaf.jebnf.gfx.shapes.Shape;
+
 /**
- * Compound railroad shapes package.
+ * Marker interface for curves shapes.
  *
- * <p>This package is a part of the open-source
- * <a href="https://github.com/Weltraumschaf/jebnf">JEBNF library</a></p>
+ * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-package de.weltraumschaf.jebnf.gfx.shapes.compound;
+public interface CurveShape extends Shape {
+
+}

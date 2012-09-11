@@ -35,8 +35,8 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Empty empty() {
-        return new Empty();
+    public static EmptyShape empty() {
+        return new EmptyShape();
     }
 
     /**
@@ -45,8 +45,8 @@ public final class ShapeFactory {
      * @param count How many shapes to create.
      * @return Always return new instances.
      */
-    public static Empty[] empty(final int count) {
-        final Empty[] empties = new Empty[count];
+    public static EmptyShape[] empty(final int count) {
+        final EmptyShape[] empties = new EmptyShape[count];
         for (int i = 0; i < count; ++i) {
             empties[i] = empty();
         }
@@ -58,8 +58,8 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Start start() {
-        return new Start();
+    public static StartShape start() {
+        return new StartShape();
     }
 
     /**
@@ -67,27 +67,27 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static End end() {
-        return new End();
+    public static EndShape end() {
+        return new EndShape();
     }
 
     /**
-     * Creates one of the {@link Curves "curves"}.
+     * Creates one of the {@link CurveShapes "curves"}.
      *
      * @param type Type of curve to create.
      * @return Always return new instance.
      */
-    public static Curve curve(final Curves type) {
+    public static CurveShape curve(final CurveShapes type) {
         return StraightAndCurveShapeFactory.curve(type);
     }
 
     /**
-     * Create one of the {@link Straights "striaghts"}.
+     * Create one of the {@link StraightShapes "striaghts"}.
      *
      * @param type Type of straight to create.
      * @return Always return new instance.
      */
-    public static Shape straight(final Straights type) {
+    public static Shape straight(final StraightShapes type) {
         return StraightAndCurveShapeFactory.straight(type);
     }
 
@@ -100,7 +100,7 @@ public final class ShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    public static Shape fork(final Straights orientation, final Curves curve) {
+    public static Shape fork(final StraightShapes orientation, final CurveShapes curve) {
         return ForkShapeFactory.fork(orientation, curve);
     }
 
@@ -109,7 +109,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static GridLayout grid() {
+    public static GridLayoutShape grid() {
         return CompundShapeFactory.grid();
     }
 
@@ -118,7 +118,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static ColumnLayout column() {
+    public static ColumnLayoutShape column() {
         return CompundShapeFactory.column();
     }
 
@@ -128,7 +128,7 @@ public final class ShapeFactory {
      * @param shapes Shapes appended to created column.
      * @return Always return new instance.
      */
-    public static ColumnLayout column(final Shape... shapes) {
+    public static ColumnLayoutShape column(final Shape... shapes) {
         return CompundShapeFactory.column(shapes);
     }
 
@@ -137,7 +137,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static RowLayout row() {
+    public static RowLayoutShape row() {
         return CompundShapeFactory.row();
     }
 
@@ -147,7 +147,7 @@ public final class ShapeFactory {
      * @param shapes Shapes appended to created row.
      * @return Always return new instance.
      */
-    public static RowLayout row(final Shape... shapes) {
+    public static RowLayoutShape row(final Shape... shapes) {
         return CompundShapeFactory.row(shapes);
     }
 
@@ -186,7 +186,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Choice choice() {
+    public static ChoiceShape choice() {
         return CompundShapeFactory.choice();
     }
 
@@ -196,7 +196,7 @@ public final class ShapeFactory {
      * @param shapes Shapes added to created choice.
      * @return Always return new instance.
      */
-    public static Choice choice(final Shape... shapes) {
+    public static ChoiceShape choice(final Shape... shapes) {
         return CompundShapeFactory.choice(shapes);
     }
 
@@ -205,7 +205,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Option option() {
+    public static OptionShape option() {
         return CompundShapeFactory.option();
     }
 
@@ -215,7 +215,7 @@ public final class ShapeFactory {
      * @param optional Optional shape..
      * @return Always return new instance.
      */
-    public static Option option(final Shape optional) {
+    public static OptionShape option(final Shape optional) {
         return CompundShapeFactory.option(optional);
     }
 
@@ -224,7 +224,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static Loop loop() {
+    public static LoopShape loop() {
         return CompundShapeFactory.loop();
     }
 
@@ -234,7 +234,7 @@ public final class ShapeFactory {
      * @param looped Looped shape.
      * @return Always return new instance.
      */
-    public static Loop loop(final Shape looped) {
+    public static LoopShape loop(final Shape looped) {
         return CompundShapeFactory.loop(looped);
     }
 
@@ -244,7 +244,7 @@ public final class ShapeFactory {
      * @param additional Additional shape.
      * @return Always return new instance.
      */
-    public static Loop loop(final Shape looped, final Shape additional) {
+    public static LoopShape loop(final Shape looped, final Shape additional) {
         return CompundShapeFactory.loop(looped, additional);
     }
 

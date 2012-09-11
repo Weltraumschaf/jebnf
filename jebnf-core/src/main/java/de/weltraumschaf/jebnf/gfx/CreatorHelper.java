@@ -13,16 +13,18 @@ package de.weltraumschaf.jebnf.gfx;
 
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
-import de.weltraumschaf.jebnf.gfx.shapes.Straights;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayout;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Loop;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.Option;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayout;
+import de.weltraumschaf.jebnf.gfx.shapes.StraightShapes;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayoutShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.LoopShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.OptionShape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayoutShape;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
 /**
  * Helper to create some diagrams for debugging and development.
+ *
+ * TODO Remove this.
  *
  * @deprecated Will be removed. Only used for development.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
@@ -34,16 +36,16 @@ public class CreatorHelper {
 
     private static final int START_Y = 20;
 
-    public GridLayout createStraights(final Graphics2D graphics) {
-        final GridLayout straights = grid();
+    public GridLayoutShape createStraights(final Graphics2D graphics) {
+        final GridLayoutShape straights = grid();
         straights.append(
             column().append(
                 row().append(
                     empty(),
-                    straight(Straights.WEST_EAST),
-                    straight(Straights.WEST_EAST),
+                    straight(StraightShapes.WEST_EAST),
+                    straight(StraightShapes.WEST_EAST),
                     empty(),
-                    straight(Straights.NORT_SOUTH),
+                    straight(StraightShapes.NORT_SOUTH),
                     empty()
                 )
             )
@@ -59,8 +61,8 @@ public class CreatorHelper {
      * @param graphics Graphics context.
      * @return Grid layout object.
      */
-    public GridLayout createValueDiagram(final Graphics2D graphics) {
-        final GridLayout value = grid();
+    public GridLayoutShape createValueDiagram(final Graphics2D graphics) {
+        final GridLayoutShape value = grid();
         value.append(
             column().append(
                 rule("value"),
@@ -98,15 +100,15 @@ public class CreatorHelper {
      * @param graphics Graphics context.
      * @return Grid layout object.
      */
-    public GridLayout createObjectDiagram(final Graphics2D graphics) {
-        final GridLayout object = grid();
-        final RowLayout innerSequence = row(identifier("string"),
+    public GridLayoutShape createObjectDiagram(final Graphics2D graphics) {
+        final GridLayoutShape object = grid();
+        final RowLayoutShape innerSequence = row(identifier("string"),
                                                 terminal(":"),
                                                 identifier("value"));
         innerSequence.adjust(graphics);
-        final Loop loop = loop(innerSequence, terminal(","));
+        final LoopShape loop = loop(innerSequence, terminal(","));
         loop.adjust(graphics);
-        final Option option = option(loop);
+        final OptionShape option = option(loop);
 
         object.append(
             column().append(

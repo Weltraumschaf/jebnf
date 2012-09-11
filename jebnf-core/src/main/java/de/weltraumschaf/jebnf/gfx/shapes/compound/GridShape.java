@@ -9,31 +9,23 @@
  *
  */
 
-package de.weltraumschaf.jebnf.gfx.shapes.text;
+package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import de.weltraumschaf.jebnf.gfx.shapes.AdjustableShape;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import java.awt.Font;
 
 /**
- * Defines text shape type.
+ * Compound shapes have child shapes and can adjust them self.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public interface TextShape extends Shape, AdjustableShape {
+public interface GridShape extends Shape, AdjustableShape {
 
     /**
-     * Get the painted text.
+     * Get the compounds grid layout.
      *
-     * @return Return text as string.
+     * @return The grid layout instance.
      */
-    String getText();
-
-    /**
-     * Get the painted font.
-     *
-     * @return Return font object.
-     */
-    Font getFont();
+    GridLayoutShape getGrid();
 
 }

@@ -16,7 +16,7 @@ import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.StringPainter;
 import de.weltraumschaf.jebnf.gfx.Strokes;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
+import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
@@ -40,7 +40,7 @@ import java.awt.geom.Rectangle2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractTextShape extends Empty implements TextShape {
+public abstract class AbstractTextShape extends EmptyShape implements TextShape {
 
     /**
      * Horizontal padding.

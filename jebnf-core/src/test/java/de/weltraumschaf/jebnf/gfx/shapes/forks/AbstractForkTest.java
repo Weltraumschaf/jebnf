@@ -11,10 +11,10 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.forks;
 
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.AbstractFork;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.AbstractForkShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
 import de.weltraumschaf.jebnf.gfx.Point;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.AbstractFork;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.AbstractForkShape;
 import java.awt.Graphics2D;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
@@ -25,8 +25,8 @@ import static org.mockito.Mockito.*;
  */
 public class AbstractForkTest {
 
-    static class AbstractForkStub extends AbstractFork {
-        public AbstractForkStub(final Empty straight, final Empty curve) {
+    static class AbstractForkStub extends AbstractForkShape {
+        public AbstractForkStub(final EmptyShape straight, final EmptyShape curve) {
             super(straight, curve);
         }
     }
@@ -35,10 +35,10 @@ public class AbstractForkTest {
         final Point pos = new Point(1, 2);
         final Graphics2D graphics = mock(Graphics2D.class);
 
-        final Empty straight   = mock(Empty.class);
-        final Empty curve      = mock(Empty.class);
+        final EmptyShape straight   = mock(EmptyShape.class);
+        final EmptyShape curve      = mock(EmptyShape.class);
 
-        final AbstractFork sut = new AbstractForkStub(straight, curve);
+        final AbstractForkShape sut = new AbstractForkStub(straight, curve);
         sut.setPosition(pos);
         sut.paint(graphics);
 

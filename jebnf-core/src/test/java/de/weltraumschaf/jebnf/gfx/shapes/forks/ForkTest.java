@@ -11,14 +11,14 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.forks;
 
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSE;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthEastShape;
 import java.awt.Graphics2D;
 import org.junit.Test;
 import static org.mockito.Mockito.mock;
@@ -31,29 +31,29 @@ public class ForkTest {
 
     @Test public void constructAndPaint() {
         // Test creation and paint w/o any errors.
-        final VForkNE fork1 = new VForkNE();
+        final VForkNorthEastShape fork1 = new VForkNorthEastShape();
         fork1.paint(mock(Graphics2D.class));
 
-        final VForkNW fork2 = new VForkNW();
+        final VForkNorthWestShape fork2 = new VForkNorthWestShape();
         fork2.paint(mock(Graphics2D.class));
 
-        final VForkSE fork3 = new VForkSE();
+        final VForkSouthEastShape fork3 = new VForkSouthEastShape();
         fork3.paint(mock(Graphics2D.class));
 
-        final VForkSW fork4 = new VForkSW();
+        final VForkSouthWestShape fork4 = new VForkSouthWestShape();
         fork4.paint(mock(Graphics2D.class));
 
         // Test creation and paint w/o any errors.
-        final HForkNE fork5 = new HForkNE();
+        final HForkNorthEastShape fork5 = new HForkNorthEastShape();
         fork5.paint(mock(Graphics2D.class));
 
-        final HForkNW fork6 = new HForkNW();
+        final HForkNorthWestShape fork6 = new HForkNorthWestShape();
         fork6.paint(mock(Graphics2D.class));
 
-        final HForkSE fork7 = new HForkSE();
+        final HForkSouthEastShape fork7 = new HForkSouthEastShape();
         fork7.paint(mock(Graphics2D.class));
 
-        final HForkSW fork8 = new HForkSW();
+        final HForkSouthWestShape fork8 = new HForkSouthWestShape();
         fork8.paint(mock(Graphics2D.class));
     }
 }

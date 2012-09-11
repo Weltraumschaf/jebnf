@@ -11,14 +11,14 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNW;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSE;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSW;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthWestShape;
 
 /**
  * Creates fork shapes.
@@ -43,7 +43,7 @@ public final class ForkShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    public static Shape fork(final Straights orientation, final Curves curve) {
+    public static Shape fork(final StraightShapes orientation, final CurveShapes curve) {
         switch (orientation) {
             case NORT_SOUTH:
                 return verticalFork(curve);
@@ -60,16 +60,16 @@ public final class ForkShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    private static Shape verticalFork(final Curves curve) {
+    private static Shape verticalFork(final CurveShapes curve) {
         switch (curve) {
             case NORTH_EAST:
-                return new VForkNE();
+                return new VForkNorthEastShape();
             case NORTH_WEST:
-                return new VForkNW();
+                return new VForkNorthWestShape();
             case SOUTH_EAST:
-                return new VForkSE();
+                return new VForkSouthEastShape();
             case SOUTH_WEST:
-                return new VForkSW();
+                return new VForkSouthWestShape();
             default:
                 throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
         }
@@ -81,16 +81,16 @@ public final class ForkShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    private static Shape horizontalFork(final Curves curve) {
+    private static Shape horizontalFork(final CurveShapes curve) {
         switch (curve) {
             case NORTH_EAST:
-                return new HForkNE();
+                return new HForkNorthEastShape();
             case NORTH_WEST:
-                return new HForkNW();
+                return new HForkNorthWestShape();
             case SOUTH_EAST:
-                return new HForkSE();
+                return new HForkSouthEastShape();
             case SOUTH_WEST:
-                return new HForkSW();
+                return new HForkSouthWestShape();
             default:
                 throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
         }

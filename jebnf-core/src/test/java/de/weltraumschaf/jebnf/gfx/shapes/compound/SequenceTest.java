@@ -15,7 +15,7 @@ import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.row;
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
+import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
 import java.awt.Graphics2D;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -28,7 +28,7 @@ import static org.mockito.Mockito.*;
 public class SequenceTest {
 
     @Test public void testGetSize() {
-        final RowLayout sequence = row();
+        final RowLayoutShape sequence = row();
         Size size = sequence.getSize();
         assertEquals(0, size.getWidth());
         assertEquals(0, size.getHeight());
@@ -64,7 +64,7 @@ public class SequenceTest {
         final Shape empty2 = empty();
         final Shape empty3 = empty();
         final Shape empty7 = empty();
-        final RowLayout sequence = row();
+        final RowLayoutShape sequence = row();
         assertEquals(0, sequence.countShapes());
 
         sequence.append(empty0, empty1, empty2, empty3);
@@ -77,13 +77,13 @@ public class SequenceTest {
         assertSame(empty2, sequence.get(2));
         assertSame(empty3, sequence.get(3));
         assertSame(empty7, sequence.get(7));
-        assertTrue(sequence.get(4) instanceof Empty);
-        assertTrue(sequence.get(5) instanceof Empty);
-        assertTrue(sequence.get(6) instanceof Empty);
+        assertTrue(sequence.get(4) instanceof EmptyShape);
+        assertTrue(sequence.get(5) instanceof EmptyShape);
+        assertTrue(sequence.get(6) instanceof EmptyShape);
     }
 
     @Test public void testAppendShape() {
-        final RowLayout sequence = row();
+        final RowLayoutShape sequence = row();
         assertEquals(0, sequence.countShapes());
         sequence.append(empty());
         assertEquals(1, sequence.countShapes());
@@ -94,7 +94,7 @@ public class SequenceTest {
     }
 
     @Test public void testPaint() {
-        final RowLayout sequence = row();
+        final RowLayoutShape sequence = row();
         final Graphics2D graphics = mock(Graphics2D.class);
         sequence.paint(graphics);
 
