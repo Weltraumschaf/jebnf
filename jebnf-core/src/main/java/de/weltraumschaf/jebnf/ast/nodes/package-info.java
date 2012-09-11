@@ -23,14 +23,11 @@
  * The nodes are dived in three types:
  *
  * <ol>
- *  <li>Leafs: The nodes {@link de.weltraumschaf.ebnf.ast.nodes.Identifier},
- *      {@link de.weltraumschaf.ebnf.ast.nodes.Terminal}, and
- *      {@link de.weltraumschaf.ebnf.ast.nodes.Null}
- *      are leafs. They can not contain other nodes as children.
+ *  <li>Leafs: The nodes {@link Identifier}, {@link Terminal}, and {@link Null} are leafs. They can
+ *      not contain other nodes as children.
  *  <li>Composites: All other nodes are composite nodes and may have one or more child nodes.
- *  <li>Special: The leaf node {@link de.weltraumschaf.ebnf.ast.nodes.Null} is a special
- *      purpose node mostly used in the unit tests. It is used as default parent node for all
- *      composite nodes.
+ *  <li>Special: The leaf node {@link Null} is a special purpose node mostly used in the unit tests.
+ *      It is used as default parent node for all composite nodes.
  * </ol>
  */
 package de.weltraumschaf.jebnf.ast.nodes;

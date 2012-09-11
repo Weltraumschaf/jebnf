@@ -31,7 +31,7 @@ public interface Visitor {
     void beforeVisit(Visitable visitable);
 
     /**
-     * Generic visitor method called by a visited {@link Node}.
+     * Generic visitor method called by a visited {@link de.weltraumschaf.jebnf.ast.Node}.
      *
      * @param visitable Visited {@link de.weltraumschaf.jebnf.ast.Visitable}.
      */

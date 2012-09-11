@@ -32,8 +32,7 @@ public final class ReferenceGrammar {
     private static final ReferenceGrammar INSTANCE = new ReferenceGrammar();
 
     /**
-     * Holds the AST {@link de.weltraumschaf.ebnf.ast.nodes.Syntax syntax}
-     * node for the reference grammar for reuse.
+     * Holds the AST {@link de.weltraumschaf.ebnf.ast.nodes.Syntax} node for the reference grammar for reuse.
      *
      * Is lazy computed.
      */

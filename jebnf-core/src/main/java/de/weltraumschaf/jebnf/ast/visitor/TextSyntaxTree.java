@@ -81,7 +81,7 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
     /**
      * Depth of the visited tree.
      *
-     * Asked in {@link de.weltraumschaf.jebnf.ast.nodes.Syntax#beforeBisit} node.
+     * Asked in {@link de.weltraumschaf.jebnf.ast.nodes.Syntax#beforeVisit} node.
      */
     private int depth;
 
@@ -176,7 +176,7 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
     }
 
     /**
-     * If as {@link Syntax} node comes around the visitor will be initializes.
+     * If as {@link de.weltraumschaf.jebnf.ast.nodes.Syntax} node comes around the visitor will be initializes.
      *
      * Which means that the depth property is read, the matrix and level properties will be
      * initialized. All other {@link de.weltraumschaf.jebnf.ast.Node} types increment the level
