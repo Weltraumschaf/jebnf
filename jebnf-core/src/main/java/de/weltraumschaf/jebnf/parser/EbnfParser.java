@@ -117,7 +117,7 @@ public class EbnfParser implements Parser {
      *
      * @throws SyntaxException If the parser encounter bad syntax.
      * @throws IOException     On IO errors of the parsed source.
-     * @return Return parsed rule node. Type of node is {@link NodeType#RULE}.
+     * @return Return parsed rule node. Type of node is {@link de.weltraumschaf.jebnf.ast.NodeType#RULE}.
      */
     private Node parseRule() throws SyntaxException, IOException {
         if (!scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {

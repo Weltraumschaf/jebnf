@@ -11,9 +11,9 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.ast.*;
+import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import java.util.List;
 
 /**

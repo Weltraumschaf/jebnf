@@ -19,13 +19,14 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
+ * A syntax rule shape.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class Rule extends AbstractTextShape implements Shape {
 
     /**
-     * Initializes the object with text and {@link de.weltraumschaf.jebnf.gfx.StringPainter.SANSERIF "font"}.
+     * Initializes the object with text and {@link de.weltraumschaf.jebnf.gfx.StringPainter#SANSERIF "font"}.
      *
      * @param text Rule name.
      */

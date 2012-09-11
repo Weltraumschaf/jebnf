@@ -11,13 +11,17 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.forkes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.shapes.other.Empty;
 import java.awt.Graphics2D;
 
 /**
- * Forks are a combination of either a {@link StraightNS} or {@link StraightWE} shape
- * and a curve shape ({@link CurveNE}, {@link CurveNW}, {@link CurveSE}, or {@link CurveSW}).
+ * Forks are a combination of either a {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS} or
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE} shape and a curve shape
+ * ({@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE},
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW},
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSE}, or
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW}).
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -36,8 +40,12 @@ public abstract class AbstractFork extends Empty {
     /**
      * Initializes {@link #straight} and {@link  #curve}.
      *
-     * @param straight {@link StraightNS} or {@link StraightWE}.
-     * @param curve One of {@link CurveNE}, {@link CurveNW}, {@link CurveSE}, or {@link CurveSW}.
+     * @param straight {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS} or
+     *                 {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE}.
+     * @param curve One of {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE},
+     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW},
+     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSE}, or
+     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW}.
      */
     public AbstractFork(final Empty straight, final Empty curve) {
         super();

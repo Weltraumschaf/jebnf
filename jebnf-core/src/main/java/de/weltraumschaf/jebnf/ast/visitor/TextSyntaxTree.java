@@ -19,7 +19,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Generates an ASCII formatted tree of the visited AST {@link Syntax} node.
+ * Generates an ASCII formatted tree of the visited AST {@link de.weltraumschaf.jebnf.ast.nodes.Syntax} node.
  *
  * Example:
  *
@@ -81,7 +81,7 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
     /**
      * Depth of the visited tree.
      *
-     * Asked in {@link Syntax#beforeBisit} node.
+     * Asked in {@link de.weltraumschaf.jebnf.ast.nodes.Syntax#beforeBisit} node.
      */
     private int depth;
 
@@ -93,10 +93,9 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
     /**
      * The matrix.
      *
-     * Two dimensional array. Initialized on visiting a {@link Syntax} node.
-     * So it is important that the syntax node is the root node of the tree.
-     * The matrix grows row by row by visiting each child node. A child node
-     * represents a row.
+     * Two dimensional array. Initialized on visiting a {@link de.weltraumschaf.jebnf.ast.nodes.Syntax}
+     * node. So it is important that the syntax node is the root node of the tree. The matrix grows
+     * row by row by visiting each child node. A child node represents a row.
      */
     private final List<List<String>> matrix = Lists.newArrayList();
 
@@ -121,10 +120,11 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
     /**
      * Formats nodes two strings.
      *
-     * {@link Rule}, {@link Terminal} and {@link Identifier} nodes will be
-     * rendered with their attributes name or value.
+     * {@link de.weltraumschaf.jebnf.ast.nodes.Rule}, {@link de.weltraumschaf.jebnf.ast.nodes.Terminal}
+     * and {@link de.weltraumschaf.jebnf.ast.nodes.Identifier} nodes will be rendered with their
+     * attributes name or value.
      *
-     * @param node Node t format.
+     * @param node Node to format.
      * @return      Formatted node.
      */
     public static String formatNode(final Node node) {
@@ -178,8 +178,9 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
     /**
      * If as {@link Syntax} node comes around the visitor will be initializes.
      *
-     * Which means that the depth property is read, the matrix and level properties
-     * will be initialized. All other {@link Node} types increment the level property.
+     * Which means that the depth property is read, the matrix and level properties will be
+     * initialized. All other {@link de.weltraumschaf.jebnf.ast.Node} types increment the level
+     * property.
      *
      * @param visitable Visited node.
      */

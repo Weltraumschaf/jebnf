@@ -18,8 +18,8 @@
  * <h2>Contents</h2>
  *
  * <ul>
- * <li>{@link de.weltraumschaf.ebnf.ast.visitor.TextSyntaxTree}
- * <li>{@link de.weltraumschaf.ebnf.ast.visitor.Xml}
+ *      <li>{@link TextSyntaxTree}
+ *      <li>{@link Xml}
  * </ul>
  */
 package de.weltraumschaf.jebnf.ast.visitor;

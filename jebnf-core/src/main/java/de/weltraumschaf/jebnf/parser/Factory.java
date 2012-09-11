@@ -31,7 +31,8 @@ public final class Factory {
     /**
      * Creates new scanner from given reader.
      *
-     * Initializes the {@link Scanner#fileName} of the scanner with an empty string.
+     * Initializes the {@link de.weltraumschaf.jebnf.parser.Scanner#fileName} of the scanner with an
+     * empty string.
      *
      * @param reader Input to scan.
      * @return Return new scanner instance.

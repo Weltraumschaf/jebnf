@@ -26,14 +26,14 @@ public interface Visitor {
      * Template method to hook in before specific node visitor method
      * will be invoked.
      *
-     * @param visitable Visited {@link Visitable}.
+     * @param visitable Visited {@link de.weltraumschaf.jebnf.ast.Visitable}.
      */
     void beforeVisit(Visitable visitable);
 
     /**
      * Generic visitor method called by a visited {@link Node}.
      *
-     * @param visitable Visited {@link Visitable}.
+     * @param visitable Visited {@link de.weltraumschaf.jebnf.ast.Visitable}.
      */
     void visit(Visitable visitable);
 
@@ -41,7 +41,7 @@ public interface Visitor {
      * Template method to hook in after specific node visitor method
      * will be invoked.
      *
-     * @param visitable Visited {@link Visitable}.
+     * @param visitable Visited {@link de.weltraumschaf.jebnf.ast.Visitable}.
      */
     void afterVisit(Visitable visitable);
 
