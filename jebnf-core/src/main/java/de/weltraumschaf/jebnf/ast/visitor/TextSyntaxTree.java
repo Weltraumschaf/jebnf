@@ -81,7 +81,7 @@ public class TextSyntaxTree implements TextGeneratingVisitor {
     /**
      * Depth of the visited tree.
      *
-     * Asked in {@link de.weltraumschaf.jebnf.ast.nodes.Syntax#beforeVisit} node.
+     * Asked in {@link de.weltraumschaf.jebnf.ast.visitor.Visitor#beforeVisit} node.
      */
     private int depth;
 
