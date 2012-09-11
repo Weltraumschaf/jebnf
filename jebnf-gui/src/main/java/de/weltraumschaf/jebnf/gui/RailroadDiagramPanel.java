@@ -17,14 +17,14 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 /**
- * {@link JPanel "GUI component" to display a railroad diagram.
+ * {@link javax.swing.JPanel "GUI component"} to display a railroad diagram.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class RailroadDiagramPanel extends JPanel {
 
     /**
-     * Version id for {@link Serializable}.
+     * Version id for {@link java.io.Serializable}.
      */
     private static final long serialVersionUID = 1L;
 

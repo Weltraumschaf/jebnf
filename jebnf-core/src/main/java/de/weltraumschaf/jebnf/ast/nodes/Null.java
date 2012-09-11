@@ -11,8 +11,8 @@
 
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.ast.*;
+import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 
 /**
  * Null node.

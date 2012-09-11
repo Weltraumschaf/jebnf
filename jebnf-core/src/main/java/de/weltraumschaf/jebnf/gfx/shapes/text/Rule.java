@@ -25,7 +25,7 @@ import java.awt.Graphics2D;
 public class Rule extends AbstractTextShape implements Shape {
 
     /**
-     * Initializes the object with text and {@link StringPainter.SANSERIF "font"}.
+     * Initializes the object with text and {@link de.weltraumschaf.jebnf.gfx.StringPainter.SANSERIF "font"}.
      *
      * @param text Rule name.
      */

@@ -47,8 +47,8 @@ public abstract class AbstractShape implements Shape {
     private boolean debug;
 
     /**
-     * Initializes the size with {@link #DEFAULT_WIDTH} x {@link #DEFAULT_HEIGHT} and
-     * position with (0, 0).
+     * Initializes the size with {@link de.weltraumschaf.jebnf.gfx.Size#DEFAULT_WIDTH} x
+     * {@link de.weltraumschaf.jebnf.gfx.Size#DEFAULT_HEIGHT} and position with (0, 0).
      */
     public AbstractShape() {
         size     = new Size();
