@@ -19,7 +19,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Generates an ASCII formatted tree of the visited AST {@link de.weltraumschaf.jebnf.ast.nodes.Syntax} node.
+ * Generates an ASCII formatted tree of the visited AST {@link de.weltraumschaf.jebnf.ast.nodes.SyntaxNode} node.
  *
  * Example:
  *
@@ -93,7 +93,7 @@ public class TextSyntaxTreeVisitor implements Visitor<String> {
     /**
      * The matrix.
      *
-     * Two dimensional array. Initialized on visiting a {@link de.weltraumschaf.jebnf.ast.nodes.Syntax}
+     * Two dimensional array. Initialized on visiting a {@link de.weltraumschaf.jebnf.ast.nodes.SyntaxNode}
      * node. So it is important that the syntax node is the root node of the tree. The matrix grows
      * row by row by visiting each child node. A child node represents a row.
      */
@@ -120,8 +120,8 @@ public class TextSyntaxTreeVisitor implements Visitor<String> {
     /**
      * Formats nodes two strings.
      *
-     * {@link de.weltraumschaf.jebnf.ast.nodes.Rule}, {@link de.weltraumschaf.jebnf.ast.nodes.Terminal}
-     * and {@link de.weltraumschaf.jebnf.ast.nodes.Identifier} nodes will be rendered with their
+     * {@link de.weltraumschaf.jebnf.ast.nodes.RuleNode}, {@link de.weltraumschaf.jebnf.ast.nodes.TerminalNode}
+     * and {@link de.weltraumschaf.jebnf.ast.nodes.IdentifierNode} nodes will be rendered with their
      * attributes name or value.
      *
      * @param node Node to format.
@@ -176,7 +176,7 @@ public class TextSyntaxTreeVisitor implements Visitor<String> {
     }
 
     /**
-     * If as {@link de.weltraumschaf.jebnf.ast.nodes.Syntax} node comes around the visitor will be initializes.
+     * If as {@link de.weltraumschaf.jebnf.ast.nodes.SyntaxNode} node comes around the visitor will be initializes.
      *
      * Which means that the depth property is read, the matrix and level properties will be
      * initialized. All other {@link de.weltraumschaf.jebnf.ast.Node} types increment the level

@@ -18,7 +18,7 @@ import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import java.awt.Graphics2D;
 
 /**
- * Abstract layouts are {@link Sequence}, {@link ColumnLayout}, and {@link GridLayout}.
+ * Abstract layouts are {@link SequenceShape}, {@link ColumnLayoutShape}, and {@link GridLayoutShape}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */

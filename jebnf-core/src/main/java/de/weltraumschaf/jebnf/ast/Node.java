@@ -64,7 +64,7 @@ public interface Node extends Visitable {
     /**
      * Get the parent.
      *
-     * @return Return the parent node. Will return {@link de.weltraumschaf.jebnf.ast.nodes.Null},
+     * @return Return the parent node. Will return {@link de.weltraumschaf.jebnf.ast.nodes.NullNode},
      *        if {@link #hasParent()} return false.
      */
     Node getParent();

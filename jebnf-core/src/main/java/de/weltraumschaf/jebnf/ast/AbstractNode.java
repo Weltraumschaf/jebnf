@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 /**
- * Abstract representation of AST nodes which are not the {@link nodes.Syntax "root node"}
+ * Abstract representation of AST nodes which are not the {@link nodes.SyntaxNode "root node"}
  * but any other kind of {@link Node}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>

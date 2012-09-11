@@ -20,7 +20,7 @@ import java.awt.Graphics2D;
 /**
  * Endpoint shapes are either the start or the end of a single railroad line.
  *
- * Paints the common vertical line common for {@link Start} and {@link End}.
+ * Paints the common vertical line common for {@link StartShape} and {@link EndShape}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */

@@ -16,12 +16,12 @@ import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
 import java.awt.Graphics2D;
 
 /**
- * Forks are a combination of either a {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS} or
- * {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE} shape and a curve shape
- * ({@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE},
- * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW},
- * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSE}, or
- * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW}).
+ * Forks are a combination of either a {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape} or
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape} shape and a curve shape
+ * ({@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape},
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape},
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthEastShape}, or
+ * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthWestShape}).
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -40,12 +40,12 @@ public abstract class AbstractForkShape extends EmptyShape {
     /**
      * Initializes {@link #straight} and {@link  #curve}.
      *
-     * @param straight {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightNS} or
-     *                 {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightWE}.
-     * @param curve One of {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNE},
-     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNW},
-     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSE}, or
-     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSW}.
+     * @param straight {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape} or
+     *                 {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape}.
+     * @param curve One of {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape},
+     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape},
+     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthEastShape}, or
+     *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthWestShape}.
      */
     public AbstractForkShape(final EmptyShape straight, final EmptyShape curve) {
         super();
