@@ -13,6 +13,7 @@ package de.weltraumschaf.jebnf.gfx;
 
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
+import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayoutShape;
 import java.awt.Graphics2D;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class RailroadDiagram {
     /**
      * Shapes the diagram consists of.
      */
-    private final List<Shape> shapes = Lists.newArrayList();
+    private final ColumnLayoutShape shapes = ColumnLayoutShape.newColumnLayout();
 
     /**
      * Whether to use antialiasing or not.
@@ -82,7 +83,7 @@ public class RailroadDiagram {
      * @param shape Shape to add.
      */
     public void add(final Shape shape) {
-        shapes.add(shape);
+        shapes.append(shape);
     }
 
     /**
@@ -104,10 +105,8 @@ public class RailroadDiagram {
             antialiase(graphic);
         }
 
-        for (Shape id : shapes) {
-            id.setDebug(debug);
-            id.paint(graphic);
-        }
+        shapes.adjust(graphic);
+        shapes.paint(graphic);
     }
 
     /**

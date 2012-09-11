@@ -28,7 +28,7 @@ public final class IdentifierNode extends AbstractNode {
     /**
      * Key for the value attribute.
      */
-    private static final String ATTR_VALUE = "value";
+    public static final String ATTRIBUTE_VALUE = "value";
 
     /**
      * Initializes object with value and parent node.
@@ -38,7 +38,7 @@ public final class IdentifierNode extends AbstractNode {
      */
     private IdentifierNode(final Node parent, final String value) {
         super(parent, NodeType.IDENTIFIER);
-        setAttribute(ATTR_VALUE, value);
+        setAttribute(ATTRIBUTE_VALUE, value);
     }
 
     /**
@@ -86,9 +86,9 @@ public final class IdentifierNode extends AbstractNode {
         try {
             final IdentifierNode ident = (IdentifierNode) other;
 
-            if (!getAttribute(ATTR_VALUE).equals(ident.getAttribute(ATTR_VALUE))) {
-                result.error("Identifier value mismatch: '%s' != '%s'!", getAttribute(ATTR_VALUE),
-                                                                         ident.getAttribute(ATTR_VALUE));
+            if (!getAttribute(ATTRIBUTE_VALUE).equals(ident.getAttribute(ATTRIBUTE_VALUE))) {
+                result.error("Identifier value mismatch: '%s' != '%s'!", getAttribute(ATTRIBUTE_VALUE),
+                                                                         ident.getAttribute(ATTRIBUTE_VALUE));
             }
         } catch (ClassCastException ex) {
             result.error("Probed node types mismatch: '%s' != '%s'!", getClass(), other.getClass());

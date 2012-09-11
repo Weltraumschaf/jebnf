@@ -157,7 +157,7 @@ public final class ShapeFactory {
      * @param name Rule name.
      * @return Always return new instance.
      */
-    public static TextShape rule(final String name) {
+    public static RuleShape rule(final String name) {
         return CompundShapeFactory.rule(name);
     }
 

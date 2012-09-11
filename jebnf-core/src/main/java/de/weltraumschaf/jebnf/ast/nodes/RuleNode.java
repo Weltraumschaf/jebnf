@@ -26,7 +26,7 @@ public final class RuleNode extends AbstractComposite {
     /**
      * Key for the name attribute.
      */
-    private static final String ATTRIBUTE_NAME = "name";
+    public static final String ATTRIBUTE_NAME = "name";
 
     /**
      * Initializes object with empty value and parent node.

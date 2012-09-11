@@ -33,12 +33,12 @@ public final class SyntaxNode extends AbstractNode implements Composite {
     /**
      * Key for the title attribute.
      */
-    public static final String ATTR_TITLE = "title";
+    public static final String ATTRIBUTE_TITLE = "title";
 
     /**
      * Key for the meta attribute.
      */
-    public  static final String ATTR_META = "meta";
+    public  static final String ATTRIBUTE_META = "meta";
 
     /**
      * Type of the node.
@@ -58,8 +58,8 @@ public final class SyntaxNode extends AbstractNode implements Composite {
      */
     private SyntaxNode(final String title, final String meta) {
         super(NullNode.getInstance(), NodeType.SYNTAX);
-        setAttribute(ATTR_TITLE, title);
-        setAttribute(ATTR_META, meta);
+        setAttribute(ATTRIBUTE_TITLE, title);
+        setAttribute(ATTRIBUTE_META, meta);
     }
 
     /**
@@ -117,14 +117,14 @@ public final class SyntaxNode extends AbstractNode implements Composite {
         try {
             final SyntaxNode syntax = (SyntaxNode) other;
 
-            if (!getAttribute(ATTR_TITLE).equals(syntax.getAttribute(ATTR_TITLE))) {
-                result.error("Titles of syntx differs: '%s' != '%s'!", getAttribute(ATTR_TITLE),
-                                                                       syntax.getAttribute(ATTR_TITLE));
+            if (!getAttribute(ATTRIBUTE_TITLE).equals(syntax.getAttribute(ATTRIBUTE_TITLE))) {
+                result.error("Titles of syntx differs: '%s' != '%s'!", getAttribute(ATTRIBUTE_TITLE),
+                                                                       syntax.getAttribute(ATTRIBUTE_TITLE));
             }
 
-            if (!getAttribute(ATTR_META).equals(syntax.getAttribute(ATTR_META))) {
-                result.error("Meta of syntx differs: '%s' != '%s'!", getAttribute(ATTR_META),
-                                                                     syntax.getAttribute(ATTR_META));
+            if (!getAttribute(ATTRIBUTE_META).equals(syntax.getAttribute(ATTRIBUTE_META))) {
+                result.error("Meta of syntx differs: '%s' != '%s'!", getAttribute(ATTRIBUTE_META),
+                                                                     syntax.getAttribute(ATTRIBUTE_META));
             }
 
             if (countChildren() != syntax.countChildren()) {

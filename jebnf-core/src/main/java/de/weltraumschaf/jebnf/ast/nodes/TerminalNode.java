@@ -28,7 +28,7 @@ public final class TerminalNode extends AbstractNode {
     /**
      * Key for the value attribute.
      */
-    private static final String ATTR_VALUE = "value";
+    public static final String ATTR_IBUTE_VALUE = "value";
 
     /**
      * Initializes object with empty value and parent node.
@@ -38,7 +38,7 @@ public final class TerminalNode extends AbstractNode {
      */
     private TerminalNode(final Node parent, final String value) {
         super(parent, NodeType.TERMINAL);
-        setAttribute(ATTR_VALUE, value);
+        setAttribute(ATTR_IBUTE_VALUE, value);
     }
 
     /**
@@ -86,9 +86,9 @@ public final class TerminalNode extends AbstractNode {
         try {
             final TerminalNode terminal = (TerminalNode) other;
 
-            if (!getAttribute(ATTR_VALUE).equals(terminal.getAttribute(ATTR_VALUE))) {
-                result.error("Terminal value mismatch: '%s' != '%s'!", getAttribute(ATTR_VALUE),
-                                                                       terminal.getAttribute(ATTR_VALUE));
+            if (!getAttribute(ATTR_IBUTE_VALUE).equals(terminal.getAttribute(ATTR_IBUTE_VALUE))) {
+                result.error("Terminal value mismatch: '%s' != '%s'!", getAttribute(ATTR_IBUTE_VALUE),
+                                                                       terminal.getAttribute(ATTR_IBUTE_VALUE));
             }
         } catch (ClassCastException ex) {
             result.error(
