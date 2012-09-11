@@ -33,12 +33,12 @@ public final class Syntax extends AbstractNode implements Composite {
     /**
      * Key for the title attribute.
      */
-    private static final String ATTR_TITLE = "title";
+    public static final String ATTR_TITLE = "title";
 
     /**
      * Key for the meta attribute.
      */
-    private static final String ATTR_META = "meta";
+    public  static final String ATTR_META = "meta";
 
     /**
      * Type of the node.
@@ -159,7 +159,7 @@ public final class Syntax extends AbstractNode implements Composite {
     }
 
     @Override
-    public void accept(final Visitor visitor) {
+    public void accept(final Visitor<?> visitor) {
         visitor.beforeVisit(this);
         visitor.visit(this);
 
