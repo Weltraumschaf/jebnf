@@ -18,7 +18,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import de.weltraumschaf.commons.IOStreams;
-import java.io.IOException;
 
 /**
  * Runs the GUI IDE.
@@ -62,7 +61,7 @@ public class GuiApplication extends ApplicationAdapter implements Runnable {
      * {@link SwingUtilities#invokeLater(java.lang.Runnable) "Invokes itself later"}.
      */
     @Override
-    public void execute() throws IOException {
+    public void execute() {
         SwingUtilities.invokeLater(this);
     }
 

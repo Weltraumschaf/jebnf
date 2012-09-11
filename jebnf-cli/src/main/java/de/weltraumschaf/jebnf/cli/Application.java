@@ -23,9 +23,16 @@ public interface Application {
 
     /**
      * Executable command method.
+     *
+     * @throws IOException If any I/O error happens.
      */
-    void execute() throws IOException ;
+    void execute() throws IOException;
 
-    void setSyntax(Syntax ast);
+    /**
+     * Set the parsed {@link de.weltraumschaf.jebnf.ast.nodes.Syntax}.
+     *
+     * @param Syntaxt The abstract syntax tree.
+     */
+    void setSyntax(Syntax Syntaxt);
 
 }

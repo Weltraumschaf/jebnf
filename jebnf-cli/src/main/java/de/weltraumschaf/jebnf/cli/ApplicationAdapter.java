@@ -36,7 +36,10 @@ public abstract class ApplicationAdapter implements Application {
      */
     protected final Main invoker;
 
-    protected Syntax ast;
+    /**
+     * The abstract syntax tree the application works with.
+     */
+    protected Syntax syntax;
 
     /**
      * Initializes app with options and IO streams.
@@ -52,7 +55,7 @@ public abstract class ApplicationAdapter implements Application {
     }
 
     @Override
-    public void setSyntax(final Syntax ast) {
-        this.ast = ast;
+    public void setSyntax(final Syntax syntax) {
+        this.syntax = syntax;
     }
 }

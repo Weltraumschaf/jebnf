@@ -62,11 +62,11 @@ public class CliApplication extends ApplicationAdapter {
     @Override
     public void execute() throws IOException {
         if (options.getOutputFormat() == OutputFormat.TREE) {
-            generateTextTree(ast);
+            generateTextTree(syntax);
         } else if (options.getOutputFormat() == OutputFormat.XML) {
-            generateXmlTree(ast);
+            generateXmlTree(syntax);
         } else {
-            generateRailroadImage(ast);
+            generateRailroadImage(syntax);
         }
 
         invoker.exit(ExitCodeImpl.OK);
@@ -77,9 +77,9 @@ public class CliApplication extends ApplicationAdapter {
      *
      * XXX: Does at the moment print always the same thing for development.
      *
-     * @param ast Syntax tree to format.
+     * @param syntax Syntax tree to format.
      */
-    private void generateRailroadImage(final Syntax ast) {
+    private void generateRailroadImage(final Syntax syntax) {
         final File outputFile = new File(options.getOutputFile());
         final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, outputFile);
         final RailroadDiagram diagram = helper.createDiagram(img.getGraphics());
@@ -97,24 +97,24 @@ public class CliApplication extends ApplicationAdapter {
     /**
      * Generate ASCII text tree from syntax tree.
      *
-     * @param ast Syntax tree to format.
+     * @param syntax Syntax tree to format.
      * @throws IOException On write error to output file.
      */
-    private void generateTextTree(final Syntax ast) throws IOException {
+    private void generateTextTree(final Syntax syntax) throws IOException {
         final TextGeneratingVisitor visitor = new TextSyntaxTree();
-        ast.accept(visitor);
+        syntax.accept(visitor);
         handleOutput(visitor.getText());
     }
 
     /**
      * Generate XML from the syntax tree.
      *
-     * @param ast Syntax tree to format.
+     * @param syntax Syntax tree to format.
      * @throws IOException On write error to output file.
      */
-    private void generateXmlTree(final Syntax ast) throws IOException {
+    private void generateXmlTree(final Syntax syntax) throws IOException {
         final TextGeneratingVisitor visitor = new Xml();
-        ast.accept(visitor);
+        syntax.accept(visitor);
         handleOutput(visitor.getText());
     }
 

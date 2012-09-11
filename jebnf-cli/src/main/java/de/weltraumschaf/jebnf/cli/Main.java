@@ -16,7 +16,6 @@ import de.weltraumschaf.commons.Version;
 import de.weltraumschaf.commons.system.NullExiter;
 import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
-import de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder;
 import de.weltraumschaf.jebnf.ast.nodes.Syntax;
 import de.weltraumschaf.jebnf.parser.Factory;
 import de.weltraumschaf.jebnf.parser.Parser;
