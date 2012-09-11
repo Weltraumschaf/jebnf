@@ -26,7 +26,7 @@
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.commons.system.NullExiter;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.EbnfException;
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ExitCodeImpl;
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.nodes.Syntax;
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.Factory;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.Parser;
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.parser.SyntaxException;
@@ -131,7 +131,7 @@
 <a class="jxr_linenumber" name="121" href="#121">121</a>             }
 <a class="jxr_linenumber" name="122" href="#122">122</a> 
 <a class="jxr_linenumber" name="123" href="#123">123</a>             <strong class="jxr_keyword">final</strong> String syntaxFileName = options.getSyntaxFile();
-<a class="jxr_linenumber" name="124" href="#124">124</a>             <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> ast = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="124" href="#124">124</a>             <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/SyntaxNode.html">SyntaxNode</a> ast = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="125" href="#125">125</a> 
 <a class="jxr_linenumber" name="126" href="#126">126</a>             <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="127" href="#127">127</a>                 <strong class="jxr_keyword">final</strong> File syntaxFile = <strong class="jxr_keyword">new</strong> File(syntaxFileName);

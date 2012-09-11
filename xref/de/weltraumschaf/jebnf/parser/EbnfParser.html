@@ -52,7 +52,7 @@
 <a class="jxr_linenumber" name="42" href="#42">42</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="43" href="#43">43</a>  <em class="jxr_javadoccomment">     * The abstract syntax tree.</em>
 <a class="jxr_linenumber" name="44" href="#44">44</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="45" href="#45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> ast;
+<a class="jxr_linenumber" name="45" href="#45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/SyntaxNode.html">SyntaxNode</a> ast;
 <a class="jxr_linenumber" name="46" href="#46">46</a>  
 <a class="jxr_linenumber" name="47" href="#47">47</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="48" href="#48">48</a>  <em class="jxr_javadoccomment">     * Initialized with a scanner which produced the token stream.</em>
@@ -62,7 +62,7 @@
 <a class="jxr_linenumber" name="52" href="#52">52</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/EbnfParser.html">EbnfParser</a>(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/parser/Scanner.html">Scanner</a> scanner) {
 <a class="jxr_linenumber" name="53" href="#53">53</a>          <strong class="jxr_keyword">super</strong>();
 <a class="jxr_linenumber" name="54" href="#54">54</a>          <strong class="jxr_keyword">this</strong>.scanner = scanner;
-<a class="jxr_linenumber" name="55" href="#55">55</a>          <strong class="jxr_keyword">this</strong>.ast     = Syntax.newInstance();
+<a class="jxr_linenumber" name="55" href="#55">55</a>          <strong class="jxr_keyword">this</strong>.ast     = SyntaxNode.newInstance();
 <a class="jxr_linenumber" name="56" href="#56">56</a>      }
 <a class="jxr_linenumber" name="57" href="#57">57</a>  
 <a class="jxr_linenumber" name="58" href="#58">58</a>      <em class="jxr_javadoccomment">/**</em>
@@ -75,7 +75,7 @@
 <a class="jxr_linenumber" name="65" href="#65">65</a>  <em class="jxr_javadoccomment">     * @return Return the parsed syntax tree.</em>
 <a class="jxr_linenumber" name="66" href="#66">66</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="67" href="#67">67</a>      @Override
-<a class="jxr_linenumber" name="68" href="#68">68</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> parse() <strong class="jxr_keyword">throws</strong> SyntaxException, IOException {
+<a class="jxr_linenumber" name="68" href="#68">68</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/SyntaxNode.html">SyntaxNode</a> parse() <strong class="jxr_keyword">throws</strong> SyntaxException, IOException {
 <a class="jxr_linenumber" name="69" href="#69">69</a>          scanner.nextToken();
 <a class="jxr_linenumber" name="70" href="#70">70</a>  
 <a class="jxr_linenumber" name="71" href="#71">71</a>          <strong class="jxr_keyword">if</strong> (scanner.getCurrentToken().isType(TokenType.LITERAL)) {
@@ -95,7 +95,7 @@
 <a class="jxr_linenumber" name="85" href="#85">85</a>                  ast.addChild(rules);
 <a class="jxr_linenumber" name="86" href="#86">86</a>                  scanner.nextToken();
 <a class="jxr_linenumber" name="87" href="#87">87</a>              } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-<a class="jxr_linenumber" name="88" href="#88">88</a>                  <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Comment.html">Comment</a> comment = Comment.newInstance(ast,
+<a class="jxr_linenumber" name="88" href="#88">88</a>                  <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/CommentNode.html">CommentNode</a> comment = CommentNode.newInstance(ast,
 <a class="jxr_linenumber" name="89" href="#89">89</a>                                                              scanner.getCurrentToken().getValue());
 <a class="jxr_linenumber" name="90" href="#90">90</a>                  ast.addChild(comment);
 <a class="jxr_linenumber" name="91" href="#91">91</a>                  scanner.nextToken();
@@ -134,11 +134,11 @@
 <a class="jxr_linenumber" name="124" href="#124">124</a>             raiseError(<span class="jxr_string">"Production must start with an identifier"</span>);
 <a class="jxr_linenumber" name="125" href="#125">125</a>         }
 <a class="jxr_linenumber" name="126" href="#126">126</a> 
-<a class="jxr_linenumber" name="127" href="#127">127</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Rule.html">Rule</a> rule = Rule.newInstance(ast, scanner.getCurrentToken().getValue());
+<a class="jxr_linenumber" name="127" href="#127">127</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/RuleNode.html">RuleNode</a> rule = RuleNode.newInstance(ast, scanner.getCurrentToken().getValue());
 <a class="jxr_linenumber" name="128" href="#128">128</a>         scanner.nextToken();
 <a class="jxr_linenumber" name="129" href="#129">129</a> 
 <a class="jxr_linenumber" name="130" href="#130">130</a>         <strong class="jxr_keyword">if</strong> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-<a class="jxr_linenumber" name="131" href="#131">131</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Comment.html">Comment</a> comment = Comment.newInstance(rule, scanner.getCurrentToken().getValue());
+<a class="jxr_linenumber" name="131" href="#131">131</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/CommentNode.html">CommentNode</a> comment = CommentNode.newInstance(rule, scanner.getCurrentToken().getValue());
 <a class="jxr_linenumber" name="132" href="#132">132</a>             rule.addChild(comment);
 <a class="jxr_linenumber" name="133" href="#133">133</a>             scanner.nextToken();
 <a class="jxr_linenumber" name="134" href="#134">134</a>         }
@@ -152,7 +152,7 @@
 <a class="jxr_linenumber" name="142" href="#142">142</a>         rule.addChild(expressions);
 <a class="jxr_linenumber" name="143" href="#143">143</a> 
 <a class="jxr_linenumber" name="144" href="#144">144</a>         <strong class="jxr_keyword">if</strong> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-<a class="jxr_linenumber" name="145" href="#145">145</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Comment.html">Comment</a> comment = Comment.newInstance(rule, scanner.getCurrentToken().getValue());
+<a class="jxr_linenumber" name="145" href="#145">145</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/CommentNode.html">CommentNode</a> comment = CommentNode.newInstance(rule, scanner.getCurrentToken().getValue());
 <a class="jxr_linenumber" name="146" href="#146">146</a>             rule.addChild(comment);
 <a class="jxr_linenumber" name="147" href="#147">147</a>             scanner.nextToken();
 <a class="jxr_linenumber" name="148" href="#148">148</a>         }
@@ -175,7 +175,7 @@
 <a class="jxr_linenumber" name="165" href="#165">165</a> <em class="jxr_javadoccomment">     * @return Return parsed expression node.</em>
 <a class="jxr_linenumber" name="166" href="#166">166</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="167" href="#167">167</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> parseExpression(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> parent) <strong class="jxr_keyword">throws</strong> SyntaxException, IOException {
-<a class="jxr_linenumber" name="168" href="#168">168</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Choice.html">Choice</a> choiceNode = Choice.newInstance(parent);
+<a class="jxr_linenumber" name="168" href="#168">168</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/ChoiceNode.html">ChoiceNode</a> choiceNode = ChoiceNode.newInstance(parent);
 <a class="jxr_linenumber" name="169" href="#169">169</a>         <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> term = parseTerm(choiceNode);
 <a class="jxr_linenumber" name="170" href="#170">170</a>         choiceNode.addChild(term);
 <a class="jxr_linenumber" name="171" href="#171">171</a>         <strong class="jxr_keyword">boolean</strong> multipleTerms = false;
@@ -199,7 +199,7 @@
 <a class="jxr_linenumber" name="189" href="#189">189</a> <em class="jxr_javadoccomment">     * @return Return parsed term node.</em>
 <a class="jxr_linenumber" name="190" href="#190">190</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="191" href="#191">191</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> parseTerm(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> parent) <strong class="jxr_keyword">throws</strong> SyntaxException, IOException {
-<a class="jxr_linenumber" name="192" href="#192">192</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Sequence.html">Sequence</a> sequenceNode = Sequence.newInstance(parent);
+<a class="jxr_linenumber" name="192" href="#192">192</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/SequenceNode.html">SequenceNode</a> sequenceNode = SequenceNode.newInstance(parent);
 <a class="jxr_linenumber" name="193" href="#193">193</a>         <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> factor = parseFactor(sequenceNode);
 <a class="jxr_linenumber" name="194" href="#194">194</a>         sequenceNode.addChild(factor);
 <a class="jxr_linenumber" name="195" href="#195">195</a>         scanner.nextToken();
@@ -230,7 +230,7 @@
 <a class="jxr_linenumber" name="220" href="#220">220</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="221" href="#221">221</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> parseFactor(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> parent) <strong class="jxr_keyword">throws</strong> SyntaxException, IOException {
 <a class="jxr_linenumber" name="222" href="#222">222</a>         <strong class="jxr_keyword">if</strong> (scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {
-<a class="jxr_linenumber" name="223" href="#223">223</a>             <strong class="jxr_keyword">return</strong> Identifier.newInstance(parent, scanner.getCurrentToken().getValue());
+<a class="jxr_linenumber" name="223" href="#223">223</a>             <strong class="jxr_keyword">return</strong> IdentifierNode.newInstance(parent, scanner.getCurrentToken().getValue());
 <a class="jxr_linenumber" name="224" href="#224">224</a>         }
 <a class="jxr_linenumber" name="225" href="#225">225</a> 
 <a class="jxr_linenumber" name="226" href="#226">226</a>         <strong class="jxr_keyword">if</strong> (scanner.getCurrentToken().isType(TokenType.LITERAL)) {
@@ -245,11 +245,11 @@
 <a class="jxr_linenumber" name="235" href="#235">235</a> <em class="jxr_comment">                return range;</em>
 <a class="jxr_linenumber" name="236" href="#236">236</a> <em class="jxr_comment">            }*/</em>
 <a class="jxr_linenumber" name="237" href="#237">237</a> 
-<a class="jxr_linenumber" name="238" href="#238">238</a>             <strong class="jxr_keyword">return</strong> Terminal.newInstance(parent, scanner.getCurrentToken().getValue(<strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="238" href="#238">238</a>             <strong class="jxr_keyword">return</strong> TerminalNode.newInstance(parent, scanner.getCurrentToken().getValue(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="239" href="#239">239</a>         }
 <a class="jxr_linenumber" name="240" href="#240">240</a> 
 <a class="jxr_linenumber" name="241" href="#241">241</a>         <strong class="jxr_keyword">if</strong> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {
-<a class="jxr_linenumber" name="242" href="#242">242</a>             <strong class="jxr_keyword">return</strong> Comment.newInstance(parent, scanner.getCurrentToken().getValue());
+<a class="jxr_linenumber" name="242" href="#242">242</a>             <strong class="jxr_keyword">return</strong> CommentNode.newInstance(parent, scanner.getCurrentToken().getValue());
 <a class="jxr_linenumber" name="243" href="#243">243</a>         }
 <a class="jxr_linenumber" name="244" href="#244">244</a> 
 <a class="jxr_linenumber" name="245" href="#245">245</a>         <strong class="jxr_keyword">if</strong> (assertToken(scanner.getCurrentToken(), TokenType.L_PAREN, <span class="jxr_string">"("</span>)) {
@@ -279,7 +279,7 @@
 <a class="jxr_linenumber" name="269" href="#269">269</a>         <strong class="jxr_keyword">if</strong> (assertToken(scanner.getCurrentToken(), TokenType.L_BRACE, <span class="jxr_string">"{"</span>)) {
 <a class="jxr_linenumber" name="270" href="#270">270</a>             scanner.nextToken();
 <a class="jxr_linenumber" name="271" href="#271">271</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> expression = parseExpression(parent);
-<a class="jxr_linenumber" name="272" href="#272">272</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Loop.html">Loop</a> loop       = Loop.newInstance(parent);
+<a class="jxr_linenumber" name="272" href="#272">272</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/LoopNode.html">LoopNode</a> loop       = LoopNode.newInstance(parent);
 <a class="jxr_linenumber" name="273" href="#273">273</a>             loop.addChild(expression);
 <a class="jxr_linenumber" name="274" href="#274">274</a> 
 <a class="jxr_linenumber" name="275" href="#275">275</a>             <strong class="jxr_keyword">if</strong> (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACE, <span class="jxr_string">"}"</span>)) {
