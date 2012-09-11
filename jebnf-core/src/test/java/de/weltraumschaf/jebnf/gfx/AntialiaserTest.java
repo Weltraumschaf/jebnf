@@ -13,7 +13,9 @@ package de.weltraumschaf.jebnf.gfx;
 
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.*;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -26,18 +28,22 @@ public class AntialiaserTest {
 
     @Test
     public void turnOn() {
-        assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, sut.getRenderingHint(Antialiaser.HINT_KEY));
+        final Object defaultValue = sut.getRenderingHint(Antialiaser.HINT_KEY);
+        assertThat(defaultValue, is(not(RenderingHints.VALUE_ANTIALIAS_ON)));
+
         final Object oldValue = Antialiaser.turnOn(sut);
         assertEquals(RenderingHints.VALUE_ANTIALIAS_ON, sut.getRenderingHint(Antialiaser.HINT_KEY));
-        assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, oldValue);
+        assertEquals(defaultValue, oldValue);
     }
 
     @Test
     public void turnOff() {
-        assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, sut.getRenderingHint(Antialiaser.HINT_KEY));
+        final Object defaultValue = sut.getRenderingHint(Antialiaser.HINT_KEY);
+        assertThat(defaultValue, is(not(RenderingHints.VALUE_ANTIALIAS_ON)));
+
         final Object oldValue = Antialiaser.turnOff(sut);
         assertEquals(RenderingHints.VALUE_ANTIALIAS_OFF, sut.getRenderingHint(Antialiaser.HINT_KEY));
-        assertEquals(RenderingHints.VALUE_ANTIALIAS_DEFAULT, oldValue);
+        assertEquals(defaultValue, oldValue);
     }
 
 }
