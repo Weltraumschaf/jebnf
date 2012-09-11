@@ -328,19 +328,6 @@
             </plugin>
 
             <plugin>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <doctitle>${project.name} - ${project.version}</doctitle>
-                    <windowtitle>${project.name} - ${project.version}</windowtitle>
-                    <show>public</show>
-                    <links>
-                        <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
-                        <link>http://junit.sourceforge.net/javadoc/</link>
-                    </links>
-                </configuration>
-            </plugin>
-
-            <plugin>
                 <artifactId>maven-enforcer-plugin</artifactId>
                 <executions>
                     <execution>
@@ -420,15 +407,6 @@
 
                         <plugin>
                             <artifactId>maven-javadoc-plugin</artifactId>
-                            <configuration>
-                                <doctitle>${project.name} - ${project.version}</doctitle>
-                                <windowtitle>${project.name} - ${project.version}</windowtitle>
-                                <show>public</show>
-                                <links>
-                                    <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
-                                    <link>http://junit.sourceforge.net/javadoc/</link>
-                                </links>
-                            </configuration>
                         </plugin>
 
                         <plugin>
@@ -552,6 +530,15 @@
 
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <doctitle>${project.name} - ${project.version}</doctitle>
+                    <windowtitle>${project.name} - ${project.version}</windowtitle>
+                    <show>public</show>
+                    <links>
+                        <link>http://java.sun.com/j2se/1.5.0/docs/api/</link>
+                        <link>http://junit.sourceforge.net/javadoc/</link>
+                    </links>
+                </configuration>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
