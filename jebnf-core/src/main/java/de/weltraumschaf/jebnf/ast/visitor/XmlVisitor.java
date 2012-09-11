@@ -23,7 +23,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Xml implements Visitor<String> {
+public class XmlVisitor implements Visitor<String> {
 
     /**
      * Default XML version.
@@ -51,28 +51,28 @@ public class Xml implements Visitor<String> {
     private int indentationLevel;
 
     /**
-     * Initialize object with {@link Xml#DEFAULT_ENCODING} and {@link Xml#DEFAULT_VERSION}.
+     * Initialize object with {@link XmlVisitor#DEFAULT_ENCODING} and {@link XmlVisitor#DEFAULT_VERSION}.
      */
-    public Xml() {
+    public XmlVisitor() {
         this(DEFAULT_ENCODING);
     }
 
     /**
-     * Initialize object with {@link Xml#DEFAULT_VERSION}.
+     * Initialize object with {@link XmlVisitor#DEFAULT_VERSION}.
      *
      * @param encoding XML encoding attribute.
      */
-    public Xml(final String encoding) {
+    public XmlVisitor(final String encoding) {
         this(encoding, DEFAULT_VERSION);
     }
 
     /**
      * Initializes the {@link Visitor} with XML version and encoding.
      *
-     * @param version  Optional XML version. Default is {@link Xml#DEFAULT_VERSION}.
-     * @param encoding Optional XML encoding. Default is {@link Xml#DEFAULT_ENCODING}.
+     * @param version  Optional XML version. Default is {@link XmlVisitor#DEFAULT_VERSION}.
+     * @param encoding Optional XML encoding. Default is {@link XmlVisitor#DEFAULT_ENCODING}.
      */
-    public Xml(final String encoding, final String version) {
+    public XmlVisitor(final String encoding, final String version) {
         append(String.format("<?xml version=\"%s\" encoding=\"%s\"?>", version, encoding));
     }
 

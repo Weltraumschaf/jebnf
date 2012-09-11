@@ -49,7 +49,7 @@ import org.apache.commons.lang3.StringUtils;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class TextSyntaxTree implements Visitor<String> {
+public class TextSyntaxTreeVisitor implements Visitor<String> {
 
     /**
      * ASCII pattern for branch.

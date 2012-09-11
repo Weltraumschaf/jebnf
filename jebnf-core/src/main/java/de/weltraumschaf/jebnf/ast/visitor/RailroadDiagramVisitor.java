@@ -18,7 +18,7 @@ import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Diagram implements Visitor<RailroadDiagram> {
+public class RailroadDiagramVisitor implements Visitor<RailroadDiagram> {
 
     @Override
     public void beforeVisit(Visitable visitable) {

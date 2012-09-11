@@ -13,10 +13,10 @@ package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
-import de.weltraumschaf.jebnf.ast.visitor.Diagram;
-import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTree;
+import de.weltraumschaf.jebnf.ast.visitor.RailroadDiagramVisitor;
+import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTreeVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
-import de.weltraumschaf.jebnf.ast.visitor.Xml;
+import de.weltraumschaf.jebnf.ast.visitor.XmlVisitor;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagramImage;
 import java.io.BufferedWriter;
@@ -60,7 +60,7 @@ public class CliApplication extends ApplicationAdapter {
      * Play around with image generation.
      */
     private void generateRailroadImage() {
-        final Visitor<RailroadDiagram> visitor = new Diagram();
+        final Visitor<RailroadDiagram> visitor = new RailroadDiagramVisitor();
         syntax.accept(visitor);
 
         final RailroadDiagram diagram = visitor.getResult();
@@ -83,7 +83,7 @@ public class CliApplication extends ApplicationAdapter {
      * @throws IOException On write error to output file.
      */
     private void generateTextTree() throws IOException {
-        final Visitor<String> visitor = new TextSyntaxTree();
+        final Visitor<String> visitor = new TextSyntaxTreeVisitor();
         syntax.accept(visitor);
         handleOutput(visitor.getResult());
     }
@@ -94,7 +94,7 @@ public class CliApplication extends ApplicationAdapter {
      * @throws IOException On write error to output file.
      */
     private void generateXmlTree() throws IOException {
-        final Visitor<String> visitor = new Xml();
+        final Visitor<String> visitor = new XmlVisitor();
         syntax.accept(visitor);
         handleOutput(visitor.getResult());
     }

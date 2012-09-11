@@ -13,11 +13,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 /**
- * Unit test for Xml.
+ * Unit test for XmlVisitor.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class XmlTest {
+public class XmlVisitorTest {
 
     @Test public void testCreateOpenTag() {
         final Map<String, String> fix1 = Maps.newHashMap();
@@ -27,15 +27,15 @@ public class XmlTest {
         fix2.put("bar", "1");
         fix2.put("baz", "2");
 
-        assertEquals("<foo>", Xml.createOpenTag("foo")); // NOPMD
-        assertEquals("<foo baz=\"&lt;&quot;&gt;&amp;\" bar=\"1\">", Xml.createOpenTag("foo", fix1));
-        assertEquals("<foo baz=\"2\" bar=\"1\">", Xml.createOpenTag("foo", fix2));
-        assertEquals("<foo baz=\"2\" bar=\"1\"/>", Xml.createOpenTag("foo", fix2, false));
+        assertEquals("<foo>", XmlVisitor.createOpenTag("foo")); // NOPMD
+        assertEquals("<foo baz=\"&lt;&quot;&gt;&amp;\" bar=\"1\">", XmlVisitor.createOpenTag("foo", fix1));
+        assertEquals("<foo baz=\"2\" bar=\"1\">", XmlVisitor.createOpenTag("foo", fix2));
+        assertEquals("<foo baz=\"2\" bar=\"1\"/>", XmlVisitor.createOpenTag("foo", fix2, false));
     }
 
     @Test public void testCloseOpenTag() {
-        assertEquals("</foo>", Xml.createCloseTag("foo"));
-        assertEquals("</fooBar>", Xml.createCloseTag("fooBar"));
+        assertEquals("</foo>", XmlVisitor.createCloseTag("foo"));
+        assertEquals("</fooBar>", XmlVisitor.createCloseTag("fooBar"));
     }
 
     @Test public void testExtractAttributes() {
@@ -51,7 +51,7 @@ public class XmlTest {
     }
 
     @Test public void testGenerateXml() throws URISyntaxException, IOException {
-        Xml visitor = new Xml();
+        XmlVisitor visitor = new XmlVisitor();
         assertEquals(
             "<?xml version=\"1.0\" encoding=\"utf-8\"?>",
             visitor.getResult()
@@ -59,7 +59,7 @@ public class XmlTest {
 
         SyntaxNode syntax = SyntaxNode.newInstance("xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3",
                                            "EBNF defined in itself.");
-        visitor = new Xml();
+        visitor = new XmlVisitor();
         syntax.accept(visitor);
         assertEquals("<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
                    + "<syntax title=\"xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ "
@@ -120,7 +120,7 @@ public class XmlTest {
             .end()
         .build();
 
-        visitor = new Xml();
+        visitor = new XmlVisitor();
         syntax.accept(visitor);
 
         final String xml = getInstance().createStringFromFixture("ast/visitor/syntax.xml");

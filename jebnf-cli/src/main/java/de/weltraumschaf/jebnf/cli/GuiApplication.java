@@ -12,7 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
-import de.weltraumschaf.jebnf.ast.visitor.Diagram;
+import de.weltraumschaf.jebnf.ast.visitor.RailroadDiagramVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gui.RailroadDiagramPanel;
@@ -59,7 +59,7 @@ public class GuiApplication extends ApplicationAdapter implements Runnable {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
-        final Visitor<RailroadDiagram> visitor = new Diagram();
+        final Visitor<RailroadDiagram> visitor = new RailroadDiagramVisitor();
         syntax.accept(visitor);
 
         final RailroadDiagram diagram = visitor.getResult();

@@ -14,7 +14,7 @@ package de.weltraumschaf.jebnf.ast.builder;
 import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
 import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
-import de.weltraumschaf.jebnf.ast.visitor.Xml;
+import de.weltraumschaf.jebnf.ast.visitor.XmlVisitor;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import static org.junit.Assert.assertEquals;
@@ -85,7 +85,7 @@ public class SyntaxBuilderTest {
         .build();
 
         final String xml   = getInstance().createStringFromFixture("ast/visitor/syntax.xml");
-        final Xml visitor  = new Xml();
+        final XmlVisitor visitor  = new XmlVisitor();
         syntax.accept(visitor);
         assertEquals(xml, visitor.getResult());
     }

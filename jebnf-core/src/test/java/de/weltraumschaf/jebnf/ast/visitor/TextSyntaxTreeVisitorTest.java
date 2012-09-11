@@ -36,20 +36,20 @@ import org.junit.Test;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class TextSyntaxTreeTest {
+public class TextSyntaxTreeVisitorTest {
 
     @Test public void testCreateRow() {
         try {
-            TextSyntaxTree.createRow(-3);
+            TextSyntaxTreeVisitor.createRow(-3);
             fail("Expected excpetion not thrown!");
         } catch (IllegalArgumentException ex) {
             assertEquals("Coll count msut be greater equal 0! Given value '-3'.", ex.getMessage());
         }
 
-        assertEquals(new ArrayList<String>(), TextSyntaxTree.createRow(0));
-        assertEquals(Arrays.asList(""), TextSyntaxTree.createRow(1));
-        assertEquals(Arrays.asList("", "", ""), TextSyntaxTree.createRow(3));
-        assertEquals(Arrays.asList("", "", "", "", ""), TextSyntaxTree.createRow(5));
+        assertEquals(new ArrayList<String>(), TextSyntaxTreeVisitor.createRow(0));
+        assertEquals(Arrays.asList(""), TextSyntaxTreeVisitor.createRow(1));
+        assertEquals(Arrays.asList("", "", ""), TextSyntaxTreeVisitor.createRow(3));
+        assertEquals(Arrays.asList("", "", "", "", ""), TextSyntaxTreeVisitor.createRow(5));
     }
 
     @Test public void testGenerateMatrix() {
@@ -63,7 +63,7 @@ public class TextSyntaxTreeTest {
         .build();
 
         assertEquals(2, ast.depth());
-        final TextSyntaxTree visitor = new TextSyntaxTree();
+        final TextSyntaxTreeVisitor visitor = new TextSyntaxTreeVisitor();
         assertEquals(new ArrayList<ArrayList<String>>(), visitor.getMatrix());
         assertEquals(0, visitor.getDepth());
         ast.accept(visitor);
@@ -127,7 +127,7 @@ public class TextSyntaxTreeTest {
     }
 
     @Test public void testGenerateText() throws URISyntaxException, IOException, SyntaxException {
-        TextSyntaxTree visitor = new TextSyntaxTree();
+        TextSyntaxTreeVisitor visitor = new TextSyntaxTreeVisitor();
         SyntaxNode ast = syntax("foo").build();
         ast.accept(visitor);
         assertEquals("[syntax]\n", visitor.getResult()); // NOPMD
@@ -204,7 +204,7 @@ public class TextSyntaxTreeTest {
         final String expected = getInstance().createStringFromFixture("ast/visitor/rules_with_literals_tree_output");
         final Parser parser = getInstance().createParserFromFixture("parser/rules_with_literals.ebnf");
         ast     = parser.parse();
-        visitor = new TextSyntaxTree();
+        visitor = new TextSyntaxTreeVisitor();
         ast.accept(visitor);
         assertEquals(
             expected,
@@ -215,46 +215,46 @@ public class TextSyntaxTreeTest {
     @Test public void testFormatNode() {
         assertEquals(
             "[choice]",
-            TextSyntaxTree.formatNode(ChoiceNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(ChoiceNode.newInstance()));
         assertEquals(
             "[identifier]",
-            TextSyntaxTree.formatNode(IdentifierNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(IdentifierNode.newInstance()));
         assertEquals(
             "[identifier='foobar']",
-            TextSyntaxTree.formatNode(IdentifierNode.newInstance("foobar")));
+            TextSyntaxTreeVisitor.formatNode(IdentifierNode.newInstance("foobar")));
         assertEquals(
             "[loop]",
-            TextSyntaxTree.formatNode(LoopNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(LoopNode.newInstance()));
         assertEquals(
             "[option]",
-            TextSyntaxTree.formatNode(Option.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(Option.newInstance()));
         assertEquals(
             "[rule]",
-            TextSyntaxTree.formatNode(RuleNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(RuleNode.newInstance()));
         assertEquals(
             "[rule='snafu']",
-            TextSyntaxTree.formatNode(RuleNode.newInstance("snafu")));
+            TextSyntaxTreeVisitor.formatNode(RuleNode.newInstance("snafu")));
         assertEquals(
             "[sequence]",
-            TextSyntaxTree.formatNode(SequenceNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(SequenceNode.newInstance()));
         assertEquals(
             "[syntax]",
-            TextSyntaxTree.formatNode(SyntaxNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(SyntaxNode.newInstance()));
         assertEquals(
             "[terminal]",
-            TextSyntaxTree.formatNode(TerminalNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(TerminalNode.newInstance()));
         assertEquals(
             "[terminal='foobar']",
-            TextSyntaxTree.formatNode(TerminalNode.newInstance("foobar")));
+            TextSyntaxTreeVisitor.formatNode(TerminalNode.newInstance("foobar")));
         assertEquals(
             "[comment]",
-            TextSyntaxTree.formatNode(CommentNode.newInstance()));
+            TextSyntaxTreeVisitor.formatNode(CommentNode.newInstance()));
         assertEquals(
             "[comment='foobar']",
-            TextSyntaxTree.formatNode(CommentNode.newInstance("foobar")));
+            TextSyntaxTreeVisitor.formatNode(CommentNode.newInstance("foobar")));
         assertEquals(
             "[comment='foobar very very ver...']",
-            TextSyntaxTree.formatNode(
+            TextSyntaxTreeVisitor.formatNode(
                 CommentNode.newInstance("foobar very very very long comment string")));
     }
 
