@@ -40,6 +40,7 @@ public final class Antialiaser {
      * Turns on antialiasing for given {@link Graphics2D "graphics context"}.
      *
      * @param graphic Context to turn on antialiasing.
+     * @return Return the previous antialiasing hint.
      */
     public static Object turnOn(final Graphics2D graphic) {
         final Object oldValue = graphic.getRenderingHint(HINT_KEY);
@@ -51,6 +52,7 @@ public final class Antialiaser {
      * Turns off antialiasing for given {@link Graphics2D "graphics context"}.
      *
      * @param graphic Context to turn off antialiasing.
+     * @return Return the previous antialiasing hint.
      */
     public static Object turnOff(final Graphics2D graphic) {
         final Object oldValue = graphic.getRenderingHint(HINT_KEY);
