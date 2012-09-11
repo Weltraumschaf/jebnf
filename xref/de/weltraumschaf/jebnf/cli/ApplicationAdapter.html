@@ -46,26 +46,29 @@
 <a class="jxr_linenumber" name="36" href="#36">36</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="37" href="#37">37</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/cli/Main.html">Main</a> invoker;
 <a class="jxr_linenumber" name="38" href="#38">38</a>  
-<a class="jxr_linenumber" name="39" href="#39">39</a>      <strong class="jxr_keyword">protected</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> ast;
-<a class="jxr_linenumber" name="40" href="#40">40</a>  
-<a class="jxr_linenumber" name="41" href="#41">41</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="42" href="#42">42</a>  <em class="jxr_javadoccomment">     * Initializes app with options and IO streams.</em>
-<a class="jxr_linenumber" name="43" href="#43">43</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="44" href="#44">44</a>  <em class="jxr_javadoccomment">     * @param options Command line options</em>
-<a class="jxr_linenumber" name="45" href="#45">45</a>  <em class="jxr_javadoccomment">     * @param ioStreams IO streams.</em>
-<a class="jxr_linenumber" name="46" href="#46">46</a>  <em class="jxr_javadoccomment">     * @param invoker Invoked the invokable.</em>
-<a class="jxr_linenumber" name="47" href="#47">47</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="48" href="#48">48</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/weltraumschaf/jebnf/cli/ApplicationAdapter.html">ApplicationAdapter</a>(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/cli/CliOptions.html">CliOptions</a> options, <strong class="jxr_keyword">final</strong> IOStreams ioStreams, <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/cli/Main.html">Main</a> invoker) {
-<a class="jxr_linenumber" name="49" href="#49">49</a>          <strong class="jxr_keyword">this</strong>.ioStreams = ioStreams;
-<a class="jxr_linenumber" name="50" href="#50">50</a>          <strong class="jxr_keyword">this</strong>.options = options;
-<a class="jxr_linenumber" name="51" href="#51">51</a>          <strong class="jxr_keyword">this</strong>.invoker = invoker;
-<a class="jxr_linenumber" name="52" href="#52">52</a>      }
-<a class="jxr_linenumber" name="53" href="#53">53</a>  
-<a class="jxr_linenumber" name="54" href="#54">54</a>      @Override
-<a class="jxr_linenumber" name="55" href="#55">55</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setSyntax(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> ast) {
-<a class="jxr_linenumber" name="56" href="#56">56</a>          <strong class="jxr_keyword">this</strong>.ast = ast;
-<a class="jxr_linenumber" name="57" href="#57">57</a>      }
-<a class="jxr_linenumber" name="58" href="#58">58</a>  }
+<a class="jxr_linenumber" name="39" href="#39">39</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="40" href="#40">40</a>  <em class="jxr_javadoccomment">     * The abstract syntax tree the application works with.</em>
+<a class="jxr_linenumber" name="41" href="#41">41</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="42" href="#42">42</a>      <strong class="jxr_keyword">protected</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> syntax;
+<a class="jxr_linenumber" name="43" href="#43">43</a>  
+<a class="jxr_linenumber" name="44" href="#44">44</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="45" href="#45">45</a>  <em class="jxr_javadoccomment">     * Initializes app with options and IO streams.</em>
+<a class="jxr_linenumber" name="46" href="#46">46</a>  <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="47" href="#47">47</a>  <em class="jxr_javadoccomment">     * @param options Command line options</em>
+<a class="jxr_linenumber" name="48" href="#48">48</a>  <em class="jxr_javadoccomment">     * @param ioStreams IO streams.</em>
+<a class="jxr_linenumber" name="49" href="#49">49</a>  <em class="jxr_javadoccomment">     * @param invoker Invoked the invokable.</em>
+<a class="jxr_linenumber" name="50" href="#50">50</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="51" href="#51">51</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../de/weltraumschaf/jebnf/cli/ApplicationAdapter.html">ApplicationAdapter</a>(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/cli/CliOptions.html">CliOptions</a> options, <strong class="jxr_keyword">final</strong> IOStreams ioStreams, <strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/cli/Main.html">Main</a> invoker) {
+<a class="jxr_linenumber" name="52" href="#52">52</a>          <strong class="jxr_keyword">this</strong>.ioStreams = ioStreams;
+<a class="jxr_linenumber" name="53" href="#53">53</a>          <strong class="jxr_keyword">this</strong>.options = options;
+<a class="jxr_linenumber" name="54" href="#54">54</a>          <strong class="jxr_keyword">this</strong>.invoker = invoker;
+<a class="jxr_linenumber" name="55" href="#55">55</a>      }
+<a class="jxr_linenumber" name="56" href="#56">56</a>  
+<a class="jxr_linenumber" name="57" href="#57">57</a>      @Override
+<a class="jxr_linenumber" name="58" href="#58">58</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> setSyntax(<strong class="jxr_keyword">final</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/nodes/Syntax.html">Syntax</a> syntax) {
+<a class="jxr_linenumber" name="59" href="#59">59</a>          <strong class="jxr_keyword">this</strong>.syntax = syntax;
+<a class="jxr_linenumber" name="60" href="#60">60</a>      }
+<a class="jxr_linenumber" name="61" href="#61">61</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

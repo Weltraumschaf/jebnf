@@ -127,7 +127,7 @@
 <a class="jxr_linenumber" name="117" href="#117">117</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="118" href="#118">118</a> <em class="jxr_javadoccomment">     * @throws SyntaxException If the parser encounter bad syntax.</em>
 <a class="jxr_linenumber" name="119" href="#119">119</a> <em class="jxr_javadoccomment">     * @throws IOException     On IO errors of the parsed source.</em>
-<a class="jxr_linenumber" name="120" href="#120">120</a> <em class="jxr_javadoccomment">     * @return Return parsed rule node. Type of node is {@link NodeType#RULE}.</em>
+<a class="jxr_linenumber" name="120" href="#120">120</a> <em class="jxr_javadoccomment">     * @return Return parsed rule node. Type of node is {@link de.weltraumschaf.jebnf.ast.NodeType#RULE}.</em>
 <a class="jxr_linenumber" name="121" href="#121">121</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="122" href="#122">122</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../de/weltraumschaf/jebnf/ast/Node.html">Node</a> parseRule() <strong class="jxr_keyword">throws</strong> SyntaxException, IOException {
 <a class="jxr_linenumber" name="123" href="#123">123</a>         <strong class="jxr_keyword">if</strong> (!scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {
