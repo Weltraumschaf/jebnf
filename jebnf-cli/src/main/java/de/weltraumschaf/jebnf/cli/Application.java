@@ -17,8 +17,6 @@ import java.io.IOException;
 /**
  * Interface to describe command pattern.
  *
- * XXX: Good candidate for de.weltraumschaf.commons.
- *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public interface Application {
