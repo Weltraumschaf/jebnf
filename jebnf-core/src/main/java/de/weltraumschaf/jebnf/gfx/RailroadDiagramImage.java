@@ -78,7 +78,7 @@ public class RailroadDiagramImage {
     /**
      * Buffered image to paint on.
      */
-    private final BufferedImage image;
+    private BufferedImage image;
 
     /**
      * File where to save the buffered image.
@@ -93,25 +93,20 @@ public class RailroadDiagramImage {
     /**
      * Initializes {@link #type} with {@link Type#PNG}.
      *
-     * @param width Image width.
-     * @param height Image height
      * @param file File to write date in.
      */
-    public RailroadDiagramImage(final int width, final int height, final File file) {
-        this(width, height, file, Type.PNG);
+    public RailroadDiagramImage(final File file) {
+        this(file, Type.PNG);
     }
 
     /**
      * Designated constructor.
      *
-     * @param width Image width.
-     * @param height Image height
      * @param file File to write date in.
      * @param type Type of image.
      */
-    public RailroadDiagramImage(final int width, final int height, final File file, final Type type) {
+    public RailroadDiagramImage(final File file, final Type type) {
         super();
-        this.image = Helper.newBufferedImage(width, height);
         this.file  = file;
         this.type  = type;
     }
@@ -159,6 +154,8 @@ public class RailroadDiagramImage {
      */
     public void paint(final Graphics2D graphics) {
         diagram.paint(graphics);
+        image = Helper.newBufferedImage(diagram.getSize());
+
     }
 
     /**

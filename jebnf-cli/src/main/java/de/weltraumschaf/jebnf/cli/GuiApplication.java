@@ -55,7 +55,6 @@ public class GuiApplication extends ApplicationAdapter implements Runnable {
     public void run() {
         frame.setTitle("Railroad");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(new Dimension(WIDTH, HEIGHT));
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
@@ -64,9 +63,10 @@ public class GuiApplication extends ApplicationAdapter implements Runnable {
 
         final RailroadDiagram diagram = visitor.getResult();
         diagram.setDebug(options.isDebug());
-
-        frame.add(new RailroadDiagramPanel(diagram));
+        final RailroadDiagramPanel railroadDiagramPanel = new RailroadDiagramPanel(diagram);
+        frame.add(railroadDiagramPanel);
         frame.validate();
+        frame.pack();
     }
 
 }

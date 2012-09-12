@@ -66,7 +66,7 @@ public class CliApplication extends ApplicationAdapter {
         final RailroadDiagram diagram = visitor.getResult();
         diagram.setDebug(options.isDebug());
 
-        final RailroadDiagramImage img = new RailroadDiagramImage(WIDTH, HEIGHT, new File(options.getOutputFile()));
+        final RailroadDiagramImage img = new RailroadDiagramImage(new File(options.getOutputFile()));
         img.setDiagram(diagram);
         img.paint();
 
