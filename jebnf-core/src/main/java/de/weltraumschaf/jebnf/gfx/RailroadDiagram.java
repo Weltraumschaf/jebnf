@@ -11,11 +11,9 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
-import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayoutShape;
 import java.awt.Graphics2D;
-import java.util.List;
 
 /**
  * Represents a railroad diagram of a syntax.
@@ -125,6 +123,15 @@ public class RailroadDiagram {
      */
     public void setMeta(final String meta) {
         this.meta = meta;
+    }
+
+    /**
+     * Get the size of the diagram.
+     *
+     * @return Return size object of containing shape compound..
+     */
+    public Size getSize() {
+        return shapes.getSize();
     }
 
 }
