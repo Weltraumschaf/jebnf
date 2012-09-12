@@ -47,6 +47,16 @@ public final class Helper {
     }
 
     /**
+     * Creates a buffered image with custom size.
+     *
+     * @param size Image size.
+     * @return Return new instance.
+     */
+    public static BufferedImage newBufferedImage(final Size size) {
+        return newBufferedImage(size.getWidth(), size.getHeight());
+    }
+
+    /**
      * Creates a graphics object from a {@link #newBufferedImage()  default buffered} image.
      *
      * @return Return new instance.
