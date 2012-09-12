@@ -103,6 +103,7 @@ public class RailroadDiagram {
             antialiase(graphic);
         }
 
+        shapes.setDebug(debug);
         shapes.adjust(graphic);
         shapes.paint(graphic);
     }

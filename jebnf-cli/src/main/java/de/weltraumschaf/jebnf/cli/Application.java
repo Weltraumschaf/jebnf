@@ -31,8 +31,8 @@ public interface Application {
     /**
      * Set the parsed {@link de.weltraumschaf.jebnf.ast.nodes.SyntaxNode}.
      *
-     * @param Syntaxt The abstract syntax tree.
+     * @param syntax The abstract syntax tree.
      */
-    void setSyntax(SyntaxNode Syntaxt);
+    void setSyntax(SyntaxNode syntax);
 
 }

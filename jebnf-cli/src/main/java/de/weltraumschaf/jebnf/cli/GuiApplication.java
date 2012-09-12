@@ -16,7 +16,6 @@ import de.weltraumschaf.jebnf.ast.visitor.RailroadDiagramVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
 import de.weltraumschaf.jebnf.gui.RailroadDiagramPanel;
-import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 

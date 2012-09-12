@@ -14,7 +14,6 @@ package de.weltraumschaf.jebnf.ast.visitor;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.Visitable;
 import de.weltraumschaf.jebnf.ast.nodes.IdentifierNode;
-import de.weltraumschaf.jebnf.ast.nodes.NullNode;
 import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
 import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import de.weltraumschaf.jebnf.ast.nodes.TerminalNode;
@@ -26,7 +25,6 @@ import de.weltraumschaf.jebnf.gfx.shapes.compound.LoopShape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.OptionShape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayoutShape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.SequenceShape;
-import de.weltraumschaf.jebnf.gfx.shapes.text.RuleShape;
 import java.util.Stack;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -138,6 +136,11 @@ public class RailroadDiagramVisitor implements Visitor<RailroadDiagram> {
         return diagram;
     }
 
+    /**
+     * Add a shape to the shape on top of the {@link #currentShapeStack}.
+     *
+     * @param shape Shape to add.
+     */
     private void addShapeToCurrentShape(final Shape shape) {
         final Shape currentShape = currentShapeStack.peek();
 
