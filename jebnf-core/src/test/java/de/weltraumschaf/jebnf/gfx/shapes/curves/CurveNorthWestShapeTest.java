@@ -42,7 +42,7 @@ public class CurveNorthWestShapeTest {
     @Test public void createArc() {
         final CurveNorthWestShape curve = new CurveNorthWestShape();
         final Arc2D arc = curve.createArc();
-        assertEquals(0, (int) arc.getAngleStart());
-        assertEquals(-90, (int) arc.getAngleExtent());
+        assertEquals(270, (int) arc.getAngleStart());
+        assertEquals(90, (int) arc.getAngleExtent());
     }
 }

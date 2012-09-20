@@ -13,6 +13,8 @@ package de.weltraumschaf.jebnf.gfx.shapes;
 /**
  * Type of curve railroad shapes.
  *
+ * TODO: Combine all curves into one class and inject the enum to configure shape.
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public enum CurveShapes {

@@ -29,22 +29,18 @@ public abstract class AbstractCurveShape extends EmptyShape implements CurveShap
     /**
      * Arc extend to 90 degree.
      */
-    protected static final int EXTEND_90_DEGREE = 90;
-
-    /**
-     * Arc extend to minus 90 degree.
-     */
-    protected static final int EXTEND_MINUS90_DEGREE = -90;
+    protected static final int QUARTER_CLOCKWISE = 90;
 
     /**
      * Arc start at 90 degree.
      */
-    protected static final int START_90_DEGREE = 90;
+    protected static final int EAST = 90;
 
     /**
      * Arc start at 180 degree.
      */
-    protected static final int START_180_DEGREE = 180;
+    protected static final int NORTH = 180;
+    protected static final int WEST = 270;
 
     @Override
     public void paint(final Graphics2D graphic) {

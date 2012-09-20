@@ -23,7 +23,7 @@ public class CurveNorthEastShape extends AbstractCurveShape {
 
     @Override
     protected Arc2D createArc() {
-        return createArc(START_180_DEGREE, EXTEND_90_DEGREE);
+        return createArc(NORTH, QUARTER_CLOCKWISE);
     }
 
     @Override
