@@ -81,11 +81,7 @@ public class Line {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof Line)) {
             return false;
         }
 

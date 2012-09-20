@@ -106,17 +106,14 @@ public class Size {
 
     @Override
     public boolean equals(final Object obj) {
-        if (obj == null) {
-            return false;
-        }
-
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof Size)) {
             return false;
         }
 
         final Size other = (Size) obj;
 
-        return Objects.equal(width, other.width) && Objects.equal(height, other.height);
+        return Objects.equal(width, other.width)
+               && Objects.equal(height, other.height);
     }
 
     @Override

@@ -117,17 +117,14 @@ public class Point {
 
     @Override
     public boolean equals(final Object obj) {
-        if (obj == null) {
-            return false;
-        }
-
-        if (getClass() != obj.getClass()) {
+        if (!(obj instanceof Point)) {
             return false;
         }
 
         final Point other = (Point) obj;
 
-        return Objects.equal(x, other.x) && Objects.equal(y, other.y);
+        return Objects.equal(x, other.x)
+               && Objects.equal(y, other.y);
     }
 
     @Override
