@@ -24,11 +24,6 @@ import javax.swing.JPanel;
 public class RailroadDiagramPanel extends JPanel {
 
     /**
-     * Version id for {@link java.io.Serializable}.
-     */
-    private static final long serialVersionUID = 1L;
-
-    /**
      * Diagram to display.
      */
     private final RailroadDiagram diagram;
