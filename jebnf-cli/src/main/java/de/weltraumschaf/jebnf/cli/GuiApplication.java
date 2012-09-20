@@ -12,11 +12,12 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import de.weltraumschaf.jebnf.ast.visitor.RailroadDiagramVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
+import de.weltraumschaf.jebnf.gui.MainWindow;
 import de.weltraumschaf.jebnf.gui.RailroadDiagramPanel;
-import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
 /**
@@ -25,11 +26,6 @@ import javax.swing.SwingUtilities;
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class GuiApplication extends ApplicationAdapter implements Runnable {
-
-    /**
-     * Main desktop window.
-     */
-    private final JFrame frame = new JFrame();
 
     /**
      * Initializes app with options and IO streams.
@@ -52,20 +48,17 @@ public class GuiApplication extends ApplicationAdapter implements Runnable {
 
     @Override
     public void run() {
-        frame.setTitle("Railroad");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-
         final Visitor<RailroadDiagram> visitor = new RailroadDiagramVisitor();
         syntax.accept(visitor);
 
         final RailroadDiagram diagram = visitor.getResult();
         diagram.setDebug(options.isDebug());
         final RailroadDiagramPanel railroadDiagramPanel = new RailroadDiagramPanel(diagram);
-        frame.add(railroadDiagramPanel);
-        frame.validate();
-        frame.pack();
+
+        final MainWindow mainWindow = new MainWindow(syntax.getAttribute(SyntaxNode.ATTRIBUTE_TITLE),
+                                                     railroadDiagramPanel);
+        mainWindow.init();
+        mainWindow.setVisible(true);
     }
 
 }
