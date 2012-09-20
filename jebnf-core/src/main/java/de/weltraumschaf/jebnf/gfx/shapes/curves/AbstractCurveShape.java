@@ -31,6 +31,8 @@ public abstract class AbstractCurveShape extends EmptyShape implements CurveShap
      */
     protected static final int QUARTER_CLOCKWISE = 90;
 
+    protected static final int SOUTH = 0;
+
     /**
      * Arc start at 90 degree.
      */
@@ -77,11 +79,10 @@ public abstract class AbstractCurveShape extends EmptyShape implements CurveShap
      * Creates arc object.
      *
      * @param start Start of arc.
-     * @param extent Extension of arc.
      * @return Returns arc object.
      */
-    protected Arc2D createArc(final int start, final int extent) {
-        return createArc(calcArcPosition(), calcArcDimenson(), start, extent);
+    protected Arc2D createArc(final int start) {
+        return createArc(calcArcPosition(), calcArcDimenson(), start);
     }
 
     /**
@@ -90,11 +91,10 @@ public abstract class AbstractCurveShape extends EmptyShape implements CurveShap
      * @param pos Position of arc.
      * @param size size of arc.
      * @param start Start of arc.
-     * @param extent Extension of arc.
      * @return Returns arc object.
      */
-    protected Arc2D createArc(final Point pos, final Size size, final int start, final int extent) {
-        return new Arc2D.Float(pos.getX(), pos.getY(), size.getWidth(), size.getHeight(), start, extent, Arc2D.OPEN);
+    protected Arc2D createArc(final Point pos, final Size size, final int start) {
+        return new Arc2D.Float(pos.getX(), pos.getY(), size.getWidth(), size.getHeight(), start, QUARTER_CLOCKWISE, Arc2D.OPEN);
     }
 
 }
