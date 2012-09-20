@@ -123,6 +123,10 @@ Project file format (JSON):
         "directories": ["/foo/snafu", "..."]
     }
 
+## TODO
+
+- Consioder Latex or SVG
+
 [WP-EBNF]:       http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form
 [KARMIN]:        http://karmin.ch/ebnf/index
 [EBNF-VARIANTS]: http://www.cs.man.ac.uk/~pjj/bnf/ebnf.html
