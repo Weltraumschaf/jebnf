@@ -33,6 +33,8 @@ import java.util.logging.Logger;
  * Visits the given {@link de.weltraumschaf.jebnf.ast.nodes.SyntaxNode} and generates
  * a {@link de.weltraumschaf.jebnf.gfx.RailroadDiagram} as result.
  *
+ * TODO: Consider bottom-up building.
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class RailroadDiagramVisitor implements Visitor<RailroadDiagram> {

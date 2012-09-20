@@ -22,6 +22,8 @@ import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape;
 /**
  * Creates straight and curve shapes.
  *
+ * TODO: Remove this!
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class StraightAndCurveShapeFactory {

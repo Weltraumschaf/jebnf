@@ -16,6 +16,8 @@ import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 /**
  * Marker interface for curves shapes.
  *
+ * TODO: Remove this!
+ * 
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public interface CurveShape extends Shape {
