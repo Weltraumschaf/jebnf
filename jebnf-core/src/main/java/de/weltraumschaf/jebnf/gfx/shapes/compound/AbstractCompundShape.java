@@ -17,6 +17,7 @@ import de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import java.awt.Graphics2D;
 
 /**
@@ -105,7 +106,16 @@ public class AbstractCompundShape extends AbstractShape implements GridShape {
      * @param rowIndex Row index in grid
      */
     protected void extendColumnWithStraightNS(final int height, final int[] colIndexs, final int rowIndex) {
-        extendColumnWithShape(height, colIndexs, rowIndex, StraightNorthSouthShape.class);
+        if (Size.DEFAULT_HEIGHT < height) {
+            final int count = height / Size.DEFAULT_HEIGHT - 1;
+
+            for (int i = 0; i < count; ++i) {
+                for (int j = 0; j < colIndexs.length; ++j) {
+                    final Shape filler = new StraightShape(StraightShape.Directions.NORT_SOUTH);
+                    ((ColumnLayoutShape) grid.get(colIndexs[j], rowIndex)).append(filler);
+                }
+            }
+        }
     }
 
     /**

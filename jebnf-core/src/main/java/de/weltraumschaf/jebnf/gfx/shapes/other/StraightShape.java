@@ -15,7 +15,6 @@ import de.weltraumschaf.jebnf.gfx.Antialiaser;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
-import de.weltraumschaf.jebnf.gfx.shapes.StraightShapes;
 import java.awt.Color;
 import java.awt.Graphics2D;
 
@@ -31,7 +30,7 @@ public class StraightShape extends EmptyShape {
      *
      * @author Sven Strittmatter <weltraumschaf@googlemail.com>
      */
-    public static enum StraightShapes {
+    public static enum Directions {
 
         /**
          * Straight railroad from north to south.
@@ -48,13 +47,13 @@ public class StraightShape extends EmptyShape {
     /**
      * Direction of the straight line: Either from north to south or from west to east.
      */
-    private final StraightShapes direction;
+    private final Directions direction;
 
     /**
      * Initializes the straight shape with the type of direction.
-     * @param type Either {@link StraightShapes#NORT_SOUTH} or {@link StraightShapes#WEST_EAST}.
+     * @param type Either {@link Directions#NORT_SOUTH} or {@link Directions#WEST_EAST}.
      */
-    public StraightShape(final StraightShapes type) {
+    public StraightShape(final Directions type) {
         this.direction = type;
     }
 
@@ -62,9 +61,9 @@ public class StraightShape extends EmptyShape {
     public void paint(final Graphics2D graphic) {
         super.paint(graphic);
 
-        if (StraightShapes.NORT_SOUTH == direction) {
+        if (Directions.NORT_SOUTH == direction) {
             paintNorthSouth(graphic);
-        } else if (StraightShapes.WEST_EAST == direction) {
+        } else if (Directions.WEST_EAST == direction) {
             paintWestEast(graphic);
         } else {
             throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
@@ -109,4 +108,9 @@ public class StraightShape extends EmptyShape {
         resotreColorAndStroke(graphic);
         Antialiaser.setHintOnGraphics(graphic, oldRenderingHint);
     }
+
+    public Directions getDirection() {
+        return direction;
+    }
+    
 }

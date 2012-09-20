@@ -13,7 +13,6 @@ package de.weltraumschaf.jebnf.gfx.shapes.curves;
 
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
-import de.weltraumschaf.jebnf.gfx.shapes.CurveShapes;
 import java.awt.geom.Arc2D;
 
 /**
@@ -22,9 +21,35 @@ import java.awt.geom.Arc2D;
  */
 public class CurveShape extends AbstractCurveShape {
 
-    private final CurveShapes direction;
+    /**
+     * Type of curve railroad shapes.
+     *
+     * @author Sven Strittmatter <weltraumschaf@googlemail.com>
+     */
+    public enum Directions {
 
-    public CurveShape(final CurveShapes direction) {
+        /**
+         * Curve railroad from north to west.
+         */
+        NORTH_WEST,
+        /**
+         * Curve railroad from north to east.
+         */
+        NORTH_EAST,
+        /**
+         * Curve railroad from south to west.
+         */
+        SOUTH_WEST,
+        /**
+         * Curve railroad from south to east.
+         */
+        SOUTH_EAST;
+
+    }
+
+    private final Directions direction;
+
+    public CurveShape(final Directions direction) {
         this.direction = direction;
     }
 
@@ -79,5 +104,8 @@ public class CurveShape extends AbstractCurveShape {
         }
     }
 
+    public Directions getDirection() {
+        return direction;
+    }
 
 }

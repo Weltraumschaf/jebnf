@@ -74,21 +74,21 @@ public final class ShapeFactory {
     /**
      * Creates one of the {@link CurveShapes "curves"}.
      *
-     * @param type Type of curve to create.
+     * @param direction Type of curve to create.
      * @return Always return new instance.
      */
-    public static ICurveShape curve(final CurveShapes type) {
-        return StraightAndCurveShapeFactory.curve(type);
+    public static CurveShape curve(final CurveShape.Directions direction) {
+        return new CurveShape(direction);
     }
 
     /**
      * Create one of the {@link StraightShapes "striaghts"}.
      *
-     * @param type Type of straight to create.
+     * @param direction Type of straight to create.
      * @return Always return new instance.
      */
-    public static Shape straight(final StraightShapes type) {
-        return StraightAndCurveShapeFactory.straight(type);
+    public static Shape straight(final StraightShape.Directions direction) {
+        return new StraightShape(direction);
     }
 
     /**
@@ -100,7 +100,7 @@ public final class ShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    public static Shape fork(final StraightShapes orientation, final CurveShapes curve) {
+    public static Shape fork(final StraightShape.Directions orientation, final CurveShape.Directions curve) {
         return ForkShapeFactory.fork(orientation, curve);
     }
 

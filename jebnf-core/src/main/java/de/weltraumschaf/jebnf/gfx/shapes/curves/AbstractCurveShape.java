@@ -23,10 +23,10 @@ import java.awt.geom.Arc2D;
  * Common functionality for curves.
  *
  * @Todo Inline in {@link CurveShape}.
- * 
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractCurveShape extends EmptyShape implements ICurveShape {
+public abstract class AbstractCurveShape extends EmptyShape {
 
     /**
      * Arc extend to 90 degree.

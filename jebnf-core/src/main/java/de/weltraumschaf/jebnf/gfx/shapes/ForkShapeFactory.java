@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
@@ -19,6 +20,7 @@ import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 
 /**
  * Creates fork shapes.
@@ -43,7 +45,7 @@ public final class ForkShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    public static Shape fork(final StraightShapes orientation, final CurveShapes curve) {
+    public static Shape fork(final StraightShape.Directions orientation, final CurveShape.Directions curve) {
         switch (orientation) {
             case NORT_SOUTH:
                 return verticalFork(curve);
@@ -60,7 +62,7 @@ public final class ForkShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    private static Shape verticalFork(final CurveShapes curve) {
+    private static Shape verticalFork(final CurveShape.Directions curve) {
         switch (curve) {
             case NORTH_EAST:
                 return new VForkNorthEastShape();
@@ -81,7 +83,7 @@ public final class ForkShapeFactory {
      * @param curve Type of curve.
      * @return Always return new instance.
      */
-    private static Shape horizontalFork(final CurveShapes curve) {
+    private static Shape horizontalFork(final CurveShape.Directions curve) {
         switch (curve) {
             case NORTH_EAST:
                 return new HForkNorthEastShape();
