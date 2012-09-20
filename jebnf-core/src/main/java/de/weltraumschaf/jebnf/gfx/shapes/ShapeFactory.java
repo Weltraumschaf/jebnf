@@ -77,7 +77,7 @@ public final class ShapeFactory {
      * @param type Type of curve to create.
      * @return Always return new instance.
      */
-    public static CurveShape curve(final CurveShapes type) {
+    public static ICurveShape curve(final CurveShapes type) {
         return StraightAndCurveShapeFactory.curve(type);
     }
 

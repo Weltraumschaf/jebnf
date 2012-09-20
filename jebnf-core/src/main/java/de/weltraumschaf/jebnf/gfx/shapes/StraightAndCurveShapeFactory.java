@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.ICurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthEastShape;
@@ -41,8 +41,8 @@ public final class StraightAndCurveShapeFactory {
      * @param type Type of curve to create.
      * @return Always return new instance.
      */
-    public static CurveShape curve(final CurveShapes type) {
-        CurveShape curve;
+    public static ICurveShape curve(final CurveShapes type) {
+        ICurveShape curve;
 
         switch (type) {
             case NORTH_EAST:

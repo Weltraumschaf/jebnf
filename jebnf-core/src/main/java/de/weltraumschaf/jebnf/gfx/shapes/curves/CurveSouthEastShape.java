@@ -18,8 +18,9 @@ import java.awt.geom.Arc2D;
 /**
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
+ * @deprecated Will be removed.
  */
-public class CurveSouthEastShape extends AbstractCurveShape {
+@Deprecated public class CurveSouthEastShape extends AbstractCurveShape {
 
     @Override
     protected Arc2D createArc() {
