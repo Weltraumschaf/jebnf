@@ -21,8 +21,9 @@ import java.awt.Graphics2D;
 /**
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
+ * @deprecated Use {@link StraightShape} instead.
  */
-public class StraightWestEastShape extends EmptyShape {
+@Deprecated public class StraightWestEastShape extends EmptyShape {
 
     @Override
     public void paint(final Graphics2D graphic) {

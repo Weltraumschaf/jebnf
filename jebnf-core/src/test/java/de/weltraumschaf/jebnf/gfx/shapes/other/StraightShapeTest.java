@@ -9,26 +9,24 @@
  *
  */
 
-package de.weltraumschaf.jebnf.gfx.shapes;
+package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import org.junit.Ignore;
 
 /**
- * Type of straight railroad shapes.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
- * @deprecated Will be removed soon.
  */
-@Deprecated public enum StraightShapes {
+public class StraightShapeTest {
 
-     /**
-    * Straight railroad from north to south.
-     */
-    NORT_SOUTH,
+    @Test @Ignore
+    public void paintNorthSouth() {
+    }
 
-    /**
-     * Straight railroad from west to east.
-     */
-    WEST_EAST;
+    @Test @Ignore
+    public void paintWestEast() {
+    }
 
 }
