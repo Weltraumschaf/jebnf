@@ -125,7 +125,8 @@ Project file format (JSON):
 
 ## TODO
 
-- Consioder Latex or SVG
+- Consioder Latex or SVG.
+- Use Graphics2D#translate(int x, int y) instead of absolute position by drawing shapes.
 
 [WP-EBNF]:       http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form
 [KARMIN]:        http://karmin.ch/ebnf/index

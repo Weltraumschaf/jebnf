@@ -35,7 +35,7 @@ public class StraightWestEastShape extends EmptyShape {
         backupColorAndStroke(graphic);
 
         graphic.setStroke(Strokes.createForRail());
-        graphic.setColor(Color.BLACK);
+        graphic.setColor(Color.BLACK); // TODO Remove this to somwhere.
 
         final int yPosition = pos.getY() + size.getHeight() / 2;
         final int xPosition = pos.getX();
