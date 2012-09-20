@@ -116,42 +116,12 @@ public final class Main extends InvokableAdapter {
             }
 
             if (!options.hasSyntaxFile()) {
-                getIoStreams().printlnErr("No syntax file given!");
+                getIoStreams().error("No syntax file given!");
                 exit(ExitCodeImpl.NO_SYNTAX);
             }
 
             final String syntaxFileName = options.getSyntaxFile();
-            SyntaxNode ast = null;
-
-            try {
-                final File syntaxFile = new File(syntaxFileName);
-                final Parser parser   = Factory.newParserFromSource(syntaxFile);
-                ast = parser.parse();
-            } catch (SyntaxException ex) {
-                getIoStreams().printlnErr("Syntax error: " + ex.getMessage());
-
-                if (options.isDebug()) {
-                    getIoStreams().printStackTraceToStdErr(ex);
-                }
-
-                exit(ExitCodeImpl.SYNTAX_ERROR);
-            } catch (FileNotFoundException ex) {
-                getIoStreams().printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
-
-                if (options.isDebug()) {
-                    getIoStreams().printStackTraceToStdErr(ex);
-                }
-
-                exit(ExitCodeImpl.READ_ERROR);
-            } catch (IOException ex) {
-                getIoStreams().printlnErr(String.format("Can not read syntax file '%s'!", syntaxFileName));
-
-                if (options.isDebug()) {
-                    getIoStreams().printStackTraceToStdErr(ex);
-                }
-
-                exit(ExitCodeImpl.READ_ERROR);
-            }
+            final SyntaxNode ast = copenFileParseAndCreateAst(syntaxFileName);
 
             Application app;
 
@@ -165,7 +135,7 @@ public final class Main extends InvokableAdapter {
             app.setSyntax(ast);
             app.execute();
         } catch (EbnfException ex) {
-            getIoStreams().printlnErr(ex.getMessage());
+            getIoStreams().error(ex.getMessage());
 
             if (options.isDebug()) {
                 getIoStreams().printStackTraceToStdErr(ex);
@@ -173,7 +143,7 @@ public final class Main extends InvokableAdapter {
 
             exit(ex.getCode());
         } catch (Exception ex) { // NOPMD Catch all exceptions!
-            getIoStreams().printlnErr("Fatal error!");
+            getIoStreams().error("Fatal error!");
 
             if (options.isDebug()) {
                 getIoStreams().printStackTraceToStdErr(ex);
@@ -190,6 +160,40 @@ public final class Main extends InvokableAdapter {
      */
     public CliOptions getOptions() {
         return options;
+    }
+
+    private SyntaxNode copenFileParseAndCreateAst(final String syntaxFileName) {
+        try {
+            final File syntaxFile = new File(syntaxFileName);
+            final Parser parser   = Factory.newParserFromSource(syntaxFile);
+            return parser.parse();
+        } catch (SyntaxException ex) {
+            getIoStreams().error("Syntax error: " + ex.getMessage());
+
+            if (options.isDebug()) {
+                getIoStreams().printStackTraceToStdErr(ex);
+            }
+
+            exit(ExitCodeImpl.SYNTAX_ERROR);
+        } catch (FileNotFoundException ex) {
+            getIoStreams().error(String.format("Can not read syntax file '%s'!", syntaxFileName));
+
+            if (options.isDebug()) {
+                getIoStreams().printStackTraceToStdErr(ex);
+            }
+
+            exit(ExitCodeImpl.READ_ERROR);
+        } catch (IOException ex) {
+            getIoStreams().error(String.format("Can not read syntax file '%s'!", syntaxFileName));
+
+            if (options.isDebug()) {
+                getIoStreams().printStackTraceToStdErr(ex);
+            }
+
+            exit(ExitCodeImpl.READ_ERROR);
+        }
+
+        throw new RuntimeException("Go aeay!");
     }
 
 }
