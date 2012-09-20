@@ -21,6 +21,8 @@ import java.awt.Graphics2D;
 /**
  * EmptyShape shape.
  *
+ * FIXME: Class is obsolete because background should be set in the image format.
+ *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class EmptyShape extends AbstractShape {
