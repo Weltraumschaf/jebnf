@@ -16,7 +16,6 @@ import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import java.awt.Graphics2D;
 

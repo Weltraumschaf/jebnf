@@ -11,8 +11,8 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.forkes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 
 /**
  * Vertical fork with straight line from north to south and curve from south to west..
@@ -30,11 +30,12 @@ import de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape;
 public class VForkSouthWestShape extends AbstractForkShape {
 
     /**
-     * Initializes {@link #straight} with {@link StraightNorthSouthShape}
-     * and {@link #curve} with {@link CurveSouthWestShape}.
+     * Initializes {@link #straight} with {@link StraightShape} from north to south
+     * and {@link #curve} with {@link CurveShape "south west direction"}.
      */
     public VForkSouthWestShape() {
-        super(new StraightNorthSouthShape(), new CurveSouthWestShape());
+        super(new StraightShape(StraightShape.Directions.NORT_SOUTH),
+              new CurveShape(CurveShape.Directions.SOUTH_WEST));
     }
 
 }

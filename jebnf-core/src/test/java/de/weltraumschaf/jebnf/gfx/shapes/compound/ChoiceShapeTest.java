@@ -15,11 +15,12 @@ import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.choice;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Ignore;
@@ -52,10 +53,12 @@ public class ChoiceShapeTest {
         assertEquals(3, grid.countCols());
         ColumnLayoutShape split = (ColumnLayoutShape) grid.get(0, 0);
         assertEquals(1, split.countShapes());
-        assertTrue(split.get(0) instanceof StraightWestEastShape);
+        assertTrue(split.get(0) instanceof StraightShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((StraightShape) split.get(0)).getDirection());
         ColumnLayoutShape join = (ColumnLayoutShape) grid.get(2, 0);
         assertEquals(1, join.countShapes());
-        assertTrue(join.get(0) instanceof StraightWestEastShape);
+        assertTrue(join.get(0) instanceof StraightShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((StraightShape) join.get(0)).getDirection());
 
         choice.addChoice(terminal("bar"));
         assertEquals(2, grid.counRows());
@@ -70,10 +73,12 @@ public class ChoiceShapeTest {
         // 2. row
         ColumnLayoutShape split1 = (ColumnLayoutShape) grid.get(0, 1);
         assertEquals(1, split1.countShapes());
-        assertTrue(split1.get(0) instanceof CurveNorthEastShape);
+        assertTrue(split1.get(0) instanceof CurveShape);
+        assertEquals(CurveShape.Directions.NORTH_EAST, ((CurveShape) split1.get(0)).getDirection());
         ColumnLayoutShape join1 = (ColumnLayoutShape) grid.get(2, 1);
         assertEquals(1, join1.countShapes());
-        assertTrue(join1.get(0) instanceof CurveNorthWestShape);
+        assertTrue(join1.get(0) instanceof CurveShape);
+        assertEquals(CurveShape.Directions.NORTH_WEST, ((CurveShape) join1.get(0)).getDirection());
 
         choice.addChoice(terminal("baz"));
         assertEquals(3, grid.counRows());
@@ -95,10 +100,12 @@ public class ChoiceShapeTest {
         // 3. row
         ColumnLayoutShape split2 = (ColumnLayoutShape) grid.get(0, 2);
         assertEquals(1, split2.countShapes());
-        assertTrue(split2.get(0) instanceof CurveNorthEastShape);
+        assertTrue(split2.get(0) instanceof CurveShape);
+        assertEquals(CurveShape.Directions.NORTH_EAST, ((CurveShape) split2.get(0)).getDirection());
         ColumnLayoutShape join2 = (ColumnLayoutShape) grid.get(2, 2);
         assertEquals(1, join2.countShapes());
-        assertTrue(join2.get(0) instanceof CurveNorthWestShape);
+        assertTrue(join2.get(0) instanceof CurveShape);
+        assertEquals(CurveShape.Directions.NORTH_WEST, ((CurveShape) join2.get(0)).getDirection());
 
         // grat ones
     }

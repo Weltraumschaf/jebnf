@@ -11,8 +11,8 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.forkes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 
 /**
  * Horizontal fork with straight line from west to east and curve from north to east..
@@ -30,11 +30,12 @@ import de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape;
 public class HForkNorthEastShape extends AbstractForkShape {
 
     /**
-     * Initializes {@link #straight} with {@link StraightWestEastShape}
-     * and {@link #curve} with {@link CurveNorthEastShape}.
+     * Initializes {@link #straight} with {@link StraightShape} from west to east
+     * and {@link #curve} with {@link CurveShape "north east direction"}.
      */
     public HForkNorthEastShape() {
-        super(new StraightWestEastShape(), new CurveNorthEastShape());
+        super(new StraightShape(StraightShape.Directions.WEST_EAST),
+              new CurveShape(CurveShape.Directions.NORTH_EAST));
     }
 
 }
