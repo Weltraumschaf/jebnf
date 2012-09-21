@@ -14,12 +14,13 @@ package de.weltraumschaf.jebnf.gfx.shapes.other;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
-import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
+import de.weltraumschaf.jebnf.parser.Position;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
 
 /**
+ * Draw curves.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -54,23 +55,38 @@ public class CurveShape extends RectangularShape {
     /**
      * Arc extend to 90 degree.
      */
-    protected static final int QUARTER_CLOCKWISE = 90;
+    private static final int QUARTER_CLOCKWISE = 90;
 
+    /**
+     * Start arc at 0 degree.
+     */
     protected static final int SOUTH = 0;
 
     /**
-     * Arc start at 90 degree.
+     * Start arc at 90 degree.
      */
     protected static final int EAST = 90;
 
     /**
-     * Arc start at 180 degree.
+     * Start arc at 180 degree.
      */
     protected static final int NORTH = 180;
+
+    /**
+     * Start arc at 270 degree.
+     */
     protected static final int WEST = 270;
 
+    /**
+     * Direction of curve arc (e.g. from south to east.
+     */
     private final Directions direction;
 
+    /**
+     * Initializes the curve with the direction type.
+     *
+     * @param direction Direction from where to start and end the curve.
+     */
     public CurveShape(final Directions direction) {
         this.direction = direction;
     }
@@ -83,6 +99,39 @@ public class CurveShape extends RectangularShape {
         graphic.setColor(Color.BLACK);
         graphic.draw(createArc());
         resotreColorAndStroke(graphic);
+    }
+
+    private Arc2D createArc() {
+        switch (direction) {
+            case NORTH_EAST:
+                return createArc(NORTH);
+            case NORTH_WEST:
+                return createArc(WEST);
+            case SOUTH_EAST:
+                return createArc(EAST);
+            case SOUTH_WEST:
+                return createArc(SOUTH);
+            default:
+                throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
+        }
+    }
+
+    /**
+     * Creates arc object.
+     *
+     * @param start Start of arc.
+     * @return Returns arc object.
+     */
+    protected Arc2D createArc(final int start) {
+        final Point pos = calcArcPosition();
+        final Size size = calcArcDimenson();
+        return new Arc2D.Float(pos.getX(),
+                               pos.getY(),
+                               size.getWidth(),
+                               size.getHeight(),
+                               start,
+                               QUARTER_CLOCKWISE,
+                               Arc2D.OPEN);
     }
 
     protected Point calcArcPosition() {
@@ -118,43 +167,11 @@ public class CurveShape extends RectangularShape {
         }
     }
 
-    protected Arc2D createArc() {
-        switch (direction) {
-            case NORTH_EAST:
-                return createArc(NORTH);
-            case NORTH_WEST:
-                return createArc(WEST);
-            case SOUTH_EAST:
-                return createArc(EAST);
-            case SOUTH_WEST:
-                return createArc(SOUTH);
-            default:
-                throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
-        }
-    }
-
     /**
-     * Creates arc object.
+     * Get the direction type.
      *
-     * @param start Start of arc.
-     * @return Returns arc object.
+     * @return Enum type of direction.
      */
-    protected Arc2D createArc(final int start) {
-        return createArc(calcArcPosition(), calcArcDimenson(), start);
-    }
-
-    /**
-     * Creates arc object.
-     *
-     * @param pos Position of arc.
-     * @param size size of arc.
-     * @param start Start of arc.
-     * @return Returns arc object.
-     */
-    protected Arc2D createArc(final Point pos, final Size size, final int start) {
-        return new Arc2D.Float(pos.getX(), pos.getY(), size.getWidth(), size.getHeight(), start, QUARTER_CLOCKWISE, Arc2D.OPEN);
-    }
-
     public Directions getDirection() {
         return direction;
     }

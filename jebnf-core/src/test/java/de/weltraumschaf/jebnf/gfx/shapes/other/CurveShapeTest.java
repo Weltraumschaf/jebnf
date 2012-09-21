@@ -11,13 +11,11 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import java.awt.geom.Arc2D;
-import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
+import org.junit.Test;
 
 /**
  *
@@ -43,7 +41,7 @@ public class CurveShapeTest {
 
     @Test public void createArcForSouthWest() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.SOUTH_WEST);
-        final Arc2D arc = curve.createArc();
+        final Arc2D arc = curve.createArc(CurveShape.SOUTH);
         assertEquals(0, (int) arc.getAngleStart());
         assertEquals(90, (int) arc.getAngleExtent());
     }
@@ -66,7 +64,7 @@ public class CurveShapeTest {
 
     @Test public void createArcForSouthEast() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.SOUTH_EAST);
-        final Arc2D arc = curve.createArc();
+        final Arc2D arc = curve.createArc(CurveShape.EAST);
         assertEquals(90, (int) arc.getAngleStart());
         assertEquals(90, (int) arc.getAngleExtent());
     }
@@ -89,7 +87,7 @@ public class CurveShapeTest {
 
     @Test public void createArcForNorthWest() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.NORTH_WEST);
-        final Arc2D arc = curve.createArc();
+        final Arc2D arc = curve.createArc(CurveShape.WEST);
         assertEquals(270, (int) arc.getAngleStart());
         assertEquals(90, (int) arc.getAngleExtent());
     }
@@ -112,7 +110,7 @@ public class CurveShapeTest {
 
     @Test public void createArcForNorthEast() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.NORTH_EAST);
-        final Arc2D arc = curve.createArc();
+        final Arc2D arc = curve.createArc(CurveShape.NORTH);
         assertEquals(180, (int) arc.getAngleStart());
         assertEquals(90, (int) arc.getAngleExtent());
     }
