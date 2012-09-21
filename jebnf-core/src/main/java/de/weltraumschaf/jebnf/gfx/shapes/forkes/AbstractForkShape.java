@@ -12,7 +12,7 @@
 package de.weltraumschaf.jebnf.gfx.shapes.forkes;
 
 import de.weltraumschaf.jebnf.gfx.Point;
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import java.awt.Graphics2D;
 
 /**
@@ -25,17 +25,17 @@ import java.awt.Graphics2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractForkShape extends EmptyShape {
+public abstract class AbstractForkShape extends RectangularShape {
 
     /**
      * The straight shape part.
      */
-    final EmptyShape straight;
+    final RectangularShape straight;
 
     /**
      * The curve shape part.
      */
-    final EmptyShape curve;
+    final RectangularShape curve;
 
     /**
      * Initializes {@link #straight} and {@link  #curve}.
@@ -47,7 +47,7 @@ public abstract class AbstractForkShape extends EmptyShape {
      *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthEastShape}, or
      *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthWestShape}.
      */
-    public AbstractForkShape(final EmptyShape straight, final EmptyShape curve) {
+    public AbstractForkShape(final RectangularShape straight, final RectangularShape curve) {
         super();
         this.straight = straight;
         this.curve    = curve;

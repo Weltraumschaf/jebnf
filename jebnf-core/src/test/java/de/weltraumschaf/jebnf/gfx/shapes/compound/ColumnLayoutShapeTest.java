@@ -15,7 +15,7 @@ import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.column;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import java.awt.Graphics2D;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -77,9 +77,9 @@ public class ColumnLayoutShapeTest {
         assertSame(empty2, column.get(2));
         assertSame(empty3, column.get(3));
         assertSame(empty7, column.get(7));
-        assertTrue(column.get(4) instanceof EmptyShape);
-        assertTrue(column.get(5) instanceof EmptyShape);
-        assertTrue(column.get(6) instanceof EmptyShape);
+        assertTrue(column.get(4) instanceof RectangularShape);
+        assertTrue(column.get(5) instanceof RectangularShape);
+        assertTrue(column.get(6) instanceof RectangularShape);
     }
 
     @Test public void testAppendShape() {

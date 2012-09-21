@@ -11,7 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 
 /**
  * Type of straight railroad shapes.

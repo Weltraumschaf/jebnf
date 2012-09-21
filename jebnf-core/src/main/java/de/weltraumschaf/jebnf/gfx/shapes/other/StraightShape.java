@@ -23,7 +23,7 @@ import java.awt.Graphics2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class StraightShape extends EmptyShape {
+public class StraightShape extends RectangularShape {
 
     /**
      * Type of straight railroad shapes.
@@ -112,5 +112,5 @@ public class StraightShape extends EmptyShape {
     public Directions getDirection() {
         return direction;
     }
-    
+
 }

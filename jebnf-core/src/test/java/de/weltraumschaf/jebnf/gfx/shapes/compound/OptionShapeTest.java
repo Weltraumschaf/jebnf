@@ -17,7 +17,7 @@ import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TextShape;
 import static org.junit.Assert.*;
@@ -38,7 +38,7 @@ public class OptionShapeTest {
         assertEquals(2, grid.counRows());
         assertEquals(3, grid.countCols());
         assertTrue(grid.get(0, 0) instanceof ColumnLayoutShape);
-        assertTrue(grid.get(1, 0) instanceof EmptyShape);
+        assertTrue(grid.get(1, 0) instanceof RectangularShape);
         assertTrue(grid.get(2, 0) instanceof ColumnLayoutShape);
         assertTrue(grid.get(0, 1) instanceof CurveShape);
         assertEquals(CurveShape.Directions.NORTH_EAST, ((CurveShape) grid.get(0, 1)).getDirection());

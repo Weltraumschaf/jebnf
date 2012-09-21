@@ -19,13 +19,13 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 /**
- * EmptyShape shape.
+ * RectangularShape shape.
  *
- * FIXME: Class is obsolete because background should be set in the image format.
+ * FIXME: Class is obsolete because background should be set in the image format. Maybe useful as spacer.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class EmptyShape extends AbstractShape {
+public class RectangularShape extends AbstractShape {
 
     /**
      * Whether it have transparent background or not.

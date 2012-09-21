@@ -15,7 +15,7 @@ import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.empty;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.row;
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import java.awt.Graphics2D;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -77,9 +77,9 @@ public class SequenceTest {
         assertSame(empty2, sequence.get(2));
         assertSame(empty3, sequence.get(3));
         assertSame(empty7, sequence.get(7));
-        assertTrue(sequence.get(4) instanceof EmptyShape);
-        assertTrue(sequence.get(5) instanceof EmptyShape);
-        assertTrue(sequence.get(6) instanceof EmptyShape);
+        assertTrue(sequence.get(4) instanceof RectangularShape);
+        assertTrue(sequence.get(5) instanceof RectangularShape);
+        assertTrue(sequence.get(6) instanceof RectangularShape);
     }
 
     @Test public void testAppendShape() {

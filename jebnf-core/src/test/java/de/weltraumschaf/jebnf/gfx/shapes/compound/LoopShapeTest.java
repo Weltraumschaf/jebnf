@@ -18,7 +18,7 @@ import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TerminalShape;
 import static org.junit.Assert.assertEquals;
@@ -33,7 +33,7 @@ public class LoopShapeTest {
 
     private void assertInitialGrid(final LoopShape loop) {
         assertBaseGrid(loop);
-        assertTrue(loop.getGrid().get(1, 0) instanceof EmptyShape);
+        assertTrue(loop.getGrid().get(1, 0) instanceof RectangularShape);
         assertTrue(loop.getGrid().get(1, 1) instanceof StraightShape);
         assertEquals(StraightShape.Directions.WEST_EAST, ((StraightShape) loop.getGrid().get(1, 1)).getDirection());
     }
@@ -121,27 +121,27 @@ public class LoopShapeTest {
 
         loop.setAdditional(terminal("bar"));
         assertBaseGrid(loop);
-        assertTrue(grid.get(1, 0) instanceof EmptyShape);
+        assertTrue(grid.get(1, 0) instanceof RectangularShape);
         assertTrue(grid.get(1, 1) instanceof TerminalShape);
 
         final Shape greatOne = terminal("bar");
         greatOne.setSize(new Size().setHeight(Size.DEFAULT_HEIGHT * 3));
         loop.setAdditional(greatOne);
-        assertTrue(grid.get(1, 0) instanceof EmptyShape);
+        assertTrue(grid.get(1, 0) instanceof RectangularShape);
         assertTrue(grid.get(1, 1) instanceof TerminalShape);
         final ColumnLayoutShape firstCurve = (ColumnLayoutShape) grid.get(0, 1);
         assertEquals(3, firstCurve.countShapes());
         assertTrue(firstCurve.get(0) instanceof CurveShape);
         assertEquals(CurveShape.Directions.NORTH_EAST, ((CurveShape) firstCurve.get(0)).getDirection());
-        assertTrue(firstCurve.get(1) instanceof EmptyShape);
-        assertTrue(firstCurve.get(2) instanceof EmptyShape);
+        assertTrue(firstCurve.get(1) instanceof RectangularShape);
+        assertTrue(firstCurve.get(2) instanceof RectangularShape);
 
         final ColumnLayoutShape lastCurve  = (ColumnLayoutShape) grid.get(2, 1);
         assertEquals(3, lastCurve.countShapes());
         assertTrue(lastCurve.get(0) instanceof CurveShape);
         assertEquals(CurveShape.Directions.NORTH_WEST, ((CurveShape) lastCurve.get(0)).getDirection());
-        assertTrue(lastCurve.get(1) instanceof EmptyShape);
-        assertTrue(lastCurve.get(2) instanceof EmptyShape);
+        assertTrue(lastCurve.get(1) instanceof RectangularShape);
+        assertTrue(lastCurve.get(2) instanceof RectangularShape);
         assertSplitAndJoin(loop);
     }
 

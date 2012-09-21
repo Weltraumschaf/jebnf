@@ -32,7 +32,7 @@ import java.awt.Graphics2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class TestShape extends EmptyShape {
+public class TestShape extends RectangularShape {
 
     @Override
     public void paint(final Graphics2D graphic) {

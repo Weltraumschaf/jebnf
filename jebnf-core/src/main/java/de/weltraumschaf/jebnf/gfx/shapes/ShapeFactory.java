@@ -35,8 +35,8 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static EmptyShape empty() {
-        return new EmptyShape();
+    public static RectangularShape empty() {
+        return new RectangularShape();
     }
 
     /**
@@ -45,8 +45,8 @@ public final class ShapeFactory {
      * @param count How many shapes to create.
      * @return Always return new instances.
      */
-    public static EmptyShape[] empty(final int count) {
-        final EmptyShape[] empties = new EmptyShape[count];
+    public static RectangularShape[] empty(final int count) {
+        final RectangularShape[] empties = new RectangularShape[count];
         for (int i = 0; i < count; ++i) {
             empties[i] = empty();
         }

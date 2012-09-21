@@ -14,7 +14,7 @@ package de.weltraumschaf.jebnf.gfx.shapes.other;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
@@ -23,7 +23,7 @@ import java.awt.geom.Arc2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CurveShape extends EmptyShape {
+public class CurveShape extends RectangularShape {
 
     /**
      * Type of curve railroad shapes.

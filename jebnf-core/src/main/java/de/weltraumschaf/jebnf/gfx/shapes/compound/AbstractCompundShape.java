@@ -15,7 +15,7 @@ import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import java.awt.Graphics2D;
 
@@ -87,14 +87,14 @@ public class AbstractCompundShape extends AbstractShape implements GridShape {
     }
 
     /**
-     * Extends a grid column with {@link EmptyShape} shapes.
+     * Extends a grid column with {@link RectangularShape} shapes.
      *
      * @param height Height in pixel of column.
      * @param colIndexs Column index in grid.
      * @param rowIndex Row index in grid
      */
     protected void extendColumnWithEmpty(final int height, final int[] colIndexs, final int rowIndex) {
-        extendColumnWithShape(height, colIndexs, rowIndex, EmptyShape.class);
+        extendColumnWithShape(height, colIndexs, rowIndex, RectangularShape.class);
     }
 
     /**

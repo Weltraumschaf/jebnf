@@ -25,9 +25,9 @@ import static org.mockito.Mockito.*;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class EmptyShapeTest {
+public class RectangularShapeTest {
     private final Graphics2D graphics = mock(Graphics2D.class);
-    private final EmptyShape empty         = empty();
+    private final RectangularShape empty         = empty();
     private final Point pos           = empty.getPosition();
     private final Size size           = empty.getSize();
 

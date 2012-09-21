@@ -24,7 +24,7 @@ import java.awt.Graphics2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractEndpointShape extends EmptyShape {
+public abstract class AbstractEndpointShape extends RectangularShape {
 
     /**
      * Pad top from shape border.
