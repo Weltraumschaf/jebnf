@@ -116,7 +116,7 @@ public final class Main extends InvokableAdapter {
             }
 
             if (!options.hasSyntaxFile()) {
-                getIoStreams().error("No syntax file given!");
+                getIoStreams().errorln("No syntax file given!");
                 exit(ExitCodeImpl.NO_SYNTAX);
             }
 
@@ -135,18 +135,18 @@ public final class Main extends InvokableAdapter {
             app.setSyntax(ast);
             app.execute();
         } catch (EbnfException ex) {
-            getIoStreams().error(ex.getMessage());
+            getIoStreams().errorln(ex.getMessage());
 
             if (options.isDebug()) {
-                getIoStreams().printStackTraceToStdErr(ex);
+                getIoStreams().printStackTrace(ex);
             }
 
             exit(ex.getCode());
         } catch (Exception ex) { // NOPMD Catch all exceptions!
-            getIoStreams().error("Fatal error!");
+            getIoStreams().errorln("Fatal error!");
 
             if (options.isDebug()) {
-                getIoStreams().printStackTraceToStdErr(ex);
+                getIoStreams().printStackTrace(ex);
             }
 
             exit(ExitCodeImpl.FATAL_ERROR);
@@ -168,26 +168,26 @@ public final class Main extends InvokableAdapter {
             final Parser parser   = Factory.newParserFromSource(syntaxFile);
             return parser.parse();
         } catch (SyntaxException ex) {
-            getIoStreams().error("Syntax error: " + ex.getMessage());
+            getIoStreams().errorln("Syntax error: " + ex.getMessage());
 
             if (options.isDebug()) {
-                getIoStreams().printStackTraceToStdErr(ex);
+                getIoStreams().printStackTrace(ex);
             }
 
             exit(ExitCodeImpl.SYNTAX_ERROR);
         } catch (FileNotFoundException ex) {
-            getIoStreams().error(String.format("Can not read syntax file '%s'!", syntaxFileName));
+            getIoStreams().errorln(String.format("Can not read syntax file '%s'!", syntaxFileName));
 
             if (options.isDebug()) {
-                getIoStreams().printStackTraceToStdErr(ex);
+                getIoStreams().printStackTrace(ex);
             }
 
             exit(ExitCodeImpl.READ_ERROR);
         } catch (IOException ex) {
-            getIoStreams().error(String.format("Can not read syntax file '%s'!", syntaxFileName));
+            getIoStreams().errorln(String.format("Can not read syntax file '%s'!", syntaxFileName));
 
             if (options.isDebug()) {
-                getIoStreams().printStackTraceToStdErr(ex);
+                getIoStreams().printStackTrace(ex);
             }
 
             exit(ExitCodeImpl.READ_ERROR);
