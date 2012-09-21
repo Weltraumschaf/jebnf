@@ -13,8 +13,7 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
@@ -59,8 +58,8 @@ public class ChoiceShape extends AbstractCompundShape {
                 grid.set(2, rowCount - 1, new VForkNorthWestShape());
             }
 
-            first =  new CurveNorthEastShape();
-            last  =  new CurveNorthWestShape();
+            first =  new CurveShape(CurveShape.Directions.NORTH_EAST);
+            last  =  new CurveShape(CurveShape.Directions.NORTH_WEST);
         }
 
         grid.set(0, rowCount, first);

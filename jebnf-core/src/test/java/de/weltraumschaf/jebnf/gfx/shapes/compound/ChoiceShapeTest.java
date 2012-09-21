@@ -13,8 +13,6 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.choice;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.curves.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
