@@ -9,7 +9,7 @@
  *
  */
 
-package de.weltraumschaf.jebnf.gfx.shapes.curves;
+package de.weltraumschaf.jebnf.gfx.shapes.other;
 
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;

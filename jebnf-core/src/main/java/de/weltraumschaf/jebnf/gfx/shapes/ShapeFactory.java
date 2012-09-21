@@ -11,8 +11,8 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
+import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.*;
-import de.weltraumschaf.jebnf.gfx.shapes.curves.*;
 import de.weltraumschaf.jebnf.gfx.shapes.other.*;
 import de.weltraumschaf.jebnf.gfx.shapes.text.*;
 
