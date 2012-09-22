@@ -27,6 +27,12 @@ After successful installation you should be able to invoke the command line tool
 
     $ ./bin/ebnf -h
 
+### File Signatures
+
+To receive the keys type:
+
+    $ gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys BA265082
+
 ## Usage
 
 You can either use the shell script <kbd>bin/ebnf</kbd> for
