@@ -14,7 +14,6 @@ package de.weltraumschaf.jebnf.gfx.shapes.other;
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.Size;
 import de.weltraumschaf.jebnf.gfx.Strokes;
-import de.weltraumschaf.jebnf.parser.Position;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
@@ -25,6 +24,11 @@ import java.awt.geom.Arc2D;
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public class CurveShape extends RectangularShape {
+
+    /**
+     * Don't know why I need this. W/o it looks bad in output.
+     */
+    private static final int MAGIC_VOODOO = 1;
 
     /**
      * Type of curve railroad shapes.
@@ -140,13 +144,13 @@ public class CurveShape extends RectangularShape {
 
         switch (direction) {
             case NORTH_EAST:
-                return new Point(pos.getX() + size.getWidth() / 2, pos.getY() - (size.getHeight() / 2) - 1);
+                return new Point(pos.getX() + size.getWidth() / 2, pos.getY() - (size.getHeight() / 2) - MAGIC_VOODOO);
             case NORTH_WEST:
-                return new Point(pos.getX() - size.getWidth() / 2 - 1, pos.getY() - (size.getHeight() / 2) - 1);
+                return new Point(pos.getX() - size.getWidth() / 2 - MAGIC_VOODOO, pos.getY() - (size.getHeight() / 2) - MAGIC_VOODOO);
             case SOUTH_EAST:
                 return new Point(pos.getX() + size.getWidth() / 2, pos.getY() + size.getHeight() / 2);
             case SOUTH_WEST:
-                return new Point(pos.getX() - (size.getWidth() / 2) - 1, pos.getY() + size.getHeight() / 2);
+                return new Point(pos.getX() - (size.getWidth() / 2) - MAGIC_VOODOO, pos.getY() + size.getHeight() / 2);
             default:
                 throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
         }
@@ -155,13 +159,13 @@ public class CurveShape extends RectangularShape {
     protected Size calcArcDimenson() {
         switch (direction) {
             case NORTH_EAST:
-                return getSize().setWidth(getSize().getWidth() + 1);
+                return getSize().setWidth(getSize().getWidth() + MAGIC_VOODOO);
             case NORTH_WEST:
-                return getSize().setWidth(getSize().getWidth() - 1);
+                return getSize().setWidth(getSize().getWidth() - MAGIC_VOODOO);
             case SOUTH_EAST:
-                return new Size(getSize().getWidth() + 1, getSize().getHeight() + 1);
+                return new Size(getSize().getWidth() + MAGIC_VOODOO, getSize().getHeight() + MAGIC_VOODOO);
             case SOUTH_WEST:
-                return getSize().setHeight(getSize().getHeight() + 1);
+                return getSize().setHeight(getSize().getHeight() + MAGIC_VOODOO);
             default:
                 throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
         }
