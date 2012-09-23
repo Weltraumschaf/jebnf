@@ -70,6 +70,11 @@ public class StraightShape extends RectangularShape {
         }
     }
 
+    /**
+     * Paint centered straight line from top of shape to the bottom of the shape.
+     *
+     * @param graphic Graphic context to paint on.
+     */
     private void paintNorthSouth(final Graphics2D graphic) {
         final Point pos = getPosition();
         final Size size = getSize();
@@ -89,6 +94,11 @@ public class StraightShape extends RectangularShape {
         Antialiaser.setHintOnGraphics(graphic, oldRenderingHint);
     }
 
+    /**
+     * Paint centered straight line from left of shape to the right of the shape.
+     *
+     * @param graphic Graphic context to paint on.
+     */
     private void paintWestEast(final Graphics2D graphic) {
         final Point pos = getPosition();
         final Size size = getSize();
@@ -109,6 +119,11 @@ public class StraightShape extends RectangularShape {
         Antialiaser.setHintOnGraphics(graphic, oldRenderingHint);
     }
 
+    /**
+     * Get the type of direction of the shape.
+     *
+     * @return Returns the direction enum type.
+     */
     public Directions getDirection() {
         return direction;
     }

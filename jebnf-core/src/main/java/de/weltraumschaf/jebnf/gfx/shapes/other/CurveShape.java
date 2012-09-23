@@ -28,7 +28,7 @@ public class CurveShape extends RectangularShape {
     /**
      * Don't know why I need this. W/o it looks bad in output.
      */
-    private static final int MAGIC_VOODOO = 1;
+    private static final int MAGIC = 1;
 
     /**
      * Type of curve railroad shapes.
@@ -57,29 +57,30 @@ public class CurveShape extends RectangularShape {
     }
 
     /**
-     * Arc extend to 90 degree.
-     */
-    private static final int QUARTER_CLOCKWISE = 90;
-
-    /**
      * Start arc at 0 degree.
      */
-    protected static final int SOUTH = 0;
+    private static final int SOUTH = 0;
 
     /**
      * Start arc at 90 degree.
      */
-    protected static final int EAST = 90;
+    private static final int EAST = 90;
 
     /**
      * Start arc at 180 degree.
      */
-    protected static final int NORTH = 180;
+    private static final int NORTH = 180;
 
     /**
      * Start arc at 270 degree.
      */
-    protected static final int WEST = 270;
+    private static final int WEST = 270;
+
+
+    /**
+     * Arc extend to 90 degree.
+     */
+    private static final int QUARTER_CLOCKWISE = 90;
 
     /**
      * Direction of curve arc (e.g. from south to east.
@@ -105,70 +106,61 @@ public class CurveShape extends RectangularShape {
         resotreColorAndStroke(graphic);
     }
 
-    private Arc2D createArc() {
+    /**
+     * Creates the arc for the curve depending on {@link #direction}.
+     *
+     * @return Returns AWT arc object.
+     */
+    protected Arc2D createArc() {
+        final Point shapePosition = getPosition();
+        final Size size = getSize();
+        int startAngle;
+        Point arcPosition;
+        Size arcSize;
+
         switch (direction) {
             case NORTH_EAST:
-                return createArc(NORTH);
+                startAngle = NORTH;
+                arcPosition = new Point(shapePosition.getX() + size.getWidth() / 2,
+                                        shapePosition.getY() - (size.getHeight() / 2) - MAGIC);
+                arcSize = getSize().setWidth(getSize().getWidth() + MAGIC);
+                break;
             case NORTH_WEST:
-                return createArc(WEST);
+                startAngle = WEST;
+                arcPosition = new Point(shapePosition.getX() - size.getWidth() / 2 - MAGIC,
+                                        shapePosition.getY() - (size.getHeight() / 2) - MAGIC);
+                arcSize = getSize().setWidth(getSize().getWidth() - MAGIC);
+                break;
             case SOUTH_EAST:
-                return createArc(EAST);
+                startAngle = EAST;
+                arcPosition = new Point(shapePosition.getX() + size.getWidth() / 2,
+                                        shapePosition.getY() + size.getHeight() / 2);
+                arcSize = new Size(getSize().getWidth() + MAGIC, getSize().getHeight() + MAGIC);
+                break;
             case SOUTH_WEST:
-                return createArc(SOUTH);
+                startAngle = SOUTH;
+                arcPosition = new Point(shapePosition.getX() - (size.getWidth() / 2) - MAGIC,
+                                        shapePosition.getY() + size.getHeight() / 2);
+                arcSize = getSize().setHeight(getSize().getHeight() + MAGIC);
+                break;
             default:
-                throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
+                startAngle = -1;
+                arcPosition = null;
+                arcSize = null;
+                break;
         }
-    }
 
-    /**
-     * Creates arc object.
-     *
-     * @param start Start of arc.
-     * @return Returns arc object.
-     */
-    protected Arc2D createArc(final int start) {
-        final Point pos = calcArcPosition();
-        final Size size = calcArcDimenson();
-        return new Arc2D.Float(pos.getX(),
-                               pos.getY(),
-                               size.getWidth(),
-                               size.getHeight(),
-                               start,
+        if (-1 == startAngle) {
+            throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
+        }
+
+        return new Arc2D.Float(arcPosition.getX(),
+                               arcPosition.getY(),
+                               arcSize.getWidth(),
+                               arcSize.getHeight(),
+                               startAngle,
                                QUARTER_CLOCKWISE,
                                Arc2D.OPEN);
-    }
-
-    protected Point calcArcPosition() {
-        final Point pos = getPosition();
-        final Size size = getSize();
-
-        switch (direction) {
-            case NORTH_EAST:
-                return new Point(pos.getX() + size.getWidth() / 2, pos.getY() - (size.getHeight() / 2) - MAGIC_VOODOO);
-            case NORTH_WEST:
-                return new Point(pos.getX() - size.getWidth() / 2 - MAGIC_VOODOO, pos.getY() - (size.getHeight() / 2) - MAGIC_VOODOO);
-            case SOUTH_EAST:
-                return new Point(pos.getX() + size.getWidth() / 2, pos.getY() + size.getHeight() / 2);
-            case SOUTH_WEST:
-                return new Point(pos.getX() - (size.getWidth() / 2) - MAGIC_VOODOO, pos.getY() + size.getHeight() / 2);
-            default:
-                throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
-        }
-    }
-
-    protected Size calcArcDimenson() {
-        switch (direction) {
-            case NORTH_EAST:
-                return getSize().setWidth(getSize().getWidth() + MAGIC_VOODOO);
-            case NORTH_WEST:
-                return getSize().setWidth(getSize().getWidth() - MAGIC_VOODOO);
-            case SOUTH_EAST:
-                return new Size(getSize().getWidth() + MAGIC_VOODOO, getSize().getHeight() + MAGIC_VOODOO);
-            case SOUTH_WEST:
-                return getSize().setHeight(getSize().getHeight() + MAGIC_VOODOO);
-            default:
-                throw new IllegalArgumentException(String.format("Unsupported straight type: %s!", direction));
-        }
     }
 
     /**
