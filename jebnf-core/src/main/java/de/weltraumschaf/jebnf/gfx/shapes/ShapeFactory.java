@@ -71,7 +71,7 @@ public final class ShapeFactory {
     }
 
     /**
-     * Creates one of the {@link CurveShapes "curves"}.
+     * Creates one of the {@link CurveShape.Directions "curves"}.
      *
      * @param direction Type of curve to create.
      * @return Always return new instance.
@@ -81,7 +81,7 @@ public final class ShapeFactory {
     }
 
     /**
-     * Create one of the {@link StraightShapes "striaghts"}.
+     * Create one of the {@link StraightShape.Directions "striaghts"}.
      *
      * @param direction Type of straight to create.
      * @return Always return new instance.

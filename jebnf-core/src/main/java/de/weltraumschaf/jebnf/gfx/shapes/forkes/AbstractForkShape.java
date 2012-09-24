@@ -12,16 +12,17 @@
 package de.weltraumschaf.jebnf.gfx.shapes.forkes;
 
 import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import java.awt.Graphics2D;
 
 /**
- * Forks are a combination of either a {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape} or
- * {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightWestEastShape} shape and a curve shape
- * ({@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthEastShape},
- * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveNorthWestShape},
- * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthEastShape}, or
- * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthWestShape}).
+ * Forks are a combination of either a {@link de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape "straight shape"}  with
+ * direction {@link StraightShape.Directions#NORT_SOUTH} or {@link StraightShape.Directions#WEST_EAST} shape and a
+ * {@link CurveShape "curve shape"} with direction
+ * {@link CurveShape.Directions#North_EAST}, {@link CurveShape.Directions#North_WEST},
+ * {@link CurveShape.Directions#SOUTH_EAST}, or {@link CurveShape.Directions#SOUTH_WEST}.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */

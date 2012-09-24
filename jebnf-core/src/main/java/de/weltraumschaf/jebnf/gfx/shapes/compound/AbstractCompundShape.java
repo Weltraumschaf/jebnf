@@ -98,7 +98,7 @@ public class AbstractCompundShape extends AbstractShape implements GridShape {
     }
 
     /**
-     * Extends a grid column with {@link StraightNorthSouthShape} shapes.
+     * Extends a grid column with {@link StraightShape "shapes"} of type {@link StraightShape.Directions#NORT_SOUTH}.
      *
      * @param height Height in pixel of column.
      * @param colIndexs Column index in grid.
