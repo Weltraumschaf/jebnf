@@ -11,17 +11,21 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.forks;
 
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.ForkShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
+import de.weltraumschaf.jebnf.gfx.Point;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthEastShape;
+import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthWestShape;
 import java.awt.Graphics2D;
 import org.junit.Test;
-import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.*;
 
 /**
  *
@@ -29,7 +33,27 @@ import static org.mockito.Mockito.mock;
  */
 public class ForkTest {
 
-    @Test public void constructAndPaint() {
+    @Test public void paint() {
+        final Point pos = new Point(1, 2);
+        final Graphics2D graphics = mock(Graphics2D.class);
+
+        final RectangularShape straight   = mock(RectangularShape.class);
+        final RectangularShape curve      = mock(RectangularShape.class);
+
+        final ForkShape sut = new ForkShape(straight, curve);
+        sut.setPosition(pos);
+        sut.paint(graphics);
+
+        verify(straight, times(1)).setPosition(pos);
+        verify(straight, times(1)).setTransparent(true);
+        verify(straight, times(1)).paint(graphics);
+
+        verify(curve, times(1)).setPosition(pos);
+        verify(curve, times(1)).setTransparent(true);
+        verify(curve, times(1)).paint(graphics);
+    }
+
+    @Test public void constructAndPaintConcreteForks() {
         // Test creation and paint w/o any errors.
         final VForkNorthEastShape fork1 = new VForkNorthEastShape();
         fork1.paint(mock(Graphics2D.class));

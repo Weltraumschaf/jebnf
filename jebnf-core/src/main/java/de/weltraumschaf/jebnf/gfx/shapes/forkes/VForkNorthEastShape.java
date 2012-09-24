@@ -27,7 +27,8 @@ import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class VForkNorthEastShape extends AbstractForkShape {
+@Deprecated
+public class VForkNorthEastShape extends ForkShape {
 
     /**
      * Initializes {@link #straight} with {@link StraightShape} from north to south
