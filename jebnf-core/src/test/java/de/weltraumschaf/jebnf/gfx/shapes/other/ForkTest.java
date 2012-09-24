@@ -9,12 +9,12 @@
  *
  */
 
-package de.weltraumschaf.jebnf.gfx.shapes.forks;
+package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.ForkShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import de.weltraumschaf.jebnf.gfx.Point;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.ForkShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthEastShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
 import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;

@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.forkes;
 
+import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 

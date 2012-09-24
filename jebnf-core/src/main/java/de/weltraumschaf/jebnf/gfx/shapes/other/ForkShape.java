@@ -8,7 +8,7 @@
  * you can buy me a beer in return.
  *
  */
-package de.weltraumschaf.jebnf.gfx.shapes.forkes;
+package de.weltraumschaf.jebnf.gfx.shapes.other;
 
 import de.weltraumschaf.jebnf.gfx.Point;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
