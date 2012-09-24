@@ -133,6 +133,7 @@ Project file format (JSON):
 
 - Consioder Latex or SVG.
 - Use Graphics2D#translate(int x, int y) instead of absolute position by drawing shapes.
+- Fix NPE if no -o given (check other opts, too)
 
 [WP-EBNF]:       http://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_Form
 [KARMIN]:        http://karmin.ch/ebnf/index
