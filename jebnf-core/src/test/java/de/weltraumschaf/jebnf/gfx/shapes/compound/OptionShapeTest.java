@@ -15,8 +15,7 @@ import de.weltraumschaf.jebnf.gfx.Size;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.column;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TextShape;
@@ -49,10 +48,15 @@ public class OptionShapeTest {
 
         split = (ColumnLayoutShape) grid.get(0, 0);
         assertEquals(1, split.countShapes());
-        assertTrue(split.get(0) instanceof HForkSouthWestShape);
+        assertTrue(split.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) split.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_WEST, ((ForkShape) split.get(0)).getCurve().getDirection());
+
         join = (ColumnLayoutShape) grid.get(2, 0);
         assertEquals(1, join.countShapes());
-        assertTrue(join.get(0) instanceof HForkSouthEastShape);
+        assertTrue(join.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) join.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_EAST, ((ForkShape) join.get(0)).getCurve().getDirection());
 
         final TextShape term = terminal("foo");
         option.setOptional(term);
@@ -86,17 +90,25 @@ public class OptionShapeTest {
 
         split = (ColumnLayoutShape) grid.get(0, 0);
         assertEquals(3, split.countShapes());
-        assertTrue(split.get(0) instanceof HForkSouthWestShape);
+        assertTrue(split.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) split.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_WEST, ((ForkShape) split.get(0)).getCurve().getDirection());
+
         assertTrue(split.get(1) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) split.get(1)).getDirection());
+
         assertTrue(split.get(2) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) split.get(2)).getDirection());
 
         join = (ColumnLayoutShape) grid.get(2, 0);
         assertEquals(3, join.countShapes());
-        assertTrue(join.get(0) instanceof HForkSouthEastShape);
+        assertTrue(join.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) join.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_EAST, ((ForkShape) join.get(0)).getCurve().getDirection());
+
         assertTrue(join.get(1) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) join.get(1)).getDirection());
+
         assertTrue(join.get(2) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) join.get(2)).getDirection());
     }

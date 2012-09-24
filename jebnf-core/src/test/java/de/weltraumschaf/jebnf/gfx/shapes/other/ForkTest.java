@@ -11,19 +11,9 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes.other;
 
-import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
-import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import de.weltraumschaf.jebnf.gfx.Point;
-import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthWestShape;
 import java.awt.Graphics2D;
+import static org.junit.Assert.*;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
@@ -37,8 +27,8 @@ public class ForkTest {
         final Point pos = new Point(1, 2);
         final Graphics2D graphics = mock(Graphics2D.class);
 
-        final RectangularShape straight   = mock(RectangularShape.class);
-        final RectangularShape curve      = mock(RectangularShape.class);
+        final StraightShape straight = mock(StraightShape.class);
+        final CurveShape curve       = mock(CurveShape.class);
 
         final ForkShape sut = new ForkShape(straight, curve);
         sut.setPosition(pos);
@@ -53,31 +43,51 @@ public class ForkTest {
         verify(curve, times(1)).paint(graphics);
     }
 
+    /**
+     * Test creation and paint w/o any errors.
+     */
     @Test public void constructAndPaintConcreteForks() {
-        // Test creation and paint w/o any errors.
-        final VForkNorthEastShape fork1 = new VForkNorthEastShape();
-        fork1.paint(mock(Graphics2D.class));
+        ForkShape sut;
 
-        final VForkNorthWestShape fork2 = new VForkNorthWestShape();
-        fork2.paint(mock(Graphics2D.class));
+        sut = ForkShape.newVerticalNorthEast();
+        assertEquals(StraightShape.Directions.NORT_SOUTH, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.NORTH_EAST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
 
-        final VForkSouthEastShape fork3 = new VForkSouthEastShape();
-        fork3.paint(mock(Graphics2D.class));
+        sut = ForkShape.newVerticalNorthWest();
+        assertEquals(StraightShape.Directions.NORT_SOUTH, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.NORTH_WEST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
 
-        final VForkSouthWestShape fork4 = new VForkSouthWestShape();
-        fork4.paint(mock(Graphics2D.class));
+        sut = ForkShape.newVerticalSouthEast();
+        assertEquals(StraightShape.Directions.NORT_SOUTH, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_EAST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
 
-        // Test creation and paint w/o any errors.
-        final HForkNorthEastShape fork5 = new HForkNorthEastShape();
-        fork5.paint(mock(Graphics2D.class));
+        sut = ForkShape.newVerticalSouthWest();
+        assertEquals(StraightShape.Directions.NORT_SOUTH, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_WEST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
 
-        final HForkNorthWestShape fork6 = new HForkNorthWestShape();
-        fork6.paint(mock(Graphics2D.class));
+        sut = ForkShape.newHorizontalNorthEast();
+        assertEquals(StraightShape.Directions.WEST_EAST, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.NORTH_EAST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
 
-        final HForkSouthEastShape fork7 = new HForkSouthEastShape();
-        fork7.paint(mock(Graphics2D.class));
+        sut = ForkShape.newHorizontalNorthWest();
+        assertEquals(StraightShape.Directions.WEST_EAST, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.NORTH_WEST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
 
-        final HForkSouthWestShape fork8 = new HForkSouthWestShape();
-        fork8.paint(mock(Graphics2D.class));
+        sut = ForkShape.newHorizontalSouthEast();
+        assertEquals(StraightShape.Directions.WEST_EAST, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_EAST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
+
+        sut = ForkShape.newHorizontalSouthWest();
+        assertEquals(StraightShape.Directions.WEST_EAST, sut.getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_WEST, sut.getCurve().getDirection());
+        sut.paint(mock(Graphics2D.class));
     }
+
 }

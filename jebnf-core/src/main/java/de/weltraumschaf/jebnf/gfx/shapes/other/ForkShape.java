@@ -31,12 +31,12 @@ public class ForkShape extends RectangularShape {
     /**
      * The straight shape part.
      */
-    final RectangularShape straight;
+    private final StraightShape straight;
 
     /**
      * The curve shape part.
      */
-    final RectangularShape curve;
+    private final CurveShape curve;
 
     /**
      * Initializes {@link #straight} and {@link  #curve}.
@@ -48,7 +48,7 @@ public class ForkShape extends RectangularShape {
      *              {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthEastShape}, or
      * {@link de.weltraumschaf.jebnf.gfx.shapes.curves.CurveSouthWestShape}.
      */
-    public ForkShape(final RectangularShape straight, final RectangularShape curve) {
+    public ForkShape(final StraightShape straight, final CurveShape curve) {
         super();
         this.straight = straight;
         this.curve = curve;
@@ -68,11 +68,11 @@ public class ForkShape extends RectangularShape {
         curve.paint(graphic);
     }
 
-    public RectangularShape getStraight() {
+    public StraightShape getStraight() {
         return straight;
     }
 
-    public RectangularShape getCurve() {
+    public CurveShape getCurve() {
         return curve;
     }
 

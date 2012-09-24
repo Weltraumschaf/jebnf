@@ -14,10 +14,7 @@ package de.weltraumschaf.jebnf.gfx.shapes.compound;
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.*;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 
 /**
  * ChoiceShape shape.
@@ -50,12 +47,12 @@ public class ChoiceShape extends AbstractCompundShape {
         Shape last;
 
         if (rowCount == 0) {
-            first = new HForkSouthWestShape();
-            last  = new HForkSouthEastShape();
+            first = ForkShape.newHorizontalSouthWest();
+            last  = ForkShape.newHorizontalSouthEast();
         } else {
             if (rowCount > 1) {
-                grid.set(0, rowCount - 1, new VForkNorthEastShape());
-                grid.set(2, rowCount - 1, new VForkNorthWestShape());
+                grid.set(0, rowCount - 1, ForkShape.newVerticalNorthEast());
+                grid.set(2, rowCount - 1, ForkShape.newVerticalNorthWest());
             }
 
             first =  new CurveShape(CurveShape.Directions.NORTH_EAST);

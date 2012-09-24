@@ -16,8 +16,7 @@ import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.loop;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TerminalShape;
@@ -58,11 +57,15 @@ public class LoopShapeTest {
         final GridLayoutShape grid = loop.getGrid();
         final ColumnLayoutShape split = (ColumnLayoutShape) grid.get(0, 0);
         assertEquals(1, split.countShapes());
-        assertTrue(split.get(0) instanceof HForkSouthEastShape);
+        assertTrue(split.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) split.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_EAST, ((ForkShape) split.get(0)).getCurve().getDirection());
 
         final ColumnLayoutShape join  = (ColumnLayoutShape) grid.get(2, 0);
         assertEquals(1, join.countShapes());
-        assertTrue(join.get(0) instanceof HForkSouthWestShape);
+        assertTrue(join.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) join.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_WEST, ((ForkShape) join.get(0)).getCurve().getDirection());
     }
 
     private void assertCurves(final LoopShape loop) {
@@ -98,17 +101,25 @@ public class LoopShapeTest {
 
         final ColumnLayoutShape split = (ColumnLayoutShape) grid.get(0, 0);
         assertEquals(3, split.countShapes());
-        assertTrue(split.get(0) instanceof HForkSouthEastShape);
+        assertTrue(split.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) split.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_EAST, ((ForkShape) split.get(0)).getCurve().getDirection());
+
         assertTrue(split.get(1) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) split.get(1)).getDirection());
+
         assertTrue(split.get(2) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) split.get(2)).getDirection());
 
         final ColumnLayoutShape join  = (ColumnLayoutShape) grid.get(2, 0);
         assertEquals(3, join.countShapes());
-        assertTrue(join.get(0) instanceof HForkSouthWestShape);
+        assertTrue(join.get(0) instanceof ForkShape);
+        assertEquals(StraightShape.Directions.WEST_EAST, ((ForkShape) join.get(0)).getStraight().getDirection());
+        assertEquals(CurveShape.Directions.SOUTH_WEST, ((ForkShape) join.get(0)).getCurve().getDirection());
+
         assertTrue(join.get(1) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) join.get(1)).getDirection());
+
         assertTrue(join.get(2) instanceof StraightShape);
         assertEquals(StraightShape.Directions.NORT_SOUTH, ((StraightShape) join.get(1)).getDirection());
         assertCurves(loop);

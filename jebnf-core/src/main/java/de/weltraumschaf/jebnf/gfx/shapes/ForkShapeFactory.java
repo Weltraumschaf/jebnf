@@ -12,14 +12,7 @@
 package de.weltraumschaf.jebnf.gfx.shapes;
 
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkNorthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.HForkSouthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkNorthWestShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthEastShape;
-import de.weltraumschaf.jebnf.gfx.shapes.forkes.VForkSouthWestShape;
+import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 
 /**
@@ -59,19 +52,21 @@ public final class ForkShapeFactory {
     /**
      * Creates a fork with straight railroad from north to south.
      *
+     * @deprecated Use ForkShape#newVerticalXXX() instead.
      * @param curve Type of curve.
      * @return Always return new instance.
      */
+    @Deprecated
     private static Shape verticalFork(final CurveShape.Directions curve) {
         switch (curve) {
             case NORTH_EAST:
-                return new VForkNorthEastShape();
+                return ForkShape.newVerticalNorthEast();
             case NORTH_WEST:
-                return new VForkNorthWestShape();
+                return ForkShape.newVerticalNorthWest();
             case SOUTH_EAST:
-                return new VForkSouthEastShape();
+                return ForkShape.newVerticalSouthEast();
             case SOUTH_WEST:
-                return new VForkSouthWestShape();
+                return ForkShape.newVerticalSouthWest();
             default:
                 throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
         }
@@ -80,19 +75,21 @@ public final class ForkShapeFactory {
     /**
      * Creates a fork with straight railroad from west to east.
      *
+     * @deprecated Use ForkShape#newHorizontalXXX() instead.
      * @param curve Type of curve.
      * @return Always return new instance.
      */
+    @Deprecated
     private static Shape horizontalFork(final CurveShape.Directions curve) {
         switch (curve) {
             case NORTH_EAST:
-                return new HForkNorthEastShape();
+                return ForkShape.newHorizontalNorthEast();
             case NORTH_WEST:
-                return new HForkNorthWestShape();
+                return ForkShape.newHorizontalNorthWest();
             case SOUTH_EAST:
-                return new HForkSouthEastShape();
+                return ForkShape.newHorizontalSouthEast();
             case SOUTH_WEST:
-                return new HForkSouthWestShape();
+                return ForkShape.newHorizontalSouthWest();
             default:
                 throw new IllegalArgumentException("Unsupported curve: " + curve + "!");
         }
