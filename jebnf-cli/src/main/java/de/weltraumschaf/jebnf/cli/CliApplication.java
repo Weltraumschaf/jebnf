@@ -12,6 +12,7 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
+import de.weltraumschaf.jebnf.EbnfException;
 import de.weltraumschaf.jebnf.ExitCodeImpl;
 import de.weltraumschaf.jebnf.ast.visitor.RailroadDiagramVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.TextSyntaxTreeVisitor;
@@ -66,14 +67,19 @@ public class CliApplication extends ApplicationAdapter {
         final RailroadDiagram diagram = visitor.getResult();
         diagram.setDebug(options.isDebug());
 
-        final RailroadDiagramImage img = new RailroadDiagramImage(new File(options.getOutputFile()));
+        if (!options.hasOutputFile()) {
+            throw new EbnfException("No output file given!");
+        }
+
+        final String outputFileName = options.getOutputFile();
+        final RailroadDiagramImage img = new RailroadDiagramImage(new File(outputFileName));
         img.setDiagram(diagram);
         img.paint();
 
         try {
             img.save();
         } catch (IOException ex) {
-            ioStreams.getStderr().println("Can't write file!");
+            ioStreams.getStderr().println(String.format("Can't write file '%s'!", outputFileName));
         }
     }
 
