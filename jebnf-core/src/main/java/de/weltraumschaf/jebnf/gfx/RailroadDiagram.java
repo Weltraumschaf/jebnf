@@ -135,4 +135,8 @@ public class RailroadDiagram {
         return shapes.getSize();
     }
 
+    public String getTitle() {
+        return title;
+    }
+
 }

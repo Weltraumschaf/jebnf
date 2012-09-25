@@ -55,8 +55,7 @@ public class GuiApplication extends ApplicationAdapter implements Runnable {
         diagram.setDebug(options.isDebug());
         final RailroadDiagramPanel railroadDiagramPanel = new RailroadDiagramPanel(diagram);
 
-        final MainWindow mainWindow = new MainWindow(syntax.getAttribute(SyntaxNode.ATTRIBUTE_TITLE),
-                                                     railroadDiagramPanel);
+        final MainWindow mainWindow = new MainWindow(diagram.getTitle(), railroadDiagramPanel);
         mainWindow.init();
         mainWindow.setVisible(true);
     }
