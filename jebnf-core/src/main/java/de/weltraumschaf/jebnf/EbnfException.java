@@ -16,7 +16,7 @@ package de.weltraumschaf.jebnf;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class EbnfException extends Exception {
+public class EbnfException extends RuntimeException {
 
     /**
      * Version id for serialization.
