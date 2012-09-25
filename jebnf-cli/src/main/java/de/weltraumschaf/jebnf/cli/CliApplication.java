@@ -85,7 +85,7 @@ public class CliApplication extends ApplicationAdapter {
     private void generateTextTree() throws IOException {
         final Visitor<String> visitor = new TextSyntaxTreeVisitor();
         syntax.accept(visitor);
-        handleOutput(visitor.getResult());
+        handleStringOutput(visitor.getResult());
     }
 
     /**
@@ -96,7 +96,7 @@ public class CliApplication extends ApplicationAdapter {
     private void generateXmlTree() throws IOException {
         final Visitor<String> visitor = new XmlVisitor();
         syntax.accept(visitor);
-        handleOutput(visitor.getResult());
+        handleStringOutput(visitor.getResult());
     }
 
     /**
@@ -105,7 +105,7 @@ public class CliApplication extends ApplicationAdapter {
      * @param output String to write.
      * @throws IOException On write error to output file.
      */
-    private void handleOutput(final String output) throws IOException {
+    private void handleStringOutput(final String output) throws IOException {
         if (options.hasOutputFile()) {
             final File file = new File(options.getOutputFile());
             final Writer writer = new BufferedWriter(new FileWriter(file));
