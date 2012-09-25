@@ -15,7 +15,6 @@ import de.weltraumschaf.commons.swing.MenuBarBuilder;
 import de.weltraumschaf.commons.swing.SwingFrame;
 import de.weltraumschaf.commons.swing.ToolBarBuilder;
 import java.awt.BorderLayout;
-import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -40,15 +39,18 @@ public class MainWindow extends SwingFrame {
      */
     private static final long serialVersionUID = 1L;
 
-    private RailroadDiagramPanel diagram;
+    /**
+     * Diagram panel which contains the railroads.
+     */
+    private final RailroadDiagramPanel diagram;
 
     /**
      * Initializes the main window with an title.
      *
-     * @param title
-     * @throws HeadlessException
+     * @param title The window title.
+     * @param diagram The diagram panel to paint on screen.
      */
-    public MainWindow(final String title, final RailroadDiagramPanel diagram) throws HeadlessException {
+    public MainWindow(final String title, final RailroadDiagramPanel diagram) {
         super(title);
         this.diagram = diagram;
     }
