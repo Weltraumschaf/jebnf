@@ -21,7 +21,7 @@ import javax.swing.JPanel;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class RailroadDiagramPanel extends JPanel {
+public final class RailroadDiagramPanel extends JPanel {
 
     /**
      * Diagram to display.

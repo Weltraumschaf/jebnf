@@ -27,7 +27,7 @@ import javax.swing.JToolBar;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class MainWindow extends SwingFrame {
+public final class MainWindow extends SwingFrame {
 
     /**
      * Logging facility.
