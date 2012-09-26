@@ -31,7 +31,7 @@ import java.io.Writer;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CliApplication extends ApplicationAdapter {
+final class CliApplication extends ApplicationAdapter {
 
     /**
      * Initializes app with options and IO streams.

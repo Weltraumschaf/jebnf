@@ -12,7 +12,6 @@
 package de.weltraumschaf.jebnf.cli;
 
 import de.weltraumschaf.commons.IOStreams;
-import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
 import de.weltraumschaf.jebnf.ast.visitor.RailroadDiagramVisitor;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import de.weltraumschaf.jebnf.gfx.RailroadDiagram;
@@ -25,7 +24,7 @@ import javax.swing.SwingUtilities;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class GuiApplication extends ApplicationAdapter implements Runnable {
+final class GuiApplication extends ApplicationAdapter implements Runnable {
 
     /**
      * Initializes app with options and IO streams.

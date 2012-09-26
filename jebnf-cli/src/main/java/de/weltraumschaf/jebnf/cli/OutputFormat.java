@@ -16,7 +16,7 @@ package de.weltraumschaf.jebnf.cli;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public enum OutputFormat {
+enum OutputFormat {
 
     /**
      * Prints the parsed syntax tree as ASCII text tree.

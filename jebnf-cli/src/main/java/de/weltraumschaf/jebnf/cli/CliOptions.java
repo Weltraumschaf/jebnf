@@ -21,9 +21,10 @@ import org.apache.commons.cli.ParseException;
 /**
  * Available command line arguments.
  *
+ * @todo Should be final, but then mocking in test does not work for spy.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CliOptions {
+class CliOptions {
 
     /**
      * Name of the CLI executable.

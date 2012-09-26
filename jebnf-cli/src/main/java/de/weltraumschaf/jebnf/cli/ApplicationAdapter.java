@@ -19,7 +19,7 @@ import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class ApplicationAdapter implements Application {
+abstract class ApplicationAdapter implements Application {
 
     /**
      * IO Streams.

@@ -21,7 +21,7 @@ import org.apache.commons.cli.PosixParser;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class OptionsParser {
+final class OptionsParser {
 
     /**
      * Short option for syntax file to read from.

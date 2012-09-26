@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public interface Application {
+interface Application {
 
     /**
      * Executable command method.
