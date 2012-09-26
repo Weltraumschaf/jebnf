@@ -11,7 +11,6 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
-import de.weltraumschaf.jebnf.gfx.shapes.compound.CompundShapeFactory;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.*;
 import de.weltraumschaf.jebnf.gfx.shapes.other.*;
 import de.weltraumschaf.jebnf.gfx.shapes.text.*;
@@ -19,6 +18,7 @@ import de.weltraumschaf.jebnf.gfx.shapes.text.*;
 /**
  * Factory to create shape objects.
  *
+ * @todo Refactor to Builder Pattern.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class ShapeFactory {
@@ -186,7 +186,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static ChoiceShape choice() {
+    public static GridShape choice() {
         return CompundShapeFactory.choice();
     }
 
@@ -196,7 +196,7 @@ public final class ShapeFactory {
      * @param shapes Shapes added to created choice.
      * @return Always return new instance.
      */
-    public static ChoiceShape choice(final Shape... shapes) {
+    public static GridShape choice(final Shape... shapes) {
         return CompundShapeFactory.choice(shapes);
     }
 
@@ -205,7 +205,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static OptionShape option() {
+    public static GridShape option() {
         return CompundShapeFactory.option();
     }
 
@@ -215,7 +215,7 @@ public final class ShapeFactory {
      * @param optional Optional shape..
      * @return Always return new instance.
      */
-    public static OptionShape option(final Shape optional) {
+    public static GridShape option(final Shape optional) {
         return CompundShapeFactory.option(optional);
     }
 
@@ -224,7 +224,7 @@ public final class ShapeFactory {
      *
      * @return Always return new instance.
      */
-    public static LoopShape loop() {
+    public static GridShape loop() {
         return CompundShapeFactory.loop();
     }
 
@@ -234,7 +234,7 @@ public final class ShapeFactory {
      * @param looped Looped shape.
      * @return Always return new instance.
      */
-    public static LoopShape loop(final Shape looped) {
+    public static GridShape loop(final Shape looped) {
         return CompundShapeFactory.loop(looped);
     }
 
@@ -244,7 +244,7 @@ public final class ShapeFactory {
      * @param additional Additional shape.
      * @return Always return new instance.
      */
-    public static LoopShape loop(final Shape looped, final Shape additional) {
+    public static GridShape loop(final Shape looped, final Shape additional) {
         return CompundShapeFactory.loop(looped, additional);
     }
 

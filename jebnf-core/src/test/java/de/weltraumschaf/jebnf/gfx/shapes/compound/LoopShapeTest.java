@@ -82,7 +82,7 @@ public class LoopShapeTest {
     }
 
     @Test public void setLooped() {
-        final LoopShape loop = loop();
+        final LoopShape loop = new LoopShape();
         final GridLayoutShape grid = loop.getGrid();
         assertInitialGrid(loop);
 
@@ -126,7 +126,7 @@ public class LoopShapeTest {
     }
 
     @Test public void setAdditional() {
-        final LoopShape loop = loop();
+        final LoopShape loop = new LoopShape();
         final GridLayoutShape grid = loop.getGrid();
         assertInitialGrid(loop);
 

@@ -12,12 +12,6 @@
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
 import de.weltraumschaf.jebnf.gfx.shapes.Shape;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ChoiceShape;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayoutShape;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayoutShape;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.LoopShape;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.OptionShape;
-import de.weltraumschaf.jebnf.gfx.shapes.compound.RowLayoutShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.IdentifierShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.RuleShape;
 import de.weltraumschaf.jebnf.gfx.shapes.text.TerminalShape;
@@ -26,6 +20,7 @@ import de.weltraumschaf.jebnf.gfx.shapes.text.TextShape;
 /**
  * Creates compound shapes.
  *
+ * @todo Refactor to Builder Pattern.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public final class CompundShapeFactory {
