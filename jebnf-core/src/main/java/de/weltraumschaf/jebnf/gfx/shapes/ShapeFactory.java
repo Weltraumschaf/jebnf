@@ -11,6 +11,7 @@
 
 package de.weltraumschaf.jebnf.gfx.shapes;
 
+import de.weltraumschaf.jebnf.gfx.shapes.compound.CompundShapeFactory;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.*;
 import de.weltraumschaf.jebnf.gfx.shapes.other.*;
 import de.weltraumschaf.jebnf.gfx.shapes.text.*;

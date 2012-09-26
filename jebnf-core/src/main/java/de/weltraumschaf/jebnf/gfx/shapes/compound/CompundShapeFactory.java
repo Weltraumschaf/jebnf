@@ -9,8 +9,9 @@
  *
  */
 
-package de.weltraumschaf.jebnf.gfx.shapes;
+package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
+import de.weltraumschaf.jebnf.gfx.shapes.Shape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.ChoiceShape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.ColumnLayoutShape;
 import de.weltraumschaf.jebnf.gfx.shapes.compound.GridLayoutShape;
