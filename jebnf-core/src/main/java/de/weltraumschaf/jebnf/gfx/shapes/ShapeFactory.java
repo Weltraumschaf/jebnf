@@ -100,7 +100,7 @@ public final class ShapeFactory {
      * @return Always return new instance.
      */
     public static Shape fork(final StraightShape.Directions orientation, final CurveShape.Directions curve) {
-        return ForkShapeFactory.fork(orientation, curve);
+        return new ForkShape(new StraightShape(orientation), new CurveShape(curve));
     }
 
     /**
