@@ -30,6 +30,8 @@ public final class Size {
      */
     public static final int DEFAULT_HEIGHT = 31;
 
+    public static final Size DEFAULT = new Size(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+
     /**
      * Immutable x coordinate.
      */
@@ -39,13 +41,6 @@ public final class Size {
      * Immutable x coordinate.
      */
     private final int height;
-
-    /**
-     * Initializes the size with zero width and height.
-     */
-    public Size() {
-        this(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-    }
 
     /**
      * Dedicated constructor.

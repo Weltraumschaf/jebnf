@@ -29,7 +29,7 @@ public class RuleShapeTest {
 
     static class RuleStub extends RuleShape {
 
-        Size calcTextSize = new Size();
+        Size calcTextSize = Size.DEFAULT;
 
         public RuleStub(final String text) {
             super(text);

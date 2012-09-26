@@ -93,7 +93,7 @@ public class LoopShapeTest {
         assertEquals(StraightShape.Directions.WEST_EAST, ((StraightShape) grid.get(1, 1)).getDirection());
 
         final Shape greatOne = terminal("bar");
-        greatOne.setSize(new Size().setHeight(Size.DEFAULT_HEIGHT * 3));
+        greatOne.setSize(Size.DEFAULT.setHeight(Size.DEFAULT_HEIGHT * 3));
         loop.setLooped(greatOne);
         assertTrue(grid.get(1, 0) instanceof TerminalShape);
         assertTrue(grid.get(1, 1) instanceof StraightShape);
@@ -136,7 +136,7 @@ public class LoopShapeTest {
         assertTrue(grid.get(1, 1) instanceof TerminalShape);
 
         final Shape greatOne = terminal("bar");
-        greatOne.setSize(new Size().setHeight(Size.DEFAULT_HEIGHT * 3));
+        greatOne.setSize(Size.DEFAULT.setHeight(Size.DEFAULT_HEIGHT * 3));
         loop.setAdditional(greatOne);
         assertTrue(grid.get(1, 0) instanceof RectangularShape);
         assertTrue(grid.get(1, 1) instanceof TerminalShape);

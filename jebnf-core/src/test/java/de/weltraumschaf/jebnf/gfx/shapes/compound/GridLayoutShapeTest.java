@@ -56,10 +56,10 @@ public class GridLayoutShapeTest {
         final GridLayoutShape grid = grid();
         final Graphics2D graphic = mock(Graphics2D.class);
         final ColumnLayoutShape row1 = mock(ColumnLayoutShape.class);
-        when(row1.getSize()).thenReturn(new Size());
+        when(row1.getSize()).thenReturn(Size.DEFAULT);
         grid.append(row1);
         final ColumnLayoutShape row2 = mock(ColumnLayoutShape.class);
-        when(row2.getSize()).thenReturn(new Size());
+        when(row2.getSize()).thenReturn(Size.DEFAULT);
         grid.append(row2);
         grid.paint(graphic);
         verify(row1, times(1)).paint(graphic);

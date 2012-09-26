@@ -30,8 +30,8 @@ public class StartShapeTest {
         final Graphics2D graphics = mock(Graphics2D.class);
         final StartShape start = start();
 
-        start.setPosition(new Point(0, 0));
-        start.setSize(new Size());
+        start.setPosition(Point.ZERO);
+        start.setSize(Size.DEFAULT);
         start.paint(graphics);
 
         verify(graphics, atLeast(1)).setColor(Color.BLACK);

@@ -51,8 +51,8 @@ public abstract class AbstractShape implements Shape {
      * {@link de.weltraumschaf.jebnf.gfx.Size#DEFAULT_HEIGHT} and position with (0, 0).
      */
     public AbstractShape() {
-        size     = new Size();
-        position = new Point();
+        size     = Size.DEFAULT;
+        position = Point.ZERO;
     }
 
     @Override

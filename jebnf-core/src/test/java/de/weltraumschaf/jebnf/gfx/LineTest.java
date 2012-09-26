@@ -36,7 +36,7 @@ public class LineTest {
 
     @Test public void testToString() {
         Line sut = new Line();
-        assertEquals(String.format("Line{start=%s, end=%s}", new Point(), new Point()),
+        assertEquals(String.format("Line{start=%s, end=%s}", Point.ZERO, Point.ZERO),
                      sut.toString());
         final Point start = new Point(5, 6);
         final Point end = new Point(50, 60);

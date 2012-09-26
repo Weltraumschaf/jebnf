@@ -36,8 +36,8 @@ public class AbstractShapeTest {
     }
 
     @Test public void createInstances() {
-        final Point expectedPoint1 = new Point();
-        final Size expectedDim1 = new Size();
+        final Point expectedPoint1 = Point.ZERO;
+        final Size expectedDim1 = Size.DEFAULT;
         final AbstractShape sut = new AbstractShapeImpl();
         assertEquals(expectedPoint1, sut.getPosition());
         assertEquals(expectedDim1, sut.getSize());

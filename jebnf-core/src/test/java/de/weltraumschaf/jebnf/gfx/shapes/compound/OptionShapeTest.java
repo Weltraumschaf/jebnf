@@ -74,7 +74,7 @@ public class OptionShapeTest {
 
         // taller optional
         final ColumnLayoutShape greatColumn = column();
-        greatColumn.setSize(new Size().setHeight(Size.DEFAULT_HEIGHT * 3));
+        greatColumn.setSize(Size.DEFAULT.setHeight(Size.DEFAULT_HEIGHT * 3));
         option.setOptional(greatColumn);
         assertEquals(2, grid.counRows());
         assertEquals(3, grid.countCols());

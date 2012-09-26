@@ -30,8 +30,8 @@ public class EndShapeTest {
         final Graphics2D graphics = mock(Graphics2D.class);
         final EndShape end = end();
 
-        end.setPosition(new Point(0, 0));
-        end.setSize(new Size());
+        end.setPosition(Point.ZERO);
+        end.setSize(Size.DEFAULT);
         end.paint(graphics);
 
         verify(graphics, atLeast(1)).setColor(Color.BLACK);

@@ -19,7 +19,6 @@ import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import static org.junit.Assert.assertEquals;
-import org.junit.Ignore;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
@@ -31,7 +30,7 @@ public class IdentifierShapeTest {
 
     static class IdentifierStub extends IdentifierShape {
 
-        Size calcTextSize = new Size();
+        Size calcTextSize = Size.DEFAULT;
 
         public IdentifierStub(final String text) {
             super(text);

@@ -33,8 +33,8 @@ public class AbstractEndpointShapeTest {
         final Graphics2D graphics = mock(Graphics2D.class);
         final AbstractEndpointShape sut = new AbstractEndpointImpl();
 
-        sut.setPosition(new Point(0, 0));
-        sut.setSize(new Size());
+        sut.setPosition(Point.ZERO);
+        sut.setSize(Size.DEFAULT);
         sut.paint(graphics);
 
         verify(graphics, times(1)).setColor(Color.BLACK);

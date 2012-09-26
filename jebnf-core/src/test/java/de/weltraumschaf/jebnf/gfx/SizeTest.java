@@ -22,7 +22,7 @@ import org.junit.Test;
  */
 public class SizeTest {
 
-    final Size sut = new Size();
+    final Size sut = Size.DEFAULT;
 
     @Test public void testGetWidth() {
         assertThat(sut.getWidth(), is(Size.DEFAULT_WIDTH));
@@ -47,16 +47,16 @@ public class SizeTest {
     }
 
     @Test public void testEquals() {
-        assertThat(new Size().equals(null), is(false));
-        assertThat(new Size().equals(new Object()), is(false));
-        assertThat(new Size().equals(new Size()), is(true));
+        assertThat(Size.DEFAULT.equals(null), is(false));
+        assertThat(Size.DEFAULT.equals(new Object()), is(false));
+        assertThat(Size.DEFAULT.equals(Size.DEFAULT), is(true));
         assertThat(new Size(23, 42).equals(new Size(23, 42)), is(true));
         assertThat(new Size(23, 42).equals(new Size(42, 23)), is(false));
 
     }
 
     @Test public void testHashCode() {
-        assertThat(new Size().hashCode(), is(new Size().hashCode()));
+        assertThat(Size.DEFAULT.hashCode(), is(Size.DEFAULT.hashCode()));
         assertThat(new Size(23, 42).hashCode(), is(new Size(23, 42).hashCode()));
         assertThat(new Size(23, 42).hashCode(), is(not(new Size(42, 23).hashCode())));
     }

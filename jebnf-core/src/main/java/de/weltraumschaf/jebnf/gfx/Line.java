@@ -34,7 +34,7 @@ public final class Line {
      * Initializes a line with both start and end with points to (0, 0).
      */
     public Line() {
-        this(new Point(), new Point());
+        this(Point.ZERO, Point.ZERO);
     }
 
     /**

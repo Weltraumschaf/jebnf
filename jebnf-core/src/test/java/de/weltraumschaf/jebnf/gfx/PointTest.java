@@ -22,31 +22,33 @@ import org.junit.Test;
  */
 public class PointTest {
 
+    private final Point sut = Point.ZERO;
+
     @Test public void testCreation() {
-        Point point = new Point();
-        assertEquals(0, point.getX());
-        assertEquals(0, point.getY());
-        point = new Point(11, 22);
-        assertEquals(11, point.getX());
-        assertEquals(22, point.getY());
+        assertEquals(0, sut.getX());
+        assertEquals(0, sut.getY());
+
+        final Point other = new Point(11, 22);
+        assertEquals(11, other.getX());
+        assertEquals(22, other.getY());
     }
 
     @Test public void testSetX() {
-        Point point = new Point();
-        assertEquals(0, point.getX());
-        assertEquals(0, point.getY());
-        point = point.setX(10);
-        assertEquals(10, point.getX());
-        assertEquals(0, point.getY());
+        assertEquals(0, sut.getX());
+        assertEquals(0, sut.getY());
+
+        final Point other = sut.setX(10);
+        assertEquals(10, other.getX());
+        assertEquals(0, other.getY());
     }
 
     @Test public void testSetY() {
-        Point point = new Point();
-        assertEquals(0, point.getX());
-        assertEquals(0, point.getY());
-        point = point.setY(10);
-        assertEquals(0, point.getX());
-        assertEquals(10, point.getY());
+        assertEquals(0, sut.getX());
+        assertEquals(0, sut.getY());
+
+        final Point other = sut.setY(10);
+        assertEquals(0, other.getX());
+        assertEquals(10, other.getY());
     }
 
     @Test public void testToString() {

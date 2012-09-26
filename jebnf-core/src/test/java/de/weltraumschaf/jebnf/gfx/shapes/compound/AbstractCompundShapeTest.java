@@ -36,7 +36,7 @@ public class AbstractCompundShapeTest {
         sut.getPosition();
         verify(grid, times(1)).getPosition();
 
-        final Point pos = new Point();
+        final Point pos = Point.ZERO;
         sut.setPosition(pos);
         verify(grid, times(1)).setPosition(pos);
 
@@ -51,7 +51,7 @@ public class AbstractCompundShapeTest {
         sut.getSize();
         verify(grid, times(1)).getSize();
 
-        final Size size = new Size();
+        final Size size = Size.DEFAULT;
         sut.setSize(size);
         verify(grid, times(1)).setSize(size);
 

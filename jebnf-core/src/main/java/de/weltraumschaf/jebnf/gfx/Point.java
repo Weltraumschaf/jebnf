@@ -20,6 +20,8 @@ import com.google.common.base.Objects;
  */
 public final class Point {
 
+    public static final Point ZERO = new Point(0, 0);
+
     /**
      * Immutable x coordinate.
      */
@@ -29,13 +31,6 @@ public final class Point {
      * Immutable x coordinate.
      */
     private final int y; // NOPMD Ignore short name warning.
-
-    /**
-     * Initializes a point with coordinates (0, 0).
-     */
-    public Point() {
-        this(0, 0);
-    }
 
     /**
      * Initializes a point with given coordinates.

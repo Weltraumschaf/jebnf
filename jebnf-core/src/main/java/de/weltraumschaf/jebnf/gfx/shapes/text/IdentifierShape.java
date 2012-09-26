@@ -53,7 +53,7 @@ public class IdentifierShape extends AbstractTextShape implements Shape {
     @Override
     public void adjust(final Graphics2D graphic) {
         boxSize = calcBoxSize(graphic);
-        setSize(new Size().setWidth(calculateWidth(boxSize.getWidth())));
+        setSize(Size.DEFAULT.setWidth(calculateWidth(boxSize.getWidth())));
     }
 
     @Override

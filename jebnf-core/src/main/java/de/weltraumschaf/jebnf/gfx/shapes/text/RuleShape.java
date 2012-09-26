@@ -37,7 +37,7 @@ public class RuleShape extends AbstractTextShape implements Shape {
     @Override
     public void adjust(final Graphics2D graphic) {
         textSize = calculateTextSize(graphic);
-        setSize(new Size().setWidth(calculateWidth(textSize.getWidth() + HORIZONTAL_PADDING * 2)));
+        setSize(Size.DEFAULT.setWidth(calculateWidth(textSize.getWidth() + HORIZONTAL_PADDING * 2)));
     }
 
     @Override

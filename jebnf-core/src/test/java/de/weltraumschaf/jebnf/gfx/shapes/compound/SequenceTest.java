@@ -99,10 +99,10 @@ public class SequenceTest {
         sequence.paint(graphics);
 
         final Shape shape1 = mock(Shape.class);
-        when(shape1.getSize()).thenReturn(new Size());
+        when(shape1.getSize()).thenReturn(Size.DEFAULT);
         sequence.append(shape1);
         final Shape shape2 = mock(Shape.class);
-        when(shape2.getSize()).thenReturn(new Size());
+        when(shape2.getSize()).thenReturn(Size.DEFAULT);
         sequence.append(shape2);
         sequence.paint(graphics);
         verify(shape1, times(1)).paint(graphics);

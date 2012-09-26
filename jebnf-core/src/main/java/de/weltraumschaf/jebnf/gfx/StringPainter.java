@@ -99,7 +99,7 @@ public class StringPainter {
      * @param size Size of the rectangle to center inside.
      */
     public void drawCenteredString(final String str, final Size size) {
-        drawCenteredString(str, new Point(), size);
+        drawCenteredString(str, Point.ZERO, size);
     }
 
     /**
