@@ -121,41 +121,16 @@ public class RailroadDiagramImage {
     }
 
     /**
-     * Get the graphic context.
-     *
-     * @return Return graphics context.
-     */
-    public Graphics2D getGraphics() {
-        return image.createGraphics();
-    }
-
-    /**
      * Paint the railroad diagram.
      *
      * Should be called before {@link #save()}.
      */
     public void paint() {
-        paint(getGraphics());
-    }
-
-    /**
-     * Casts the given {@link Graphics} object to {@link Graphics2D} and paints on it.
-     *
-     * @param graphics Graphics context to paint on.
-     */
-    public void paint(final Graphics graphics) {
-        paint((Graphics2D) graphics);
-    }
-
-    /**
-     * Paint the diagram with the given graphics context.
-     *
-     * @param graphics Graphics context to paint on.
-     */
-    public void paint(final Graphics2D graphics) {
-        diagram.paint(graphics);
-        image = Helper.newBufferedImage(diagram.getSize());
-
+        // FIXME: Determine the size w/o graphics?
+        image = ImageAndGraficsHelper.newBufferedImage();
+        diagram.paint(image.createGraphics());
+        image = ImageAndGraficsHelper.newBufferedImage(diagram.getSize());
+        diagram.paint(image.createGraphics());
     }
 
     /**
