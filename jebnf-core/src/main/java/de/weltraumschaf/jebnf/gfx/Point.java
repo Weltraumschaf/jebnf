@@ -18,7 +18,7 @@ import com.google.common.base.Objects;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Point {
+public final class Point {
 
     /**
      * Immutable x coordinate.

@@ -11,11 +11,9 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
-import de.weltraumschaf.jebnf.gfx.Point;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNot.not;
 import static org.junit.Assert.*;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -60,6 +58,7 @@ public class PointTest {
         final Point point1 = new Point(11, 22);
         final Point point2 = new Point(11, 22);
         final Point point3 = new Point(10, 20);
+
         assertThat(point1.hashCode(), equalTo(point2.hashCode()));
         assertThat(point1.hashCode(), not(equalTo(point3.hashCode())));
         assertThat(point2.hashCode(), not(equalTo(point3.hashCode())));
@@ -70,12 +69,15 @@ public class PointTest {
         final Point point2 = new Point(11, 22);
         final Point point3 = new Point(10, 20);
         final Point nullPoint = null;
+
         assertFalse(point1.equals(nullPoint));
         assertFalse(point2.equals(nullPoint));
         assertFalse(point3.equals(nullPoint));
+
         assertFalse(point1.equals(new Object()));
         assertFalse(point2.equals(new Object()));
         assertFalse(point3.equals(new Object()));
+
         assertThat(point1, equalTo(point2));
         assertThat(point1, not(equalTo(point3)));
         assertThat(point2, not(equalTo(point3)));

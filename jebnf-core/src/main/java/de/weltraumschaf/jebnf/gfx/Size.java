@@ -18,7 +18,7 @@ import com.google.common.base.Objects;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Size {
+public final class Size {
 
     /**
      * Default width for shapes.

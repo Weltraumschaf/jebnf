@@ -18,7 +18,7 @@ import com.google.common.base.Objects;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class Line {
+public final class Line {
 
     /**
      * Start point of line.
@@ -35,6 +35,18 @@ public class Line {
      */
     public Line() {
         this(new Point(), new Point());
+    }
+
+    /**
+     * Initializes a line with integer x and y coordinates.
+     *
+     * @param x1 X start point of line.
+     * @param y1 Y start point of line.
+     * @param x2 X end point of line.
+     * @param y2 Y end point of line.
+     */
+    public Line(final int x1, final int y1, final int x2, final int y2) {
+        this(new Point(x1, y1), new Point(x2, y2));
     }
 
     /**

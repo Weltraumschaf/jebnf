@@ -47,6 +47,8 @@ public class SizeTest {
     }
 
     @Test public void testEquals() {
+        assertThat(new Size().equals(null), is(false));
+        assertThat(new Size().equals(new Object()), is(false));
         assertThat(new Size().equals(new Size()), is(true));
         assertThat(new Size(23, 42).equals(new Size(23, 42)), is(true));
         assertThat(new Size(23, 42).equals(new Size(42, 23)), is(false));

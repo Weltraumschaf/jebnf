@@ -11,7 +11,9 @@
 
 package de.weltraumschaf.jebnf.gfx;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.core.IsEqual.equalTo;
+import static org.hamcrest.core.IsNot.not;
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 /**
@@ -40,6 +42,35 @@ public class LineTest {
         final Point end = new Point(50, 60);
         sut = new Line(start, end);
         assertEquals(String.format("Line{start=%s, end=%s}", start, end), sut.toString());
+    }
+
+    @Test public void testHashCode() {
+        final Line line1 = new Line(11, 22, 33, 44);
+        final Line line2 = new Line(11, 22, 33, 44);
+        final Line line3 = new Line();
+
+        assertThat(line1.hashCode(), equalTo(line2.hashCode()));
+        assertThat(line1.hashCode(), not(equalTo(line3.hashCode())));
+        assertThat(line2.hashCode(), not(equalTo(line3.hashCode())));
+    }
+
+    @Test public void testEquals() {
+        final Line line1 = new Line(11, 22, 33, 44);
+        final Line line2 = new Line(11, 22, 33, 44);
+        final Line line3 = new Line();
+        final Line nullLine = null;
+
+        assertFalse(line1.equals(nullLine));
+        assertFalse(line2.equals(nullLine));
+        assertFalse(line3.equals(nullLine));
+
+        assertFalse(line1.equals(new Object()));
+        assertFalse(line2.equals(new Object()));
+        assertFalse(line3.equals(new Object()));
+
+        assertThat(line1, equalTo(line2));
+        assertThat(line1, not(equalTo(line3)));
+        assertThat(line2, not(equalTo(line3)));
     }
 
 }
