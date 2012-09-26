@@ -23,7 +23,7 @@ import org.junit.Test;
  */
 public class AntialiaserTest {
 
-    private final Graphics2D sut = Helper.newGraphics();
+    private final Graphics2D sut = ImageAndGraficsHelper.newGraphics();
 
     @Test
     public void turnOn() {

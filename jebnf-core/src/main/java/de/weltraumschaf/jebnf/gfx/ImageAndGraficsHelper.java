@@ -15,16 +15,16 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 
 /**
- * Helper to create various AWT stuff.
+ * ImageAndGraficsHelper to create various AWT stuff.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Helper {
+public final class ImageAndGraficsHelper {
 
     /**
      * Pure factory.
      */
-    private Helper() { }
+    private ImageAndGraficsHelper() { }
 
     /**
      * Creates a Buffered image of size 1 x 1.

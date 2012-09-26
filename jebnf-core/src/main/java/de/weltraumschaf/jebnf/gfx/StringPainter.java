@@ -42,7 +42,7 @@ public class StringPainter {
     /**
      * Default graphics object.
      */
-    private static final Graphics2D DEFAULT_GRAPHIC = Helper.newGraphics();
+    private static final Graphics2D DEFAULT_GRAPHIC = ImageAndGraficsHelper.newGraphics();
 
     /**
      * used graphics object.
