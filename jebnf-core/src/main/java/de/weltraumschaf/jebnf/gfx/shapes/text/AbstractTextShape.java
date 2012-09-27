@@ -165,7 +165,7 @@ public abstract class AbstractTextShape extends RectangularShape implements Text
         final int vCenter    = getCenterY();
         final Point start    = Point.valueOf(pos.getX() - 1, vCenter);
         final Point end      = Point.valueOf(pos.getX() + calculateHorizontalPadding(boxWidth), vCenter);
-        return new Line(start, end);
+        return Line.valueOf(start, end);
     }
 
     /**
@@ -180,7 +180,7 @@ public abstract class AbstractTextShape extends RectangularShape implements Text
         final Point start    = Point.valueOf(pos.getX() + calculateHorizontalPadding(boxWidth) + boxWidth,
                                              vCenter);
         final Point end      = Point.valueOf(pos.getX() + getSize().getWidth(), vCenter);
-        return new Line(start, end);
+        return Line.valueOf(start, end);
     }
 
     /**

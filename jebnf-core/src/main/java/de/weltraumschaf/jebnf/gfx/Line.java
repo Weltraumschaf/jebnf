@@ -31,34 +31,38 @@ public final class Line {
     private final Point end;
 
     /**
-     * Initializes a line with both start and end with points to (0, 0).
-     */
-    public Line() {
-        this(Point.ZERO, Point.ZERO);
-    }
-
-    /**
-     * Initializes a line with integer x and y coordinates.
-     *
-     * @param x1 X start point of line.
-     * @param y1 Y start point of line.
-     * @param x2 X end point of line.
-     * @param y2 Y end point of line.
-     */
-    public Line(final int x1, final int y1, final int x2, final int y2) {
-        this(Point.valueOf(x1, y1), Point.valueOf(x2, y2));
-    }
-
-    /**
      * Designated constructor.
      *
      * @param start Begin of line.
      * @param end End of line.
      */
-    public Line(final Point start, final Point end) {
+    private Line(final Point start, final Point end) {
         super();
         this.start = start;
         this.end   = end;
+    }
+
+    /**
+     *
+     * @param x1 X start point of line.
+     * @param y1 Y start point of line.
+     * @param x2 X end point of line.
+     * @param y2 Y end point of line.
+     * @return
+     */
+    public static Line valueOf(final int x1, final int y1, final int x2, final int y2) {
+        return valueOf(Point.valueOf(x1, y1), Point.valueOf(x2, y2));
+    }
+
+    /**
+     *
+     * @param start Begin of line.
+     * @param end End of line.
+     * @return
+     */
+    public static Line valueOf(final Point start, final Point end) {
+        // TODO imlement cache.
+        return new Line(start, end);
     }
 
     /**

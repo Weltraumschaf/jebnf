@@ -23,31 +23,24 @@ import org.junit.Test;
 public class LineTest {
 
     @Test public void create() {
-        Line sut = new Line();
-        assertEquals(Point.ZERO, sut.getStart());
-        assertEquals(Point.ZERO, sut.getEnd());
-
         final Point start = Point.valueOf(5, 6);
         final Point end = Point.valueOf(50, 60);
-        sut = new Line(start, end);
+        final Line sut = Line.valueOf(start, end);
         assertEquals(start, sut.getStart());
         assertEquals(end, sut.getEnd());
     }
 
     @Test public void testToString() {
-        Line sut = new Line();
-        assertEquals(String.format("Line{start=%s, end=%s}", Point.ZERO, Point.ZERO),
-                     sut.toString());
         final Point start = Point.valueOf(5, 6);
         final Point end = Point.valueOf(50, 60);
-        sut = new Line(start, end);
+        final Line sut = Line.valueOf(start, end);
         assertEquals(String.format("Line{start=%s, end=%s}", start, end), sut.toString());
     }
 
     @Test public void testHashCode() {
-        final Line line1 = new Line(11, 22, 33, 44);
-        final Line line2 = new Line(11, 22, 33, 44);
-        final Line line3 = new Line();
+        final Line line1 = Line.valueOf(11, 22, 33, 44);
+        final Line line2 = Line.valueOf(11, 22, 33, 44);
+        final Line line3 = Line.valueOf(1, 2, 3, 4);
 
         assertThat(line1.hashCode(), equalTo(line2.hashCode()));
         assertThat(line1.hashCode(), not(equalTo(line3.hashCode())));
@@ -55,9 +48,9 @@ public class LineTest {
     }
 
     @Test public void testEquals() {
-        final Line line1 = new Line(11, 22, 33, 44);
-        final Line line2 = new Line(11, 22, 33, 44);
-        final Line line3 = new Line();
+        final Line line1 = Line.valueOf(11, 22, 33, 44);
+        final Line line2 = Line.valueOf(11, 22, 33, 44);
+        final Line line3 = Line.valueOf(1, 2, 3, 4);
         final Line nullLine = null;
 
         assertFalse(line1.equals(nullLine));
