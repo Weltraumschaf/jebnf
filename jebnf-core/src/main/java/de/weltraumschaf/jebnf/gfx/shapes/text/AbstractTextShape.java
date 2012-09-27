@@ -148,7 +148,7 @@ public abstract class AbstractTextShape extends RectangularShape implements Text
         if (null == textSize) {
             final Rectangle2D textBounds = font.getStringBounds(getText(),
                                                                 graphic.getFontRenderContext());
-            textSize = new Size((int) Math.ceil(textBounds.getWidth()),
+            textSize = Size.valueOf((int) Math.ceil(textBounds.getWidth()),
                                 (int) Math.ceil(textBounds.getHeight()));
         }
         return textSize;

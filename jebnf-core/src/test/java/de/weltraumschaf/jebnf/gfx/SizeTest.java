@@ -43,22 +43,22 @@ public class SizeTest {
     }
 
     @Test public void testToString() {
-        assertThat(new Size(23, 42).toString(), is("Size{width=23, height=42}"));
+        assertThat(Size.valueOf(23, 42).toString(), is("Size{width=23, height=42}"));
     }
 
     @Test public void testEquals() {
         assertThat(Size.DEFAULT.equals(null), is(false));
         assertThat(Size.DEFAULT.equals(new Object()), is(false));
         assertThat(Size.DEFAULT.equals(Size.DEFAULT), is(true));
-        assertThat(new Size(23, 42).equals(new Size(23, 42)), is(true));
-        assertThat(new Size(23, 42).equals(new Size(42, 23)), is(false));
+        assertThat(Size.valueOf(23, 42).equals(Size.valueOf(23, 42)), is(true));
+        assertThat(Size.valueOf(23, 42).equals(Size.valueOf(42, 23)), is(false));
 
     }
 
     @Test public void testHashCode() {
         assertThat(Size.DEFAULT.hashCode(), is(Size.DEFAULT.hashCode()));
-        assertThat(new Size(23, 42).hashCode(), is(new Size(23, 42).hashCode()));
-        assertThat(new Size(23, 42).hashCode(), is(not(new Size(42, 23).hashCode())));
+        assertThat(Size.valueOf(23, 42).hashCode(), is(Size.valueOf(23, 42).hashCode()));
+        assertThat(Size.valueOf(23, 42).hashCode(), is(not(Size.valueOf(42, 23).hashCode())));
     }
 
 }

@@ -58,7 +58,7 @@ public class TerminalShape extends AbstractTextShape implements Shape {
      */
     protected Size calcBoxSize(final Graphics2D graphic) {
         final Size size = calculateTextSize(graphic);
-        return new Size(size.getWidth() + HORIZONTAL_PADDING * PADDING, size.getHeight() + PADDING);
+        return Size.valueOf(size.getWidth() + HORIZONTAL_PADDING * PADDING, size.getHeight() + PADDING);
     }
 
     @Override

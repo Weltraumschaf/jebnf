@@ -43,7 +43,7 @@ public class AbstractShapeTest {
         assertEquals(expectedDim1, sut.getSize());
         assertEquals(0, sut.countBackup());
         final Point expectedPoint2 = Point.valueOf(20, 30);
-        final Size expectedDim2 = new Size(100, 200);
+        final Size expectedDim2 = Size.valueOf(100, 200);
         sut.setPosition(expectedPoint2);
         sut.setSize(expectedDim2);
         assertEquals(expectedPoint2, sut.getPosition());
@@ -95,7 +95,7 @@ public class AbstractShapeTest {
     @Test public void getCenterX() {
         final AbstractShape sut = new AbstractShapeImpl();
         assertEquals(15, sut.getCenterX());
-        sut.setSize(new Size(100, 100));
+        sut.setSize(Size.valueOf(100, 100));
         assertEquals(50, sut.getCenterX());
         sut.setPosition(Point.valueOf(20, 20));
         assertEquals(70, sut.getCenterX());
@@ -104,7 +104,7 @@ public class AbstractShapeTest {
     @Test public void getCenterY() {
         final AbstractShape sut = new AbstractShapeImpl();
         assertEquals(15, sut.getCenterY());
-        sut.setSize(new Size(100, 100));
+        sut.setSize(Size.valueOf(100, 100));
         assertEquals(50, sut.getCenterY());
         sut.setPosition(Point.valueOf(20, 20));
         assertEquals(70, sut.getCenterY());

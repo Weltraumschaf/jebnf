@@ -131,7 +131,7 @@ public class ColumnLayoutShape extends AbstractLayoutShape implements SequenceSh
             shape.setSize(shape.getSize().setWidth(width));
         }
 
-        setSize(new Size(width, height));
+        setSize(Size.valueOf(width, height));
     }
 
 }

@@ -29,7 +29,7 @@ public abstract class AbstractLayoutShape extends AbstractShape {
      */
     public AbstractLayoutShape() {
         super();
-        setSize(new Size(0, 0));
+        setSize(Size.valueOf(0, 0));
     }
 
     /**

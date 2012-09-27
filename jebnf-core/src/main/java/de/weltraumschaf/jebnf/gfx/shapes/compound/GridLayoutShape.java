@@ -171,7 +171,7 @@ public class GridLayoutShape extends AbstractLayoutShape implements AdjustableSh
             height = Math.max(height, colSize.getHeight());
         }
 
-        setSize(new Size(width, height));
+        setSize(Size.valueOf(width, height));
     }
 
 }

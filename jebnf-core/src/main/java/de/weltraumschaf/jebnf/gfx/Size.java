@@ -48,9 +48,20 @@ public final class Size {
      * @param width Width in pixel.
      * @param height HEight in pixel.
      */
-    public Size(int width, int height) {
+    private Size(final int width, final int height) {
         this.width  = width;
         this.height = height;
+    }
+
+    /**
+     *
+     * @param width Width in pixel.
+     * @param height HEight in pixel.
+     * @return
+     */
+    public static Size valueOf(final int width, final int height) {
+        // TODO imlement cache.
+        return new Size(width, height);
     }
 
     /**

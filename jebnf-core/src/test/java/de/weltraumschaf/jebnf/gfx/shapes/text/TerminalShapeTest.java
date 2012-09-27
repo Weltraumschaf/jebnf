@@ -55,19 +55,19 @@ public class TerminalShapeTest {
 
     @Test public void calcBoxSize() {
         final TerminalStub term = new TerminalStub("foobar");
-        assertEquals(new Size(51, 35), term.calcBoxSize(null));
-        term.setCalculatedTextSize(new Size(100, 16));
-        assertEquals(new Size(120, 20), term.calcBoxSize(null));
+        assertEquals(Size.valueOf(51, 35), term.calcBoxSize(null));
+        term.setCalculatedTextSize(Size.valueOf(100, 16));
+        assertEquals(Size.valueOf(120, 20), term.calcBoxSize(null));
     }
 
     @Test public void adjust() {
         final TerminalStub term = new TerminalStub("foobar");
         term.adjust(null);
-        assertEquals(new Size(62, 31), term.getSize());
+        assertEquals(Size.valueOf(62, 31), term.getSize());
 
-        term.setCalculatedTextSize(new Size(100, 16));
+        term.setCalculatedTextSize(Size.valueOf(100, 16));
         term.adjust(null);
-        assertEquals(new Size(155, 31), term.getSize());
+        assertEquals(Size.valueOf(155, 31), term.getSize());
     }
 
     @Test public void paint() {
@@ -81,7 +81,7 @@ public class TerminalShapeTest {
         when(graphics.getFontMetrics()).thenReturn(metrics);
 
         final TerminalStub term = new TerminalStub(value);
-        term.setCalculatedTextSize(new Size(100, 16));
+        term.setCalculatedTextSize(Size.valueOf(100, 16));
         term.paint(graphics);
 
         verify(graphics, times(1)).setColor(Color.BLACK);

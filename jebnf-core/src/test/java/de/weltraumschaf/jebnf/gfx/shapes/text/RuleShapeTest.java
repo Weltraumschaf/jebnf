@@ -56,11 +56,11 @@ public class RuleShapeTest {
     @Test public void adjust() {
         final RuleStub rule = new RuleStub("foobar");
         rule.adjust(null);
-        assertEquals(new Size(62, 31), rule.getSize());
+        assertEquals(Size.valueOf(62, 31), rule.getSize());
 
-        rule.setCalculatedTextSize(new Size(100, 16));
+        rule.setCalculatedTextSize(Size.valueOf(100, 16));
         rule.adjust(null);
-        assertEquals(new Size(124, 31), rule.getSize());
+        assertEquals(Size.valueOf(124, 31), rule.getSize());
     }
 
     @Test public void paint() {
@@ -74,7 +74,7 @@ public class RuleShapeTest {
         when(graphics.getFontMetrics()).thenReturn(metrics);
 
         final RuleStub rule = new RuleStub(name);
-        rule.setCalculatedTextSize(new Size(100, 16));
+        rule.setCalculatedTextSize(Size.valueOf(100, 16));
         rule.paint(graphics);
 
         verify(graphics, times(1)).setColor(Color.BLACK);

@@ -62,7 +62,7 @@ public class NorthWestCurveShapeTest {
 
     @Test public void createArc_onDefaultPositionWithSize50x50() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.NORTH_WEST);
-        curve.setSize(new Size(50, 50));
+        curve.setSize(Size.valueOf(50, 50));
         final Arc2D arc = curve.createArc();
         assertEquals(270.0, arc.getAngleStart(), DELTA);
         assertEquals(90.0, arc.getAngleExtent(), DELTA);
@@ -75,7 +75,7 @@ public class NorthWestCurveShapeTest {
     @Test public void createArc_onPosition50x50WithSize50x50() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.NORTH_WEST);
         curve.setPosition(Point.valueOf(50, 50));
-        curve.setSize(new Size(50, 50));
+        curve.setSize(Size.valueOf(50, 50));
         final Arc2D arc = curve.createArc();
         assertEquals(270.0, arc.getAngleStart(), DELTA);
         assertEquals(90.0, arc.getAngleExtent(), DELTA);
@@ -88,7 +88,7 @@ public class NorthWestCurveShapeTest {
     @Test public void createArc_onPosition100x100WithSize50x50() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.NORTH_WEST);
         curve.setPosition(Point.valueOf(100, 100));
-        curve.setSize(new Size(50, 50));
+        curve.setSize(Size.valueOf(50, 50));
         final Arc2D arc = curve.createArc();
         assertEquals(270.0, arc.getAngleStart(), DELTA);
         assertEquals(90.0, arc.getAngleExtent(), DELTA);

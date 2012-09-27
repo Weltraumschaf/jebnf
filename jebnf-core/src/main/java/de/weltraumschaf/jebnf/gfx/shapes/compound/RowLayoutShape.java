@@ -112,7 +112,7 @@ public class RowLayoutShape extends AbstractLayoutShape implements SequenceShape
             shape.setSize(shape.getSize().setHeight(height));
         }
 
-        setSize(new Size(width, height));
+        setSize(Size.valueOf(width, height));
     }
 
 }

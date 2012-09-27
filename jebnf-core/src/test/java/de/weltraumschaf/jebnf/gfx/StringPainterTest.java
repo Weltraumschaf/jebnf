@@ -74,7 +74,7 @@ public class StringPainterTest {
         when(graphics.getFontMetrics()).thenReturn(metrics);
 
         final StringPainter painter = new StringPainter(graphics, font);
-        painter.drawCenteredString(str, new Size(width, 100));
+        painter.drawCenteredString(str, Size.valueOf(width, 100));
         verify(graphics).getFont();
         verify(graphics).setFont(font);
         verify(metrics).stringWidth(str);

@@ -135,7 +135,7 @@ public class CurveShape extends RectangularShape {
                 startAngle = EAST;
                 arcPosition = Point.valueOf(shapePosition.getX() + size.getWidth() / 2,
                                             shapePosition.getY() + size.getHeight() / 2);
-                arcSize = new Size(getSize().getWidth() + MAGIC, getSize().getHeight() + MAGIC);
+                arcSize = Size.valueOf(getSize().getWidth() + MAGIC, getSize().getHeight() + MAGIC);
                 break;
             case SOUTH_WEST:
                 startAngle = SOUTH;

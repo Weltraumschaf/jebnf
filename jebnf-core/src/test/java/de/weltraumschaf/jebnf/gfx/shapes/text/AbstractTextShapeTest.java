@@ -98,6 +98,6 @@ public class AbstractTextShapeTest {
         final Rectangle2D rect = new Rectangle2D.Float(0, 0, 10, 20);
         when(font.getStringBounds(str, context)).thenReturn(rect);
         final AbstractTextShape sut = new AbstractTextShapeStub(str, font);
-        assertEquals(new Size(10, 20), sut.calculateTextSize(graphics));
+        assertEquals(Size.valueOf(10, 20), sut.calculateTextSize(graphics));
     }
 }

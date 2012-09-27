@@ -56,19 +56,19 @@ public class IdentifierShapeTest {
 
     @Test public void calcBoxSize() {
         final IdentifierStub ident = new IdentifierStub("foobar");
-        assertEquals(new Size(41, 31), ident.calcBoxSize(null));
-        ident.setCalculatedTextSize(new Size(100, 16));
-        assertEquals(new Size(110, 16), ident.calcBoxSize(null));
+        assertEquals(Size.valueOf(41, 31), ident.calcBoxSize(null));
+        ident.setCalculatedTextSize(Size.valueOf(100, 16));
+        assertEquals(Size.valueOf(110, 16), ident.calcBoxSize(null));
     }
 
     @Test public void adjust() {
         final IdentifierStub ident = new IdentifierStub("foobar");
         ident.adjust(null);
-        assertEquals(new Size(62, 31), ident.getSize());
+        assertEquals(Size.valueOf(62, 31), ident.getSize());
 
-        ident.setCalculatedTextSize(new Size(100, 16));
+        ident.setCalculatedTextSize(Size.valueOf(100, 16));
         ident.adjust(null);
-        assertEquals(new Size(124, 31), ident.getSize());
+        assertEquals(Size.valueOf(124, 31), ident.getSize());
     }
 
     @Test public void paint() {
@@ -82,7 +82,7 @@ public class IdentifierShapeTest {
         when(graphics.getFontMetrics()).thenReturn(metrics);
 
         final IdentifierStub ident = new IdentifierStub(value);
-        ident.setCalculatedTextSize(new Size(100, 16));
+        ident.setCalculatedTextSize(Size.valueOf(100, 16));
         ident.paint(graphics);
 
         verify(graphics, times(1)).setColor(Color.BLACK);
