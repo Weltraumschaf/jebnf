@@ -38,10 +38,15 @@ public final class Point {
      * @param x X-coordinate.
      * @param y Y-Coordinate.
      */
-    public Point(final int x, final int y) {
+    private Point(final int x, final int y) {
         super();
         this.x = x;
         this.y = y;
+    }
+
+    public static Point valueOf(final int x, final int y) {
+        // TODO imlement cache.
+        return new Point(x, y);
     }
 
     /**

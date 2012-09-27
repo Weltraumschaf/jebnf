@@ -24,11 +24,11 @@ public class LineTest {
 
     @Test public void create() {
         Line sut = new Line();
-        assertEquals(new Point(0, 0), sut.getStart());
-        assertEquals(new Point(0, 0), sut.getEnd());
+        assertEquals(Point.ZERO, sut.getStart());
+        assertEquals(Point.ZERO, sut.getEnd());
 
-        final Point start = new Point(5, 6);
-        final Point end = new Point(50, 60);
+        final Point start = Point.valueOf(5, 6);
+        final Point end = Point.valueOf(50, 60);
         sut = new Line(start, end);
         assertEquals(start, sut.getStart());
         assertEquals(end, sut.getEnd());
@@ -38,8 +38,8 @@ public class LineTest {
         Line sut = new Line();
         assertEquals(String.format("Line{start=%s, end=%s}", Point.ZERO, Point.ZERO),
                      sut.toString());
-        final Point start = new Point(5, 6);
-        final Point end = new Point(50, 60);
+        final Point start = Point.valueOf(5, 6);
+        final Point end = Point.valueOf(50, 60);
         sut = new Line(start, end);
         assertEquals(String.format("Line{start=%s, end=%s}", start, end), sut.toString());
     }

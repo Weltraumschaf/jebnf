@@ -38,7 +38,7 @@ public class SouthWestCurveShapeTest {
 
     @Test public void createArc_onPosition50x50WithDefaultSize() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.SOUTH_WEST);
-        curve.setPosition(new Point(50, 50));
+        curve.setPosition(Point.valueOf(50, 50));
         final Arc2D arc = curve.createArc();
         assertEquals(0.0, arc.getAngleStart(), DELTA);
         assertEquals(90.0, arc.getAngleExtent(), DELTA);
@@ -50,7 +50,7 @@ public class SouthWestCurveShapeTest {
 
     @Test public void createArc_onPosition100x100WithDefaultSize() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.SOUTH_WEST);
-        curve.setPosition(new Point(100, 100));
+        curve.setPosition(Point.valueOf(100, 100));
         final Arc2D arc = curve.createArc();
         assertEquals(0.0, arc.getAngleStart(), DELTA);
         assertEquals(90.0, arc.getAngleExtent(), DELTA);
@@ -74,7 +74,7 @@ public class SouthWestCurveShapeTest {
 
     @Test public void createArc_onPosition50x50WithSize50x50() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.SOUTH_WEST);
-        curve.setPosition(new Point(50, 50));
+        curve.setPosition(Point.valueOf(50, 50));
         curve.setSize(new Size(50, 50));
         final Arc2D arc = curve.createArc();
         assertEquals(0.0, arc.getAngleStart(), DELTA);
@@ -87,7 +87,7 @@ public class SouthWestCurveShapeTest {
 
     @Test public void createArc_onPosition100x100WithSize50x50() {
         final CurveShape curve = new CurveShape(CurveShape.Directions.SOUTH_WEST);
-        curve.setPosition(new Point(100, 100));
+        curve.setPosition(Point.valueOf(100, 100));
         curve.setSize(new Size(50, 50));
         final Arc2D arc = curve.createArc();
         assertEquals(0.0, arc.getAngleStart(), DELTA);

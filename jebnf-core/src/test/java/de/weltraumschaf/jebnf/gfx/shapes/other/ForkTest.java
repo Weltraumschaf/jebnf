@@ -24,7 +24,7 @@ import static org.mockito.Mockito.*;
 public class ForkTest {
 
     @Test public void paint() {
-        final Point pos = new Point(1, 2);
+        final Point pos = Point.valueOf(1, 2);
         final Graphics2D graphics = mock(Graphics2D.class);
 
         final StraightShape straight = mock(StraightShape.class);

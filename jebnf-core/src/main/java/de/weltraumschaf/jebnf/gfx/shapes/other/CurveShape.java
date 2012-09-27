@@ -121,26 +121,26 @@ public class CurveShape extends RectangularShape {
         switch (direction) {
             case NORTH_EAST:
                 startAngle = NORTH;
-                arcPosition = new Point(shapePosition.getX() + size.getWidth() / 2,
-                                        shapePosition.getY() - (size.getHeight() / 2) - MAGIC);
+                arcPosition = Point.valueOf(shapePosition.getX() + size.getWidth() / 2,
+                                            shapePosition.getY() - (size.getHeight() / 2) - MAGIC);
                 arcSize = getSize().setWidth(getSize().getWidth() + MAGIC);
                 break;
             case NORTH_WEST:
                 startAngle = WEST;
-                arcPosition = new Point(shapePosition.getX() - size.getWidth() / 2 - MAGIC,
-                                        shapePosition.getY() - (size.getHeight() / 2) - MAGIC);
+                arcPosition = Point.valueOf(shapePosition.getX() - size.getWidth() / 2 - MAGIC,
+                                            shapePosition.getY() - (size.getHeight() / 2) - MAGIC);
                 arcSize = getSize().setWidth(getSize().getWidth() - MAGIC);
                 break;
             case SOUTH_EAST:
                 startAngle = EAST;
-                arcPosition = new Point(shapePosition.getX() + size.getWidth() / 2,
-                                        shapePosition.getY() + size.getHeight() / 2);
+                arcPosition = Point.valueOf(shapePosition.getX() + size.getWidth() / 2,
+                                            shapePosition.getY() + size.getHeight() / 2);
                 arcSize = new Size(getSize().getWidth() + MAGIC, getSize().getHeight() + MAGIC);
                 break;
             case SOUTH_WEST:
                 startAngle = SOUTH;
-                arcPosition = new Point(shapePosition.getX() - (size.getWidth() / 2) - MAGIC,
-                                        shapePosition.getY() + size.getHeight() / 2);
+                arcPosition = Point.valueOf(shapePosition.getX() - (size.getWidth() / 2) - MAGIC,
+                                            shapePosition.getY() + size.getHeight() / 2);
                 arcSize = getSize().setHeight(getSize().getHeight() + MAGIC);
                 break;
             default:

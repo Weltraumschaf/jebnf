@@ -163,8 +163,8 @@ public abstract class AbstractTextShape extends RectangularShape implements Text
     protected Line calculateInLine(final int boxWidth) {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
-        final Point start    = new Point(pos.getX() - 1, vCenter);
-        final Point end      = new Point(pos.getX() + calculateHorizontalPadding(boxWidth), vCenter);
+        final Point start    = Point.valueOf(pos.getX() - 1, vCenter);
+        final Point end      = Point.valueOf(pos.getX() + calculateHorizontalPadding(boxWidth), vCenter);
         return new Line(start, end);
     }
 
@@ -177,8 +177,9 @@ public abstract class AbstractTextShape extends RectangularShape implements Text
     protected Line calculateOutLine(final int boxWidth) {
         final Point pos      = getPosition();
         final int vCenter    = getCenterY();
-        final Point start    = new Point(pos.getX() + calculateHorizontalPadding(boxWidth) + boxWidth, vCenter);
-        final Point end      = new Point(pos.getX() + getSize().getWidth(), vCenter);
+        final Point start    = Point.valueOf(pos.getX() + calculateHorizontalPadding(boxWidth) + boxWidth,
+                                             vCenter);
+        final Point end      = Point.valueOf(pos.getX() + getSize().getWidth(), vCenter);
         return new Line(start, end);
     }
 
@@ -210,8 +211,8 @@ public abstract class AbstractTextShape extends RectangularShape implements Text
      */
     protected Point calculatePaddedRectanglePosition(final Size size) {
         final Point pos = getPosition();
-        return new Point(pos.getX() + calculateHorizontalPadding(size.getWidth()),
-                         pos.getY() + calculateVerticalPadding(size.getHeight()));
+        return Point.valueOf(pos.getX() + calculateHorizontalPadding(size.getWidth()),
+                             pos.getY() + calculateVerticalPadding(size.getHeight()));
     }
 
     /**

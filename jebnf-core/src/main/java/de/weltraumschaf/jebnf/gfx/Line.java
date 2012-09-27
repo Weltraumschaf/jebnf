@@ -46,7 +46,7 @@ public final class Line {
      * @param y2 Y end point of line.
      */
     public Line(final int x1, final int y1, final int x2, final int y2) {
-        this(new Point(x1, y1), new Point(x2, y2));
+        this(Point.valueOf(x1, y1), Point.valueOf(x2, y2));
     }
 
     /**

@@ -28,7 +28,7 @@ public class PointTest {
         assertEquals(0, sut.getX());
         assertEquals(0, sut.getY());
 
-        final Point other = new Point(11, 22);
+        final Point other = Point.valueOf(11, 22);
         assertEquals(11, other.getX());
         assertEquals(22, other.getY());
     }
@@ -52,14 +52,14 @@ public class PointTest {
     }
 
     @Test public void testToString() {
-        final Point point = new Point(11, 22);
+        final Point point = Point.valueOf(11, 22);
         assertEquals("Point{x=11, y=22}", point.toString());
     }
 
     @Test public void testHashCode() {
-        final Point point1 = new Point(11, 22);
-        final Point point2 = new Point(11, 22);
-        final Point point3 = new Point(10, 20);
+        final Point point1 = Point.valueOf(11, 22);
+        final Point point2 = Point.valueOf(11, 22);
+        final Point point3 = Point.valueOf(10, 20);
 
         assertThat(point1.hashCode(), equalTo(point2.hashCode()));
         assertThat(point1.hashCode(), not(equalTo(point3.hashCode())));
@@ -67,9 +67,9 @@ public class PointTest {
     }
 
     @Test public void testEquals() {
-        final Point point1 = new Point(11, 22);
-        final Point point2 = new Point(11, 22);
-        final Point point3 = new Point(10, 20);
+        final Point point1 = Point.valueOf(11, 22);
+        final Point point2 = Point.valueOf(11, 22);
+        final Point point3 = Point.valueOf(10, 20);
         final Point nullPoint = null;
 
         assertFalse(point1.equals(nullPoint));
@@ -86,14 +86,14 @@ public class PointTest {
     }
 
     @Test public void moveX() {
-        final Point startPoint = new Point(11, 22);
+        final Point startPoint = Point.valueOf(11, 22);
         final Point movedPoint = startPoint.moveX(5);
         assertEquals(16, movedPoint.getX());
         assertEquals(22, movedPoint.getY());
     }
 
     @Test public void moveY() {
-        final Point startPoint = new Point(11, 22);
+        final Point startPoint = Point.valueOf(11, 22);
         final Point movedPoint = startPoint.moveY(5);
         assertEquals(11, movedPoint.getX());
         assertEquals(27, movedPoint.getY());

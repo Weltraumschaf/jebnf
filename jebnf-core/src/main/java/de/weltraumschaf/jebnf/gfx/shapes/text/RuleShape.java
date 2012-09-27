@@ -48,8 +48,8 @@ public class RuleShape extends AbstractTextShape implements Shape {
 
         final Point pos = getPosition();
         final Size size = getSize();
-        final Point textPosition = new Point(pos.getX() + HORIZONTAL_PADDING,
-                                             pos.getY() + (size.getHeight() - textSize.getHeight()) / 2);
+        final Point textPosition = Point.valueOf(pos.getX() + HORIZONTAL_PADDING,
+                                                 pos.getY() + (size.getHeight() - textSize.getHeight()) / 2);
 
         super.paint(graphic);
         backupColorAndStroke(graphic);
