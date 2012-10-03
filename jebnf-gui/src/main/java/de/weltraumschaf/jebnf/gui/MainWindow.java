@@ -58,15 +58,15 @@ public final class MainWindow extends SwingFrame {
     @Override
     protected void initToolBar() {
         final JToolBar toolbar = ToolBarBuilder.builder()
-            .button("/de/weltraumschaf/jebnf/gui/open_16x16.gif")
+            .button(getClass().getResource("/de/weltraumschaf/jebnf/gui/open_16x16.gif"))
                 .toolTipText("Open an existing document.")
                 .addListener(new Listener())
             .end()
-            .button("/de/weltraumschaf/jebnf/gui/save_16x16.gif")
+            .button(getClass().getResource("/de/weltraumschaf/jebnf/gui/save_16x16.gif"))
                 .toolTipText("Save current document.")
                 .addListener(new Listener())
             .end()
-            .button("/de/weltraumschaf/jebnf/gui/new_16x16.gif")
+            .button(getClass().getResource("/de/weltraumschaf/jebnf/gui/new_16x16.gif"))
                 .toolTipText("Create a new document.")
                 .addListener(new Listener())
             .end()
