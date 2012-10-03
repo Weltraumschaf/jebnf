@@ -1,8 +1,16 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 43):
+ * "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a non alcohol free beer in return.
+ *
+ * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
+ */
 package de.weltraumschaf.jebnf.ast;
 
-import de.weltraumschaf.jebnf.ast.DepthCalculator;
-import de.weltraumschaf.jebnf.ast.Node;
-import de.weltraumschaf.jebnf.ast.AbstractComposite;
 import de.weltraumschaf.jebnf.ast.nodes.NullNode;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;

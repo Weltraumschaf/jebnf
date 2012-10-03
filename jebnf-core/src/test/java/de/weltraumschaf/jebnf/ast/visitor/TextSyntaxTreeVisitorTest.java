@@ -1,27 +1,27 @@
 /*
  * LICENSE
  *
- * "THE BEER-WARE LICENSE" (Revision 42):
- * "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
+ * "THE BEER-WARE LICENSE" (Revision 43):
+ * "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com> wrote this file.
  * As long as you retain this notice you can do whatever you want with
  * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * you can buy me a non alcohol free beer in return.
  *
+ * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
  */
-
 package de.weltraumschaf.jebnf.ast.visitor;
 
-import de.weltraumschaf.jebnf.ast.nodes.LoopNode;
-import de.weltraumschaf.jebnf.ast.nodes.CommentNode;
-import de.weltraumschaf.jebnf.ast.nodes.SequenceNode;
-import de.weltraumschaf.jebnf.ast.nodes.Option;
-import de.weltraumschaf.jebnf.ast.nodes.IdentifierNode;
-import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
-import de.weltraumschaf.jebnf.ast.nodes.ChoiceNode;
-import de.weltraumschaf.jebnf.ast.nodes.TerminalNode;
-import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
 import static de.weltraumschaf.jebnf.TestHelper.getInstance;
 import static de.weltraumschaf.jebnf.ast.builder.SyntaxBuilder.syntax;
+import de.weltraumschaf.jebnf.ast.nodes.ChoiceNode;
+import de.weltraumschaf.jebnf.ast.nodes.CommentNode;
+import de.weltraumschaf.jebnf.ast.nodes.IdentifierNode;
+import de.weltraumschaf.jebnf.ast.nodes.LoopNode;
+import de.weltraumschaf.jebnf.ast.nodes.Option;
+import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
+import de.weltraumschaf.jebnf.ast.nodes.SequenceNode;
+import de.weltraumschaf.jebnf.ast.nodes.SyntaxNode;
+import de.weltraumschaf.jebnf.ast.nodes.TerminalNode;
 import de.weltraumschaf.jebnf.parser.Parser;
 import de.weltraumschaf.jebnf.parser.SyntaxException;
 import java.io.IOException;

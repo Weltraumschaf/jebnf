@@ -1,7 +1,16 @@
+/*
+ * LICENSE
+ *
+ * "THE BEER-WARE LICENSE" (Revision 43):
+ * "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com> wrote this file.
+ * As long as you retain this notice you can do whatever you want with
+ * this stuff. If we meet some day, and you think this stuff is worth it,
+ * you can buy me a non alcohol free beer in return.
+ *
+ * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
+ */
 package de.weltraumschaf.jebnf.parser;
 
-import de.weltraumschaf.jebnf.parser.Position;
-import de.weltraumschaf.jebnf.parser.SyntaxException;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
@@ -19,4 +28,5 @@ public class SyntaxExceptionTest {
         error = new SyntaxException("foo bar", new Position(3, 4, "foo.ebnf"));
         assertEquals("Syntax error: foo bar at foo.ebnf (3, 4)!", error.toString());
     }
+
 }

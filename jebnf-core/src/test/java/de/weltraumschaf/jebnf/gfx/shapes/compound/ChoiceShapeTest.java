@@ -1,25 +1,22 @@
 /*
  * LICENSE
  *
- * "THE BEER-WARE LICENSE" (Revision 42):
- * "Sven Strittmatter" <weltraumschaf@googlemail.com> wrote this file.
+ * "THE BEER-WARE LICENSE" (Revision 43):
+ * "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com> wrote this file.
  * As long as you retain this notice you can do whatever you want with
  * this stuff. If we meet some day, and you think this stuff is worth it,
- * you can buy me a beer in return.
+ * you can buy me a non alcohol free beer in return.
  *
+ * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
  */
-
 package de.weltraumschaf.jebnf.gfx.shapes.compound;
 
-import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.choice;
 import static de.weltraumschaf.jebnf.gfx.shapes.ShapeFactory.terminal;
 import de.weltraumschaf.jebnf.gfx.shapes.other.CurveShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.ForkShape;
 import de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
-import de.weltraumschaf.jebnf.gfx.shapes.text.TerminalShape;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.Ignore;
 import org.junit.Test;
 
 /**
