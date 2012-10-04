@@ -22,7 +22,7 @@ import java.awt.Graphics2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractLayoutShape extends AbstractShape {
+abstract class AbstractLayoutShape extends AbstractShape {
 
     /**
      * Initializes size with (0, 0).

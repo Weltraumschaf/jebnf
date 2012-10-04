@@ -24,7 +24,7 @@ import java.awt.Graphics2D;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class AbstractCompundShape extends AbstractShape implements GridShape {
+class AbstractCompundShape extends AbstractShape implements GridShape {
 
     /**
      * Layout grid with child shapes.
