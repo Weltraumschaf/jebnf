@@ -659,14 +659,6 @@
                         <exclude>**/src/test/resources/**</exclude>
                     </excludes>
                 </configuration>
-                <executions>
-                    <execution>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>format</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
