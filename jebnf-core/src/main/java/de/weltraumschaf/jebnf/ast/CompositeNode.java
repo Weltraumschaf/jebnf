@@ -11,117 +11,41 @@
  */
 package de.weltraumschaf.jebnf.ast;
 
-import com.google.common.collect.Lists;
-import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import java.util.List;
 
 /**
- * Abstract base class for nodes which are not leaves and have sub nodes.
+ * Represents an object in the AST model which can have some child {@link Node nodes}.
  *
- * Provides interface for iterate and add child nodes.
- *
- * @fixme Make package private.
- * @todo Consider name CompositeAdapter.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class CompositeNode extends BaseNode implements Composite {
+public interface CompositeNode extends Node {
 
     /**
-     * Holds the child nodes.
-     */
-    private final List<Node> nodes = Lists.newArrayList();
-
-    /**
-     * Initializes object with empty child node array and parent node.
+     * Count of direct children nodes.
      *
-     * @param parent Ancestor node.
-     * @param type Type of node.
+     * @return Returns positive integer greater equal 0.
      */
-    public CompositeNode(final Node parent, final NodeType type) {
-        super(parent, type);
-    }
+    int countChildren();
 
-    @Override
-    public List<Node> getChildren() {
-        return nodes;
-    }
+    /**
+     * Whether the node has direct child nodes or not.
+     *
+     * @return Return true if {@link #countChildren()} is greater than 0.
+     */
+    boolean hasChildren();
 
-    @Override
-    public int countChildren() {
-        return nodes.size();
-    }
+    /**
+     * Append a child {@link Node} to the list of children.
+     *
+     * @param child Child node to add.
+     */
+    void addChild(Node child);
 
-    @Override
-    public boolean hasChildren() {
-        return 0 < countChildren();
-    }
-
-    @Override
-    public void addChild(final Node child) {
-        nodes.add(child);
-    }
-
-    @Override
-    public void accept(final Visitor<?> visitor) {
-        visitor.beforeVisit(this);
-        visitor.visit(this);
-
-        if (hasChildren()) {
-            for (Node subnode : getChildren()) {
-                subnode.accept(visitor);
-            }
-        }
-
-        visitor.afterVisit(this);
-    }
-
-    @Override
-    public void probeEquivalence(final Node other, final Notification result) {
-        try {
-            final Composite comp = (Composite) other;
-
-            if (!getClass().equals(other.getClass())) {
-                result.error(
-                    "Probed node types mismatch: '%s' != '%s'!",
-                    getClass(),
-                    other.getClass()
-                );
-                return;
-            }
-
-            if (countChildren() != comp.countChildren()) {
-                result.error(
-                    "Node %s has different child count than other: %d != %d!",
-                    getNodeName(),
-                    countChildren(),
-                    comp.countChildren()
-                );
-            }
-
-            final List<Node> subnodes      = getChildren();
-            final List<Node> otherSubnodes = comp.getChildren();
-
-            int i = 0; // NOPMD
-            for (Node subnode : subnodes) {
-                try {
-                    subnode.probeEquivalence(otherSubnodes.get(i), result);
-                } catch (IndexOutOfBoundsException ex) {
-                    result.error("Other node has not the expected subnode!");
-                }
-
-                i++;
-            }
-        } catch (ClassCastException ex) {
-            result.error(
-                "Probed node is not a composite node: '%s'!",
-                other.getClass()
-            );
-        }
-    }
-
-    @Override
-    public int depth() {
-        return new DepthCalculator(this).depth();
-    }
+    /**
+     * Returns an iterator for the child nodes.
+     *
+     * @return Return a list of child nodes. List may be empty.
+     */
+    List<Node> getChildren();
 
 }

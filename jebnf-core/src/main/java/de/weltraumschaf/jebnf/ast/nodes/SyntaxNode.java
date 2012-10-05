@@ -23,7 +23,7 @@ import java.util.List;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class SyntaxNode extends BaseNode implements Composite {
+public final class SyntaxNode extends BaseNode implements CompositeNode {
 
     /**
      * Default meta string.

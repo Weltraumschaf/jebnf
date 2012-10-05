@@ -16,7 +16,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Encapsulates the algorithm to calculate the depth of an {@link Composite} node.
+ * Encapsulates the algorithm to calculate the depth of an {@link CompositeNode} node.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
@@ -25,14 +25,14 @@ public class DepthCalculator {
     /**
      * The subject to calculate for.
      */
-    private final Composite node;
+    private final CompositeNode node;
 
     /**
      * Initializes the immutable object.
      *
      * @param node Calculation subject.
      */
-    public DepthCalculator(final Composite node) {
+    public DepthCalculator(final CompositeNode node) {
         this.node = node;
     }
 

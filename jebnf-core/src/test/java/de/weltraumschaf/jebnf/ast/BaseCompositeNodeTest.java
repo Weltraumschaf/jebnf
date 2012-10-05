@@ -18,22 +18,22 @@ import org.junit.Test;
 import static org.mockito.Mockito.mock;
 
 /**
- * Unit test for CompositeNode.
+ * Unit test for BaseCompositeNode.
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class CompositeNodeTest {
+public class BaseCompositeNodeTest {
 
-    static class AbstractCompositeImpl extends CompositeNode {
+    static class CompositeImpl extends BaseCompositeNode {
 
-        public AbstractCompositeImpl() {
+        public CompositeImpl() {
             super(NullNode.getInstance(), null);
         }
 
     }
 
     @Test public void testAddHasAndGetChildren() {
-        final CompositeNode composite = new AbstractCompositeImpl();
+        final BaseCompositeNode composite = new CompositeImpl();
 
         assertFalse(composite.hasChildren());
         assertEquals(0, composite.countChildren());
@@ -59,7 +59,7 @@ public class CompositeNodeTest {
     }
 
     @Test public void probeEquivalenceInternal() {
-        final CompositeNode comp = new AbstractCompositeImpl();
+        final BaseCompositeNode comp = new CompositeImpl();
         Notification notification = new Notification();
         comp.probeEquivalence(TerminalNode.newInstance(), notification);
         assertFalse(notification.isOk());
@@ -72,7 +72,7 @@ public class CompositeNodeTest {
         comp.probeEquivalence(RuleNode.newInstance(), notification);
         assertFalse(notification.isOk());
         assertEquals("Probed node types mismatch: "
-            + "'class de.weltraumschaf.jebnf.ast.CompositeNodeTest$AbstractCompositeImpl' "
+            + "'class de.weltraumschaf.jebnf.ast.BaseCompositeNodeTest$CompositeImpl' "
             + "!= 'class de.weltraumschaf.jebnf.ast.nodes.RuleNode'!",
             notification.report()
         );

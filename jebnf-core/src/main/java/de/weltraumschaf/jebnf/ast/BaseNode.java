@@ -21,7 +21,6 @@ import java.util.Map;
  * but any other kind of {@link Node}.
  *
  * @fixme Make package private.
- * @todo Consider name BaseNode.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
 public abstract class BaseNode implements Node {

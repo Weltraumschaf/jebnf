@@ -11,7 +11,7 @@
  */
 package de.weltraumschaf.jebnf.ast.visitor;
 
-import de.weltraumschaf.jebnf.ast.Composite;
+import de.weltraumschaf.jebnf.ast.CompositeNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.Visitable;
 import java.util.Map;
@@ -164,8 +164,8 @@ public class XmlVisitor implements Visitor<String> {
     public void visit(final Visitable visitable) {
         boolean block = false;
 
-        if (visitable instanceof Composite) {
-            final Composite composite = (Composite) visitable;
+        if (visitable instanceof CompositeNode) {
+            final CompositeNode composite = (CompositeNode) visitable;
 
             if (composite.hasChildren()) {
                 block = true;
@@ -178,8 +178,8 @@ public class XmlVisitor implements Visitor<String> {
         append(createOpenTag(node.getNodeName(), node.getAttributes(), block));
 
 
-        if (visitable instanceof Composite) {
-            final Composite composite = (Composite) visitable;
+        if (visitable instanceof CompositeNode) {
+            final CompositeNode composite = (CompositeNode) visitable;
 
             if (composite.hasChildren()) {
                 indentationLevel++;
@@ -206,8 +206,8 @@ public class XmlVisitor implements Visitor<String> {
      */
     @Override
     public void afterVisit(final Visitable visitable) {
-        if (visitable instanceof Composite) {
-            final Composite composite = (Composite) visitable;
+        if (visitable instanceof CompositeNode) {
+            final CompositeNode composite = (CompositeNode) visitable;
 
             if (composite.hasChildren()) {
                 indentationLevel--;

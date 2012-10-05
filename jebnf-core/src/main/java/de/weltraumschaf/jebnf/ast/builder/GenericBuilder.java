@@ -11,8 +11,8 @@
  */
 package de.weltraumschaf.jebnf.ast.builder;
 
+import de.weltraumschaf.jebnf.ast.BaseCompositeNode;
 import de.weltraumschaf.jebnf.ast.CompositeNode;
-import de.weltraumschaf.jebnf.ast.Composite;
 import de.weltraumschaf.jebnf.ast.nodes.*;
 
 /**
@@ -33,7 +33,7 @@ public class GenericBuilder<P> {
     /**
      * The node built by the parent builder.
      */
-    private final Composite parentNode;
+    private final CompositeNode parentNode;
 
     /**
      * Initializes the builder with its parent builder and node.
@@ -43,7 +43,7 @@ public class GenericBuilder<P> {
      * @param parentBuilder Builder which created the builder.
      * @param node          To this node all by this builder created nodes will be add.
      */
-    GenericBuilder(final P parentBuilder, final CompositeNode node) {
+    GenericBuilder(final P parentBuilder, final BaseCompositeNode node) {
         this.parentBuilder = parentBuilder;
         this.parentNode = node;
     }

@@ -11,7 +11,7 @@
  */
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.CompositeNode;
+import de.weltraumschaf.jebnf.ast.BaseCompositeNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
@@ -21,7 +21,7 @@ import de.weltraumschaf.jebnf.ast.Notification;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class RuleNode extends CompositeNode {
+public final class RuleNode extends BaseCompositeNode {
 
     /**
      * Key for the name attribute.
