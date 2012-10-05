@@ -11,24 +11,24 @@
 <a class="jxr_linenumber" name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * LICENSE</em>
 <a class="jxr_linenumber" name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 42):</em>
-<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;weltraumschaf@googlemail.com&gt; wrote this file.</em>
+<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 43):</em>
+<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt; wrote this file.</em>
 <a class="jxr_linenumber" name="6" href="#6">6</a>   <em class="jxr_comment"> * As long as you retain this notice you can do whatever you want with</em>
 <a class="jxr_linenumber" name="7" href="#7">7</a>   <em class="jxr_comment"> * this stuff. If we meet some day, and you think this stuff is worth it,</em>
-<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a beer in return.</em>
+<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a non alcohol free beer in return.</em>
 <a class="jxr_linenumber" name="9" href="#9">9</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> */</em>
-<a class="jxr_linenumber" name="11" href="#11">11</a>  
+<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> * Copyright (C) 2012 "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt;</em>
+<a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx.shapes;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
 <a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.compound.*;
-<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.curves.*;
-<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.*;
-<a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.text.*;
-<a class="jxr_linenumber" name="18" href="#18">18</a>  
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment"> * Factory to create shape objects.</em>
-<a class="jxr_linenumber" name="21" href="#21">21</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.*;
+<a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.text.*;
+<a class="jxr_linenumber" name="17" href="#17">17</a>  
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment"> * Factory to create shape objects.</em>
+<a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment"> *</em>
+<a class="jxr_linenumber" name="21" href="#21">21</a>  <em class="jxr_javadoccomment"> * @todo Refactor to Builder Pattern.</em>
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <em class="jxr_javadoccomment"> * @author Sven Strittmatter &lt;weltraumschaf@googlemail.com&gt;</em>
 <a class="jxr_linenumber" name="23" href="#23">23</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/ShapeFactory.html">ShapeFactory</a> {
@@ -45,8 +45,8 @@
 <a class="jxr_linenumber" name="35" href="#35">35</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="36" href="#36">36</a>  <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="37" href="#37">37</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="38" href="#38">38</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/EmptyShape.html">EmptyShape</a> empty() {
-<a class="jxr_linenumber" name="39" href="#39">39</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/EmptyShape.html">EmptyShape</a>();
+<a class="jxr_linenumber" name="38" href="#38">38</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/RectangularShape.html">RectangularShape</a> empty() {
+<a class="jxr_linenumber" name="39" href="#39">39</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/RectangularShape.html">RectangularShape</a>();
 <a class="jxr_linenumber" name="40" href="#40">40</a>      }
 <a class="jxr_linenumber" name="41" href="#41">41</a>  
 <a class="jxr_linenumber" name="42" href="#42">42</a>      <em class="jxr_javadoccomment">/**</em>
@@ -55,8 +55,8 @@
 <a class="jxr_linenumber" name="45" href="#45">45</a>  <em class="jxr_javadoccomment">     * @param count How many shapes to create.</em>
 <a class="jxr_linenumber" name="46" href="#46">46</a>  <em class="jxr_javadoccomment">     * @return Always return new instances.</em>
 <a class="jxr_linenumber" name="47" href="#47">47</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="48" href="#48">48</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/EmptyShape.html">EmptyShape</a>[] empty(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> count) {
-<a class="jxr_linenumber" name="49" href="#49">49</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/EmptyShape.html">EmptyShape</a>[] empties = <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/EmptyShape.html">EmptyShape</a>[count];
+<a class="jxr_linenumber" name="48" href="#48">48</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/RectangularShape.html">RectangularShape</a>[] empty(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> count) {
+<a class="jxr_linenumber" name="49" href="#49">49</a>          <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/RectangularShape.html">RectangularShape</a>[] empties = <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/RectangularShape.html">RectangularShape</a>[count];
 <a class="jxr_linenumber" name="50" href="#50">50</a>          <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; count; ++i) {
 <a class="jxr_linenumber" name="51" href="#51">51</a>              empties[i] = empty();
 <a class="jxr_linenumber" name="52" href="#52">52</a>          }
@@ -82,23 +82,23 @@
 <a class="jxr_linenumber" name="72" href="#72">72</a>      }
 <a class="jxr_linenumber" name="73" href="#73">73</a>  
 <a class="jxr_linenumber" name="74" href="#74">74</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="75" href="#75">75</a>  <em class="jxr_javadoccomment">     * Creates one of the {@link CurveShapes "curves"}.</em>
+<a class="jxr_linenumber" name="75" href="#75">75</a>  <em class="jxr_javadoccomment">     * Creates one of the {@link CurveShape.Directions "curves"}.</em>
 <a class="jxr_linenumber" name="76" href="#76">76</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="77" href="#77">77</a>  <em class="jxr_javadoccomment">     * @param type Type of curve to create.</em>
+<a class="jxr_linenumber" name="77" href="#77">77</a>  <em class="jxr_javadoccomment">     * @param direction Type of curve to create.</em>
 <a class="jxr_linenumber" name="78" href="#78">78</a>  <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="79" href="#79">79</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="80" href="#80">80</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/curves/CurveShape.html">CurveShape</a> curve(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/CurveShapes.html">CurveShapes</a> type) {
-<a class="jxr_linenumber" name="81" href="#81">81</a>          <strong class="jxr_keyword">return</strong> StraightAndCurveShapeFactory.curve(type);
+<a class="jxr_linenumber" name="80" href="#80">80</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/CurveShape.html">CurveShape</a> curve(<strong class="jxr_keyword">final</strong> CurveShape.Directions direction) {
+<a class="jxr_linenumber" name="81" href="#81">81</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/CurveShape.html">CurveShape</a>(direction);
 <a class="jxr_linenumber" name="82" href="#82">82</a>      }
 <a class="jxr_linenumber" name="83" href="#83">83</a>  
 <a class="jxr_linenumber" name="84" href="#84">84</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="85" href="#85">85</a>  <em class="jxr_javadoccomment">     * Create one of the {@link StraightShapes "striaghts"}.</em>
+<a class="jxr_linenumber" name="85" href="#85">85</a>  <em class="jxr_javadoccomment">     * Create one of the {@link StraightShape.Directions "striaghts"}.</em>
 <a class="jxr_linenumber" name="86" href="#86">86</a>  <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="87" href="#87">87</a>  <em class="jxr_javadoccomment">     * @param type Type of straight to create.</em>
+<a class="jxr_linenumber" name="87" href="#87">87</a>  <em class="jxr_javadoccomment">     * @param direction Type of straight to create.</em>
 <a class="jxr_linenumber" name="88" href="#88">88</a>  <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="89" href="#89">89</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="90" href="#90">90</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> straight(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/StraightShapes.html">StraightShapes</a> type) {
-<a class="jxr_linenumber" name="91" href="#91">91</a>          <strong class="jxr_keyword">return</strong> StraightAndCurveShapeFactory.straight(type);
+<a class="jxr_linenumber" name="90" href="#90">90</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> straight(<strong class="jxr_keyword">final</strong> StraightShape.Directions direction) {
+<a class="jxr_linenumber" name="91" href="#91">91</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/StraightShape.html">StraightShape</a>(direction);
 <a class="jxr_linenumber" name="92" href="#92">92</a>      }
 <a class="jxr_linenumber" name="93" href="#93">93</a>  
 <a class="jxr_linenumber" name="94" href="#94">94</a>      <em class="jxr_javadoccomment">/**</em>
@@ -110,8 +110,8 @@
 <a class="jxr_linenumber" name="100" href="#100">100</a> <em class="jxr_javadoccomment">     * @param curve Type of curve.</em>
 <a class="jxr_linenumber" name="101" href="#101">101</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="102" href="#102">102</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="103" href="#103">103</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> fork(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/StraightShapes.html">StraightShapes</a> orientation, <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/CurveShapes.html">CurveShapes</a> curve) {
-<a class="jxr_linenumber" name="104" href="#104">104</a>         <strong class="jxr_keyword">return</strong> ForkShapeFactory.fork(orientation, curve);
+<a class="jxr_linenumber" name="103" href="#103">103</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> fork(<strong class="jxr_keyword">final</strong> StraightShape.Directions orientation, <strong class="jxr_keyword">final</strong> CurveShape.Directions curve) {
+<a class="jxr_linenumber" name="104" href="#104">104</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/ForkShape.html">ForkShape</a>(<strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/StraightShape.html">StraightShape</a>(orientation), <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/CurveShape.html">CurveShape</a>(curve));
 <a class="jxr_linenumber" name="105" href="#105">105</a>     }
 <a class="jxr_linenumber" name="106" href="#106">106</a> 
 <a class="jxr_linenumber" name="107" href="#107">107</a>     <em class="jxr_javadoccomment">/**</em>
@@ -196,7 +196,7 @@
 <a class="jxr_linenumber" name="186" href="#186">186</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="187" href="#187">187</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="188" href="#188">188</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="189" href="#189">189</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/ChoiceShape.html">ChoiceShape</a> choice() {
+<a class="jxr_linenumber" name="189" href="#189">189</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> choice() {
 <a class="jxr_linenumber" name="190" href="#190">190</a>         <strong class="jxr_keyword">return</strong> CompundShapeFactory.choice();
 <a class="jxr_linenumber" name="191" href="#191">191</a>     }
 <a class="jxr_linenumber" name="192" href="#192">192</a> 
@@ -206,7 +206,7 @@
 <a class="jxr_linenumber" name="196" href="#196">196</a> <em class="jxr_javadoccomment">     * @param shapes Shapes added to created choice.</em>
 <a class="jxr_linenumber" name="197" href="#197">197</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="198" href="#198">198</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="199" href="#199">199</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/ChoiceShape.html">ChoiceShape</a> choice(<strong class="jxr_keyword">final</strong> Shape... shapes) {
+<a class="jxr_linenumber" name="199" href="#199">199</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> choice(<strong class="jxr_keyword">final</strong> Shape... shapes) {
 <a class="jxr_linenumber" name="200" href="#200">200</a>         <strong class="jxr_keyword">return</strong> CompundShapeFactory.choice(shapes);
 <a class="jxr_linenumber" name="201" href="#201">201</a>     }
 <a class="jxr_linenumber" name="202" href="#202">202</a> 
@@ -215,7 +215,7 @@
 <a class="jxr_linenumber" name="205" href="#205">205</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="206" href="#206">206</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="207" href="#207">207</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="208" href="#208">208</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/OptionShape.html">OptionShape</a> option() {
+<a class="jxr_linenumber" name="208" href="#208">208</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> option() {
 <a class="jxr_linenumber" name="209" href="#209">209</a>         <strong class="jxr_keyword">return</strong> CompundShapeFactory.option();
 <a class="jxr_linenumber" name="210" href="#210">210</a>     }
 <a class="jxr_linenumber" name="211" href="#211">211</a> 
@@ -225,7 +225,7 @@
 <a class="jxr_linenumber" name="215" href="#215">215</a> <em class="jxr_javadoccomment">     * @param optional Optional shape..</em>
 <a class="jxr_linenumber" name="216" href="#216">216</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="217" href="#217">217</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="218" href="#218">218</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/OptionShape.html">OptionShape</a> option(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> optional) {
+<a class="jxr_linenumber" name="218" href="#218">218</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> option(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> optional) {
 <a class="jxr_linenumber" name="219" href="#219">219</a>         <strong class="jxr_keyword">return</strong> CompundShapeFactory.option(optional);
 <a class="jxr_linenumber" name="220" href="#220">220</a>     }
 <a class="jxr_linenumber" name="221" href="#221">221</a> 
@@ -234,7 +234,7 @@
 <a class="jxr_linenumber" name="224" href="#224">224</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="225" href="#225">225</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="226" href="#226">226</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="227" href="#227">227</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/LoopShape.html">LoopShape</a> loop() {
+<a class="jxr_linenumber" name="227" href="#227">227</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> loop() {
 <a class="jxr_linenumber" name="228" href="#228">228</a>         <strong class="jxr_keyword">return</strong> CompundShapeFactory.loop();
 <a class="jxr_linenumber" name="229" href="#229">229</a>     }
 <a class="jxr_linenumber" name="230" href="#230">230</a> 
@@ -244,7 +244,7 @@
 <a class="jxr_linenumber" name="234" href="#234">234</a> <em class="jxr_javadoccomment">     * @param looped Looped shape.</em>
 <a class="jxr_linenumber" name="235" href="#235">235</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="236" href="#236">236</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="237" href="#237">237</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/LoopShape.html">LoopShape</a> loop(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> looped) {
+<a class="jxr_linenumber" name="237" href="#237">237</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> loop(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> looped) {
 <a class="jxr_linenumber" name="238" href="#238">238</a>         <strong class="jxr_keyword">return</strong> CompundShapeFactory.loop(looped);
 <a class="jxr_linenumber" name="239" href="#239">239</a>     }
 <a class="jxr_linenumber" name="240" href="#240">240</a> 
@@ -254,7 +254,7 @@
 <a class="jxr_linenumber" name="244" href="#244">244</a> <em class="jxr_javadoccomment">     * @param additional Additional shape.</em>
 <a class="jxr_linenumber" name="245" href="#245">245</a> <em class="jxr_javadoccomment">     * @return Always return new instance.</em>
 <a class="jxr_linenumber" name="246" href="#246">246</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="247" href="#247">247</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/LoopShape.html">LoopShape</a> loop(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> looped, <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> additional) {
+<a class="jxr_linenumber" name="247" href="#247">247</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> loop(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> looped, <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> additional) {
 <a class="jxr_linenumber" name="248" href="#248">248</a>         <strong class="jxr_keyword">return</strong> CompundShapeFactory.loop(looped, additional);
 <a class="jxr_linenumber" name="249" href="#249">249</a>     }
 <a class="jxr_linenumber" name="250" href="#250">250</a> 

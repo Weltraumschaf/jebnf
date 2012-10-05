@@ -11,14 +11,14 @@
 <a class="jxr_linenumber" name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * LICENSE</em>
 <a class="jxr_linenumber" name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 42):</em>
-<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;weltraumschaf@googlemail.com&gt; wrote this file.</em>
+<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 43):</em>
+<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt; wrote this file.</em>
 <a class="jxr_linenumber" name="6" href="#6">6</a>   <em class="jxr_comment"> * As long as you retain this notice you can do whatever you want with</em>
 <a class="jxr_linenumber" name="7" href="#7">7</a>   <em class="jxr_comment"> * this stuff. If we meet some day, and you think this stuff is worth it,</em>
-<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a beer in return.</em>
+<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a non alcohol free beer in return.</em>
 <a class="jxr_linenumber" name="9" href="#9">9</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> */</em>
-<a class="jxr_linenumber" name="11" href="#11">11</a>  
+<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> * Copyright (C) 2012 "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt;</em>
+<a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx.shapes;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
 <a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Point;
@@ -61,8 +61,8 @@
 <a class="jxr_linenumber" name="51" href="#51">51</a>  <em class="jxr_javadoccomment">     * {@link de.weltraumschaf.jebnf.gfx.Size#DEFAULT_HEIGHT} and position with (0, 0).</em>
 <a class="jxr_linenumber" name="52" href="#52">52</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="53" href="#53">53</a>      <strong class="jxr_keyword">public</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/shapes/AbstractShape.html">AbstractShape</a>() {
-<a class="jxr_linenumber" name="54" href="#54">54</a>          size     = <strong class="jxr_keyword">new</strong> Size();
-<a class="jxr_linenumber" name="55" href="#55">55</a>          position = <strong class="jxr_keyword">new</strong> <a href="../../../../../de/weltraumschaf/jebnf/gfx/Point.html">Point</a>();
+<a class="jxr_linenumber" name="54" href="#54">54</a>          size     = Size.DEFAULT;
+<a class="jxr_linenumber" name="55" href="#55">55</a>          position = Point.ZERO;
 <a class="jxr_linenumber" name="56" href="#56">56</a>      }
 <a class="jxr_linenumber" name="57" href="#57">57</a>  
 <a class="jxr_linenumber" name="58" href="#58">58</a>      @Override

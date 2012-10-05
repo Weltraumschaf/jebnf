@@ -24,21 +24,21 @@
 <tr>  <td class="numLine">&nbsp;3</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;4</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * "THE BEER-WARE LICENSE" (Revision 42):</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * "THE BEER-WARE LICENSE" (Revision 43):</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;5</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * "Sven Strittmatter" &lt;ich(at)weltraumschaf(dot)de&gt; wrote this file.</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt; wrote this file.</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;6</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment"> * As long as you retain this notice you can do whatever you want with</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;7</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment"> * this stuff. If we meet some day, and you think this stuff is worth it,</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;8</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> * you can buy me a beer in return.</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * you can buy me a non alcohol free beer in return.</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;9</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment"> *</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;10</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> * Copyright (C) 2012 "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt;</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;11</td>  <td class="nbHits">&nbsp;</td>
-  <td class="src"><pre class="src">&nbsp;</pre></td></tr>
+  <td class="src"><pre class="src">&nbsp;<span class="comment"> */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;12</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="keyword">package</span> de.weltraumschaf.jebnf.parser;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;13</td>  <td class="nbHits">&nbsp;</td>
@@ -79,7 +79,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     *  {'.', '=', '|', ')', ']', '}'}</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;31</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;32</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;TokenType&gt; FACTOR_OPERATORS = Lists.newArrayList(</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;32</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;TokenType&gt; FACTOR_OPERATORS = Lists.newArrayList(</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;33</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        TokenType.END_OF_RULE, TokenType.ASSIGN, TokenType.CHOICE,</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;34</td>  <td class="nbHits">&nbsp;</td>
@@ -120,10 +120,10 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;52</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> EbnfParser(<span class="keyword">final</span> Scanner scanner) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;53</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;54</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.scanner = scanner;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;55</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.ast     = SyntaxNode.newInstance();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;56</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;53</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">super</span>();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;54</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.scanner = scanner;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;55</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">this</span>.ast     = SyntaxNode.newInstance();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;56</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;57</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;58</td>  <td class="nbHits">&nbsp;</td>
@@ -148,37 +148,37 @@
   <td class="src"><pre class="src">&nbsp;    @Override</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;68</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">public</span> SyntaxNode parse() <span class="keyword">throws</span> SyntaxException, IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;69</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;69</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;70</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;71</td>  <td class="nbHitsUncovered"><a title="Line 71: Conditional coverage 50% (1/2).">&nbsp;6</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 71: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.LITERAL)) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;72</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;            ast.setAttribute(<span class="string">"title"</span>, scanner.getCurrentToken().getValue(<span class="keyword">true</span>));</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;73</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;71</td>  <td class="nbHitsUncovered"><a title="Line 71: Conditional coverage 50% (1/2).">&nbsp;12</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 71: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.LITERAL)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;72</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;            ast.setAttribute(<span class="string">"title"</span>, scanner.getCurrentToken().getValue(<span class="keyword">true</span>));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;73</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;74</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;75</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;76</td>  <td class="nbHitsUncovered"><a title="Line 76: Conditional coverage 50% (1/2).">&nbsp;6</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 76: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.L_BRACE, <span class="string">"{"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;76</td>  <td class="nbHitsUncovered"><a title="Line 76: Conditional coverage 50% (1/2).">&nbsp;12</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 76: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.L_BRACE, <span class="string">"{"</span>)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;77</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            raiseError(<span class="string">"Syntax must start with '{'"</span>);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;78</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;79</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;80</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;80</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;81</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;82</td>  <td class="nbHitsUncovered"><a title="Line 82: Conditional coverage 50% (1/2).">&nbsp;38</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 82: Conditional coverage 50% (1/2).">        <span class="keyword">while</span> (scanner.hasNextToken()) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;83</td>  <td class="nbHitsCovered"><a title="Line 83: Conditional coverage 100% (2/2).">&nbsp;38</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 83: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;84</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> Node rules = parseRule();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;85</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;                ast.addChild(rules);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;86</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;                scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;87</td>  <td class="nbHitsCovered"><a title="Line 87: Conditional coverage 100% (2/2).">&nbsp;29</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 87: Conditional coverage 100% (2/2).">            } <span class="keyword">else</span> <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;88</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> CommentNode comment = CommentNode.newInstance(ast,</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;82</td>  <td class="nbHitsUncovered"><a title="Line 82: Conditional coverage 50% (1/2).">&nbsp;76</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 82: Conditional coverage 50% (1/2).">        <span class="keyword">while</span> (scanner.hasNextToken()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;83</td>  <td class="nbHitsCovered"><a title="Line 83: Conditional coverage 100% (2/2).">&nbsp;76</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 83: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;84</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> Node rules = parseRule();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;85</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;                ast.addChild(rules);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;86</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;                scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;87</td>  <td class="nbHitsCovered"><a title="Line 87: Conditional coverage 100% (2/2).">&nbsp;58</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 87: Conditional coverage 100% (2/2).">            } <span class="keyword">else</span> <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;88</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">final</span> CommentNode comment = CommentNode.newInstance(ast,</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;89</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                                            scanner.getCurrentToken().getValue());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;90</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                ast.addChild(comment);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;91</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;                scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;92</td>  <td class="nbHitsCovered">&nbsp;3</td>  <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> {</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;90</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                ast.addChild(comment);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;91</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;                scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;92</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;            } <span class="keyword">else</span> {</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;93</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                <span class="keyword">break</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;94</td>  <td class="nbHits">&nbsp;</td>
@@ -187,7 +187,7 @@
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;96</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsUncovered"><a title="Line 97: Conditional coverage 50% (1/2).">&nbsp;6</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 97: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACE, <span class="string">"}"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;97</td>  <td class="nbHitsUncovered"><a title="Line 97: Conditional coverage 50% (1/2).">&nbsp;12</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 97: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACE, <span class="string">"}"</span>)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;98</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            raiseError(String.format(<span class="string">"Syntax must end with '}' but saw '%s'"</span>,</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;99</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;                                     scanner.getCurrentToken()));</pre></td></tr>
@@ -195,10 +195,10 @@
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;101</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;102</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;102</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;103</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;104</td>  <td class="nbHitsUncovered"><a title="Line 104: Conditional coverage 50% (1/2).">&nbsp;6</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 104: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (scanner.hasNextToken()) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;104</td>  <td class="nbHitsUncovered"><a title="Line 104: Conditional coverage 50% (1/2).">&nbsp;12</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 104: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (scanner.hasNextToken()) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;105</td>  <td class="nbHitsUncovered"><a title="Line 105: Conditional coverage 0% (0/2).">&nbsp;0</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 105: Conditional coverage 0% (0/2).">            <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.LITERAL)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;106</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                ast.setAttribute(<span class="string">"meta"</span>, scanner.getCurrentToken().getValue(<span class="keyword">true</span>));</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;107</td>  <td class="nbHits">&nbsp;</td>
@@ -210,7 +210,7 @@
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;111</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;112</td>  <td class="nbHitsCovered">&nbsp;6</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ast;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;112</td>  <td class="nbHitsCovered">&nbsp;12</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> ast;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;113</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;114</td>  <td class="nbHits">&nbsp;</td>
@@ -231,36 +231,36 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;122</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Node parseRule() <span class="keyword">throws</span> SyntaxException, IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;123</td>  <td class="nbHitsUncovered"><a title="Line 123: Conditional coverage 50% (1/2).">&nbsp;29</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 123: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;123</td>  <td class="nbHitsUncovered"><a title="Line 123: Conditional coverage 50% (1/2).">&nbsp;58</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 123: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;124</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            raiseError(<span class="string">"Production must start with an identifier"</span>);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;125</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;126</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;127</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> RuleNode rule = RuleNode.newInstance(ast, scanner.getCurrentToken().getValue());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;128</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;127</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> RuleNode rule = RuleNode.newInstance(ast, scanner.getCurrentToken().getValue());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;128</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;129</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;130</td>  <td class="nbHitsCovered"><a title="Line 130: Conditional coverage 100% (2/2).">&nbsp;29</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 130: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;131</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> CommentNode comment = CommentNode.newInstance(rule, scanner.getCurrentToken().getValue());</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;132</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            rule.addChild(comment);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;133</td>  <td class="nbHitsCovered">&nbsp;1</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;130</td>  <td class="nbHitsCovered"><a title="Line 130: Conditional coverage 100% (2/2).">&nbsp;58</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 130: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;131</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> CommentNode comment = CommentNode.newInstance(rule, scanner.getCurrentToken().getValue());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;132</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            rule.addChild(comment);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;133</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;134</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;135</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;136</td>  <td class="nbHitsUncovered"><a title="Line 136: Conditional coverage 50% (1/2).">&nbsp;29</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 136: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertTokens(scanner.getCurrentToken(), TokenType.ASSIGN, TokenType.ASSIGN_STRINGS)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;136</td>  <td class="nbHitsUncovered"><a title="Line 136: Conditional coverage 50% (1/2).">&nbsp;58</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 136: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertTokens(scanner.getCurrentToken(), TokenType.ASSIGN, TokenType.ASSIGN_STRINGS)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;137</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            raiseError(<span class="string">"Identifier must be followed by '='"</span>);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;138</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;139</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;140</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;141</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Node expressions = parseExpression(rule);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;142</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;        rule.addChild(expressions);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;140</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;141</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> Node expressions = parseExpression(rule);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;142</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;        rule.addChild(expressions);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;143</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;144</td>  <td class="nbHitsUncovered"><a title="Line 144: Conditional coverage 50% (1/2).">&nbsp;29</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 144: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;144</td>  <td class="nbHitsUncovered"><a title="Line 144: Conditional coverage 50% (1/2).">&nbsp;58</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 144: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;145</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            <span class="keyword">final</span> CommentNode comment = CommentNode.newInstance(rule, scanner.getCurrentToken().getValue());</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;146</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            rule.addChild(comment);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;147</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            scanner.nextToken();</span></pre></td></tr>
@@ -268,7 +268,7 @@
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;149</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;150</td>  <td class="nbHitsUncovered"><a title="Line 150: Conditional coverage 50% (1/2).">&nbsp;29</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 150: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertTokens(scanner.getCurrentToken(), TokenType.END_OF_RULE, TokenType.END_OF_RULE_STRINGS)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;150</td>  <td class="nbHitsUncovered"><a title="Line 150: Conditional coverage 50% (1/2).">&nbsp;58</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 150: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (!assertTokens(scanner.getCurrentToken(), TokenType.END_OF_RULE, TokenType.END_OF_RULE_STRINGS)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;151</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            scanner.backtrackToken(2);</span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;152</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;            raiseError(<span class="string">"Rule must end with '.' or ';'"</span>,</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;153</td>  <td class="nbHits">&nbsp;</td>
@@ -277,7 +277,7 @@
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;155</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;156</td>  <td class="nbHitsCovered">&nbsp;29</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> rule;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;156</td>  <td class="nbHitsCovered">&nbsp;58</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> rule;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;157</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;158</td>  <td class="nbHits">&nbsp;</td>
@@ -300,22 +300,22 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;167</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Node parseExpression(<span class="keyword">final</span> Node parent) <span class="keyword">throws</span> SyntaxException, IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;168</td>  <td class="nbHitsCovered">&nbsp;53</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> ChoiceNode choiceNode = ChoiceNode.newInstance(parent);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;169</td>  <td class="nbHitsCovered">&nbsp;53</td>  <td class="src"><pre class="src">&nbsp;        Node term = parseTerm(choiceNode);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;170</td>  <td class="nbHitsCovered">&nbsp;53</td>  <td class="src"><pre class="src">&nbsp;        choiceNode.addChild(term);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;171</td>  <td class="nbHitsCovered">&nbsp;53</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> multipleTerms = <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;168</td>  <td class="nbHitsCovered">&nbsp;106</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> ChoiceNode choiceNode = ChoiceNode.newInstance(parent);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;169</td>  <td class="nbHitsCovered">&nbsp;106</td>  <td class="src"><pre class="src">&nbsp;        Node term = parseTerm(choiceNode);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;170</td>  <td class="nbHitsCovered">&nbsp;106</td>  <td class="src"><pre class="src">&nbsp;        choiceNode.addChild(term);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;171</td>  <td class="nbHitsCovered">&nbsp;106</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> multipleTerms = <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;172</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;173</td>  <td class="nbHitsCovered"><a title="Line 173: Conditional coverage 100% (2/2).">&nbsp;124</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 173: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (assertToken(scanner.getCurrentToken(), TokenType.CHOICE, <span class="string">"|"</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;174</td>  <td class="nbHitsCovered">&nbsp;71</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;175</td>  <td class="nbHitsCovered">&nbsp;71</td>  <td class="src"><pre class="src">&nbsp;            term = parseTerm(choiceNode);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;176</td>  <td class="nbHitsCovered">&nbsp;71</td>  <td class="src"><pre class="src">&nbsp;            choiceNode.addChild(term);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;177</td>  <td class="nbHitsCovered">&nbsp;71</td>  <td class="src"><pre class="src">&nbsp;            multipleTerms = <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;173</td>  <td class="nbHitsCovered"><a title="Line 173: Conditional coverage 100% (2/2).">&nbsp;248</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 173: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (assertToken(scanner.getCurrentToken(), TokenType.CHOICE, <span class="string">"|"</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;174</td>  <td class="nbHitsCovered">&nbsp;142</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;175</td>  <td class="nbHitsCovered">&nbsp;142</td>  <td class="src"><pre class="src">&nbsp;            term = parseTerm(choiceNode);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;176</td>  <td class="nbHitsCovered">&nbsp;142</td>  <td class="src"><pre class="src">&nbsp;            choiceNode.addChild(term);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;177</td>  <td class="nbHitsCovered">&nbsp;142</td>  <td class="src"><pre class="src">&nbsp;            multipleTerms = <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;178</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;179</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;180</td>  <td class="nbHitsCovered"><a title="Line 180: Conditional coverage 100% (2/2).">&nbsp;53</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 180: Conditional coverage 100% (2/2).">        <span class="keyword">return</span> multipleTerms ? choiceNode : term;</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;180</td>  <td class="nbHitsCovered"><a title="Line 180: Conditional coverage 100% (2/2).">&nbsp;106</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 180: Conditional coverage 100% (2/2).">        <span class="keyword">return</span> multipleTerms ? choiceNode : term;</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;181</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;182</td>  <td class="nbHits">&nbsp;</td>
@@ -338,23 +338,23 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;191</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Node parseTerm(<span class="keyword">final</span> Node parent) <span class="keyword">throws</span> SyntaxException, IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;192</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> SequenceNode sequenceNode = SequenceNode.newInstance(parent);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;193</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;        Node factor = parseFactor(sequenceNode);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;194</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;        sequenceNode.addChild(factor);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;195</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;196</td>  <td class="nbHitsCovered">&nbsp;124</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> multipleFactors = <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;192</td>  <td class="nbHitsCovered">&nbsp;248</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">final</span> SequenceNode sequenceNode = SequenceNode.newInstance(parent);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;193</td>  <td class="nbHitsCovered">&nbsp;248</td>  <td class="src"><pre class="src">&nbsp;        Node factor = parseFactor(sequenceNode);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;194</td>  <td class="nbHitsCovered">&nbsp;248</td>  <td class="src"><pre class="src">&nbsp;        sequenceNode.addChild(factor);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;195</td>  <td class="nbHitsCovered">&nbsp;248</td>  <td class="src"><pre class="src">&nbsp;        scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;196</td>  <td class="nbHitsCovered">&nbsp;248</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">boolean</span> multipleFactors = <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;197</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;198</td>  <td class="nbHitsCovered"><a title="Line 198: Conditional coverage 100% (2/2).">&nbsp;188</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 198: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (!scanner.getCurrentToken().isOfType(FACTOR_OPERATORS)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;199</td>  <td class="nbHitsCovered">&nbsp;64</td>  <td class="src"><pre class="src">&nbsp;            factor = parseFactor(sequenceNode);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;200</td>  <td class="nbHitsCovered">&nbsp;64</td>  <td class="src"><pre class="src">&nbsp;            sequenceNode.addChild(factor);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;201</td>  <td class="nbHitsCovered">&nbsp;64</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;202</td>  <td class="nbHitsCovered">&nbsp;64</td>  <td class="src"><pre class="src">&nbsp;            multipleFactors = <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;198</td>  <td class="nbHitsCovered"><a title="Line 198: Conditional coverage 100% (2/2).">&nbsp;376</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 198: Conditional coverage 100% (2/2).">        <span class="keyword">while</span> (!scanner.getCurrentToken().isOfType(FACTOR_OPERATORS)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;199</td>  <td class="nbHitsCovered">&nbsp;128</td>  <td class="src"><pre class="src">&nbsp;            factor = parseFactor(sequenceNode);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;200</td>  <td class="nbHitsCovered">&nbsp;128</td>  <td class="src"><pre class="src">&nbsp;            sequenceNode.addChild(factor);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;201</td>  <td class="nbHitsCovered">&nbsp;128</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;202</td>  <td class="nbHitsCovered">&nbsp;128</td>  <td class="src"><pre class="src">&nbsp;            multipleFactors = <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;203</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;204</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;205</td>  <td class="nbHitsCovered"><a title="Line 205: Conditional coverage 100% (2/2).">&nbsp;124</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 205: Conditional coverage 100% (2/2).">        <span class="keyword">return</span> multipleFactors ? sequenceNode : factor;</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;205</td>  <td class="nbHitsCovered"><a title="Line 205: Conditional coverage 100% (2/2).">&nbsp;248</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 205: Conditional coverage 100% (2/2).">        <span class="keyword">return</span> multipleFactors ? sequenceNode : factor;</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;206</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;207</td>  <td class="nbHits">&nbsp;</td>
@@ -387,13 +387,13 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;221</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">private</span> Node parseFactor(<span class="keyword">final</span> Node parent) <span class="keyword">throws</span> SyntaxException, IOException {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;222</td>  <td class="nbHitsCovered"><a title="Line 222: Conditional coverage 100% (2/2).">&nbsp;188</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 222: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;223</td>  <td class="nbHitsCovered">&nbsp;64</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> IdentifierNode.newInstance(parent, scanner.getCurrentToken().getValue());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;222</td>  <td class="nbHitsCovered"><a title="Line 222: Conditional coverage 100% (2/2).">&nbsp;376</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 222: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.IDENTIFIER)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;223</td>  <td class="nbHitsCovered">&nbsp;128</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> IdentifierNode.newInstance(parent, scanner.getCurrentToken().getValue());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;224</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;225</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;226</td>  <td class="nbHitsCovered"><a title="Line 226: Conditional coverage 100% (2/2).">&nbsp;124</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 226: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.LITERAL)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;226</td>  <td class="nbHitsCovered"><a title="Line 226: Conditional coverage 100% (2/2).">&nbsp;248</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 226: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.LITERAL)) {</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;227</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            <span class="comment">// TODO Implement range parsing.</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;228</td>  <td class="nbHits">&nbsp;</td>
@@ -416,65 +416,65 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">            }*/</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;237</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;238</td>  <td class="nbHitsCovered">&nbsp;98</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> TerminalNode.newInstance(parent, scanner.getCurrentToken().getValue(<span class="keyword">true</span>));</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;238</td>  <td class="nbHitsCovered">&nbsp;196</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> TerminalNode.newInstance(parent, scanner.getCurrentToken().getValue(<span class="keyword">true</span>));</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;239</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;240</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;241</td>  <td class="nbHitsCovered"><a title="Line 241: Conditional coverage 100% (2/2).">&nbsp;26</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 241: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;242</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> CommentNode.newInstance(parent, scanner.getCurrentToken().getValue());</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;241</td>  <td class="nbHitsCovered"><a title="Line 241: Conditional coverage 100% (2/2).">&nbsp;52</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 241: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (scanner.getCurrentToken().isType(TokenType.COMMENT)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;242</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> CommentNode.newInstance(parent, scanner.getCurrentToken().getValue());</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;243</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;244</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;245</td>  <td class="nbHitsCovered"><a title="Line 245: Conditional coverage 100% (2/2).">&nbsp;24</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 245: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (assertToken(scanner.getCurrentToken(), TokenType.L_PAREN, <span class="string">"("</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;246</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;247</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Node expression = parseExpression(parent);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;245</td>  <td class="nbHitsCovered"><a title="Line 245: Conditional coverage 100% (2/2).">&nbsp;48</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 245: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (assertToken(scanner.getCurrentToken(), TokenType.L_PAREN, <span class="string">"("</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;246</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;247</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Node expression = parseExpression(parent);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;248</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;249</td>  <td class="nbHitsUncovered"><a title="Line 249: Conditional coverage 50% (1/2).">&nbsp;4</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 249: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_PAREN, <span class="string">")"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;249</td>  <td class="nbHitsUncovered"><a title="Line 249: Conditional coverage 50% (1/2).">&nbsp;8</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 249: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_PAREN, <span class="string">")"</span>)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;250</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                raiseError(<span class="string">"Group must end with ')'"</span>);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;251</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;252</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;253</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> expression;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;253</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> expression;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;254</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;255</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsCovered"><a title="Line 256: Conditional coverage 100% (2/2).">&nbsp;20</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 256: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (assertToken(scanner.getCurrentToken(), TokenType.L_BRACK, <span class="string">"["</span>)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;257</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;258</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Node expression = parseExpression(parent);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;259</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Option option = Option.newInstance(parent);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;260</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            option.addChild(expression);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;256</td>  <td class="nbHitsCovered"><a title="Line 256: Conditional coverage 100% (2/2).">&nbsp;40</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 256: Conditional coverage 100% (2/2).">        <span class="keyword">if</span> (assertToken(scanner.getCurrentToken(), TokenType.L_BRACK, <span class="string">"["</span>)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;257</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;258</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Node expression = parseExpression(parent);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;259</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Option option = Option.newInstance(parent);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;260</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            option.addChild(expression);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;261</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;262</td>  <td class="nbHitsUncovered"><a title="Line 262: Conditional coverage 50% (1/2).">&nbsp;4</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 262: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACK, <span class="string">"]"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;262</td>  <td class="nbHitsUncovered"><a title="Line 262: Conditional coverage 50% (1/2).">&nbsp;8</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 262: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACK, <span class="string">"]"</span>)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;263</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                raiseError(<span class="string">"Option must end with ']'"</span>);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;264</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;265</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;266</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> option;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;266</td>  <td class="nbHitsCovered">&nbsp;8</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> option;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;267</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;268</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;269</td>  <td class="nbHitsUncovered"><a title="Line 269: Conditional coverage 50% (1/2).">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 269: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (assertToken(scanner.getCurrentToken(), TokenType.L_BRACE, <span class="string">"{"</span>)) {</a></span></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;270</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;271</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Node expression = parseExpression(parent);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;272</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> LoopNode loop       = LoopNode.newInstance(parent);</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;273</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            loop.addChild(expression);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;269</td>  <td class="nbHitsUncovered"><a title="Line 269: Conditional coverage 50% (1/2).">&nbsp;32</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 269: Conditional coverage 50% (1/2).">        <span class="keyword">if</span> (assertToken(scanner.getCurrentToken(), TokenType.L_BRACE, <span class="string">"{"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;270</td>  <td class="nbHitsCovered">&nbsp;32</td>  <td class="src"><pre class="src">&nbsp;            scanner.nextToken();</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;271</td>  <td class="nbHitsCovered">&nbsp;32</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> Node expression = parseExpression(parent);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;272</td>  <td class="nbHitsCovered">&nbsp;32</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">final</span> LoopNode loop       = LoopNode.newInstance(parent);</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;273</td>  <td class="nbHitsCovered">&nbsp;32</td>  <td class="src"><pre class="src">&nbsp;            loop.addChild(expression);</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;274</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;275</td>  <td class="nbHitsUncovered"><a title="Line 275: Conditional coverage 50% (1/2).">&nbsp;16</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 275: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACE, <span class="string">"}"</span>)) {</a></span></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;275</td>  <td class="nbHitsUncovered"><a title="Line 275: Conditional coverage 50% (1/2).">&nbsp;32</a></td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;<a title="Line 275: Conditional coverage 50% (1/2).">            <span class="keyword">if</span> (!assertToken(scanner.getCurrentToken(), TokenType.R_BRACE, <span class="string">"}"</span>)) {</a></span></pre></td></tr>
 <tr>  <td class="numLineCover">&nbsp;276</td>  <td class="nbHitsUncovered">&nbsp;0</td>  <td class="src"><pre class="src"><span class="srcUncovered">&nbsp;                raiseError(<span class="string">"Loop must end with '}'"</span>);</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;277</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;278</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;279</td>  <td class="nbHitsCovered">&nbsp;16</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> loop;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;279</td>  <td class="nbHitsCovered">&nbsp;32</td>  <td class="src"><pre class="src">&nbsp;            <span class="keyword">return</span> loop;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;280</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;281</td>  <td class="nbHits">&nbsp;</td>
@@ -503,7 +503,7 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;294</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span> <span class="keyword">boolean</span> assertToken(<span class="keyword">final</span> Token token, <span class="keyword">final</span> TokenType type, <span class="keyword">final</span> String value) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;295</td>  <td class="nbHitsCovered"><a title="Line 295: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;298</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 295: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">return</span> token.getType() == type &amp;&amp; token.getValue().equals(value);</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;295</td>  <td class="nbHitsCovered"><a title="Line 295: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">&nbsp;596</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 295: Conditional coverage 100% (4/4) [each condition: 100%, 100%].">        <span class="keyword">return</span> token.getType() == type &amp;&amp; token.getValue().equals(value);</a></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;296</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;297</td>  <td class="nbHits">&nbsp;</td>
@@ -528,16 +528,16 @@
   <td class="src"><pre class="src">&nbsp;<span class="comment">     */</span></pre></td></tr>
 <tr>  <td class="numLine">&nbsp;307</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    <span class="keyword">protected</span>  <span class="keyword">boolean</span> assertTokens(<span class="keyword">final</span> Token token, <span class="keyword">final</span> TokenType type, <span class="keyword">final</span> List&lt;String&gt; values) {</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;308</td>  <td class="nbHitsCovered"><a title="Line 308: Conditional coverage 100% (2/2).">&nbsp;62</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 308: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (String value : values) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;309</td>  <td class="nbHitsCovered"><a title="Line 309: Conditional coverage 100% (2/2).">&nbsp;70</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 309: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (assertToken(token, type, value)) {</a></pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;310</td>  <td class="nbHitsCovered">&nbsp;60</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;308</td>  <td class="nbHitsCovered"><a title="Line 308: Conditional coverage 100% (2/2).">&nbsp;124</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 308: Conditional coverage 100% (2/2).">        <span class="keyword">for</span> (String value : values) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;309</td>  <td class="nbHitsCovered"><a title="Line 309: Conditional coverage 100% (2/2).">&nbsp;140</a></td>  <td class="src"><pre class="src">&nbsp;<a title="Line 309: Conditional coverage 100% (2/2).">            <span class="keyword">if</span> (assertToken(token, type, value)) {</a></pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;310</td>  <td class="nbHitsCovered">&nbsp;120</td>  <td class="src"><pre class="src">&nbsp;                <span class="keyword">return</span> <span class="keyword">true</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;311</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;            }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;312</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;        }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;313</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;</pre></td></tr>
-<tr>  <td class="numLineCover">&nbsp;314</td>  <td class="nbHitsCovered">&nbsp;2</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
+<tr>  <td class="numLineCover">&nbsp;314</td>  <td class="nbHitsCovered">&nbsp;4</td>  <td class="src"><pre class="src">&nbsp;        <span class="keyword">return</span> <span class="keyword">false</span>;</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;315</td>  <td class="nbHits">&nbsp;</td>
   <td class="src"><pre class="src">&nbsp;    }</pre></td></tr>
 <tr>  <td class="numLine">&nbsp;316</td>  <td class="nbHits">&nbsp;</td>
@@ -589,6 +589,6 @@
   <td class="src"><pre class="src">&nbsp;}</pre></td></tr>
 </table>
 
-<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 1.9.4.1 on 9/12/12 12:20 PM.</div>
+<div class="footer">Report generated by <a href="http://cobertura.sourceforge.net/" target="_top">Cobertura</a> 1.9.4.1 on 10/6/12 12:00 AM.</div>
 </body>
 </html>

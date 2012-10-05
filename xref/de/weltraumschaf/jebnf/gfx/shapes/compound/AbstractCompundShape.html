@@ -11,22 +11,22 @@
 <a class="jxr_linenumber" name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * LICENSE</em>
 <a class="jxr_linenumber" name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 42):</em>
-<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;weltraumschaf@googlemail.com&gt; wrote this file.</em>
+<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 43):</em>
+<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt; wrote this file.</em>
 <a class="jxr_linenumber" name="6" href="#6">6</a>   <em class="jxr_comment"> * As long as you retain this notice you can do whatever you want with</em>
 <a class="jxr_linenumber" name="7" href="#7">7</a>   <em class="jxr_comment"> * this stuff. If we meet some day, and you think this stuff is worth it,</em>
-<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a beer in return.</em>
+<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a non alcohol free beer in return.</em>
 <a class="jxr_linenumber" name="9" href="#9">9</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> */</em>
-<a class="jxr_linenumber" name="11" href="#11">11</a>  
+<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> * Copyright (C) 2012 "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt;</em>
+<a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.gfx.shapes.compound;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
 <a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Point;
 <a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.Size;
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.AbstractShape;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.Shape;
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.EmptyShape;
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.StraightNorthSouthShape;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.RectangularShape;
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.gfx.shapes.other.StraightShape;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <em class="jxr_javadoccomment">/**</em>
@@ -34,7 +34,7 @@
 <a class="jxr_linenumber" name="24" href="#24">24</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="25" href="#25">25</a>  <em class="jxr_javadoccomment"> * @author Sven Strittmatter &lt;weltraumschaf@googlemail.com&gt;</em>
 <a class="jxr_linenumber" name="26" href="#26">26</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="27" href="#27">27</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/AbstractCompundShape.html">AbstractCompundShape</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/AbstractShape.html">AbstractShape</a> <strong class="jxr_keyword">implements</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> {
+<a class="jxr_linenumber" name="27" href="#27">27</a>  <strong class="jxr_keyword">class</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/AbstractCompundShape.html">AbstractCompundShape</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/AbstractShape.html">AbstractShape</a> <strong class="jxr_keyword">implements</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/GridShape.html">GridShape</a> {
 <a class="jxr_linenumber" name="28" href="#28">28</a>  
 <a class="jxr_linenumber" name="29" href="#29">29</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="30" href="#30">30</a>  <em class="jxr_javadoccomment">     * Layout grid with child shapes.</em>
@@ -97,58 +97,67 @@
 <a class="jxr_linenumber" name="87" href="#87">87</a>      }
 <a class="jxr_linenumber" name="88" href="#88">88</a>  
 <a class="jxr_linenumber" name="89" href="#89">89</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="90" href="#90">90</a>  <em class="jxr_javadoccomment">     * Extends a grid column with {@link EmptyShape} shapes.</em>
+<a class="jxr_linenumber" name="90" href="#90">90</a>  <em class="jxr_javadoccomment">     * Extends a grid column with {@link RectangularShape} shapes.</em>
 <a class="jxr_linenumber" name="91" href="#91">91</a>  <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="92" href="#92">92</a>  <em class="jxr_javadoccomment">     * @param height Height in pixel of column.</em>
 <a class="jxr_linenumber" name="93" href="#93">93</a>  <em class="jxr_javadoccomment">     * @param colIndexs Column index in grid.</em>
 <a class="jxr_linenumber" name="94" href="#94">94</a>  <em class="jxr_javadoccomment">     * @param rowIndex Row index in grid</em>
 <a class="jxr_linenumber" name="95" href="#95">95</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="96" href="#96">96</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> extendColumnWithEmpty(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> height, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong>[] colIndexs, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> rowIndex) {
-<a class="jxr_linenumber" name="97" href="#97">97</a>          extendColumnWithShape(height, colIndexs, rowIndex, EmptyShape.<strong class="jxr_keyword">class</strong>);
+<a class="jxr_linenumber" name="97" href="#97">97</a>          extendColumnWithShape(height, colIndexs, rowIndex, RectangularShape.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="98" href="#98">98</a>      }
 <a class="jxr_linenumber" name="99" href="#99">99</a>  
 <a class="jxr_linenumber" name="100" href="#100">100</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="101" href="#101">101</a> <em class="jxr_javadoccomment">     * Extends a grid column with {@link StraightNorthSouthShape} shapes.</em>
+<a class="jxr_linenumber" name="101" href="#101">101</a> <em class="jxr_javadoccomment">     * Extends a grid column with {@link StraightShape "shapes"} of type {@link StraightShape.Directions#NORT_SOUTH}.</em>
 <a class="jxr_linenumber" name="102" href="#102">102</a> <em class="jxr_javadoccomment">     *</em>
 <a class="jxr_linenumber" name="103" href="#103">103</a> <em class="jxr_javadoccomment">     * @param height Height in pixel of column.</em>
 <a class="jxr_linenumber" name="104" href="#104">104</a> <em class="jxr_javadoccomment">     * @param colIndexs Column index in grid.</em>
 <a class="jxr_linenumber" name="105" href="#105">105</a> <em class="jxr_javadoccomment">     * @param rowIndex Row index in grid</em>
 <a class="jxr_linenumber" name="106" href="#106">106</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="107" href="#107">107</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> extendColumnWithStraightNS(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> height, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong>[] colIndexs, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> rowIndex) {
-<a class="jxr_linenumber" name="108" href="#108">108</a>         extendColumnWithShape(height, colIndexs, rowIndex, StraightNorthSouthShape.<strong class="jxr_keyword">class</strong>);
-<a class="jxr_linenumber" name="109" href="#109">109</a>     }
+<a class="jxr_linenumber" name="108" href="#108">108</a>         <strong class="jxr_keyword">if</strong> (Size.DEFAULT_HEIGHT &lt; height) {
+<a class="jxr_linenumber" name="109" href="#109">109</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> count = height / Size.DEFAULT_HEIGHT - 1;
 <a class="jxr_linenumber" name="110" href="#110">110</a> 
-<a class="jxr_linenumber" name="111" href="#111">111</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="112" href="#112">112</a> <em class="jxr_javadoccomment">     * Extends a column with a given type of shapes.</em>
-<a class="jxr_linenumber" name="113" href="#113">113</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="114" href="#114">114</a> <em class="jxr_javadoccomment">     * @param height Height in pixel of column.</em>
-<a class="jxr_linenumber" name="115" href="#115">115</a> <em class="jxr_javadoccomment">     * @param colIndexs Column index in grid.</em>
-<a class="jxr_linenumber" name="116" href="#116">116</a> <em class="jxr_javadoccomment">     * @param rowIndex Row index in grid</em>
-<a class="jxr_linenumber" name="117" href="#117">117</a> <em class="jxr_javadoccomment">     * @param type Shape type.</em>
-<a class="jxr_linenumber" name="118" href="#118">118</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="119" href="#119">119</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> extendColumnWithShape(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> height, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong>[] colIndexs, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> rowIndex,
-<a class="jxr_linenumber" name="120" href="#120">120</a>                                         <strong class="jxr_keyword">final</strong> Class&lt;? <strong class="jxr_keyword">extends</strong> Shape&gt; type) {
-<a class="jxr_linenumber" name="121" href="#121">121</a>         <strong class="jxr_keyword">if</strong> (Size.DEFAULT_HEIGHT &lt; height) {
-<a class="jxr_linenumber" name="122" href="#122">122</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> count = height / Size.DEFAULT_HEIGHT - 1;
-<a class="jxr_linenumber" name="123" href="#123">123</a> 
-<a class="jxr_linenumber" name="124" href="#124">124</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; count; ++i) {
-<a class="jxr_linenumber" name="125" href="#125">125</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; colIndexs.length; ++j) {
-<a class="jxr_linenumber" name="126" href="#126">126</a>                     <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="127" href="#127">127</a>                         <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> filler = type.newInstance();
-<a class="jxr_linenumber" name="128" href="#128">128</a>                         ((<a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/ColumnLayoutShape.html">ColumnLayoutShape</a>) grid.get(colIndexs[j], rowIndex)).append(filler);
-<a class="jxr_linenumber" name="129" href="#129">129</a>                     } <strong class="jxr_keyword">catch</strong> (InstantiationException ex) {
-<a class="jxr_linenumber" name="130" href="#130">130</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Can't instantiate shape of type: "</span>
-<a class="jxr_linenumber" name="131" href="#131">131</a>                                                            + type.getName() + <span class="jxr_string">"!"</span>, ex);
-<a class="jxr_linenumber" name="132" href="#132">132</a>                     } <strong class="jxr_keyword">catch</strong> (IllegalAccessException ex) {
-<a class="jxr_linenumber" name="133" href="#133">133</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Can't access shape of type: "</span>
-<a class="jxr_linenumber" name="134" href="#134">134</a>                                                            + type.getName() + <span class="jxr_string">"!"</span>, ex);
-<a class="jxr_linenumber" name="135" href="#135">135</a>                     }
-<a class="jxr_linenumber" name="136" href="#136">136</a>                 }
-<a class="jxr_linenumber" name="137" href="#137">137</a>             }
-<a class="jxr_linenumber" name="138" href="#138">138</a>         }
-<a class="jxr_linenumber" name="139" href="#139">139</a>     }
-<a class="jxr_linenumber" name="140" href="#140">140</a> 
-<a class="jxr_linenumber" name="141" href="#141">141</a> }
+<a class="jxr_linenumber" name="111" href="#111">111</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; count; ++i) {
+<a class="jxr_linenumber" name="112" href="#112">112</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; colIndexs.length; ++j) {
+<a class="jxr_linenumber" name="113" href="#113">113</a>                     <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> filler = <strong class="jxr_keyword">new</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/other/StraightShape.html">StraightShape</a>(StraightShape.Directions.NORT_SOUTH);
+<a class="jxr_linenumber" name="114" href="#114">114</a>                     ((<a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/ColumnLayoutShape.html">ColumnLayoutShape</a>) grid.get(colIndexs[j], rowIndex)).append(filler);
+<a class="jxr_linenumber" name="115" href="#115">115</a>                 }
+<a class="jxr_linenumber" name="116" href="#116">116</a>             }
+<a class="jxr_linenumber" name="117" href="#117">117</a>         }
+<a class="jxr_linenumber" name="118" href="#118">118</a>     }
+<a class="jxr_linenumber" name="119" href="#119">119</a> 
+<a class="jxr_linenumber" name="120" href="#120">120</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="121" href="#121">121</a> <em class="jxr_javadoccomment">     * Extends a column with a given type of shapes.</em>
+<a class="jxr_linenumber" name="122" href="#122">122</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="123" href="#123">123</a> <em class="jxr_javadoccomment">     * @param height Height in pixel of column.</em>
+<a class="jxr_linenumber" name="124" href="#124">124</a> <em class="jxr_javadoccomment">     * @param colIndexs Column index in grid.</em>
+<a class="jxr_linenumber" name="125" href="#125">125</a> <em class="jxr_javadoccomment">     * @param rowIndex Row index in grid</em>
+<a class="jxr_linenumber" name="126" href="#126">126</a> <em class="jxr_javadoccomment">     * @param type Shape type.</em>
+<a class="jxr_linenumber" name="127" href="#127">127</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="128" href="#128">128</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> extendColumnWithShape(<strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> height, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong>[] colIndexs, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> rowIndex,
+<a class="jxr_linenumber" name="129" href="#129">129</a>                                         <strong class="jxr_keyword">final</strong> Class&lt;? <strong class="jxr_keyword">extends</strong> Shape&gt; type) {
+<a class="jxr_linenumber" name="130" href="#130">130</a>         <strong class="jxr_keyword">if</strong> (Size.DEFAULT_HEIGHT &lt; height) {
+<a class="jxr_linenumber" name="131" href="#131">131</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> count = height / Size.DEFAULT_HEIGHT - 1;
+<a class="jxr_linenumber" name="132" href="#132">132</a> 
+<a class="jxr_linenumber" name="133" href="#133">133</a>             <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; count; ++i) {
+<a class="jxr_linenumber" name="134" href="#134">134</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> j = 0; j &lt; colIndexs.length; ++j) {
+<a class="jxr_linenumber" name="135" href="#135">135</a>                     <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="136" href="#136">136</a>                         <strong class="jxr_keyword">final</strong> <a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/Shape.html">Shape</a> filler = type.newInstance();
+<a class="jxr_linenumber" name="137" href="#137">137</a>                         ((<a href="../../../../../../de/weltraumschaf/jebnf/gfx/shapes/compound/ColumnLayoutShape.html">ColumnLayoutShape</a>) grid.get(colIndexs[j], rowIndex)).append(filler);
+<a class="jxr_linenumber" name="138" href="#138">138</a>                     } <strong class="jxr_keyword">catch</strong> (InstantiationException ex) {
+<a class="jxr_linenumber" name="139" href="#139">139</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Can't instantiate shape of type: "</span>
+<a class="jxr_linenumber" name="140" href="#140">140</a>                                                            + type.getName() + <span class="jxr_string">"!"</span>, ex);
+<a class="jxr_linenumber" name="141" href="#141">141</a>                     } <strong class="jxr_keyword">catch</strong> (IllegalAccessException ex) {
+<a class="jxr_linenumber" name="142" href="#142">142</a>                         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"Can't access shape of type: "</span>
+<a class="jxr_linenumber" name="143" href="#143">143</a>                                                            + type.getName() + <span class="jxr_string">"!"</span>, ex);
+<a class="jxr_linenumber" name="144" href="#144">144</a>                     }
+<a class="jxr_linenumber" name="145" href="#145">145</a>                 }
+<a class="jxr_linenumber" name="146" href="#146">146</a>             }
+<a class="jxr_linenumber" name="147" href="#147">147</a>         }
+<a class="jxr_linenumber" name="148" href="#148">148</a>     }
+<a class="jxr_linenumber" name="149" href="#149">149</a> 
+<a class="jxr_linenumber" name="150" href="#150">150</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div></body>
 </html>

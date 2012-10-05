@@ -11,17 +11,17 @@
 <a class="jxr_linenumber" name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
 <a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * LICENSE</em>
 <a class="jxr_linenumber" name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 42):</em>
-<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;ich(at)weltraumschaf(dot)de&gt; wrote this file.</em>
+<a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * "THE BEER-WARE LICENSE" (Revision 43):</em>
+<a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt; wrote this file.</em>
 <a class="jxr_linenumber" name="6" href="#6">6</a>   <em class="jxr_comment"> * As long as you retain this notice you can do whatever you want with</em>
 <a class="jxr_linenumber" name="7" href="#7">7</a>   <em class="jxr_comment"> * this stuff. If we meet some day, and you think this stuff is worth it,</em>
-<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a beer in return.</em>
+<a class="jxr_linenumber" name="8" href="#8">8</a>   <em class="jxr_comment"> * you can buy me a non alcohol free beer in return.</em>
 <a class="jxr_linenumber" name="9" href="#9">9</a>   <em class="jxr_comment"> *</em>
-<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> */</em>
-<a class="jxr_linenumber" name="11" href="#11">11</a>  
+<a class="jxr_linenumber" name="10" href="#10">10</a>  <em class="jxr_comment"> * Copyright (C) 2012 "Sven Strittmatter" &lt;weltraumschaf(at)googlemail(dot)com&gt;</em>
+<a class="jxr_linenumber" name="11" href="#11">11</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="12" href="#12">12</a>  <strong class="jxr_keyword">package</strong> de.weltraumschaf.jebnf.ast.visitor;
 <a class="jxr_linenumber" name="13" href="#13">13</a>  
-<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.Composite;
+<a class="jxr_linenumber" name="14" href="#14">14</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.CompositeNode;
 <a class="jxr_linenumber" name="15" href="#15">15</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.Node;
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">import</strong> de.weltraumschaf.jebnf.ast.Visitable;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  <strong class="jxr_keyword">import</strong> java.util.Map;
@@ -174,8 +174,8 @@
 <a class="jxr_linenumber" name="164" href="#164">164</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> visit(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/Visitable.html">Visitable</a> visitable) {
 <a class="jxr_linenumber" name="165" href="#165">165</a>         <strong class="jxr_keyword">boolean</strong> block = false;
 <a class="jxr_linenumber" name="166" href="#166">166</a> 
-<a class="jxr_linenumber" name="167" href="#167">167</a>         <strong class="jxr_keyword">if</strong> (visitable instanceof Composite) {
-<a class="jxr_linenumber" name="168" href="#168">168</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/Composite.html">Composite</a> composite = (Composite) visitable;
+<a class="jxr_linenumber" name="167" href="#167">167</a>         <strong class="jxr_keyword">if</strong> (visitable instanceof CompositeNode) {
+<a class="jxr_linenumber" name="168" href="#168">168</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/CompositeNode.html">CompositeNode</a> composite = (CompositeNode) visitable;
 <a class="jxr_linenumber" name="169" href="#169">169</a> 
 <a class="jxr_linenumber" name="170" href="#170">170</a>             <strong class="jxr_keyword">if</strong> (composite.hasChildren()) {
 <a class="jxr_linenumber" name="171" href="#171">171</a>                 block = <strong class="jxr_keyword">true</strong>;
@@ -188,8 +188,8 @@
 <a class="jxr_linenumber" name="178" href="#178">178</a>         append(createOpenTag(node.getNodeName(), node.getAttributes(), block));
 <a class="jxr_linenumber" name="179" href="#179">179</a> 
 <a class="jxr_linenumber" name="180" href="#180">180</a> 
-<a class="jxr_linenumber" name="181" href="#181">181</a>         <strong class="jxr_keyword">if</strong> (visitable instanceof Composite) {
-<a class="jxr_linenumber" name="182" href="#182">182</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/Composite.html">Composite</a> composite = (Composite) visitable;
+<a class="jxr_linenumber" name="181" href="#181">181</a>         <strong class="jxr_keyword">if</strong> (visitable instanceof CompositeNode) {
+<a class="jxr_linenumber" name="182" href="#182">182</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/CompositeNode.html">CompositeNode</a> composite = (CompositeNode) visitable;
 <a class="jxr_linenumber" name="183" href="#183">183</a> 
 <a class="jxr_linenumber" name="184" href="#184">184</a>             <strong class="jxr_keyword">if</strong> (composite.hasChildren()) {
 <a class="jxr_linenumber" name="185" href="#185">185</a>                 indentationLevel++;
@@ -216,8 +216,8 @@
 <a class="jxr_linenumber" name="206" href="#206">206</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="207" href="#207">207</a>     @Override
 <a class="jxr_linenumber" name="208" href="#208">208</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> afterVisit(<strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/Visitable.html">Visitable</a> visitable) {
-<a class="jxr_linenumber" name="209" href="#209">209</a>         <strong class="jxr_keyword">if</strong> (visitable instanceof Composite) {
-<a class="jxr_linenumber" name="210" href="#210">210</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/Composite.html">Composite</a> composite = (Composite) visitable;
+<a class="jxr_linenumber" name="209" href="#209">209</a>         <strong class="jxr_keyword">if</strong> (visitable instanceof CompositeNode) {
+<a class="jxr_linenumber" name="210" href="#210">210</a>             <strong class="jxr_keyword">final</strong> <a href="../../../../../de/weltraumschaf/jebnf/ast/CompositeNode.html">CompositeNode</a> composite = (CompositeNode) visitable;
 <a class="jxr_linenumber" name="211" href="#211">211</a> 
 <a class="jxr_linenumber" name="212" href="#212">212</a>             <strong class="jxr_keyword">if</strong> (composite.hasChildren()) {
 <a class="jxr_linenumber" name="213" href="#213">213</a>                 indentationLevel--;
