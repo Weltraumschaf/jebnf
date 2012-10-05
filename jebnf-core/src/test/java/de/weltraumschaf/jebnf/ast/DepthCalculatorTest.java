@@ -11,6 +11,7 @@
  */
 package de.weltraumschaf.jebnf.ast;
 
+import de.weltraumschaf.jebnf.ast.nodes.BaseCompositeNode;
 import de.weltraumschaf.jebnf.ast.nodes.NullNode;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;

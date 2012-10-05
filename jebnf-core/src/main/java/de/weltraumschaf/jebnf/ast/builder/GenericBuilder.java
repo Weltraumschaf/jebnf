@@ -11,7 +11,7 @@
  */
 package de.weltraumschaf.jebnf.ast.builder;
 
-import de.weltraumschaf.jebnf.ast.BaseCompositeNode;
+import de.weltraumschaf.jebnf.ast.nodes.BaseCompositeNode;
 import de.weltraumschaf.jebnf.ast.CompositeNode;
 import de.weltraumschaf.jebnf.ast.nodes.*;
 

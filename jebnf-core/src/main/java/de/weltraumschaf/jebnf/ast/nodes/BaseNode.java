@@ -9,9 +9,11 @@
  *
  * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
  */
-package de.weltraumschaf.jebnf.ast;
+package de.weltraumschaf.jebnf.ast.nodes;
 
 import com.google.common.collect.Maps;
+import de.weltraumschaf.jebnf.ast.Node;
+import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import java.util.Iterator;
 import java.util.Map;

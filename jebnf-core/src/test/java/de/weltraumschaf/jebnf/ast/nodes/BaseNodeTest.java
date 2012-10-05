@@ -9,10 +9,11 @@
  *
  * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
  */
-package de.weltraumschaf.jebnf.ast;
+package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.NodeFactory;
-import de.weltraumschaf.jebnf.ast.nodes.NullNode;
+import de.weltraumschaf.jebnf.ast.Node;
+import de.weltraumschaf.jebnf.ast.NodeType;
+import de.weltraumschaf.jebnf.ast.Notification;
 import static org.junit.Assert.*;
 import org.junit.Test;
 

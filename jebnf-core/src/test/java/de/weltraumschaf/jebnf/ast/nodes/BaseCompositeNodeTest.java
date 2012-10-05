@@ -9,9 +9,10 @@
  *
  * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
  */
-package de.weltraumschaf.jebnf.ast;
+package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.*;
+import de.weltraumschaf.jebnf.ast.Node;
+import de.weltraumschaf.jebnf.ast.Notification;
 import java.util.List;
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -72,7 +73,7 @@ public class BaseCompositeNodeTest {
         comp.probeEquivalence(RuleNode.newInstance(), notification);
         assertFalse(notification.isOk());
         assertEquals("Probed node types mismatch: "
-            + "'class de.weltraumschaf.jebnf.ast.BaseCompositeNodeTest$CompositeImpl' "
+            + "'class de.weltraumschaf.jebnf.ast.nodes.BaseCompositeNodeTest$CompositeImpl' "
             + "!= 'class de.weltraumschaf.jebnf.ast.nodes.RuleNode'!",
             notification.report()
         );
