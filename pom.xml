@@ -655,6 +655,9 @@
                         <java>SLASHSTAR_STYLE</java>
                     </mapping>
                     <aggregate>true</aggregate>
+                    <includes>
+                        <include>bin/*</include>
+                    </includes>
                     <excludes>
                         <exclude>.idea/*</exclude>
                         <exclude>.gitignore</exclude>
@@ -665,7 +668,6 @@
                         <exclude>**/*.ucls</exclude>
                         <exclude>**/*.uxf</exclude>
                         <exclude>**/src/test/resources/**</exclude>
-                        <exclude>bin/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>
