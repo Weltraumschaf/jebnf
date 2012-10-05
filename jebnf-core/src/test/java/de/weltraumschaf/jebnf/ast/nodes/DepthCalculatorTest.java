@@ -9,10 +9,9 @@
  *
  * Copyright (C) 2012 "Sven Strittmatter" <weltraumschaf(at)googlemail(dot)com>
  */
-package de.weltraumschaf.jebnf.ast;
+package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.nodes.BaseCompositeNode;
-import de.weltraumschaf.jebnf.ast.nodes.NullNode;
+import de.weltraumschaf.jebnf.ast.Node;
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import static org.mockito.Mockito.mock;

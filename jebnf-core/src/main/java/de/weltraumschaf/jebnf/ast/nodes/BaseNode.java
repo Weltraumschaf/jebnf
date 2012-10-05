@@ -22,10 +22,9 @@ import java.util.Map;
  * Abstract representation of AST nodes which are not the {@link nodes.SyntaxNode "root node"}
  * but any other kind of {@link Node}.
  *
- * @fixme Make package private.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class BaseNode implements Node {
+abstract class BaseNode implements Node {
 
     /**
      * The direct ancestor in the AST tree.

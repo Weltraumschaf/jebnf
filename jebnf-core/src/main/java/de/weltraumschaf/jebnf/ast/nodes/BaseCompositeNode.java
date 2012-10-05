@@ -13,7 +13,6 @@ package de.weltraumschaf.jebnf.ast.nodes;
 
 import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.ast.CompositeNode;
-import de.weltraumschaf.jebnf.ast.DepthCalculator;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
@@ -25,10 +24,9 @@ import java.util.List;
  *
  * Provides interface for iterate and add child nodes.
  *
- * @fixme Make package private.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class BaseCompositeNode extends BaseNode implements CompositeNode {
+abstract class BaseCompositeNode extends BaseNode implements CompositeNode {
 
     /**
      * Holds the child nodes.
