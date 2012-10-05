@@ -18,7 +18,7 @@ import java.util.List;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public interface Composite extends Node {
+public interface Composite {
 
     /**
      * Count of direct children nodes.
