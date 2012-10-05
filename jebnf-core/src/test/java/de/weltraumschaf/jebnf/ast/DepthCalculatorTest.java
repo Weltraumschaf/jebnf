@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
  */
 public class DepthCalculatorTest {
 
-    static class AbstractCompositeImpl extends AbstractComposite {
+    static class AbstractCompositeImpl extends CompositeNode {
 
         public AbstractCompositeImpl() {
             super(NullNode.getInstance(), null);
@@ -48,7 +48,7 @@ public class DepthCalculatorTest {
     }
 
     @Test public void testDepth() {
-        AbstractComposite subject = new AbstractCompositeImpl();
+        CompositeNode subject = new AbstractCompositeImpl();
 
         DepthCalculator calc = new DepthCalculator(subject);
         assertEquals(0, subject.countChildren());

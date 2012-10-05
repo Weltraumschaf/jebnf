@@ -20,9 +20,9 @@ import org.junit.Test;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public class AbstractNodeTest {
+public class BaseNodeTest {
 
-    static class AbstractNodeStub extends AbstractNode {
+    static class AbstractNodeStub extends BaseNode {
 
         public AbstractNodeStub(final Node parent, final NodeType type) {
             super(parent, type);

@@ -20,9 +20,11 @@ import java.util.List;
  *
  * Provides interface for iterate and add child nodes.
  *
+ * @fixme Make package private.
+ * @todo Consider name CompositeAdapter.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractComposite extends AbstractNode implements Composite {
+public abstract class CompositeNode extends BaseNode implements Composite {
 
     /**
      * Holds the child nodes.
@@ -35,7 +37,7 @@ public abstract class AbstractComposite extends AbstractNode implements Composit
      * @param parent Ancestor node.
      * @param type Type of node.
      */
-    public AbstractComposite(final Node parent, final NodeType type) {
+    public CompositeNode(final Node parent, final NodeType type) {
         super(parent, type);
     }
 

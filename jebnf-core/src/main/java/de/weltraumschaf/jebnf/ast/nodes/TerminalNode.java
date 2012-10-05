@@ -11,7 +11,7 @@
  */
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.AbstractNode;
+import de.weltraumschaf.jebnf.ast.BaseNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Notification;
@@ -23,7 +23,7 @@ import de.weltraumschaf.jebnf.ast.Notification;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class TerminalNode extends AbstractNode {
+public final class TerminalNode extends BaseNode {
 
     /**
      * Key for the value attribute.

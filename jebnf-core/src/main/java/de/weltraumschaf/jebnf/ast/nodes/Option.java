@@ -11,7 +11,7 @@
  */
 package de.weltraumschaf.jebnf.ast.nodes;
 
-import de.weltraumschaf.jebnf.ast.AbstractComposite;
+import de.weltraumschaf.jebnf.ast.CompositeNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 
@@ -20,7 +20,7 @@ import de.weltraumschaf.jebnf.ast.NodeType;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class Option extends AbstractComposite {
+public final class Option extends CompositeNode {
 
     /**
      * Initializes object with parent node.

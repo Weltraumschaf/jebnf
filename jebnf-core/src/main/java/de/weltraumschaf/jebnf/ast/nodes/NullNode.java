@@ -22,7 +22,7 @@ import de.weltraumschaf.jebnf.ast.visitor.Visitor;
  *
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public final class NullNode extends AbstractNode {
+public final class NullNode extends BaseNode {
 
     /**
      * Single shared instance.

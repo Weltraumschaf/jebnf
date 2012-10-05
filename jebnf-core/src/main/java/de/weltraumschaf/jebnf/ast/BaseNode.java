@@ -20,9 +20,11 @@ import java.util.Map;
  * Abstract representation of AST nodes which are not the {@link nodes.SyntaxNode "root node"}
  * but any other kind of {@link Node}.
  *
+ * @fixme Make package private.
+ * @todo Consider name BaseNode.
  * @author Sven Strittmatter <weltraumschaf@googlemail.com>
  */
-public abstract class AbstractNode implements Node {
+public abstract class BaseNode implements Node {
 
     /**
      * The direct ancestor in the AST tree.
@@ -36,6 +38,8 @@ public abstract class AbstractNode implements Node {
 
     /**
      * Map of node attributes.
+     *
+     * @todo Use enum as key.
      */
     private final Map<String, String> attributes = Maps.newHashMap();
 
@@ -48,7 +52,7 @@ public abstract class AbstractNode implements Node {
      * @param parent Ancestor node.
      * @param type Type of node.
      */
-    protected AbstractNode(final Node parent, final NodeType type) {
+    protected BaseNode(final Node parent, final NodeType type) {
         this.parent = parent;
         this.type   = type;
     }
