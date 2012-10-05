@@ -656,9 +656,26 @@
                     </mapping>
                     <aggregate>true</aggregate>
                     <excludes>
+                        <exclude>.idea/*</exclude>
+                        <exclude>.gitignore</exclude>
+                        <exclude>CHANGELOG</exclude>
+                        <exclude>LICENSE</exclude>
+                        <exclude>uml/README</exclude>
+                        <exclude>README.md</exclude>
+                        <exclude>**/*.ucls</exclude>
+                        <exclude>**/*.uxf</exclude>
                         <exclude>**/src/test/resources/**</exclude>
+                        <exclude>bin/*</exclude>
                     </excludes>
                 </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
