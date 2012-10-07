@@ -23,9 +23,16 @@ import de.weltraumschaf.jebnf.ast.Notification;
 public final class RuleNode extends BaseCompositeNode {
 
     /**
-     * Key for the name attribute.
+     * Attribute keys of the rule node.
      */
-    public static final String ATTRIBUTE_NAME = "name";
+    public static enum Attributes implements NodeAttribute {
+
+        /**
+         * Name attribute.
+         */
+        NAME;
+
+    }
 
     /**
      * Initializes object with empty value and parent node.
@@ -35,7 +42,7 @@ public final class RuleNode extends BaseCompositeNode {
      */
     private RuleNode(final Node parent, final String name) {
         super(parent, NodeType.RULE);
-        setAttribute(ATTRIBUTE_NAME, name);
+        setAttribute(Attributes.NAME, name);
     }
 
     /**
@@ -84,9 +91,10 @@ public final class RuleNode extends BaseCompositeNode {
 
         final RuleNode rule = (RuleNode) other;
 
-        if (!getAttribute(ATTRIBUTE_NAME).equals(rule.getAttribute(ATTRIBUTE_NAME))) {
-            result.error("Names of rule differs: '%s' != '%s'!", getAttribute(ATTRIBUTE_NAME),
-                                                                 rule.getAttribute(ATTRIBUTE_NAME));
+        if (!getAttribute(Attributes.NAME).equals(rule.getAttribute(Attributes.NAME))) {
+            result.error("Names of rule differs: '%s' != '%s'!",
+                         getAttribute(Attributes.NAME),
+                         rule.getAttribute(Attributes.NAME));
         }
     }
 

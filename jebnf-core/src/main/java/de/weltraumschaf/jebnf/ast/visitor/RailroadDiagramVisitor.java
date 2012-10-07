@@ -69,12 +69,12 @@ public class RailroadDiagramVisitor implements Visitor<RailroadDiagram> {
                 // Reset everything because it's the root node.
                 currentShapeStack.removeAllElements();
                 diagram = new RailroadDiagram();
-                diagram.setTitle(node.getAttribute(SyntaxNode.ATTRIBUTE_TITLE));
-                diagram.setMeta(node.getAttribute(SyntaxNode.ATTRIBUTE_META));
+                diagram.setTitle(node.getAttribute(SyntaxNode.Attributes.TITLE));
+                diagram.setMeta(node.getAttribute(SyntaxNode.Attributes.META));
                 break;
             }
             case RULE: {
-                shape = rule(node.getAttribute(RuleNode.ATTRIBUTE_NAME));
+                shape = rule(node.getAttribute(RuleNode.Attributes.NAME));
                 diagram.add(row(shape));
                 shape = row(start());
                 diagram.add(shape);
@@ -101,12 +101,12 @@ public class RailroadDiagramVisitor implements Visitor<RailroadDiagram> {
                 break;
             }
             case IDENTIFIER: {
-                shape = identifier(node.getAttribute(IdentifierNode.ATTRIBUTE_VALUE));
+                shape = identifier(node.getAttribute(IdentifierNode.Attributes.VALUE));
                 addShapeToCurrentShape(shape);
                 break;
             }
             case TERMINAL: {
-                shape = terminal(node.getAttribute(TerminalNode.ATTR_IBUTE_VALUE));
+                shape = terminal(node.getAttribute(TerminalNode.Attributes.VALUE));
                 addShapeToCurrentShape(shape);
                 break;
             }

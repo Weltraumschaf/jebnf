@@ -23,9 +23,9 @@ import org.junit.Test;
  */
 public class BaseNodeTest {
 
-    static class AbstractNodeStub extends BaseNode {
+    static class BaseNodeStub extends BaseNode {
 
-        public AbstractNodeStub(final Node parent, final NodeType type) {
+        public BaseNodeStub(final Node parent, final NodeType type) {
             super(parent, type);
         }
 
@@ -42,34 +42,36 @@ public class BaseNodeTest {
     }
 
     @Test public void hasParent() {
-        AbstractNodeStub sut = new AbstractNodeStub(null, NodeType.CHOICE);
+        BaseNodeStub sut = new BaseNodeStub(null, NodeType.CHOICE);
         assertEquals(NodeType.CHOICE, sut.getType());
         assertFalse(sut.hasParent());
         assertNull(sut.getParent());
 
-        sut = new AbstractNodeStub(NullNode.getInstance(), NodeType.CHOICE);
+        sut = new BaseNodeStub(NullNode.getInstance(), NodeType.CHOICE);
         assertFalse(sut.hasParent());
         assertSame(NullNode.getInstance(), sut.getParent());
         final Node parent = NodeFactory.newNode(NodeType.LOOP);
-        sut = new AbstractNodeStub(parent, NodeType.CHOICE);
+        sut = new BaseNodeStub(parent, NodeType.CHOICE);
         assertTrue(sut.hasParent());
         assertSame(parent, sut.getParent());
     }
 
+    private enum Attributes implements NodeAttribute { FOO, SNAFU; };
+
     @Test public void testAttributes() {
-        final AbstractNodeStub sut = new AbstractNodeStub(null, NodeType.CHOICE);
+        final BaseNodeStub sut = new BaseNodeStub(null, NodeType.CHOICE);
         assertFalse(sut.hasAttributes());
-        sut.setAttribute("foo", "bar");
+        sut.setAttribute(Attributes.FOO, "bar");
         assertTrue(sut.hasAttributes());
-        assertTrue(sut.hasAttribute("foo"));
-        assertEquals("bar", sut.getAttribute("foo"));
-        assertFalse(sut.hasAttribute("snafu"));
+        assertTrue(sut.hasAttribute(Attributes.FOO));
+        assertEquals("bar", sut.getAttribute(Attributes.FOO));
+        assertFalse(sut.hasAttribute(Attributes.SNAFU));
 
         try {
-            sut.getAttribute("snafu");
+            sut.getAttribute(Attributes.SNAFU);
             fail("Expected exception not thrown!");
         } catch (IllegalArgumentException ex) {
-            assertEquals("Does not have attribute with name 'snafu'!", ex.getMessage());
+            assertEquals("Does not have attribute with name 'SNAFU'!", ex.getMessage());
         }
     }
 }

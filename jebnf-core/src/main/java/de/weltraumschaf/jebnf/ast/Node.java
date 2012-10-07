@@ -11,6 +11,7 @@
  */
 package de.weltraumschaf.jebnf.ast;
 
+import de.weltraumschaf.jebnf.ast.nodes.NodeAttribute;
 import java.util.Map;
 
 /**
@@ -81,34 +82,34 @@ public interface Node extends Visitable {
      *
      * @return The returned map may be of size 0, if {@link #hasAttributes()} is false.
      */
-    Map<String, String> getAttributes();
+    Map<NodeAttribute, String> getAttributes();
 
     /**
      * Whether the node has a particular attribute.
      *
-     * @param name Name of the attribute.
+     * @param attribute Name of the attribute.
      * @return Return true if the attribute exist.
      */
-    boolean hasAttribute(String name);
+    boolean hasAttribute(NodeAttribute attribute);
 
     /**
      * Get the attribute by name.
      *
-     * @param name Name of the Attribute.
+     * @param attribute Name of the Attribute.
      * @return Return the attribute string. Will throw {@link IllegalArgumentException} when asking
-     *        for an attribute not present. Use {@link #hasAttribute(java.lang.String)} to check.
+     *        for an attribute not present. Use {@link #hasAttribute(java.lang.NodeAttribute)} to check.
      */
-    String getAttribute(String name);
+    String getAttribute(NodeAttribute attribute);
 
     /**
      * Set an attribute.
      *
      * Previously set attribute values will be overridden, if same name is used.
      *
-     * @param name Name of the Attribute.
+     * @param attribute Name of the Attribute.
      * @param value Value of the Attribute.
      */
-    void setAttribute(String name, String value);
+    void setAttribute(NodeAttribute attribute, String value);
 
     /**
      * Checks if ta node is of a particular type.

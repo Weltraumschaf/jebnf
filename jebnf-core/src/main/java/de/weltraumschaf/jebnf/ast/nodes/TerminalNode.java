@@ -25,9 +25,16 @@ import de.weltraumschaf.jebnf.ast.Notification;
 public final class TerminalNode extends BaseNode {
 
     /**
-     * Key for the value attribute.
+     * Attribute keys of the terminal node.
      */
-    public static final String ATTR_IBUTE_VALUE = "value";
+    public static enum Attributes implements NodeAttribute {
+
+        /**
+         * Value attribute.
+         */
+        VALUE;
+
+    }
 
     /**
      * Initializes object with empty value and parent node.
@@ -37,7 +44,7 @@ public final class TerminalNode extends BaseNode {
      */
     private TerminalNode(final Node parent, final String value) {
         super(parent, NodeType.TERMINAL);
-        setAttribute(ATTR_IBUTE_VALUE, value);
+        setAttribute(Attributes.VALUE, value);
     }
 
     /**
@@ -85,9 +92,10 @@ public final class TerminalNode extends BaseNode {
         try {
             final TerminalNode terminal = (TerminalNode) other;
 
-            if (!getAttribute(ATTR_IBUTE_VALUE).equals(terminal.getAttribute(ATTR_IBUTE_VALUE))) {
-                result.error("Terminal value mismatch: '%s' != '%s'!", getAttribute(ATTR_IBUTE_VALUE),
-                                                                       terminal.getAttribute(ATTR_IBUTE_VALUE));
+            if (!getAttribute(Attributes.VALUE).equals(terminal.getAttribute(Attributes.VALUE))) {
+                result.error("Terminal value mismatch: '%s' != '%s'!",
+                             getAttribute(Attributes.VALUE),
+                             terminal.getAttribute(Attributes.VALUE));
             }
         } catch (ClassCastException ex) {
             result.error(

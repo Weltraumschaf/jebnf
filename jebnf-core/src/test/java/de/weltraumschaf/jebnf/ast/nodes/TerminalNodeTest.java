@@ -26,13 +26,13 @@ public class TerminalNodeTest {
     @Test public void testProbeEquivalence() {
         Notification notification;
         final TerminalNode term1 = TerminalNode.newInstance();
-        term1.setAttribute("value", "a");
+        term1.setAttribute(TerminalNode.Attributes.VALUE, "a");
         notification = new Notification();
         term1.probeEquivalence(term1, notification);
         assertTrue(notification.isOk());
 
         final TerminalNode term2 = TerminalNode.newInstance();
-        term2.setAttribute("value", "b");
+        term2.setAttribute(TerminalNode.Attributes.VALUE, "b");
         notification = new Notification();
         term2.probeEquivalence(term2, notification);
         assertTrue(notification.isOk());
@@ -62,12 +62,13 @@ public class TerminalNodeTest {
 
     @Test public void testToString() {
         final TerminalNode term = TerminalNode.newInstance();
-        assertEquals("<TERMINAL value=>", term.toString());
-        term.setAttribute("value", "foo");
-        assertEquals("<TERMINAL value=foo>", term.toString());
+        assertEquals("<TERMINAL VALUE=>", term.toString());
+        term.setAttribute(TerminalNode.Attributes.VALUE, "foo");
+        assertEquals("<TERMINAL VALUE=foo>", term.toString());
     }
 
     @Test public void getType() {
         assertEquals(NodeType.TERMINAL, TerminalNode.newInstance().getType());
     }
+
 }

@@ -69,7 +69,7 @@ public class EbnfParser implements Parser {
         scanner.nextToken();
 
         if (scanner.getCurrentToken().isType(TokenType.LITERAL)) {
-            ast.setAttribute("title", scanner.getCurrentToken().getValue(true));
+            ast.setAttribute(SyntaxNode.Attributes.TITLE, scanner.getCurrentToken().getValue(true));
             scanner.nextToken();
         }
 
@@ -103,7 +103,7 @@ public class EbnfParser implements Parser {
 
         if (scanner.hasNextToken()) {
             if (scanner.getCurrentToken().isType(TokenType.LITERAL)) {
-                ast.setAttribute("meta", scanner.getCurrentToken().getValue(true));
+                ast.setAttribute(SyntaxNode.Attributes.META, scanner.getCurrentToken().getValue(true));
             } else {
                 raiseError("Literal expected as syntax comment");
             }

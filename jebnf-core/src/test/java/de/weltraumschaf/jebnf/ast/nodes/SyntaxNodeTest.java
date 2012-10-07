@@ -30,14 +30,14 @@ public class SyntaxNodeTest {
 
     @Test public void testToString() {
         final SyntaxNode syntax = SyntaxNode.newInstance("foo", "bar");
-        assertEquals("<SYNTAX title=foo meta=bar>", syntax.toString());
+        assertEquals("<SYNTAX META=bar TITLE=foo>", syntax.toString());
         final Node node1 = mock(Node.class);
         when(node1.toString()).thenReturn("<foo>");
         syntax.addChild(node1);
         final Node node2 = mock(Node.class);
         when(node2.toString()).thenReturn("<bar>");
         syntax.addChild(node2);
-        assertEquals("<SYNTAX title=foo meta=bar>\n"
+        assertEquals("<SYNTAX META=bar TITLE=foo>\n"
                    + "<foo>\n"
                    + "<bar>", syntax.toString());
     }

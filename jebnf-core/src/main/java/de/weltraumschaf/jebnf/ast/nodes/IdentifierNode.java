@@ -25,9 +25,16 @@ import de.weltraumschaf.jebnf.ast.Notification;
 public final class IdentifierNode extends BaseNode {
 
     /**
-     * Key for the value attribute.
+     * Attribute keys of the identifier node.
      */
-    public static final String ATTRIBUTE_VALUE = "value";
+    public static enum Attributes implements NodeAttribute {
+
+        /**
+         * Value attribute.
+         */
+        VALUE;
+
+    }
 
     /**
      * Initializes object with value and parent node.
@@ -37,7 +44,7 @@ public final class IdentifierNode extends BaseNode {
      */
     private IdentifierNode(final Node parent, final String value) {
         super(parent, NodeType.IDENTIFIER);
-        setAttribute(ATTRIBUTE_VALUE, value);
+        setAttribute(Attributes.VALUE, value);
     }
 
     /**
@@ -85,9 +92,10 @@ public final class IdentifierNode extends BaseNode {
         try {
             final IdentifierNode ident = (IdentifierNode) other;
 
-            if (!getAttribute(ATTRIBUTE_VALUE).equals(ident.getAttribute(ATTRIBUTE_VALUE))) {
-                result.error("Identifier value mismatch: '%s' != '%s'!", getAttribute(ATTRIBUTE_VALUE),
-                                                                         ident.getAttribute(ATTRIBUTE_VALUE));
+            if (!getAttribute(Attributes.VALUE).equals(ident.getAttribute(Attributes.VALUE))) {
+                result.error("Identifier value mismatch: '%s' != '%s'!",
+                             getAttribute(Attributes.VALUE),
+                             ident.getAttribute(Attributes.VALUE));
             }
         } catch (ClassCastException ex) {
             result.error("Probed node types mismatch: '%s' != '%s'!", getClass(), other.getClass());

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<syntax title="EBNF defined in itself." meta="xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3">
+<syntax meta="xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3" title="EBNF defined in itself.">
     <rule name="syntax">
         <sequence>
             <option>

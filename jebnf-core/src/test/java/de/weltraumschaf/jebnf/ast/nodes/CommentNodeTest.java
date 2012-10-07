@@ -28,13 +28,13 @@ public class CommentNodeTest {
     @Test public void testProbeEquivalence() {
         Notification notification;
         final CommentNode comment1 = CommentNode.newInstance();
-        comment1.setAttribute("value", "a");
+        comment1.setAttribute(CommentNode.Attributes.VALUE, "a");
         notification = new Notification();
         comment1.probeEquivalence(comment1, notification);
         assertTrue(notification.isOk());
 
         final CommentNode comment2 = CommentNode.newInstance();
-        comment2.setAttribute("value", "b");
+        comment2.setAttribute(CommentNode.Attributes.VALUE, "b");
         notification = new Notification();
         comment2.probeEquivalence(comment2, notification);
         assertTrue(notification.isOk());
@@ -74,7 +74,7 @@ public class CommentNodeTest {
 
     @Test public void testToString() {
         final CommentNode comment = CommentNode.newInstance("foo");
-        assertEquals("<COMMENT value=foo>", comment.toString());
+        assertEquals("<COMMENT VALUE=foo>", comment.toString());
     }
 
     @Test public void getType() {

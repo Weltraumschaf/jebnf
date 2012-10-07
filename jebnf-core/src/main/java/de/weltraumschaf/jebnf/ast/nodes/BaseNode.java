@@ -17,6 +17,7 @@ import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.visitor.Visitor;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Abstract representation of AST nodes which are not the {@link nodes.SyntaxNode "root node"}
@@ -41,7 +42,7 @@ abstract class BaseNode implements Node {
      *
      * @todo Use enum as key.
      */
-    private final Map<String, String> attributes = Maps.newHashMap();
+    private final Map<NodeAttribute, String> attributes = new TreeMap<NodeAttribute, String>();
 
     /**
      * Initializes the node with it's parent. This is immutable.
@@ -90,27 +91,27 @@ abstract class BaseNode implements Node {
     }
 
     @Override
-    public Map<String, String> getAttributes() {
+    public Map<NodeAttribute, String> getAttributes() {
         return Maps.newHashMap(attributes);
     }
 
     @Override
-    public boolean hasAttribute(final String name) {
-        return attributes.containsKey(name);
+    public boolean hasAttribute(final NodeAttribute attribute) {
+        return attributes.containsKey(attribute);
     }
 
     @Override
-    public String getAttribute(final String name) {
-        if (!hasAttribute(name)) {
-            throw new IllegalArgumentException(String.format("Does not have attribute with name '%s'!", name));
+    public String getAttribute(final NodeAttribute attribute) {
+        if (!hasAttribute(attribute)) {
+            throw new IllegalArgumentException(String.format("Does not have attribute with name '%s'!", attribute));
         }
 
-        return attributes.get(name);
+        return attributes.get(attribute);
     }
 
     @Override
-    public void setAttribute(final String name, final String value) {
-        attributes.put(name, value);
+    public void setAttribute(final NodeAttribute attribute, final String value) {
+        attributes.put(attribute, value);
     }
 
     @Override
@@ -118,10 +119,10 @@ abstract class BaseNode implements Node {
         final StringBuilder str = new StringBuilder(String.format("<%s", getNodeName().toUpperCase()));
 
         if (hasAttributes()) {
-            final Iterator<Map.Entry<String, String>> iterator = attributes.entrySet().iterator();
+            final Iterator<Map.Entry<NodeAttribute, String>> iterator = attributes.entrySet().iterator();
 
             while (iterator.hasNext()) {
-                final Map.Entry<String, String> pairs = iterator.next();
+                final Map.Entry<NodeAttribute, String> pairs = iterator.next();
                 str.append(String.format(" %s=%s", pairs.getKey(), pairs.getValue()));
             }
         }

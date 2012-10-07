@@ -14,6 +14,7 @@ package de.weltraumschaf.jebnf.ast.visitor;
 import de.weltraumschaf.jebnf.ast.CompositeNode;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.Visitable;
+import de.weltraumschaf.jebnf.ast.nodes.NodeAttribute;
 import java.util.Map;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -93,7 +94,7 @@ public class XmlVisitor implements Visitor<String> {
      * @param attr Map of attributes.
      * @return      The tag string.
      */
-    public static String createOpenTag(final String name, final Map<String, String> attr) {
+    public static String createOpenTag(final String name, final Map<NodeAttribute, String> attr) {
         return createOpenTag(name, attr, true);
     }
 
@@ -105,14 +106,14 @@ public class XmlVisitor implements Visitor<String> {
      * @param block Whether the tag is in line or block.
      * @return Returns formatted tag string.
      */
-    public static String createOpenTag(final String name, final Map<String, String> attributes, final boolean block) {
+    public static String createOpenTag(final String name, final Map<NodeAttribute, String> attributes, final boolean block) {
         final StringBuilder tag = new StringBuilder();
         tag.append('<').append(name);
 
         if (null != attributes && !attributes.isEmpty()) {
-            for (Map.Entry<String, String> attribute : attributes.entrySet()) {
+            for (Map.Entry<NodeAttribute, String> attribute : attributes.entrySet()) {
                 tag.append(String.format(" %s=\"%s\"",
-                           attribute.getKey(),
+                           attribute.getKey().toString().toLowerCase(),
                            StringEscapeUtils.escapeXml(attribute.getValue())));
             }
         }

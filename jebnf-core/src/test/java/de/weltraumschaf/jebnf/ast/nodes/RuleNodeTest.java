@@ -26,14 +26,14 @@ public class RuleNodeTest {
 
     @Test public void testToString() {
         final RuleNode rule = RuleNode.newInstance("foo");
-        assertEquals("<RULE name=foo>", rule.toString());
+        assertEquals("<RULE NAME=foo>", rule.toString());
         final Node node1 = mock(Node.class);
         when(node1.toString()).thenReturn("<foo>");
         rule.addChild(node1);
         final Node node2 = mock(Node.class);
         when(node2.toString()).thenReturn("<bar>");
         rule.addChild(node2);
-        assertEquals("<RULE name=foo>\n"
+        assertEquals("<RULE NAME=foo>\n"
                    + "<foo>\n"
                    + "<bar>", rule.toString());
     }
@@ -41,4 +41,5 @@ public class RuleNodeTest {
     @Test public void getType() {
         assertEquals(NodeType.RULE, RuleNode.newInstance().getType());
     }
+
 }

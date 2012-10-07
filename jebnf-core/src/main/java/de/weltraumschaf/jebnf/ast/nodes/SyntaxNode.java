@@ -26,19 +26,26 @@ import java.util.List;
 public final class SyntaxNode extends BaseNode implements CompositeNode {
 
     /**
+     * Attribute keys of the syntax node.
+     */
+    public static enum Attributes implements NodeAttribute {
+
+        /**
+         * Meta attribute.
+         */
+        META,
+
+        /**
+         * Title attribute.
+         */
+        TITLE;
+
+    }
+
+    /**
      * Default meta string.
      */
     public static final String DEFAULT_META = "xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3";
-
-    /**
-     * Key for the title attribute.
-     */
-    public static final String ATTRIBUTE_TITLE = "title";
-
-    /**
-     * Key for the meta attribute.
-     */
-    public  static final String ATTRIBUTE_META = "meta";
 
     /**
      * Type of the node.
@@ -58,8 +65,8 @@ public final class SyntaxNode extends BaseNode implements CompositeNode {
      */
     private SyntaxNode(final String title, final String meta) {
         super(NullNode.getInstance(), NodeType.SYNTAX);
-        setAttribute(ATTRIBUTE_TITLE, title);
-        setAttribute(ATTRIBUTE_META, meta);
+        setAttribute(Attributes.TITLE, title);
+        setAttribute(Attributes.META, meta);
     }
 
     /**
@@ -117,14 +124,16 @@ public final class SyntaxNode extends BaseNode implements CompositeNode {
         try {
             final SyntaxNode syntax = (SyntaxNode) other;
 
-            if (!getAttribute(ATTRIBUTE_TITLE).equals(syntax.getAttribute(ATTRIBUTE_TITLE))) {
-                result.error("Titles of syntx differs: '%s' != '%s'!", getAttribute(ATTRIBUTE_TITLE),
-                                                                       syntax.getAttribute(ATTRIBUTE_TITLE));
+            if (!getAttribute(Attributes.TITLE).equals(syntax.getAttribute(Attributes.TITLE))) {
+                result.error("Titles of syntx differs: '%s' != '%s'!",
+                             getAttribute(Attributes.TITLE),
+                             syntax.getAttribute(Attributes.TITLE));
             }
 
-            if (!getAttribute(ATTRIBUTE_META).equals(syntax.getAttribute(ATTRIBUTE_META))) {
-                result.error("Meta of syntx differs: '%s' != '%s'!", getAttribute(ATTRIBUTE_META),
-                                                                     syntax.getAttribute(ATTRIBUTE_META));
+            if (!getAttribute(Attributes.META).equals(syntax.getAttribute(Attributes.META))) {
+                result.error("Meta of syntx differs: '%s' != '%s'!",
+                             getAttribute(Attributes.META),
+                             syntax.getAttribute(Attributes.META));
             }
 
             if (countChildren() != syntax.countChildren()) {

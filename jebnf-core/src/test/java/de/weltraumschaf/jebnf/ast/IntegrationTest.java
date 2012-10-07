@@ -32,7 +32,7 @@ public class IntegrationTest {
 
         final RuleNode rule1 = RuleNode.newInstance(syntax);
         assertSame(syntax, rule1.getParent());
-        rule1.setAttribute("name", "first");
+        rule1.setAttribute(RuleNode.Attributes.NAME, "first");
         syntax.addChild(rule1);
 
         children = syntax.getChildren();
@@ -40,7 +40,7 @@ public class IntegrationTest {
         assertSame(rule1, children.get(0));
 
         final RuleNode rule2 = RuleNode.newInstance(syntax);
-        rule2.setAttribute("name", "second");
+        rule2.setAttribute(RuleNode.Attributes.NAME, "second");
         assertSame(syntax, rule1.getParent());
         syntax.addChild(rule2);
 
@@ -52,14 +52,14 @@ public class IntegrationTest {
 
     @Test public void testProbeEquivalenceSyntax() {
         final SyntaxNode syntax1 = SyntaxNode.newInstance("foo", "bar");
-        syntax1.setAttribute("title", "foo");
-        syntax1.setAttribute("meta", "bar");
+        syntax1.setAttribute(SyntaxNode.Attributes.TITLE, "foo");
+        syntax1.setAttribute(SyntaxNode.Attributes.META, "bar");
         final SyntaxNode syntax2 = SyntaxNode.newInstance("foo", "bar");
-        syntax2.setAttribute("title", "foo");
-        syntax2.setAttribute("meta", "bar");
+        syntax2.setAttribute(SyntaxNode.Attributes.TITLE, "foo");
+        syntax2.setAttribute(SyntaxNode.Attributes.META, "bar");
         final SyntaxNode syntax3 = SyntaxNode.newInstance("bla", "blub");
-        syntax3.setAttribute("title", "bla");
-        syntax3.setAttribute("meta", "blub");
+        syntax3.setAttribute(SyntaxNode.Attributes.TITLE, "bla");
+        syntax3.setAttribute(SyntaxNode.Attributes.META, "blub");
 
         Notification notification = new Notification();
         syntax1.probeEquivalence(syntax1, notification);
@@ -124,7 +124,7 @@ public class IntegrationTest {
         final SyntaxNode syntax2 = SyntaxNode.newInstance("foo", "bar");
         final SyntaxNode syntax3 = SyntaxNode.newInstance("foo", "bar");
         final RuleNode rule1 = RuleNode.newInstance();
-        rule1.setAttribute("name", "rule1");
+        rule1.setAttribute(RuleNode.Attributes.NAME, "rule1");
         syntax1.addChild(rule1);
         syntax2.addChild(rule1);
 
@@ -139,7 +139,7 @@ public class IntegrationTest {
         assertEquals("", notification.report());
 
         final RuleNode rule2 = RuleNode.newInstance();
-        rule2.setAttribute("name", "rule2");
+        rule2.setAttribute(RuleNode.Attributes.NAME, "rule2");
         syntax1.addChild(rule2);
         StringBuilder error = new StringBuilder();
         error.append("Node syntax has different child count than other: 2 != 1!\n");
@@ -168,7 +168,7 @@ public class IntegrationTest {
         assertEquals("", notification.report());
 
         final RuleNode rule3 = RuleNode.newInstance();
-        rule3.setAttribute("name", "rule3");
+        rule3.setAttribute(RuleNode.Attributes.NAME, "rule3");
         syntax3.addChild(rule1);
         syntax3.addChild(rule3);
         notification = new Notification();

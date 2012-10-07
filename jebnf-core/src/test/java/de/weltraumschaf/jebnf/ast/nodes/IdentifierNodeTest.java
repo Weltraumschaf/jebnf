@@ -27,13 +27,13 @@ public class IdentifierNodeTest {
         Notification notifiaction;
 
         final IdentifierNode ident1 = IdentifierNode.newInstance();
-        ident1.setAttribute("value", "a");
+        ident1.setAttribute(IdentifierNode.Attributes.VALUE, "a");
         notifiaction = new Notification();
         ident1.probeEquivalence(ident1, notifiaction);
         assertTrue(notifiaction.isOk());
 
         final IdentifierNode ident2 = IdentifierNode.newInstance();
-        ident2.setAttribute("value", "b");
+        ident2.setAttribute(IdentifierNode.Attributes.VALUE, "b");
         notifiaction = new Notification();
         ident2.probeEquivalence(ident2, notifiaction);
         assertTrue(notifiaction.isOk());
@@ -64,9 +64,9 @@ public class IdentifierNodeTest {
 
     @Test public void testToString() {
         final IdentifierNode ident = IdentifierNode.newInstance();
-        assertEquals("<IDENTIFIER value=>", ident.toString());
-        ident.setAttribute("value", "foo");
-        assertEquals("<IDENTIFIER value=foo>", ident.toString());
+        assertEquals("<IDENTIFIER VALUE=>", ident.toString());
+        ident.setAttribute(IdentifierNode.Attributes.VALUE, "foo");
+        assertEquals("<IDENTIFIER VALUE=foo>", ident.toString());
     }
 
     @Test public void getType() {

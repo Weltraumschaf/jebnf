@@ -23,9 +23,16 @@ import de.weltraumschaf.jebnf.ast.Notification;
 public final class CommentNode extends BaseNode {
 
     /**
-     * Key for the value attribute.
+     * Attribute keys of the comment node.
      */
-    private static final String ATTR_VALUE = "value";
+    public static enum Attributes implements NodeAttribute {
+
+        /**
+         * Value attribute.
+         */
+        VALUE;
+
+    }
 
     /**
      * Initializes object with empty value and parent node.
@@ -35,7 +42,7 @@ public final class CommentNode extends BaseNode {
      */
     private CommentNode(final Node parent, final String value) {
         super(parent, NodeType.COMMENT);
-        setAttribute(ATTR_VALUE, value);
+        setAttribute(Attributes.VALUE, value);
     }
 
     /**
@@ -83,9 +90,10 @@ public final class CommentNode extends BaseNode {
         try {
             final CommentNode terminal = (CommentNode) other;
 
-            if (!getAttribute(ATTR_VALUE).equals(terminal.getAttribute(ATTR_VALUE))) {
-                result.error("Comment value mismatch: '%s' != '%s'!", getAttribute(ATTR_VALUE),
-                                                                      terminal.getAttribute(ATTR_VALUE));
+            if (!getAttribute(Attributes.VALUE).equals(terminal.getAttribute(Attributes.VALUE))) {
+                result.error("Comment value mismatch: '%s' != '%s'!",
+                             getAttribute(Attributes.VALUE),
+                             terminal.getAttribute(Attributes.VALUE));
             }
         } catch (ClassCastException ex) {
             result.error(

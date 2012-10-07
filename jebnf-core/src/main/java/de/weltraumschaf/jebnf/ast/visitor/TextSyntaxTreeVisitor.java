@@ -15,6 +15,10 @@ import com.google.common.collect.Lists;
 import de.weltraumschaf.jebnf.ast.Node;
 import de.weltraumschaf.jebnf.ast.NodeType;
 import de.weltraumschaf.jebnf.ast.Visitable;
+import de.weltraumschaf.jebnf.ast.nodes.CommentNode;
+import de.weltraumschaf.jebnf.ast.nodes.IdentifierNode;
+import de.weltraumschaf.jebnf.ast.nodes.RuleNode;
+import de.weltraumschaf.jebnf.ast.nodes.TerminalNode;
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
@@ -133,13 +137,13 @@ public class TextSyntaxTreeVisitor implements Visitor<String> {
         String value = "";
 
         if (node.isType(NodeType.RULE)) {
-            value = node.getAttribute("name");
+            value = node.getAttribute(RuleNode.Attributes.NAME);
         } else if (node.isType(NodeType.TERMINAL)) {
-            value = node.getAttribute("value");
+            value = node.getAttribute(TerminalNode.Attributes.VALUE);
         } else if (node.isType(NodeType.IDENTIFIER)) {
-            value = node.getAttribute("value");
+            value = node.getAttribute(IdentifierNode.Attributes.VALUE);
         } else if (node.isType(NodeType.COMMENT)) {
-            value = node.getAttribute("value");
+            value = node.getAttribute(CommentNode.Attributes.VALUE);
 
             if (value.length() > MAX_VALUE_LENGTH) {
                 value = value.substring(0, MAX_VALUE_LENGTH) + "...";
