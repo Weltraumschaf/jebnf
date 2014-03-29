@@ -15,5 +15,12 @@
 <!DOCTYPE suppressions PUBLIC
     "-//Puppy Crawl//DTD Suppressions 1.1//EN"
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
-<suppressions/>
-    
+<suppressions>
+    <!-- Suppressions for unit testing code -->
+    <suppress checks="MagicNumber" files="[/\\]test(support)?[/\\]src[/\\]java[/\\]"/>
+    <suppress checks="JavadocMethod" files="[/\\]test[/\\]src[/\\]java[/\\]"/>
+    <suppress checks="JavadocVariable" files="[/\\]test[/\\]src[/\\]java[/\\]"/>
+    <suppress checks="JavadocType" files="[/\\]test[/\\]src[/\\]java[/\\]"/>
+    <suppress checks="IllegalThrows" files="[/\\]test(support)?[/\\]src[/\\]java[/\\]"/>
+    <suppress checks="ImportControl" files="[/\\]test(support)?[/\\]src[/\\]java[/\\]"/>
+</suppressions>
