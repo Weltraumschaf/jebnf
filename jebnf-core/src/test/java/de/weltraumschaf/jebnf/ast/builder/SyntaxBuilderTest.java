@@ -18,6 +18,7 @@ import de.weltraumschaf.jebnf.ast.visitor.XmlVisitor;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -30,6 +31,7 @@ import org.junit.Test;
  */
 public class SyntaxBuilderTest {
 
+    @Ignore("Use XMLUnit")
     @Test public void testBuilder() throws IOException, URISyntaxException {
         final SyntaxNode syntax = syntax("EBNF defined in itself.")
             .rule("syntax")

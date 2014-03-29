@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import static org.junit.Assert.assertEquals;
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -74,6 +75,7 @@ public class XmlVisitorTest {
         );
     }
 
+    @Ignore("Use XMLUnit")
     @Test public void testGenerateEmptySyntaxXml() throws URISyntaxException, IOException {
         final SyntaxNode syntax = SyntaxNode.newInstance("EBNF defined in itself.", "xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3");
         syntax.accept(sut);
@@ -85,6 +87,7 @@ public class XmlVisitorTest {
                     sut.getResult());
     }
 
+    @Ignore("Use XMLUnit")
     @Test public void testGenerateXml() throws URISyntaxException, IOException {
         final SyntaxNode syntax = syntax("EBNF defined in itself.", "xis/ebnf v2.0 http://wiki.karmin.ch/ebnf/ gpl3")
             .rule("syntax")
